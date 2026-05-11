@@ -27,9 +27,12 @@
 | 3 | [HuggingFace 中文社群](outreach/huggingface-zh.md) | HF community/discuss | not contacted | — | — | — | English ecosystem hub w/ growing zh segment |
 | 4 | [LangChain (kyrolabs/awesome-langchain)](outreach/langchain-ai.md) | GitHub PR | not contacted | — | — | — | Stage 4 covers LangChain; §11 lists Langchain-Chatchat |
 | 5 | [hesreallyhim/awesome-claude-code](outreach/awesome-claude-code.md) | GitHub **issue** | not contacted | — | — | — | ⚠️ Repo mid-reorg — open issue (not PR), park for new TOC |
-| 6 | [punkpeye/awesome-mcp-servers](outreach/awesome-mcp-servers.md) | GitHub PR | contacted | 2026-05-09 | — | — | [PR #6135](https://github.com/punkpeye/awesome-mcp-servers/pull/6135) — added to `## Tutorials` (alphabetical position 1). Skip wong2 (server-only policy). |
+| 6 | [punkpeye/awesome-mcp-servers](outreach/awesome-mcp-servers.md) | GitHub PR | contacted | 2026-05-09 | — | — | [PR #6135](https://github.com/punkpeye/awesome-mcp-servers/pull/6135). 2026-05-10: addressed bot name-check ([6f711ec](https://github.com/WenyuChiou/awesome-mcp-servers/commit/6f711ec3)) + replied to glama/emoji bot warnings ([comment](https://github.com/punkpeye/awesome-mcp-servers/pull/6135#issuecomment-4416517075)). Awaiting punkpeye human review. |
 | 7 | [Zhipu BigModel community](outreach/zhipu.md) | dev community / 知乎 | not contacted | — | — | — | Inviting them to PR a Zhipu agent entry to §11 |
 | 8 | [Moonshot Kimi](outreach/moonshot.md) | dev community / 知乎 | not contacted | — | — | — | Inviting them to PR a Kimi agent entry to §11 |
+| 9 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | GitHub PR | not contacted | — | — | — | ★12k, pushed 12d ago. Has explicit `## 📖 Tutorials & Guides` section — **perfect fit**. Use awesome-mcp-servers template, swap section name |
+| 10 | [WangRongsheng/awesome-LLM-resources](https://github.com/WangRongsheng/awesome-LLM-resources) | GitHub PR | not contacted | — | — | — | ★8k, Apache-2.0, pushed today. Has `## 智能体 Agents` + `## 研究 Research` sections. PR to 智能体 section makes sense |
+| 11 | [AiHubCN/Awesome-Chinese-LLM](https://github.com/AiHubCN/Awesome-Chinese-LLM) | GitHub PR | not contacted | — | — | — | ★22k, pushed today, no license (yellow flag). Long TOC — need to browse README before deciding section. Lower priority due to license uncertainty |
 
 ## Sequencing rule
 
@@ -50,7 +53,7 @@ after upstream-target audit caught the awesome-claude-code reorg):
 2. **Day 2**: [#5 awesome-claude-code **issue**](outreach/awesome-claude-code.md)
    — repo mid-reorg, no PR-able sections; open an issue parking the proposal
    for when their new TOC lands.
-3. **Day 3**: [#1 Datawhale](outreach/datawhale.md) — most strategic for zh-CN
+3. **Day 3**: [#1 Datawhale](outreach/datawhale.md) — most strategic for zh-Hans
    reach (we cite Hello-Agents Extra05/08).
 4. **Day 4**: [#2 liyupi](outreach/liyupi.md) — high reach if accepted (★13k
    resource hub).
@@ -59,6 +62,11 @@ after upstream-target audit caught the awesome-claude-code reorg):
 7. **Day 7+**: [#3 HuggingFace](outreach/huggingface-zh.md), then
    [#7 Zhipu](outreach/zhipu.md), [#8 Moonshot](outreach/moonshot.md) only
    after digesting earlier feedback.
+8. **Day 8+ (added 2026-05-10 retroactively)**: targets 9-11 (`travisvn/awesome-claude-skills`,
+   `WangRongsheng/awesome-LLM-resources`, `AiHubCN/Awesome-Chinese-LLM`) — discovered they were
+   on `.github/launch-checklist.md` from day 1 but missing from this outreach matrix. Pitch
+   files not yet drafted; use awesome-mcp-servers template as base when ready. Prioritize
+   travisvn (cleanest fit, explicit Tutorials section).
 
 ## Update protocol
 

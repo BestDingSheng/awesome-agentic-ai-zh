@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![AI Agent 学习路径](resources/diagrams/banner.zh-CN.png)
+![AI Agent 学习路径](resources/diagrams/banner.zh-Hans.png)
 
 # awesome-agentic-ai-zh
 
@@ -14,7 +14,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![繁中](https://img.shields.io/badge/語言-繁體中文-red?style=flat)](README.md)
-[![简中](https://img.shields.io/badge/語言-简体中文-orange?style=flat)](README.zh-CN.md)
+[![简中](https://img.shields.io/badge/語言-简体中文-orange?style=flat)](README.zh-Hans.md)
 [![EN](https://img.shields.io/badge/lang-English-blue?style=flat)](README.en.md)
 ![GitHub stars](https://img.shields.io/github/stars/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
@@ -35,15 +35,19 @@
 
 ## 📚 快速开始
 
+### 🚀 第一次接触 AI agent / 没写过 code？
+
+先看 **[`resources/setup-guide.zh-Hans.md`](resources/setup-guide.zh-Hans.md)** — 30-45 分钟从零带你申请 API key、装好 Python、跑出第一个 LLM hello-world。
+
 ### 在线阅读
 - **[学习地图（两条学习路径）](#️-学习地图两条学习路径)** — 看完这节决定走 Track A 还 Track B
-- **[Stage 0 基础准备](stages/00-foundations.zh-CN.md)** — 已经会 Python / git / API 的人可以直接跳 Stage 1
+- **[Stage 0 基础准备](stages/00-foundations.zh-Hans.md)** — 已经会 Python / git / API 的人可以直接跳 Stage 1
 
 ### 本地下载
 ```bash
 git clone https://github.com/WenyuChiou/awesome-agentic-ai-zh.git
 cd awesome-agentic-ai-zh
-# 从 stages/00-foundations.zh-CN.md 开始
+# 从 stages/00-foundations.zh-Hans.md 开始
 ```
 
 ### ✨ 你会收获什么？
@@ -61,7 +65,7 @@ cd awesome-agentic-ai-zh
 
 ## 🗺️ 学习地图（两条学习路径）
 
-![AI Agent 学习地图](resources/diagrams/learning-map.zh-CN.png)
+![AI Agent 学习地图](resources/diagrams/learning-map.zh-Hans.png)
 
 走完 **Stage 0-2（共用基础）** 之后，依你的目的选一条学习路径：
 
@@ -74,19 +78,19 @@ cd awesome-agentic-ai-zh
 
 | Stage | 主题 | 关键内容 | 预估时程 |
 |---|---|---|---|
-| **0** | [基础准备](stages/00-foundations.zh-CN.md) | Python · CLI · git · API · JSON | 1-2 周 |
-| **1** | [LLM 入门](stages/01-llm-basics.zh-CN.md) | token · API · 各家 LLM 比较 · 本地 LLM | 1 周 |
-| **2** | [Prompt 设计](stages/02-prompt-engineering.zh-CN.md) | 系统 prompt · few-shot · CoT | 1-2 周 |
+| **0** | [基础准备](stages/00-foundations.zh-Hans.md) | Python · CLI · git · API · JSON | 1-2 周 |
+| **1** | [LLM 入门](stages/01-llm-basics.zh-Hans.md) | token · API · 各家 LLM 比较 · 本地 LLM | 1 周 |
+| **2** | [Prompt 设计](stages/02-prompt-engineering.zh-Hans.md) | 系统 prompt · few-shot · CoT | 1-2 周 |
 
 ### Track A — CLI Power User（想用 CLI 把事情做完）
 
 | Stage | 主题 | 关键内容 | 预估时程 |
 |---|---|---|---|
-| **A1** | [CLI Agent 入门 + 选择](tracks/cli/A1-cli-intro.zh-CN.md) | 6 个主流 CLI 比较 · 安装 · 第一次跑 | 1 周 |
-| **A2** | [CLI Workflow Patterns](tracks/cli/A2-cli-workflow.zh-CN.md) | CLAUDE.md · slash command · 多步骤拆解 | 1-2 周 |
-| **A3** | [Integration & Production](tracks/cli/A3-cli-production.zh-CN.md) | MCP 接 CLI · CI 自动化 · cost / observability | 1-2 周 |
+| **A1** | [CLI Agent 入门 + 选择](tracks/cli/A1-cli-intro.zh-Hans.md) | 7 个主流 CLI 比较 · 安装 · 第一次跑 | 1 周 |
+| **A2** | [CLI Workflow Patterns](tracks/cli/A2-cli-workflow.zh-Hans.md) | CLAUDE.md · slash command · 多步骤拆解 | 1-2 周 |
+| **A3** | [Integration & Production](tracks/cli/A3-cli-production.zh-Hans.md) | MCP 接 CLI · CI 自动化 · cost / observability | 1-2 周 |
 
-> **Track A 预估总时程**：3-5 周（含 Stage 0-2 约 6-8 周）。核心参考：[`resources/cli-agents-guide.zh-CN.md`](resources/cli-agents-guide.zh-CN.md)。
+> **Track A 预估总时程**：3-5 周（含 Stage 0-2 约 6-8 周）。核心参考：[`resources/cli-agents-guide.zh-Hans.md`](resources/cli-agents-guide.zh-Hans.md)。
 
 ### Track B — Agent Builder（想从零构建 agent）
 
@@ -100,21 +104,21 @@ cd awesome-agentic-ai-zh
 
 > **Track B 预估总时程**：主干最少 **14-19 周**、现实 **5-6 个月**（每周 5-8 hr 兼职）
 
-> 💡 **想看跨 stage 的完整示例？** [7 步构建你的第一个 AI Agent](walkthroughs/build-first-agent-in-7-steps.zh-CN.md) — 同一个 Paper Summary Bot 从 Stage 1 一路写到 Stage 7，~350 行真实代码（**Track B 适用**）
+> 💡 **想看跨 stage 的完整示例？** [7 步构建你的第一个 AI Agent](walkthroughs/build-first-agent-in-7-steps.zh-Hans.md) — 同一个 Paper Summary Bot 从 Stage 1 一路写到 Stage 7，~350 行真实代码（**Track B 适用**）
 
 走完主干（14-19 周）后，依你的身份挑一条延伸路线继续走。**不确定挑哪条？**
 
-![Branch 决策树](resources/diagrams/branch-decision-tree.zh-CN.png)
+![Branch 决策树](resources/diagrams/branch-decision-tree.zh-Hans.png)
 
 > 💡 **“日常用户”这条路线不必走完主干就能直接读**——是给“想用 AI、但不一定要写 code”的人。
 
 | 路线 | 适合谁 | 主题 |
 |---|---|---|
-| 🔬 [研究员](branches/for-researcher.zh-CN.md) | 研究生、博后、PI | 文献整理 · paper 写作 · multi-agent review |
-| 💻 [开发者](branches/for-developer.zh-CN.md) | 软件工程师 | Cursor · Aider · CLI delegation · code review |
-| 🎓 [老师](branches/for-teacher.zh-CN.md) | 老师、讲师 | 备课 · 幻灯片 · 学生 feedback · 隐私 / 伦理 · prompt 范本 |
-| 📊 [知识工作者](branches/for-knowledge-worker.zh-CN.md) | 顾问、PM、分析师 | Email · 会议记录 · report 自动化 |
-| 👥 [日常用户](branches/for-everyday-users.zh-CN.md) | ChatGPT / Claude.ai 用户 | 写信 · 学习 · 隐私场景 · CLI agent 入门 |
+| 🔬 [研究员](branches/for-researcher.zh-Hans.md) | 研究生、博后、PI | 文献整理 · paper 写作 · multi-agent review |
+| 💻 [开发者](branches/for-developer.zh-Hans.md) | 软件工程师 | Cursor · Aider · CLI delegation · code review |
+| 🎓 [老师](branches/for-teacher.zh-Hans.md) | 老师、讲师 | 备课 · 幻灯片 · 学生 feedback · 隐私 / 伦理 · prompt 范本 |
+| 📊 [知识工作者](branches/for-knowledge-worker.zh-Hans.md) | 顾问、PM、分析师 | Email · 会议记录 · report 自动化 |
+| 👥 [日常用户](branches/for-everyday-users.zh-Hans.md) | ChatGPT / Claude.ai 用户 | 写信 · 学习 · 隐私场景 · CLI agent 入门 |
 
 ---
 
@@ -139,21 +143,25 @@ cd awesome-agentic-ai-zh
 
 最重要的说一句话：**不要跳过 動手練習**。每个 stage 的 動手練習都是“不动手就学不会”的东西，光读过去后面会卡住。
 
-准备好了吗？[从 Stage 0 开始](stages/00-foundations.zh-CN.md)。
+准备好了吗？[从 Stage 0 开始](stages/00-foundations.zh-Hans.md)。
 
 ---
 
 ## 📚 相关资源
 
+常用入口：
+
+- 🚀 **完全没写过 code、第一次接触 AI agent？** → [`resources/setup-guide.zh-Hans.md`](resources/setup-guide.zh-Hans.md)（30-45 分钟从零装好）
+
 ### 三个核心用语：MCP / Skills / Plugins
 
 README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，先快速说明：
 
-- **MCP（Model Context Protocol）** — Anthropic 推的开放协议，让任何 LLM host（Claude Code、其他 IDE、自写 agent）都能用同一套接口去呼叫外部 tool server（文件、DB、API、自家服务）。把它想成“LLM 的 USB 接口”。详见 [Stage 5.2](stages/05-claude-code-ecosystem.zh-CN.md#52--mcpmodel-context-protocol-基础)。
-- **Skills** — Claude Code 的“行为包”。一个 Skill 就是一份 `SKILL.md`，描述“在什么情境要做什么、可以呼叫哪些 MCP tool”。写好之后 Claude Code 会自动 discover。详见 [Stage 5.3](stages/05-claude-code-ecosystem.zh-CN.md#53--skillsclaude-code-的行为层)。
-- **Plugins / Marketplaces** — 把 Skills、slash commands、hooks、MCP 设置打包成一个发布单位给 team 或社群安装。Marketplace 就是 plugin 的 catalog。详见 [Stage 5.4](stages/05-claude-code-ecosystem.zh-CN.md#54--plugins-与-marketplaces)。
+- **MCP（Model Context Protocol）** — Anthropic 推的开放协议，让任何 LLM host（Claude Code、其他 IDE、自写 agent）都能用同一套接口去呼叫外部 tool server（文件、DB、API、自家服务）。把它想成“LLM 的 USB 接口”。详见 [Stage 5.2](stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础)。
+- **Skills** — Claude Code 的“行为包”。一个 Skill 就是一份 `SKILL.md`，描述“在什么情境要做什么、可以呼叫哪些 MCP tool”。写好之后 Claude Code 会自动 discover。详见 [Stage 5.3](stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行为层)。
+- **Plugins / Marketplaces** — 把 Skills、slash commands、hooks、MCP 设置打包成一个发布单位给 team 或社群安装。Marketplace 就是 plugin 的 catalog。详见 [Stage 5.4](stages/05-claude-code-ecosystem.zh-Hans.md#54--plugins-与-marketplaces)。
 
-对, 应的 動手練習 练习都在 [Stage 5](stages/05-claude-code-ecosystem.zh-CN.md)，Track A 的 [A3](tracks/cli/A3-cli-production.zh-CN.md) 也会用到。
+对, 应的 動手練習 练习都在 [Stage 5](stages/05-claude-code-ecosystem.zh-Hans.md)，Track A 的 [A3](tracks/cli/A3-cli-production.zh-Hans.md) 也会用到。
 
 ### 接日常工具：常用 MCP server / Skill
 
@@ -186,7 +194,7 @@ README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，�
 
 - [**leemysw/feishu-docx**](https://github.com/leemysw/feishu-docx) ★ 190+ — 飞书（Lark）docs / sheet / bitable ↔ Markdown，含 Claude Skills 支持
 
-> 上面只是 highlight。**完整 62 个集成**（含数据库、浏览器自动化、Figma、Excalidraw、Cloudflare、Stripe…）：[`resources/mcp-skills-catalog.zh-CN.md`](resources/mcp-skills-catalog.zh-CN.md)。
+> 上面只是 highlight。**完整 62 个集成**（含数据库、浏览器自动化、Figma、Excalidraw、Cloudflare、Stripe…）：[`resources/mcp-skills-catalog.zh-Hans.md`](resources/mcp-skills-catalog.zh-Hans.md)。
 
 > 想找更多 MCP server catalog？看 [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) / [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers)（按分类整理）。**Canva** 的官方 MCP 还在 early access，社群版本不稳定，等成熟后再补上。
 
@@ -208,7 +216,7 @@ README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，�
 
 **中文圈常用**
 
-- [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale 系统性 agent 教学（zh-CN）
+- [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale 系统性 agent 教学（zh-Hans）
 - [**WangRongsheng/awesome-LLM-resources**](https://github.com/WangRongsheng/awesome-LLM-resources) — 完整的中文 LLM 资源整理（8k+ stars）
 - [**AiHubCN/Awesome-Chinese-LLM**](https://github.com/AiHubCN/Awesome-Chinese-LLM) — 中文开源大模型整理
 
@@ -223,10 +231,11 @@ README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，�
 - 📝 **完善内容** — 改进现有 stage 内容、修 typo → 直接 PR
 - ✍️ **新增 project** — 在某个 stage 加 1-3 个 project，并附上“为什么这个 project 适合放这个 stage”的说明
 - 🌏 **翻译** — 补英文 companion 没翻到的段落，或翻成其他语言
-- 🌱 **担任 Stage / Branch maintainer** — 长期 review 特定领域，详见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [resources/style-guide.zh-CN.md](resources/style-guide.zh-CN.md)。
+- 🌱 **担任 Stage / Branch maintainer** — 长期 review 特定领域，详见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [resources/style-guide.zh-Hans.md](resources/style-guide.zh-Hans.md)。
 
-PR 流程跟 style 规范请看 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [resources/style-guide.zh-CN.md](resources/style-guide.zh-CN.md)。
+PR 流程跟 style 规范请看 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [resources/style-guide.zh-Hans.md](resources/style-guide.zh-Hans.md)。
 
+> 📅 **想看最近 ship 了什么** → [`CHANGELOG.md`](CHANGELOG.md)（最近 14 天）。
 > Maintainer 内部进度与 launch checklist 放在 [.github/launch-checklist.md](.github/launch-checklist.md)（内部文件）。
 
 ---

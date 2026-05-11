@@ -1,6 +1,6 @@
 # 相關資源
 
-> **繁體中文** | [简体中文](./RESOURCES.zh-CN.md) | [English](./RESOURCES.en.md)
+> **繁體中文** | [简体中文](./RESOURCES.zh-Hans.md) | [English](./RESOURCES.en.md)
 
 > [← 回主路線 README](README.md)
 
@@ -8,7 +8,7 @@
 
 > 💡 **不懂某個詞**（LLM、agent、RAG、token、向量資料庫⋯）→ [`resources/glossary.md`](resources/glossary.md)（用語小辭典，30 多個詞每個 30-80 字解釋）
 >
-> 🍳 **想動手做但不知怎麼開始**（寫 Skill / 寫 MCP server / 接 Word / 接 NotebookLM / 接 Zotero）→ [`resources/cookbook.md`](resources/cookbook.md)（5 個 step-by-step recipe，每個 30-50 分鐘做完）
+> 🍳 **想動手做但不知怎麼開始**（寫 Skill / 寫 MCP server / 接 Word / 接 NotebookLM / 接 Zotero / 接本機 LLM）→ [`resources/cookbook.md`](resources/cookbook.md)（6 個 step-by-step recipe，每個 30-50 分鐘做完）
 
 ---
 
@@ -86,7 +86,7 @@
 
 ### 中文社群必看
 
-- [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale 系統性 agent 教學（zh-CN）
+- [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale 系統性 agent 教學（zh-Hans）
 - [**WangRongsheng/awesome-LLM-resources**](https://github.com/WangRongsheng/awesome-LLM-resources) — 完整的中文 LLM 資源整理（8k+ stars）
 - [**AiHubCN/Awesome-Chinese-LLM**](https://github.com/AiHubCN/Awesome-Chinese-LLM) — 中文開源大模型整理
 

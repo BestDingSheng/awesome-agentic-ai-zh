@@ -1,7 +1,8 @@
 # For Developers — Specialized Branch
 
-> [繁體中文](./for-developer.md) | [简体中文](./for-developer.zh-CN.md) | **English**
+> [繁體中文](./for-developer.md) | [简体中文](./for-developer.zh-Hans.md) | **English**
 
+> 🚀 **First time installing Claude Code or writing `CLAUDE.md` / `SKILL.md`?** The quick setup guide is [`resources/setup-guide.en.md` §D-E](../resources/setup-guide.en.md). Skip it if you already know this.
 
 > [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to coding workflows.
 
@@ -15,7 +16,7 @@
 
 ## Curated Projects
 
-> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider) compared side-by-side in [`resources/cli-agents-guide.en.md`](../resources/cli-agents-guide.en.md). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](../tracks/cli/A1-cli-intro.en.md) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](../resources/mcp-skills-catalog.en.md) (62 entries by category). Below lists only the key entries developers should know.
+> Six major CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) compared side-by-side in [`resources/cli-agents-guide.en.md`](../resources/cli-agents-guide.en.md). New to CLI agents and want step-by-step onboarding → [`tracks/cli/A1-cli-intro.en.md`](../tracks/cli/A1-cli-intro.en.md) (Track A first stop). Looking for MCP / Skill integrations to wire CLI into daily tools (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.en.md`](../resources/mcp-skills-catalog.en.md) (62 entries by category). Below lists only the key entries developers should know.
 
 ### Coding Agents
 

@@ -1,6 +1,6 @@
 # Stage 1 — LLM Fundamentals
 
-> [繁體中文](./01-llm-basics.md) | **English**
+> [繁體中文](./01-llm-basics.md) | [简体中文](./01-llm-basics.zh-Hans.md) | **English**
 
 
 ⏱ **Time estimate**: 1 week (~5-8 hours)
@@ -166,7 +166,7 @@ jupyter notebook guide.ipynb
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) |
+| Language | 中文 (zh-Hans) |
 | Stars | ★ 29k+ |
 | License | Custom |
 | Recommendation | ⭐⭐⭐⭐⭐ |
@@ -181,7 +181,7 @@ jupyter notebook guide.ipynb
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) |
+| Language | 中文 (zh-Hans) |
 | Stars | ★ 12k+ |
 | License | NOASSERTION |
 | Recommendation | ⭐⭐⭐⭐ |
@@ -211,7 +211,7 @@ jupyter notebook guide.ipynb
 
 | Field | Value |
 |---|---|
-| Language | 中文 (zh-CN) |
+| Language | 中文 (zh-Hans) |
 | Stars | ★ 23k+ |
 | Last update | ⚠️ Stale (Jun 2025; ~1 year inactive) |
 | License | Custom (CC BY-NC-SA) |
@@ -221,7 +221,7 @@ jupyter notebook guide.ipynb
 
 **Best for**: Chinese-speaking beginners who want a guided LLM curriculum.
 
-**Notes**: zh-CN content (Datawhale uses simplified Chinese) — but technical content transfers fine. Excellent free Chinese-language entry point.
+**Notes**: zh-Hans content (Datawhale uses simplified Chinese) — but technical content transfers fine. Excellent free Chinese-language entry point.
 
 ---
 
@@ -385,6 +385,10 @@ Can you:
 - [ ] Quote roughly the per-token price for Claude Sonnet vs Opus
 - [ ] Name one strength of Claude vs GPT vs Gemini vs Llama
 
-If yes → proceed to [Stage 2 — Prompt Engineering](02-prompt-engineering.md).
+If yes → proceed to [Stage 2 — Prompt Engineering](02-prompt-engineering.en.md).
 
 If no → re-read the Anthropic Quickstart + run all 3 hello-X projects above.
+
+---
+
+> ✅ **Done with Stage 1?** Next, [**Stage 2 — Prompt Engineering**](02-prompt-engineering.en.md) takes 5-12 hours to walk you through writing reusable structured prompts, using few-shot and chain-of-thought for reasoning tasks, and learning to quantify prompt improvement with evals. **Keep going →**

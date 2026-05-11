@@ -1,7 +1,8 @@
 # For Teachers — Specialized Branch
 
-> [繁體中文](./for-teacher.md) | [简体中文](./for-teacher.zh-CN.md) | **English**
+> [繁體中文](./for-teacher.md) | [简体中文](./for-teacher.zh-Hans.md) | **English**
 
+> 🚀 **First time with AI agents, or never written code?** Start with [`resources/setup-guide.en.md` §A-C](../resources/setup-guide.en.md) (about 30 minutes to install what you need). Tier 0 and Tier 1 do not require code, so you can skip this at first; Tier 2 and later will use it.
 
 > [← Back to main path README](../README.en.md) · Continue here after **Track A's A3** or **Track B's Stage 7**. Apply agentic AI to teaching workflows.
 
@@ -95,7 +96,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Language | Chinese (zh-CN) |
+| Language | Chinese (zh-Hans) |
 | Stars | ★ 13k+ |
 | License | NOASSERTION |
 

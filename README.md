@@ -1,5 +1,5 @@
 <div align="right">
-  <strong>繁體中文</strong> | <a href="./README.zh-CN.md">简体中文</a> | <a href="./README.en.md">English</a>
+  <strong>繁體中文</strong> | <a href="./README.zh-Hans.md">简体中文</a> | <a href="./README.en.md">English</a>
 </div>
 
 <div align="center">
@@ -14,7 +14,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![繁中](https://img.shields.io/badge/語言-繁體中文-red?style=flat)](README.md)
-[![简中](https://img.shields.io/badge/語言-简体中文-orange?style=flat)](README.zh-CN.md)
+[![简中](https://img.shields.io/badge/語言-简体中文-orange?style=flat)](README.zh-Hans.md)
 [![EN](https://img.shields.io/badge/lang-English-blue?style=flat)](README.en.md)
 ![GitHub stars](https://img.shields.io/github/stars/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
@@ -51,6 +51,10 @@
 ---
 
 ## 📚 快速開始
+
+### 🚀 第一次接觸 AI agent / 沒寫過 code？
+
+先看 **[`resources/setup-guide.md`](resources/setup-guide.md)** — 30-45 分鐘從零帶你申請 API key、裝好 Python、跑出第一個 LLM hello-world。
 
 ### 線上閱讀
 - **[學習地圖（兩條學習路徑）](#️-學習地圖兩條學習路徑)** — 看完這節決定走 Track A 還 Track B
@@ -166,8 +170,9 @@ cd awesome-agentic-ai-zh
 
 直接看常用入口：
 
+- 🚀 **完全沒寫過 code、第一次接觸 AI agent？** → [`resources/setup-guide.md`](resources/setup-guide.md)（30-45 分鐘從零裝好）
 - 📖 **不懂某個詞？**（LLM、agent、RAG、token、MCP、Skill、向量資料庫⋯）→ [`resources/glossary.md`](resources/glossary.md) — 30 多個常出現的詞，每個 30-80 字解釋 + 哪 stage 講細的
-- 🍳 **想動手做出來**（寫 Skill / 寫 MCP server / 接 Word / 接 NotebookLM / 接 Zotero）→ [`resources/cookbook.md`](resources/cookbook.md) — 5 個 step-by-step recipe（每個 30-50 分鐘）
+- 🍳 **想動手做出來**（寫 Skill / 寫 MCP server / 接 Word / 接 NotebookLM / 接 Zotero / 接本機 LLM）→ [`resources/cookbook.md`](resources/cookbook.md) — 6 個 step-by-step recipe（每個 30-50 分鐘）
 - 🔑 **MCP / Skills / Plugins 用語怎麼解釋** → [RESOURCES.md §三個核心用語](RESOURCES.md#三個核心用語mcp--skills--plugins)
 - 🔌 **接 Notion / Obsidian / Excel / GitHub 等日常工具** → [RESOURCES.md §接日常工具](RESOURCES.md#接日常工具常用-mcp-server--skill) 或完整 62 條目錄 [`resources/mcp-skills-catalog.md`](resources/mcp-skills-catalog.md)
 - 🔬 **研究 workflow + multi-LLM delegation skill 對** → [RESOURCES.md §研究工作流](RESOURCES.md#研究工作流本-repo-維護者出品)
@@ -188,6 +193,7 @@ cd awesome-agentic-ai-zh
 
 PR 流程跟 style 規範請看 [CONTRIBUTING.md](CONTRIBUTING.md) 跟 [resources/style-guide.md](resources/style-guide.md)。
 
+> 📅 **想看最近 ship 了什麼** → [`CHANGELOG.md`](CHANGELOG.md)（最近 14 天）。
 > Maintainer 內部進度與 launch checklist 放在 [`.github/launch-checklist.md`](.github/launch-checklist.md)（內部文件）。
 
 ---

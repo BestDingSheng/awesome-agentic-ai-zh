@@ -1,6 +1,8 @@
 # 給開發者 — 專業分支
 
-> **繁體中文** | [简体中文](./for-developer.zh-CN.md) | [English](./for-developer.en.md)
+> **繁體中文** | [简体中文](./for-developer.zh-Hans.md) | [English](./for-developer.en.md)
+
+> 🚀 **第一次裝 Claude Code / 寫 `CLAUDE.md` / `SKILL.md`？** 快速 setup 指南在 [`resources/setup-guide.md` §D-E](../resources/setup-guide.md)。已經熟可以跳過。
 
 > [← 回主路線 README](../README.md) · 走完 **Track A 的 A3** 或 **Track B 的 Stage 7** 後從這裡接續。把 agentic AI 應用到開發流程上。
 
@@ -14,7 +16,7 @@
 
 ## 精選 Projects
 
-> 6 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider）的並列比較見 [`resources/cli-agents-guide.md`](../resources/cli-agents-guide.md)。第一次接觸 CLI agent 想要 step-by-step 入門 → [`tracks/cli/A1-cli-intro.md`](../tracks/cli/A1-cli-intro.md)（Track A 第一站）。要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（62 個分類整理）。下面只列開發者該知道的關鍵 entry。
+> 7 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）的並列比較見 [`resources/cli-agents-guide.md`](../resources/cli-agents-guide.md)。第一次接觸 CLI agent 想要 step-by-step 入門 → [`tracks/cli/A1-cli-intro.md`](../tracks/cli/A1-cli-intro.md)（Track A 第一站）。要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（62 個分類整理）。下面只列開發者該知道的關鍵 entry。
 
 ### Coding Agents
 

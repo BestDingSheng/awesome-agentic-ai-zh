@@ -1,8 +1,10 @@
 # Stage 2 — Prompt Engineering
 
-> **繁體中文** | [English](./02-prompt-engineering.en.md)
+> **繁體中文** | [简体中文](./02-prompt-engineering.zh-Hans.md) | [English](./02-prompt-engineering.en.md)
 
 ⏱ **時間估算**：1-2 週（約 5-12 小時）
+
+> 👋 **從 [Stage 1](01-llm-basics.md) 來的**：好，你會呼叫 API 了——這 5-12 小時：寫出可重用的結構化 prompt、用 few-shot 跟 chain-of-thought 解難題、用 eval 量化 prompt 改善幅度。**直接從這裡開始的**：先確認你會呼叫 LLM API、會用 token 算成本——做不到請先回 [Stage 1](01-llm-basics.md)。
 
 > 💡 用語不熟（prompt / few-shot / CoT / system prompt⋯）→ 翻 [`resources/glossary.md`](../resources/glossary.md)。
 

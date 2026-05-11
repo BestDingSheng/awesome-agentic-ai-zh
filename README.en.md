@@ -1,5 +1,5 @@
 <div align="right">
-  <a href="./README.md">繁體中文</a> | <a href="./README.zh-CN.md">简体中文</a> | <strong>English</strong>
+  <a href="./README.md">繁體中文</a> | <a href="./README.zh-Hans.md">简体中文</a> | <strong>English</strong>
 </div>
 
 <div align="center">
@@ -12,7 +12,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![繁中](https://img.shields.io/badge/語言-繁體中文-red)](README.md)
-[![简中](https://img.shields.io/badge/語言-简体中文-orange)](README.zh-CN.md)
+[![简中](https://img.shields.io/badge/語言-简体中文-orange)](README.zh-Hans.md)
 [![EN](https://img.shields.io/badge/lang-English-blue)](README.en.md)
 ![GitHub stars](https://img.shields.io/github/stars/WenyuChiou/awesome-agentic-ai-zh?logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/WenyuChiou/awesome-agentic-ai-zh?logo=github)
@@ -48,6 +48,10 @@ After the main path, you go from "**LLM user**" to "**agent system builder**" �
 ---
 
 ## 📚 Quick Start
+
+### 🚀 First time with AI agents / never written code before?
+
+Start here: **[`resources/setup-guide.en.md`](resources/setup-guide.en.md)** — 30-45 minutes from zero, walks you through getting an API key, installing Python, and running your first LLM hello-world.
 
 ### Read online
 - **[Learning Map (Two Tracks)](#️-learning-map-two-tracks)** — read this section to decide Track A or Track B
@@ -165,6 +169,7 @@ The full related-resources block (term definitions + daily-tool MCP/Skill highli
 
 Common quick links:
 
+- 🚀 **Never written code, or first time with AI agents?** → [`resources/setup-guide.en.md`](resources/setup-guide.en.md) (30-45 minutes from zero)
 - 📖 **Don't know a term?** (LLM, agent, RAG, token, MCP, Skill, vector DB, …) → [`resources/glossary.en.md`](resources/glossary.en.md) — 30+ common terms, 30–80-word definition each + which stage covers it
 - 🔑 **What MCP / Skills / Plugins mean** → [RESOURCES.en.md §three core terms](RESOURCES.en.md#three-core-terms-mcp--skills--plugins)
 - 🔌 **Connect to Notion / Obsidian / Excel / GitHub / etc.** → [RESOURCES.en.md §daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) or full 62-entry catalog [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md)
@@ -186,6 +191,7 @@ This repo is an AI learning document — if you've also curated great resources,
 
 PR process and style rules: [CONTRIBUTING.md](CONTRIBUTING.md) + [resources/style-guide.en.md](resources/style-guide.en.md).
 
+> 📅 **Want to see what shipped recently?** → [`CHANGELOG.md`](CHANGELOG.md) (last 14 days).
 > Internal phase rollout progress and launch checklist: [`.github/launch-checklist.md`](.github/launch-checklist.md) (maintainer-facing internal doc).
 
 ---
