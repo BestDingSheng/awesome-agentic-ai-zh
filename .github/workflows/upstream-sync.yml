@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
-  workflows: write
 
 jobs:
   sync:
@@ -29,10 +27,22 @@ jobs:
           git remote add upstream https://github.com/WenyuChiou/awesome-agentic-ai-zh.git || true
           git fetch upstream main
 
-      - name: Mirror upstream main exactly
+      - name: Mirror upstream tree except workflow files
         run: |
           git checkout main
-          git reset --hard upstream/main
+          git restore --source=upstream/main --worktree --staged .
+          git restore --source=HEAD --worktree --staged .github/workflows/upstream-sync.yml || true
+          if [ -f .github/workflows/lint.yml ]; then
+            git restore --source=HEAD --worktree --staged .github/workflows/lint.yml || true
+          fi
+
+      - name: Commit synced changes
+        run: |
+          if git diff --cached --quiet; then
+            echo "No upstream changes to sync."
+            exit 0
+          fi
+          git commit -m "chore: sync upstream content"
 
       - name: Push updated fork
-        run: git push origin main --force
+        run: git push origin main
