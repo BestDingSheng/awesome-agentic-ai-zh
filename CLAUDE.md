@@ -2,6 +2,30 @@
 
 > Standing instructions for any AI agent (Claude, Codex, Gemini) working on this repo. Read this **first** before touching exercises or model recommendations.
 
+## 📍 Repo positioning — read before adding anything
+
+**This repo's role**: **learning roadmap + 145+ curated resources + simple illustrative cases.**
+
+**Benchmark for "what we are NOT"**: [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents) is the canonical chapter-length zh-TW depth tutorial (16 production capabilities, chapter format). **We don't compete with it; we route to it.**
+
+**Implications when contributing**:
+
+| Decision | Rule |
+|---|---|
+| New stage-level exercise folder | OK if it adds **a roadmap node + dual-path SDK demo + 1-line punchline**. 70-150 lines starter is the right size. |
+| Expanding a starter beyond ~150 lines | **Push back**. If it's growing into chapter-length, add a 📚 callout pointing to hello-agents instead. |
+| Adding a 5th `extension` to README | Diminishing return. Keep README tight (under ~200 lines); extra depth goes to the 📚 callout. |
+| New resource (lib / paper / tool / framework) | Almost always YES — add to the relevant `精選 Projects` section or `resources/` catalog. Curation is the primary value. |
+| New chapter-length tutorial inside this repo | **Push back**. If the topic deserves chapter-length, the right move is: write a 1-page summary + simple illustrative case + 📚 callout to a canonical source (hello-agents / Anthropic Cookbook / framework's own docs). |
+| Trilingual mirror priority | zh-TW canonical first; en + zh-Hans mirror when capacity allows. Don't block shipping waiting for 3-lang. |
+
+**One-line summary**: **route → depth, not reinvent**. Every exercise folder ends with 📚 "want chapter-length? go to hello-agents §X + [extra ref]".
+
+**Existing examples of this pattern** (as of 2026-05-13):
+- All Stage 3 / 4 / 6 / 7 example READMEs have the 📚 callout (20 folders × 1 callout)
+- Main README + 3-lang mirror have the positioning statement near 🎯 Why this exists section
+- `tracks/cli/` is outline-only on purpose (CLI exercises are bash/markdown/config, not Python SDK; doesn't fit the dual-path frame — that's correct)
+
 ## Canonical Ollama models (verified against user's `ollama list`)
 
 | Model tag | When to use | Notes |
@@ -72,12 +96,22 @@ If unsure, ask the user to run `ollama list` and verify.
 |---|---|
 | Stage 0-3 inline exercises (3 langs) | ✅ Done — Path A Ollama / Path B Anthropic + budget callouts |
 | Stage 3 folder `03-react-from-scratch` | ✅ Pilot rename done — `starter.py` (Ollama) + `starter_anthropic.py` (Anthropic) + dual test files |
-| Stage 3 folders `02/04/05/06` | ⚪ Pending — need Ollama `starter.py` + rename existing → `starter_anthropic.py` |
+| Stage 3 folders `02/04/05/06` | ✅ Phase 3 done (2026-05-12) — Ollama `starter.py` + rename existing → `starter_anthropic.py` + trilingual READMEs in dual-path style |
 | Stage 1 folder `04-cross-provider` | ✅ Multi-provider (already includes Ollama via `call_ollama` in README) |
-| Stage 1 folder `05-error-handling` | ⚪ Pending — needs Ollama version with openai SDK exceptions |
-| Stage 4/5/6/7 + Track A (38 exercises) | ⚪ Pending T3+ — full new write, Ollama-default by design |
+| Stage 1 folder `05-error-handling` | ✅ Phase 3 done (2026-05-12) — openai SDK exceptions + same retry wrapper, trilingual READMEs |
+| Stage 3 doc inline simplified examples (練習 2-6) | ✅ Done (2026-05-12) — 5 new `<details>` blocks added inline (Path A 8-15 line cores), trilingual mirror, zh-Hans Trad-char drift fixed at lines 44/47/77/110/152 |
+| `examples/stage-5/tool-calling-tutor/` skill | ✅ Done (2026-05-12) — installable Claude Code skill (frontmatter + 5-step body), 3 references (debug-flowchart / schema-evolution / sdk-diff), evals.json with 5 cases, trilingual READMEs + translations. Dual purpose: learner-aid + Stage 5 §5.3 meta-example. Cross-referenced from stages/03 + stages/05 |
+| Stage 4 (5 exercises) | ✅ Verified 2026-05-13 — ex1 LangGraph+CrewAI comparison, ex2 CrewAI multi-agent roles (CrewAI install fails on Python 3.14, code unmodified), ex3 LangGraph branching+HITL, ex4 Smolagents CodeAct, ex5 Pydantic AI typed output. 14 of 15 test suites verified green; ex2 CrewAI untestable on 3.14 due to tiktoken/regex wheel build failures |
+| Stage 6 (5 exercises) | ✅ Verified 2026-05-13 — all 10 test suites green. Fixed 2 bugs: ChromaDB 'kb' collection name (needs 3-512 chars; renamed knowledge_base) + EphemeralClient state leak across test fixtures (added uuid suffix per test) |
+| Stage 7 (5 exercises) | ✅ Verified 2026-05-13 — all 10 test suites green. Fixed 1 bug: eval test fake_agent operator precedence (and binds tighter than or) caused test_run_eval_aggregates to fail. FastAPI deploy includes Dockerfile |
+| Track A1-A3 (12 CLI exercises) | 🟡 Outline complete (`tracks/cli/A{1,2,3}-*.md` × 3 langs, ~367 lines zh-TW; 12 numbered exercises documented end-to-end with goal / required-reading / hands-on / curated-projects / self-check). `examples/track-a/` folder intentionally NOT built — these exercises are bash + CLAUDE.md + slash command + MCP integration + GitHub Actions yml, **NOT** Python SDK code; the dual-path Ollama/Anthropic framing doesn't apply. Reference doc: [`resources/cli-agents-guide.md`](resources/cli-agents-guide.md) (148 lines). |
+| Stage 5 (11 sub-exercises) | ⚪ Pending — different shape (bash / MCP / markdown / CLAUDE.md / SKILL.md / plugin.json authoring, not OpenAI SDK Python). 5.3 has 1 meta-example shipped: [`examples/stage-5/tool-calling-tutor/`](examples/stage-5/tool-calling-tutor/). Other sub-§ framing TBD — see [`docs/TESTING_PLAN.md`](docs/TESTING_PLAN.md). |
 | `examples/README` LLM list + budget table | ✅ Done (3 langs) |
 | Per-stage budget callouts | ✅ Done for Stage 1+2+3 (3 langs each) |
+
+## Known follow-up: pilot `03-react-from-scratch` README.en.md + README.zh-Hans.md drift
+
+The zh-TW `README.md` of `examples/stage-3/03-react-from-scratch/` already uses the dual-path layout (Path A primary / Path B optional + budget callouts + mock test mention for both backends). The `README.en.md` and `README.zh-Hans.md` siblings were NOT updated when the pilot's dual-path zh-TW README was written — they still describe the pre-dual-path layout (Anthropic-only `starter.py`, single `test.py`). After Phase 3 the other 5 folders all have aligned trilingual dual-path READMEs, so the pilot is now the lone outlier. Fix when revisiting Stage 3 docs polish — straight translation pass of the zh-TW README is enough.
 
 ## Reference scripts (in `.ai/2026/05/12/`)
 
