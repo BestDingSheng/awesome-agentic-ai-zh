@@ -1,5 +1,9 @@
 name: Sync Fork With Upstream
 
+env:
+  UPSTREAM_REPO: https://github.com/WenyuChiou/awesome-agentic-ai-zh.git
+  UPSTREAM_REF: main
+
 on:
   workflow_dispatch:
   schedule:
@@ -24,26 +28,26 @@ jobs:
 
       - name: Add upstream remote
         run: |
-          git remote add upstream https://github.com/WenyuChiou/awesome-agentic-ai-zh.git || true
-          git fetch upstream main
+          git remote add upstream "$UPSTREAM_REPO" || true
+          git fetch upstream "$UPSTREAM_REF"
           echo "Current fork HEAD: $(git rev-parse HEAD)"
-          echo "Upstream main HEAD: $(git rev-parse upstream/main)"
+          echo "Upstream $UPSTREAM_REF HEAD: $(git rev-parse upstream/$UPSTREAM_REF)"
 
-      - name: List fork workflow files to preserve
+      - name: List fork GitHub config to preserve
         run: |
-          if [ -d .github/workflows ]; then
-            echo "Preserving fork workflow directory contents:"
-            find .github/workflows -maxdepth 1 -type f | sort
+          if [ -d .github ]; then
+            echo "Preserving fork .github directory contents:"
+            find .github -maxdepth 3 | sort
           else
-            echo "No .github/workflows directory exists in fork."
+            echo "No .github directory exists in fork."
           fi
 
-      - name: Mirror upstream tree except workflow files
+      - name: Mirror upstream tree except fork GitHub config
         run: |
           git checkout main
-          git restore --source=upstream/main --worktree --staged .
-          if [ -d .github/workflows ]; then
-            git restore --source=HEAD --worktree --staged .github/workflows || true
+          git restore --source="upstream/$UPSTREAM_REF" --worktree --staged .
+          if [ -d .github ]; then
+            git restore --source=HEAD --worktree --staged .github || true
           fi
 
       - name: Show staged sync summary
