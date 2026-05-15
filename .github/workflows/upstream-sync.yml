@@ -26,6 +26,17 @@ jobs:
         run: |
           git remote add upstream https://github.com/WenyuChiou/awesome-agentic-ai-zh.git || true
           git fetch upstream main
+          echo "Current fork HEAD: $(git rev-parse HEAD)"
+          echo "Upstream main HEAD: $(git rev-parse upstream/main)"
+
+      - name: List fork workflow files to preserve
+        run: |
+          if [ -d .github/workflows ]; then
+            echo "Preserving fork workflow directory contents:"
+            find .github/workflows -maxdepth 1 -type f | sort
+          else
+            echo "No .github/workflows directory exists in fork."
+          fi
 
       - name: Mirror upstream tree except workflow files
         run: |
@@ -34,6 +45,18 @@ jobs:
           if [ -d .github/workflows ]; then
             git restore --source=HEAD --worktree --staged .github/workflows || true
           fi
+
+      - name: Show staged sync summary
+        run: |
+          if git diff --cached --quiet; then
+            echo "No upstream changes to sync."
+            exit 0
+          fi
+          echo "Staged change summary:"
+          git diff --cached --stat
+          echo
+          echo "First 200 changed paths:"
+          git diff --cached --name-status | sed -n '1,200p'
 
       - name: Commit synced changes
         run: |
@@ -44,4 +67,6 @@ jobs:
           git commit -m "chore: sync upstream content"
 
       - name: Push updated fork
-        run: git push origin main
+        run: |
+          git push origin main
+          echo "Fork sync push completed successfully."
