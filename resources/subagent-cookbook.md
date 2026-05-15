@@ -21,7 +21,7 @@
 
 > 💡 **怎麼實際派遣 subagent**：在你的 Claude Code 終端機對話框裡、**直接輸入（或貼上）prompt 範本**——就這樣。Claude 看到指令、會自動透過 Task tool（內部派遣機制）找到對應 subagent 跑、跑完回主 session 一段摘要。**不需要 slash command、不需要特殊語法**。
 >
-> 📌 **subagent ≠ slash command**：slash command（如 `/help` / `/compact` / `/agents`）執行 Claude Code 內建功能；subagent 是派出一個「子 Claude」跑獨立任務、結果回報主 session。`/agents` 是查當前可用 subagent 的指令、不是用來「呼叫」subagent。
+> 📌 **subagent ≠ slash command**：`/agents` 是查當前可用 subagent 的指令、**不是用來「呼叫」subagent**。派遣 subagent 直接打對話 prompt 文字即可。完整對比表（subagent vs skill / vs slash command / description router）見 [Stage 5.5 §易混淆觀念釐清](../stages/05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)。
 
 ---
 
@@ -37,7 +37,7 @@
 | `code-reviewer` | Review diff、找 bug + 安全問題 |
 | `Explore` | 唯讀搜尋 codebase、找 code |
 | `Plan` | 設計 step-by-step 實作計畫 |
-| `frontend-developer` | React / UI / 響應式 / a11y |
+| `frontend-developer` | React / UI / 響應式 / a11y（accessibility 縮寫、視障 / 鍵盤使用者也能用的設計）|
 | `claude-code-guide` | 問 Claude Code 自己的 feature 怎麼用 |
 | `statusline-setup` | 設定 status line（小工具）— 直接呼叫即可、無獨立 recipe |
 
@@ -369,6 +369,7 @@ Subagent 不是免費的——每次派遣**燒 token、有延遲**。下面 4 �
 ## 接下來
 
 - **想理解完整理論**（subagent 跟 skill / MCP 的差別、3 種 multi-agent 機制）→ [Stage 5.5](../stages/05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)
+- **想自己寫 / 組合 / debug subagent**（進階主題）→ [`subagent-advanced.md`](./subagent-advanced.md)（description 寫法 / composition pattern / debug 工具）
 - **CLI 日常用法 playbook** → [`tracks/cli/A3-cli-production.md` Playbook 4](../tracks/cli/A3-cli-production.md#📋-playbook-4派遣-subagent-跑獨立任務)
 - **想看 subagent 在 agent paradigm 體系內的定位** → [`resources/agent-paradigms.md`](./agent-paradigms.md#subagent--在-agent-runtime-裡再-spawn-agent)
 - **詞彙快查** → [`resources/glossary.md` § 5. Claude Code 生態 — Subagent](./glossary.md#subagent子-agent)

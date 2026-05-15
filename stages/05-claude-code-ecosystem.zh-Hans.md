@@ -458,6 +458,10 @@ Plugin
 
 到这里为止你学了 MCP（工具层）/ Skills（行为层）/ Plugins（散布层）。**Subagents 是 orchestration 层**——让主 Claude session spawn 出有独立 context 的子 agent、跑特定任务、回报结果。
 
+![Subagent 的 4 个生命周期：从 .md 文件到执行结果](../resources/diagrams/subagent-4-stage-flow.zh-Hans.png)
+
+> 📊 **上图**：subagent 从**定义 → 发现 → 派遣 → 执行** 4 个阶段、看完这张再读下面细节最快。
+
 跟 Stage 4 的 framework-based multi-agent（LangGraph / CrewAI / AutoGen）对照：
 
 | 维度 | Framework path (Stage 4) | Claude Subagent path（本节） |
@@ -530,9 +534,9 @@ Plugin
 | 找 code / 探索陌生 codebase 结构 | `Explore` | 专门做 read-only 搜索，不会乱改 |
 | 设计实作 plan（不直接写 code） | `Plan` | 输出 step-by-step 计划，适合大任务拆解前 |
 | Review staged diff / 安全审查 / 发 commit 前检查 | `code-reviewer` | 结构化输出 PASS/FAIL + 具体 fix |
-| 写 / 改 UI component / 处理 accessibility | `frontend-developer` | React / 响应式 / a11y 领域知识 |
+| 写 / 改 UI component / 处理 accessibility（无障碍设计）| `frontend-developer` | React / 响应式 / a11y（accessibility 缩写，视障 / 键盘使用者也能用的设计）领域知识 |
 | 多步骤研究，不确定任务该归哪类 | `general-purpose` | 通用，可 web search，适合 fallback |
-| 问 Claude Code 自己的 feature 怎么用 | `claude-code-guide` | hooks / slash command / MCP 等问题 |
+| 问 Claude Code 自己的 feature 怎么用 | `claude-code-guide` | hooks（工具执行前 / 后的拦截脚本，见下方 Gotcha #5）/ slash command（`/` 开头的指令）/ MCP 等问题 |
 | 上面都不符合 | 自己写 `.claude/agents/<name>.md` | 客制或公司 specific 流程 |
 
 **5 个常见场景的 mini cookbook**（完整 15 个 recipe 见下面）：
@@ -546,6 +550,82 @@ Plugin
 | 多 source 比对哪篇 paper 讲得对 | `general-purpose` 跑 deep research |
 
 > 📋 **完整 15 个 recipe**（每个含**场景 + subagent + 直接复制粘贴的 prompt 模板 + 何时不用**）→ [`resources/subagent-cookbook.zh-Hans.md`](../resources/subagent-cookbook.zh-Hans.md)
+
+### 易混淆观念厘清（学完表格还是有点雾、看这节）
+
+学生最常搞混的 **3 组概念** + **5 条老手才知道的 gotcha**——挑你需要的看：
+
+#### Subagent vs Skill — 5 个关键差别
+
+很多人把 Subagent 跟 Skill 当同一件事——其实是**完全不同层的东西**：
+
+![Subagent vs Skill — 5 个关键差别](../resources/diagrams/subagent-vs-skill.zh-Hans.png)
+
+| 维度 | Subagent（子 agent） | Skill（技能） |
+|---|---|---|
+| **执行环境** | 新的独立 context window（底层是新 subprocess）| 主 session 内、同 context |
+| **工具权限** | 自己的 `tools:` 清单（可限制只能 Read / Grep）| 主 session 的工具（默认全开、skill 可用 `allowed-tools:` 缩减）|
+| **返回结果** | 一个 final message 摘要回主 session | 没有返回、是行为改变（规则 / persona）|
+| **适合做** | 长任务 / 并行跑 / 要 context 隔离 | 知识注入 / 规则 / 改 Claude 行为 |
+| **范例** | `code-reviewer` / `Explore` / `Plan` | `codex-delegate` / `pdf`（anthropics/skills）|
+
+**判断快速办法**：你**要新 context window** 吗？要 → subagent；不要 → skill。
+
+#### Subagent vs Slash Command — 一个是任务、一个是指令
+
+| 东西 | 怎么触发 | 例子 |
+|---|---|---|
+| **Subagent** | 直接打对话文字、Claude 看 description 自动派遣 | 你打 "Review my staged changes" → 自动派 `code-reviewer` |
+| **Slash command** | 打 `/` 开头的指令 | `/agents`（列 subagent）/ `/compact`（压缩 context）/ `/help` |
+
+⚠️ **常见误会**：`/agents` **不是用来调用 subagent**——它是 "查当前可用 subagent 清单" 的指令。**派遣是直接打对话 prompt 文字**、Claude 自己挑 subagent。
+
+#### Description = 路由 key（**写法决定能不能被选**）
+
+主 session 怎么知道该派哪个 subagent？看 `.claude/agents/<name>.md` 的 **`description` 字段**。**写法影响触发行为**：
+
+| Description 写法 | 触发模式 | 例 |
+|---|---|---|
+| `...use **PROACTIVELY** when X...` | **主动触发**——X 出现 Claude 自己派 | "use PROACTIVELY when reviewing diffs ≥ 50 lines" |
+| `...use when user asks Y...` | **被动触发**——要用户明确要求 | "use when user asks for code review" |
+| 空 description | **隐形**——不会被自主选 | （只能在代码里用 `Agent(subagent_type=...)` 强制调用）|
+
+> 💡 **写 description 像写广告词**——把 "我能解决什么问题" **写具体**、Claude 越会在对的时机选你。`PROACTIVELY` 是个**强信号词**——出现时 Claude 推断 "适合主动派遣" 的概率大幅提升；没写就更常只在用户明确要求时才会派。（它影响 Claude 的判断、**不是代码层的 if-then 开关**。）
+
+#### 5 条老手才知道的 Gotcha
+
+| # | Gotcha | 为什么重要 |
+|---|---|---|
+| 1 | **Description 写精准即可** | 无官方字符上限、但过长 description 占 context budget；建议 "触发条件 + 适用场景" 写具体、避免重复 |
+| 2 | **`tools:` 写空 = 继承主 session 全部工具** | 想限制 subagent 就要**明写**工具清单；空字段 ≠ 没工具 |
+| 3 | **不写 `model:` = 跟主 session 用同 model** | 主 session 是 Opus、subagent 没指定也 Opus（烧大钱）。省成本就写 `model: sonnet` 或 `model: haiku`|
+| 4 | **Subagent 没 "我之前说过 X" 记忆** | 每次派遣都是**全新 context**、看不到主 session 对话。Prompt 要 self-contained、不能 reference "我们刚讨论的 Y" |
+| 5 | **Subagent 也吃 hook** | PreToolUse / PostToolUse（工具执行前 / 后的拦截脚本）在 subagent 内**也会 fire**。设 hook 时要想到这层 |
+
+#### Subagent 整体优缺点（读完前面，回头看这个 summary）
+
+**5 个优点**（为什么存在）：
+
+| 优点 | 怎么帮到你 |
+|---|---|
+| **Context 隔离** | 主 session window 不被污染——subagent 跑大文件 / 长 log 不会挤掉主 session 的工作记忆 |
+| **Tool allowlist** | 限制 subagent 只能用 Read / Grep（不能写文件 / 不能跑 Bash）= 安全 sandbox |
+| **Model override** | 跑简单任务用 Haiku、跑难的用 Opus、混搭省成本——主 session 是 Opus 也可以叫 subagent 用 Haiku |
+| **Parallel spawn** | 一个 prompt spawn N 个 subagent 平行跑、wall clock 时间 ÷ N（适合 4 个 file 同时 audit）|
+| **专业化 prompt** | `code-reviewer` 永远只 review、description 写死 "Use PROACTIVELY when commit"，不会被闲聊干扰 |
+
+**5 个缺点**（什么时候不值得）：
+
+| 缺点 | 影响 |
+|---|---|
+| **Spawn 有 overhead** | 任务 < 5 分钟、自己跑更快——subagent startup 也吃时间跟 token |
+| **无 cross-call memory** | 每次 spawn 都新 context、看不到 "我们刚讨论的 X"——prompt 必须 self-contained |
+| **只回一个 message** | subagent 是 "派出去、跑完回报一次"，不能跟你来回对话，不适合需要逐步 feedback 的任务 |
+| **Token cost N ×** | spawn 4 个 = 用 4 倍 token——parallel 的 ROI 要算（时间省、钱花更多）|
+| **Debug 多一层** | 出错不知道该怪主 session description / subagent system prompt / 还是 prompt 本身——见 [advanced §3 debug 5 切点](../resources/subagent-advanced.zh-Hans.md#3-自制-subagent-的-debug-工具)|
+
+> 📌 **1 句话判断**：任务 **≥ 5 分钟** + **可以用一个 brief 写死**（不需要来回对话）+ **结果一次回来够用**（不需要逐步 feedback）→ 用 subagent；否则自己跑。
+
 
 <details>
 <summary>👉 具体 subagent 文件范例（最简单入门）</summary>
@@ -581,7 +661,7 @@ You are a senior code reviewer. When invoked:
 ### 学习目标
 
 - 讲得出 subagent 跟 skill / MCP server 的差别（**subagent ≠ skill**：skill 是行为 prompt，subagent 是**另一个 Claude instance with isolated context**）
-- 写一个 `.claude/agents/<name>.md` 自定义 subagent（frontmatter + system prompt + tool whitelist）
+- 写一个 `.claude/agents/<name>.md` 自定义 subagent（frontmatter + system prompt + `tools:` 白名单——明写允许的工具清单）
 - 从主 session 用 Task tool invoke subagent，观察 context 隔离（parent 看不到 subagent 的中间 step、只看到最终 result）
 - 知道何时用 subagent（parallel research / large-context isolated task / specialized review），何时不用（小 query 用 skill 即可）
 

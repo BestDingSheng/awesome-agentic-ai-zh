@@ -458,6 +458,10 @@ Plugin
 
 Up to this point, you've learned about MCP (the tool layer), Skills (the behavior layer), and Plugins (the distribution layer). **Subagents are the orchestration layer**—they allow the main Claude session to spawn child agents with independent contexts to run specific tasks and report back the results.
 
+![Subagent 4-Stage Lifecycle: from .md file to returned summary](../resources/diagrams/subagent-4-stage-flow.en.png)
+
+> 📊 **The diagram above** shows the 4 stages — **Definition → Discovery → Dispatch → Execution**. Read this first, then dive into the details below.
+
 A comparison with framework-based multi-agent systems from Stage 4 (LangGraph / CrewAI / AutoGen):
 
 | Dimension | Framework path (Stage 4) | Claude Subagent path (This Section) |
@@ -530,9 +534,9 @@ For the 7 built-in Claude Code subagents above, this table maps “**when you ne
 | Find code / explore an unfamiliar codebase structure | `Explore` | Built for read-only search; will not randomly edit |
 | Design an implementation plan without writing code directly | `Plan` | Produces a step-by-step plan, useful before breaking down a large task |
 | Review staged diff / security audit / pre-commit check | `code-reviewer` | Structured PASS/FAIL output + concrete fixes |
-| Write / modify UI components / handle accessibility | `frontend-developer` | React / responsive design / a11y domain knowledge |
+| Write / modify UI components / handle accessibility | `frontend-developer` | React / responsive design / a11y (shorthand for accessibility — designing for screen-reader and keyboard-only users) domain knowledge |
 | Multi-step research, or you are unsure which category fits | `general-purpose` | General-purpose, can web search, good fallback |
-| Ask how to use a Claude Code feature | `claude-code-guide` | Questions about hooks / slash commands / MCP |
+| Ask how to use a Claude Code feature | `claude-code-guide` | Questions about hooks (scripts that intercept tool calls before / after they run — see Gotcha #5 below) / slash commands (commands starting with `/`) / MCP |
 | None of the above fits | Write `.claude/agents/<name>.md` yourself | Custom or company-specific workflow |
 
 **Mini cookbook for 5 common scenarios** (see the full 15 recipes below):
@@ -546,6 +550,82 @@ For the 7 built-in Claude Code subagents above, this table maps “**when you ne
 | You need to compare multiple sources and decide which paper is right | `general-purpose` for deep research |
 
 > 📋 **Full 15 recipes** (each includes **scenario + subagent + copy-paste prompt template + when not to use it**) → [`resources/subagent-cookbook.en.md`](../resources/subagent-cookbook.en.md)
+
+### Clarifying Commonly Confused Concepts (read if the tables above still feel hazy)
+
+The **3 concept pairs** students confuse most often, plus **5 gotchas veterans learn the hard way**. Skim the parts you need:
+
+#### Subagent vs Skill — 5 Key Differences
+
+Many people treat Subagents and Skills as the same thing. They are actually **completely different layers**:
+
+![Subagent vs Skill — 5 Key Differences](../resources/diagrams/subagent-vs-skill.en.png)
+
+| Dimension | Subagent | Skill |
+|---|---|---|
+| **Execution environment** | A new independent context window (under the hood, a new subprocess) | Inside the main session, same context |
+| **Tool permissions** | Its own `tools:` list (can restrict it to Read / Grep only) | Main session tools (open by default; a skill can narrow this with `allowed-tools:`) |
+| **Return value** | One final message summarized back to the main session | No return value; it changes behavior (rules / persona) |
+| **Best for** | Long tasks / parallel work / context isolation | Knowledge injection / rules / changing Claude behavior |
+| **Examples** | `code-reviewer` / `Explore` / `Plan` | `codex-delegate` / `pdf` (anthropics/skills) |
+
+**Quick test**: do you **need a new context window**? Yes → subagent; no → skill.
+
+#### Subagent vs Slash Command — One is a Task, the Other is a Command
+
+| Thing | How it triggers | Example |
+|---|---|---|
+| **Subagent** | Type ordinary conversation text; Claude reads the description and dispatches automatically | You type "Review my staged changes" → Claude dispatches `code-reviewer` |
+| **Slash command** | Type a command starting with `/` | `/agents` (list subagents) / `/compact` (compress context) / `/help` |
+
+⚠️ **Common misconception**: `/agents` **does not invoke a subagent**. It is the command for "listing currently available subagents." **Dispatch happens through ordinary prompt text**, and Claude chooses the subagent.
+
+#### Description is the Routing Key (How You Write It Decides Whether Claude Selects It)
+
+How does the main session know which subagent to dispatch? It reads the **`description` field** in `.claude/agents/<name>.md`. **How you write it affects trigger behavior**:
+
+| How Description is written | Trigger mode | Example |
+|---|---|---|
+| `...use **PROACTIVELY** when X...` | **Proactive trigger**: when X appears, Claude dispatches it on its own | "use PROACTIVELY when reviewing diffs ≥ 50 lines" |
+| `...use when user asks Y...` | **Passive trigger**: the user has to ask clearly | "use when user asks for code review" |
+| Empty description | **Invisible**: it will not be selected autonomously | (can only be forced from code with `Agent(subagent_type=...)`) |
+
+> 💡 **Write the description like ad copy**: make "what problem I solve" **specific**, and Claude is more likely to choose it at the right time. `PROACTIVELY` is a **strong signal word**: when it appears, Claude is much more likely to infer "this is suitable for proactive dispatch"; without it, dispatch more often happens only when the user clearly asks. (It influences Claude's judgment; **it is not a code-level if-then switch**.)
+
+#### 5 Gotchas Veterans Learn the Hard Way
+
+| # | Gotcha | Why it matters |
+|---|---|---|
+| 1 | **A focused Description is enough** | There is no official character limit, but an overly long description uses context budget; write the "trigger condition + applicable scenario" concretely and avoid repetition |
+| 2 | **Empty `tools:` = inherit all main-session tools** | If you want to limit a subagent, you must **write the tool list explicitly**; an empty field ≠ no tools |
+| 3 | **No `model:` = same model as the main session** | If the main session is Opus and the subagent does not specify a model, it is Opus too (expensive). To save cost, set `model: sonnet` or `model: haiku`|
+| 4 | **A subagent has no "I said X earlier" memory** | Every dispatch starts with a **fresh context** and cannot see the main session conversation. The prompt must be self-contained; do not reference "the Y we just discussed" |
+| 5 | **Subagents also consume hooks** | PreToolUse / PostToolUse (intercept scripts before / after tool execution) also **fire** inside subagents. Account for this when setting hooks |
+
+#### Subagent Overall Pros & Cons (read after the tables above for a summary)
+
+**5 pros** (why they exist):
+
+| Pro | How it helps |
+|---|---|
+| **Context isolation** | Keeps the main session window clean; a subagent can scan large files or long logs without pushing the main session's working memory out |
+| **Tool allowlist** | Limit the subagent to Read / Grep only (no file writes / no Bash) = safer sandbox |
+| **Model override** | Use Haiku for simple tasks and Opus for hard ones; mix models to save cost. Even if the main session is Opus, a subagent can use Haiku |
+| **Parallel spawn** | Spawn N subagents from one prompt and run them in parallel; wall-clock time ÷ N (useful for auditing 4 files at once)|
+| **Specialized prompt** | `code-reviewer` always reviews code, with a description fixed to "Use PROACTIVELY when commit"; small talk does not drift it |
+
+**5 cons** (when it is not worth it):
+
+| Con | Impact |
+|---|---|
+| **Spawn has overhead** | For tasks < 5 minutes, doing it yourself is faster; subagent startup costs time and tokens too |
+| **No cross-call memory** | Every spawn starts a fresh context and cannot see "the X we just discussed"; the prompt must be self-contained |
+| **Only one return message** | A subagent is "send it out, then get one report back"; it cannot have a back-and-forth with you, so it is a poor fit for tasks needing step-by-step feedback |
+| **Token cost N ×** | Spawning 4 = 4x tokens; calculate the ROI of parallelism (less time, more money)|
+| **Debug has one more layer** | When something fails, it is unclear whether to blame the main-session description, the subagent system prompt, or the prompt itself. See [advanced §3 debug 5 entry points](../resources/subagent-advanced.en.md#3-debugging-tools-for-custom-subagents)|
+
+> 📌 **1-line judgement**: Use a subagent when the task is **≥ 5 minutes** + **can be fully specified in one brief** (no back-and-forth needed) + **one final result is enough** (no step-by-step feedback needed); otherwise run it yourself.
+
 
 <details>
 <summary>👉 Concrete subagent file example (the easiest to start with)</summary>
@@ -581,7 +661,7 @@ Later, in the main session, if you type "review my changes," Claude will see the
 ### Learning Goals
 
 - Explain the difference between a subagent and a skill / MCP server (**subagent ≠ skill**: a skill is a behavioral prompt, a subagent is **another Claude instance with an isolated context**)
-- Write a custom subagent in a `.claude/agents/<name>.md` file (frontmatter + system prompt + tool whitelist)
+- Write a custom subagent in a `.claude/agents/<name>.md` file (frontmatter + system prompt + a `tools:` allowlist that explicitly lists permitted tools)
 - Invoke a subagent from the main session using the Task tool and observe the context isolation (the parent can't see the subagent's intermediate steps, only the final result)
 - Know when to use a subagent (parallel research / large-context isolated tasks / specialized reviews) and when not to (small queries can be handled by skills)
 
