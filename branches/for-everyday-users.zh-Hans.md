@@ -1,18 +1,26 @@
-# 给日常用户 — 专业分支
+# 日常使用者延伸路线（For Everyday Users）
 
 > [繁體中文](./for-everyday-users.md) | **简体中文** | [English](./for-everyday-users.en.md)
 
-> 🚀 **完全没写过 code / 没装过 Python？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](../resources/setup-guide.zh-Hans.md)（30 分钟从零装好）再回来。已经会 Python 和有 API key 就跳过。
+> 🚀 **日常使用者可直接从 Tier 0 开始**（网页 / 手机 App）、**不需要任何 setup**。只有当你想跑本地 LLM（Tier 3）或用 CLI 自动化（Tier 2）时，才需要看 [`resources/setup-guide.zh-Hans.md` A-C](../resources/setup-guide.zh-Hans.md)（30 分钟从零装好）。
 
 > [← 回主路线 README](../README.zh-Hans.md) · 你**不一定要走完主干**才能从这里开始——这条分支是给「**只想 USE AI、不一定要 BUILD agent**」的人。
 
-## 使用场景
+## 使用场景（生活场景 × AI 怎么帮）
 
-- 写 email、整理笔记、改 cover letter
-- 学新技能（读英文文章、学语言、复习重点）
-- 查资料、做研究比较（旅游、产品、学校）
-- 整理生活流程（食谱、行程、待办清单）
-- 隐私敏感场景：医疗记录、个人财务（→ 本地 LLM）
+下表把日常用户一天会遇到的 7 个场景拆开——多数场景在网页版（Tier 0）就能搞定：
+
+| 场景 | 你常遇到的痛点 | AI 能帮的部分 | 推荐工具 |
+|---|---|---|---|
+| **写 email / cover letter** | 卡在“该怎么开头” | 起草 + 改语气 + 多版本对比 | Claude.ai / ChatGPT |
+| **学新技能** | 教材太正式、没人问问题 | 个性化 tutor、可随时打断问 | Claude.ai / ChatGPT |
+| **练语言** | 没对话对象、不知道语法错哪 | 语音对话、即时纠错 | ChatGPT Voice / Gemini |
+| **查资料 / 比较** | 不知道该信哪个来源 | 多源搜索 + 附引用 | Perplexity |
+| **整理生活流程** | 食谱 / 行程 / 待办清单散落 | 整合 + 结构化 | Claude.ai / ChatGPT |
+| **批量整理文件** | 100 个 PDF / 图片不知道怎么分 | 重命名 + 分类 + 摘要 | Claude Desktop / Claude Code |
+| **隐私敏感 chat** | 医疗 / 法律 / 财务笔记不想送云 | 本地跑 LLM | Ollama + qwen2.5 |
+
+> 💡 **不要被催着升级**：前 5 个场景都可以停在 Tier 0（网页版）。只有要“重复跑同一个流程”或“数据绝对不能送云”才需要 Tier 1-3。
 
 ## 起步：你应该从哪一层进入？
 
@@ -43,7 +51,7 @@ Anthropic 官方界面。长文章、深度讨论、复杂问题很适合用—�
 OpenAI 官方界面。生态最广（GPTs、Custom Instructions、Voice mode）。一般用途的标准选择。
 
 #### [Gemini](https://gemini.google.com) ⭐⭐⭐⭐
-Google 出品。长 context 窗口（百万 token）特别适合丢整本 PDF 进去问问题。集成 Google 服务（Gmail、Docs）。
+Google 出品。长 context（一次能读很长文件、约一本厚书的量）特别适合丢整本 PDF 进去问问题；仍要自己检查引用与摘要是否正确。集成 Google 服务（Gmail、Docs）。
 
 #### [Perplexity](https://perplexity.ai) ⭐⭐⭐⭐
 搜索引擎 × LLM——每个答案都附引用来源。比 ChatGPT 适合「需要查最新信息」的场景。
@@ -80,7 +88,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 | Stars | ★ 80k+ |
 | License | Apache-2.0 |
 
-**教什么**：OpenAI 出品的轻量级 terminal coding agent。跟 Claude Code 同类，但用的是 OpenAI 的模型。
+**教什么**：OpenAI 出品的终端机 agent——可以在命令列帮你整理文件、批量处理文字、执行多步骤任务；写程序只是其中一种用途。跟 Claude Code 同类，但用的是 OpenAI 的模型。
 
 **适合谁**：已经订 ChatGPT Plus / Pro，想在终端机用同一个账号做事的人。
 
@@ -133,25 +141,32 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 如果有兴趣再深入，看 [Stage 2 — Prompt 设计](../stages/02-prompt-engineering.zh-Hans.md)，那边有正式系统性教学。
 
-## 可以建的流程
+## 可以建的流程（按使用频率）
 
-这些是模板——配合你的场景自行调整：
+下表 5 条是模板，配合你自己的场景调整：
 
-- **每周周记**：跟 Claude.ai 讲你这周做什么，请它整理成周记+下周重点
-- **email triage**：每天早上把待回信件贴进 Claude，请它分类成「立即回复/今天回/这周回/不用回」
-- **学语言**：跟 ChatGPT Voice 模式对话练英文/日文，请它指出语法错误
-- **批量整理文件**：用 Claude Code 重新命名下载文件夹的所有文件，照日期 + 主题分类
-- **本地隐私 chat**：Ollama 跑 qwen2.5:7b，问医疗 / 法律 / 财务问题不送云端
+| 频率 | 流程 | 怎么做（≤ 3 步） | 推荐工具 |
+|---|---|---|---|
+| **每天** | Email 分流 | (1) 早上把待回信件贴进 Claude<br>(2) 请它分类“立即回 / 今天回 / 这周回 / 不用回”<br>(3) 草拟回信让你 review | Claude.ai / ChatGPT |
+| **每天** | 练语言（口说） | (1) 打开 ChatGPT Voice 模式<br>(2) 对话练英 / 日<br>(3) 请它指出语法错误 | ChatGPT Voice / Gemini |
+| **每周** | 周记整理 | (1) 跟 Claude 讲这周做什么<br>(2) 请它整理成周记 + 下周重点<br>(3) 存到 Obsidian / Notion | Claude.ai |
+| **不定期** | 批量整理文件 | (1) Claude Code 进 Downloads 文件夹<br>(2) 按日期 + 主题重命名<br>(3) 自动分到子文件夹 | Claude Code |
+| **隐私场景** | 本地医疗 / 法律 / 财务笔记 | (1) Ollama 跑 qwen2.5:7b<br>(2) 整理个人笔记，数据不送云<br>(3) ⚠️ 保护的是**隐私**，不是**正确性**——具体诊断 / 法律判断 / 投资决策仍需专业人士 | Ollama + qwen2.5 |
+
+> 💡 **新手起手式**：先把“每天 Email 分流”+“练语言”做一个月，习惯 AI 在日常的位置，再加其他流程。
 
 ## 给日常用户的层级建议
 
-90% 的场景：**留在 Tier 0**——Claude.ai 或 ChatGPT 网页版，免安装、免付费就能跑（免费版有限额但够日常用）。
+下表是建议的进阶路径：
 
-5% 升级到 Tier 1：要处理本地文件、要保留对话历史、要接 MCP server。
+| Tier | 工具 | 适合谁 | 学习成本 |
+|---|---|---|---|
+| **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity（网页版） | 90% 的场景都在这里——免安装、免付费 | 0（会用浏览器就行） |
+| **Tier 1** | Claude Desktop / ChatGPT Desktop + MCP | 要处理本地文件、保留对话历史、接 Gmail / Notion | 半小时装好 |
+| **Tier 2** | Claude Code / opencode（CLI） | 有重复自动化需求（每天做同样的事 100 次） | 1-2 天上手 |
+| **Tier 3** | Ollama 本地 LLM | 隐私敏感数据不能送云、API 费用敏感、想 offline | 半天设置 |
 
-5% 升级到 Tier 2-3：有真的自动化需求（譬如每天要做同样的事 100 次），或隐私敏感数据不能送云端。
-
-**不要被人催着升级**——多数人 Tier 0 就够用了。Tier 2-3 是工具，不是身份地位。
+> **不要被人催着升级**——多数人 Tier 0 就够用了。Tier 2-3 是工具，不是身份地位。
 
 ## 社群备注
 

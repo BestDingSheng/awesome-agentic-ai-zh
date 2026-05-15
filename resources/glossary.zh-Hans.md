@@ -6,6 +6,46 @@
 >
 > 每个词**只给最小可用的解释**（30-80 字 + 在哪一个 stage 讲细的）——不是维基百科。
 
+## 🌐 统一词汇对照表（中英对照、跨 stage 一致）
+
+本表是项目内**强制统一的命名约定**——所有 stage 用同一个中文理解名。如果你在 stage 内看到不一致，请报 issue。
+
+| 英文术语 | 中文理解名 | 主要 stage |
+|---|---|---|
+| Prompt Engineering | Prompt 设计 | Stage 2 |
+| Context Engineering | 上下文管理 | Stage 6 |
+| Harness Engineering | Agent 执行系统设计 | Stage 7 |
+| Tool Use | 工具使用 | Stage 3 |
+| Function Calling | 函数 / 工具呼叫 | Stage 3 |
+| Structured Output | 结构化输出 | Stage 3 |
+| Agent Loop | Agent 执行循环 | Stage 3 |
+| Framework | 框架 | Stage 4 |
+| Orchestration | 协调与编排 | Stage 4 / 7 |
+| Handoff | 任务交接 | Stage 7 |
+| Supervisor / Worker | 协调者 / 执行者 | Stage 7 |
+| Runtime | 执行层 | Stage 7 |
+| Scaffolding | 支撑架构 | Stage 7 |
+| Observability | 观测与记录 | Stage 7 |
+| Telemetry | 运行记录 | Stage 7 |
+| Eval | 效果评估 | Stage 7 |
+| Evaluation Harness | 评估框架 | Stage 7 |
+| Production | 可稳定使用 / 上线化 | Stage 7 |
+| Production-grade | 可长期稳定使用的 | Stage 7 |
+| Deployment | 部署 | Stage 7 |
+| Cost Tracking | 成本追踪 | Stage 7 |
+| Latency | 延迟 / 等待时间 | Stage 7 |
+| Vector DB | 向量数据库 | Stage 6 |
+| Retrieval | 检索 | Stage 6 |
+| Reranking | 重排序 | Stage 6 |
+| Long Context | 长上下文 | Stage 6 |
+| Fine-tuning | 模型微调 | Stage 6 |
+| Agent Interfaces | Agent 操作界面 | Stage 8 |
+| Code Sandbox | 隔离程序执行环境 | Stage 8 |
+| Cold Start | 启动延迟 | Stage 8 |
+| Reward Hacking | 钻评分漏洞 | Stage 7 / 8 |
+
+→ 详细定义请看下面各区块。
+
 ---
 
 ## 1. 基本概念
@@ -39,7 +79,12 @@ LLM 一次能「看」多少 token。Claude 200k、GPT-4o 128k、Gemini 2M。**�
 
 ### Chain-of-Thought（CoT，思维链）
 
-要 LLM「先想再答」——加上「Let's think step by step」之类的指令，让它输出推理过程再给结论。**准确度通常会提升**，代价是 token 数变多。
+要 LLM「先想再答」——让它先输出推理过程，再给结论。**常见有两种形式**：
+
+- **Few-shot CoT**（原始 paper、[Wei et al. 2022](https://arxiv.org/abs/2201.11903)）：在 prompt 里放几个带推理步骤的例子，让 LLM 模仿着想
+- **Zero-shot CoT**（[Kojima et al. 2022](https://arxiv.org/abs/2205.11916)）：在 prompt 结尾加上「Let's think step by step」来触发 reasoning trace
+
+**准确度通常会提升**，代价是 token 数变多。Few-shot 通常比 zero-shot 更准。
 
 ---
 
@@ -47,7 +92,13 @@ LLM 一次能「看」多少 token。Claude 200k、GPT-4o 128k、Gemini 2M。**�
 
 ### Agent（代理人）
 
-让 LLM **能呼叫外部 function、看结果、再决定下一步**的系统。本路线图的核心主题。差别在于：纯 LLM 是 Q&A、agent 是「LLM + tools + 循环」。
+以 LLM 为核心、能在**循环**中**感知状态 → 做决策 → 采取行动 → 观察结果**、重复直到完成目标的系统。**核心三要素**：
+
+- **LLM**（推理 / 规划 / decide）
+- **Actions**（做事的手段——不限于 function call。可以是写代码执行（CodeAct）、操作浏览器（computer use）、查 KB（RAG retrieval）、call MCP server、纯规划拆任务等）
+- **Loop**（心跳——agent 跟纯 LLM Q&A 的根本差别）
+
+差别在于：纯 LLM = Q&A；agent = 三要素 + 持续循环，直到目标达成或预算耗尽。**ReAct 是其中一种 agent pattern，不是 agent 的定义**——CodeAct、computer-use、planning agent 都是 agent。
 
 📍 详细：[Stage 3](../stages/03-tool-use-and-hello-agent.zh-Hans.md)
 
@@ -55,7 +106,13 @@ LLM 一次能「看」多少 token。Claude 200k、GPT-4o 128k、Gemini 2M。**�
 
 让 LLM 呼叫你定义好的 function（查 DB、算数学、开浏览器…）。LLM 回的不是文字而是 `{"function": "search", "args": {...}}`，你的程序去执行、把结果再丢回 LLM。
 
+**两个词概念相同，但 API schema 不一样**：
+- **Anthropic 的 "Tool Use"**：schema 用 `input_schema`（直接放 JSON Schema）
+- **OpenAI / Ollama 的 "Function Calling"**：外面再包一层 `{"type": "function", "function": {...}}`
+- LLM 内部接收到的 token 表达也不同，写跨厂商 SDK 时要记得对应好
+
 📍 详细：[Stage 3](../stages/03-tool-use-and-hello-agent.zh-Hans.md)
+📍 schema 怎么写好：[Function Schema 设计 cheatsheet](schema-design-cheatsheet.zh-Hans.md)
 
 ### ReAct（Reasoning + Acting）
 
@@ -71,19 +128,60 @@ LLM 一次能「看」多少 token。Claude 200k、GPT-4o 128k、Gemini 2M。**�
 
 「LLM → tool → 结果 → LLM」这个重复的循环。Loop 结束条件可能是：LLM 说「I'm done」、跑超过 N 步、超出 budget。
 
+### Self-Refine（基础版反思 / 无记忆）
+
+agent 自我评估上一轮输出、修改下一轮的做法——「Actor 出答案 → Critic 找问题 → Actor 看 feedback 再答」的 single-session loop。**不需要持久记忆层**，本质上就是 reasoning loop 机制，是 ReAct 的 sibling pattern。production agent（Cursor / Cline / Claude Code）每天都在跑这种变体。
+
+代表 paper：[Self-Refine (Madaan 2023)](https://arxiv.org/abs/2303.17651)。**完整版 Reflexion**（含 episodic memory）见 3 Memory / Retrieval / RAG（这是不同层的东西）。
+
+📍 详细 + 路由：[Stage 3 反思](../stages/03-tool-use-and-hello-agent.zh-Hans.md#-反思reflexion--self-refine-概念--路由)
+
 ---
 
 ## 3. Memory / Retrieval / RAG
 
+### Memory（记忆）— 两种正交分类轴
+
+“memory”常被混在一起讲，其实有 **2 种正交分类轴**：
+
+- **时效轴**：short-term（当前对话）vs long-term（跨 session 持久）
+- **内容轴**（CoALA framework）：**Working**（暂存）/ **Episodic**（过去经历）/ **Semantic**（事实知识）/ **Procedural**（怎么做）
+
+→ 两条轴并不冲突：long-term memory 里可以**同时**有 episodic（user 上次说了什么）+ semantic（公司知识库事实）+ procedural（用过的 tool sequence）。
+
+📍 详细：[Stage 6 Memory 是什么 + 如何设计](../stages/06-memory-rag.zh-Hans.md#-memory-是什么--如何设计) + [Stage 6 CoALA Framework](../stages/06-memory-rag.zh-Hans.md#进阶coala-framework--agent-memory-的-4-层分类法)
+
 ### RAG（Retrieval-Augmented Generation）
 
-「先捞相关数据，再丢给 LLM 一起答」的模式。流程：用户问题 → 用 embedding 找出最相关的 K 段数据 → 把那 K 段塞进 prompt → LLM 答。**用来解决 LLM 不知道你私有数据 / 知识过期的问*题**。
+两阶段架构模式：
+
+1. **Ingest**（一次性 / 定期）：document → chunk → embed → 存进 vector store（建一个可检索的 KB）
+2. **Query**（每次 user 提问）：question embed → semantic search（或 hybrid + BM25）→ top-K chunks → 塞进 prompt → LLM 回答
+
+**解决的是 LLM 不知道你的私有 / 变动 / 过期资料**。Retrieval **不只限于 dense embedding**——production 默认配置通常是 hybrid（dense + BM25）+ reranker。
+
+📍 详细：[Stage 6](../stages/06-memory-rag.zh-Hans.md)
+📍 paper：[Lewis et al. 2020](https://arxiv.org/abs/2005.11401)
+
+### Reflexion（完整版反思 / 带 episodic memory）
+
+跟 Self-Refine（2 Agent）不同：Reflexion **需要持久 episodic memory store**——agent 跑完一次 trial 后，会**写一段 reflection summary 进 memory**，下一次 trial 开始时再检索进 prompt。**跨 trial 累积教训**才是 Reflexion 的本质（不是 single-session loop）。
+
+放在 3 而不是 2 Agent，是因为它**本质上是 memory pattern**——episodic memory store 是核心，不是 optional。
+
+代表 paper：[Reflexion (Shinn 2023)](https://arxiv.org/abs/2303.11366)。
+
+📍 详细：[Stage 6 进阶：带持久记忆的 Reflexion 完整版](../stages/06-memory-rag.zh-Hans.md#-进阶带持久记忆的-reflexion-完整版--track-b-选读)
+
+### Embedding（嵌入）
+
+把文字 / 图片转成 N 维**向量**，让“意思接近”的东西距离更近。本路线图默认指 **dense embedding**（稠密向量，由 sentence-transformers / OpenAI ada-002 等产生）；另外也有 **sparse embedding**（BM25 / SPLADE 等，按字面 token 匹配）——production RAG 往往两者一起用来做 hybrid search。
 
 📍 详细：[Stage 6](../stages/06-memory-rag.zh-Hans.md)
 
-### Vector DB / Embedding（向量数据库 / 嵌入）
+### Vector DB（向量数据库）
 
-把文字（或图片）转成一串数字（向量），让「意思接近」的东西在向量空间中距离近。Vector DB（Pinecone、Chroma、Qdrant 等）就是存储 + 高效查询这些向量的数据库。RAG 的核心元件。
+存储 + 高效查询 embedding 的存储层。**主要查询类型 = approximate nearest-neighbor (ANN)**——Vector DB 存在的意义就是 ANN 比直接做 cosine 全扫快几百倍。代表：Pinecone / Chroma / Qdrant / Weaviate / pgvector。
 
 📍 详细：[Stage 6](../stages/06-memory-rag.zh-Hans.md)
 
@@ -137,13 +235,22 @@ Google 推的 agent 之间沟通协定，类似 MCP 但用于 agent ↔ agent，
 
 ### MCP（Model Context Protocol）
 
-Anthropic 推的开放协定，让任何 LLM host（Claude Code、Cursor、自写 agent）都能用同一套接口去呼叫外部 tool server。把它想成「**LLM 的 USB 接口**」。
+Anthropic 在 2024 推出的开放协定，让任何 LLM host（Claude Code、Cursor、自写 agent）都能用同一套接口连接外部 tool server。把它想成「**LLM 的 USB 接口**」。
+
+**技术上标准化了 3 种 primitives**：
+- **Tools**：LLM 可调用的 function（read DB / search web / send email…）
+- **Resources**：LLM 可读取的数据（文件内容、API response、DB rows…）
+- **Prompts**：可复用的 prompt 模板（给用户在 host 内用 `/` 触发）
+
+**架构**：server / client 模式——tool server 跑在本地或远端，LLM host 当 client 连接。Server 通过 stdio / SSE / HTTP 三种 transport 之一暴露这些 primitives。
 
 📍 详细：[Stage 5.2](../stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础)
 
 ### Skills / SKILL.md
 
-Claude Code 的「行为包」。一个 Skill 就是一个文件夹含 `SKILL.md`（描述「在什么情境要做什么、可呼叫哪些 tool」），Claude Code 会根据当下情境自动载入合适的 skill。
+Claude Code 的「行为包」。一个 Skill = 一个文件夹，里面有 `SKILL.md`（描述“在什么情境要做什么、可调用哪些 tool”）+ 可选的 reference files / scripts。
+
+**触发机制**（很多人不知道，但很关键）：Claude Code 每次处理你消息**前**，都会扫描所有可用 skill 的 **frontmatter `description` 字段**——如果匹配当前情境，就会自动载入对应的 SKILL.md。**所以 description 写得好不好，直接决定 skill 会不会被触发。** 实务上以 “Use when ...” 开头最有效。
 
 📍 详细：[Stage 5.3](../stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行為層)
 
@@ -163,7 +270,19 @@ Claude Code 内以 `/` 开头的指令（`/help`、`/compact`、`/plan` 等）�
 
 ### Hooks
 
-在 Claude Code 动作前后执行的 script（pre-tool-use、post-tool-use、user-message-received 等）。可拿来做 git 自动 commit、log 记录、行为拦截等。
+在 Claude Code 特定事件前后执行的 script。**官方支持 7 种事件类型**：
+
+| Hook | 触发时机 | 典型用途 |
+|---|---|---|
+| `PreToolUse` | 工具调用**前** | 拦截危险操作（`rm -rf`、destructive op）、改参数 |
+| `PostToolUse` | 工具调用**后** | 记 log、自动格式化刚写好的文件 |
+| `UserPromptSubmit` | user 提交消息时 | 加 context（git status / 当前时间） |
+| `Notification` | Claude Code 发通知时 | 桌面 toast / Slack ping |
+| `Stop` | session 结束时 | 自动 commit / 清理 |
+| `PreCompact` | 自动 compact 前 | 把重要决定提升到 memory |
+| `PostCompact` | compact 后 | 确认哪些 context 被压缩 |
+
+写法：在 `.claude/settings.json` 里加 `"hooks"` 区块，指向 script 路径。
 
 ### Subagent（子 agent）
 
@@ -231,22 +350,67 @@ LLM 「自信地说错」——把不存在的 API 编出来、把错的数字�
 
 ### Context Engineering
 
-当 prompt 设计一个句子已经 cover 不了，要动态组**system prompt + tool definitions + memory + retrieved chunks + 多轮历史**——整个系统的设计学科。**Prompt engineering 的下一层**。
+工程 **每次 LLM call 时，context window 里装什么信息** 的学科——动态把 RAG retrieve 结果、memory、tool definitions、对话 history 组装成模型看得到的 context。Karpathy 2025：把 **刚好对下一步有用的信息** 填进窗口的精细艺术。重点是 *what goes in the window*，不是“跨了几次 call”。**Prompt engineering 的下一层**——前者工程 **字符串**，后者工程 **信息**。
 
-📍 详细：[Stage 2 结尾](../stages/02-prompt-engineering.md) / [Stage 6](../stages/06-memory-rag.md) / [Stage 7](../stages/07-multi-agent-production.md)
+📍 详细：[Stage 2 结尾](../stages/02-prompt-engineering.zh-Hans.md) / [Stage 6](../stages/06-memory-rag.zh-Hans.md) / [Stage 7](../stages/07-multi-agent-production.zh-Hans.md)
 📍 延伸：[`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)
 
 ### Harness Engineering
 
-把 agent 包成 production system 的工具带设计——permissions、tool registry、memory layer、eval、observability、retry / circuit breaker 等。Claude Code、Cursor、OpenCode 等 CLI agent 都是 harness。**framework 把 LLM 包成 agent，harness 把 agent 包成 product**。
+工程 **模型外面的执行与控制层**——所有不是 model weights、也不是 prompt string 本身的工程元件：agent loop / tool registry / context manager / permissions / safety layer / memory layer / eval / observability / retry / circuit breaker 等。Simon Willison 2025：**coding agent = LLM + harness**。Addy Osmani：harness = 所有不是 model 本身的代码。[OpenAI 也在 2026-02 使用了 "Harness Engineering" 这个说法](https://openai.com/index/harness-engineering)。Claude Code、Cursor、OpenCode 等 CLI agent 都是 harness。**framework 把 LLM 包成 agent，harness 把 agent 包成可上线使用的产品**。
 
-📍 详细：[Stage 7](../stages/07-multi-agent-production.md) 必修阅读
-📍 延伸：[`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering)、[`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
+对比：
+- **Framework**（Stage 4）规范 **API**：你调用的接口长什么样
+- **Harness**（本词）规范 **runtime**：怎么跑、怎么 recovery、怎么观测
+
+📍 学科级概念（**8 个核心元件** / prompt→context→harness 三层工程分工 / framework vs harness）：[Stage 7 Harness Engineering](../stages/07-multi-agent-production.zh-Hans.md)
+📍 Reference implementation case study（读 Claude Code source）：[Stage 5 5.6](../stages/05-claude-code-ecosystem.zh-Hans.md)
+📍 延伸：[`anthropics/claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python)、[`ai-boost/awesome-harness-engineering`](https://github.com/ai-boost/awesome-harness-engineering)、[`ZhangHanDong/harness-engineering-from-cc-to-ai-coding`](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)
+
+---
+
+## 8. Agent Interfaces
+
+### Computer Use（屏幕级 agent）
+
+Agent 通过 **screenshot → vision → 算坐标 → 模拟键鼠** 操作真实桌面 app——不靠 API、直接像人类用屏幕。代表：Anthropic Claude Computer Use（Opus 4.7 / Sonnet 4.6）/ OpenAI Codex desktop / Google Gemini in Chrome。**2024-10 Anthropic 公开 beta 开启、2026 OSWorld 达 76.26% superhuman**。
+
+📍 完整解说 + 4 强对比：[Stage 8 Computer Use](../stages/08-agent-interfaces.zh-Hans.md)
+
+### Browser Use（web 级 agent）
+
+Agent 操作网页、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要时 vision fallback。代表闭源：Atlas / Comet / Dia / Gemini in Chrome。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 86k+）。
+
+📍 完整解说 + 5 强对比 + OSS 框架：[Stage 8 Browser Use](../stages/08-agent-interfaces.zh-Hans.md)
+
+### Sandbox（程序代码隔离环境）
+
+让 agent 写的 code 在隔离环境跑、不在 host 机器——避免 agent `rm -rf /` / 连 internet 泄资料 / 偷 credentials 等灾难。代表：E2B（Firecracker microVM）/ Daytona（Container）/ Modal（GPU sandbox）/ Vercel / Cloudflare。**OpenAI Agents SDK 2026-04 内建支持这些 provider**。
+
+📍 完整 9-row 术语小词典（含 microVM / Container 差异）+ 7 强对比：[Stage 8 Code Sandbox](../stages/08-agent-interfaces.zh-Hans.md)
+
+### microVM（micro Virtual Machine）
+
+VM 的精简版、极小 footprint、启动 < 100ms 但仍**独立 kernel**——介于 Docker container（快 + 弱隔离）跟 full VM（慢 + 强隔离）之间。**Agent sandbox 多半选 microVM**。代表实现：[Firecracker](#firecracker)（AWS、E2B 用）。
+
+📍 完整对比：[Stage 8 术语小词典](../stages/08-agent-interfaces.zh-Hans.md)
+
+### Firecracker
+
+AWS 开源的 microVM、Rust 写、**AWS Lambda 底层** + E2B sandbox 用它做 isolation。强隔离 + 快启动兼顾。
+
+📍 [Stage 8 术语小词典](../stages/08-agent-interfaces.zh-Hans.md)
+
+### gVisor
+
+Google 写的「用户空间 kernel」、拦截 syscall 自己模拟、**不用 hypervisor**——介于 container 跟 VM。
+
+📍 [Stage 8 术语小词典](../stages/08-agent-interfaces.zh-Hans.md)
 
 ---
 
 ## 找不到的词？
 
 - 看 [Stage 5.2 — MCP](../stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础) / [5.3 — Skills](../stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行為層) / [5.4 — Plugins](../stages/05-claude-code-ecosystem.zh-Hans.md#54--plugins-与-marketplaces) 的内文
-- 看 [Stage 1](../stages/01-llm-basics.zh-Hans.md) / [Stage 6](../stages/06-memory-rag.zh-Hans.md) / [Stage 7](../stages/07-multi-agent-production.zh-Hans.md) 的延伸阅读清单
+- 看 [Stage 1](../stages/01-llm-basics.zh-Hans.md) / [Stage 6](../stages/06-memory-rag.zh-Hans.md) / [Stage 7](../stages/07-multi-agent-production.zh-Hans.md) / [Stage 8](../stages/08-agent-interfaces.zh-Hans.md) 的延伸阅读清单
 - 找不到的词 → 开 issue 或直接 PR 加进这份小词典

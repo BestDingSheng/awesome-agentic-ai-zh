@@ -26,10 +26,12 @@ You should already:
 
 ## 📚 Required Reading
 
-1. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — official, well-organized
-2. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI's perspective
-3. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — academic-flavored, in-depth
-4. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — be clear and direct
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic's official interactive tutorial**, 9 chapters of Jupyter notebooks (basic / intermediate / advanced + appendix), with playground and answer key. Runs on Claude 3 Haiku (cheapest). **The canonical hands-on resource for Stage 2.** Also packaged as module 2 of the [**anthropics/courses**](https://github.com/anthropics/courses) 5-course umbrella — for broader coverage (API Fundamentals / Real World Prompting / Eval / Tool Use) go straight to the umbrella
+2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — Module 3 of the same umbrella, **"how to actually use prompting in real situations"**: chatbot / legal / financial / coding case walkthroughs. Read #1 first, then this.
+3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — official docs, pairs with #1
+3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI's perspective
+4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — academic-flavored, in-depth
+5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — be clear and direct
 
 ## 🛠 Hands-on Exercises
 
@@ -506,14 +508,29 @@ Already cited in Stage 1. Specifically the `misc/prompt_caching.ipynb` and `mult
 
 ---
 
-## 🔭 Beyond prompts: context engineering
+## 🔭 Advanced: The Three Layers of Prompt → Context → Harness Engineering
 
-When you find that **a single prompt can no longer cover the problem** — and you need to dynamically assemble system prompt + retrieved chunks + memory + tool definitions + multi-turn history — you've graduated from prompt engineering to **context engineering**. It's the next layer up.
+Engineering practice for LLM-powered systems can be divided into **three stack layers**. This is not about "one call vs. many calls." Each layer engineers a different object:
 
-**Don't try to learn it now**, just know the direction:
+- **Prompt Engineering** (this stage) = engineering **the string sent into the model**
+- **Context Engineering** (Stage 6) = engineering **what information goes into the context window on each call** — dynamically assembling RAG retrieval results, memory, tool definitions, and conversation history
+- **Harness Engineering** (Stage 7) = engineering **the execution and control layer around the model** — agent loops, retry, sandboxing, observability, deployment, and all other non-LLM code
 
-- You'll first hit it in [Stage 6 (Memory · RAG)](06-memory-rag.en.md) (what data goes into the prompt)
-- You'll fully face it in [Stage 7 (Multi-Agent · Production)](07-multi-agent-production.en.md) (context window budget, memory layering, observability)
+→ The three layers are **orthogonal**: a one-call RAG app is still doing context engineering (the point is assembling context, not how many calls happen); a 50-call chatbot with no retrieval is still only doing prompt engineering.
+
+**Full three-layer lineage in this roadmap**:
+
+| Discipline | What is being engineered | Where this roadmap teaches it fully |
+|---|---|---|
+| **1. Prompt Engineering** | The string sent into the LLM itself (system prompt / few-shot / format) | **This stage (Stage 2)** |
+| **2. Context Engineering** | What information goes into the context window (RAG / memory / tool defs / history) | [Stage 6 — Context Engineering: RAG and Memory](06-memory-rag.en.md) |
+| **3. Harness Engineering** | The execution and control layer around the model (agent loop / retry / sandbox / observability) | [Stage 7 — Multi-Agent · Productionization](07-multi-agent-production.en.md) |
+
+> 💡 **Karpathy 2025-06**: context engineering is the delicate art of putting information that is **just useful for the next step** into the context window.
+>
+> 💡 **Simon Willison / Addy Osmani**: "coding agent = LLM + harness"; a harness is all the code that is not the model itself. [OpenAI also used the term "Harness Engineering" in February 2026](https://openai.com/index/harness-engineering).
+
+**You do not need to finish the latter two layers in this stage**. This section only gives you the direction so that Stage 6 / 7 feel like a continuation of the same lineage.
 
 Further reading (optional, for when you want to dig deeper):
 

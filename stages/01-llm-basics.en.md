@@ -9,6 +9,16 @@
 
 > 💡 **Don't recognize a term?** (LLM / token / context window / temperature / RAG / agent / …) → check [`resources/glossary.en.md`](../resources/glossary.en.md) for 30-second definitions.
 
+### 3 Core Terms (memorize these—all later stages use them)
+
+| Term | Chinese | One-liner |
+|---|---|---|
+| **token** | 詞元 | the unit LLMs use to count text length and price (1 Chinese char ≈ 1.5-2 tokens; 1 English word ≈ 1.3 tokens) |
+| **context window** | 上下文視窗 | How many tokens the model sees at once (Claude 200k / GPT-4o 128k / Gemini 2M) |
+| **temperature** | 隨機程度參數 | Controls how stable or creative the output is (0 = deterministic, 1 = creative; use 0.0-0.3 for classification, 0.7-1.0 for creative writing) |
+
+→ These 3 terms run through every later stage. The goal of Stage 1 is to call the API yourself and feel firsthand how they shape the output.
+
 ## 📌 Learning Goals
 
 After this stage you will be able to:
@@ -28,10 +38,11 @@ If not — go back to Stage 0 first.
 
 ## 📚 Required Reading
 
-1. [**Anthropic — What is Claude?**](https://www.anthropic.com/news/claude-3-family) — official model overview
-2. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — first API call walkthrough
-3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
-4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
+1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's latest Opus 4.7 / Sonnet 4.6 / Haiku 4.5
+2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 1 "Anthropic API Fundamentals" maps to this stage**. Jupyter notebooks, runs on Claude 3 Haiku (cheapest), hands-on walkthrough of API essentials.
+3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — first API call walkthrough
+4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
+5. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
 
 ## 🛠 Hands-on Exercises (foundational, illustrative)
 
@@ -245,11 +256,11 @@ if hasattr(sys.stdout, "reconfigure"):
 
 import anthropic
 
-# Anthropic public pricing 2026 Q1 (per 1M tokens, USD) — verify at https://www.anthropic.com/pricing
+# Anthropic public pricing 2026 Q2 (per 1M tokens, USD) — verify at https://www.anthropic.com/pricing
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
-    "claude-sonnet-4-5":  {"input": 3.00, "output": 15.00},
-    "claude-opus-4-5":    {"input": 15.0, "output": 75.00},
+    "claude-sonnet-4-6":  {"input": 3.00, "output": 15.00},
+    "claude-opus-4-7":    {"input": 5.00, "output": 25.00},  # Opus 4.7 (April 2026) price reduced to 5/25
 }
 
 client = anthropic.Anthropic()
@@ -268,7 +279,17 @@ for name, r in PRICING.items():
     print(f"  {name:<22} ${c:.4f}")
 
 assert cost_one > 0, "Cloud LLM always has a cost"
-print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonnet ≈ $0.76, opus ≈ $3.81")
+print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonnet 4.6 ≈ $0.76, opus 4.7 ≈ $1.27")
+```
+
+**Expected output**:
+```
+model: claude-haiku-4-5
+single: input=14 output=48 → $0.000254
+1000 calls cost across model tiers:
+  claude-haiku-4-5       $0.2540
+  claude-sonnet-4-6      $0.7620
+  claude-opus-4-7        $1.2700
 ```
 
 **Trade-off**: local Ollama is $0 for 1000 runs but takes ~2 hr; Anthropic haiku is ~10 min for $0.25; sonnet ~10 min for $0.76. **Use cloud only for production; learning / experiments / debug stay local.**

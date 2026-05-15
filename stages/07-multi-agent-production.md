@@ -1,60 +1,67 @@
-# Stage 7 — Multi-Agent · 進階應用
+# Stage 7 — 多 Agent 系統與穩定運作（Multi-Agent & Production）
 
 > **繁體中文** | [简体中文](./07-multi-agent-production.zh-Hans.md) | [English](./07-multi-agent-production.en.md)
 
 ⏱ **時間估算**：2-4 週（約 15-30 小時）
 
-> 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)。
+> 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` 4 + 6](../resources/glossary.md#4-multi-agent)。
 
-> 📋 **本章組成**：〔Multi-Agent · 進階應用 是什麼（先定位）+ Discipline lineage + 何時用 multi-agent〕→ 學習目標 → 進入條件 → 必修閱讀 → Harness Engineering（**8 個核心元件含 Cost/Latency**）→ 動手練習（含練習 6 Cost Optimization）→ **Agent Benchmark Landscape + Berkeley Reward-Hacking 警告（2026）** → 常用工具推薦 → 精選 Projects → 自我檢查  
-> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness）
+> 📋 **本章組成**：〔Multi-Agent · Production 化 是什麼（先定位）+ 三層工程分工 + 何時用 multi-agent〕→ 學習目標 → 進入條件 → 必修閱讀 → Harness Engineering（**8 個核心元件含 Cost/Latency**）→ 動手練習（含練習 6 Cost Optimization）→ **Agent Benchmark Landscape：怎麼看，不要只看排行榜** → 常用工具推薦 → 精選 Projects → 自我檢查
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` 4 + 6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外圍的執行與控制層））
 
-最後一個階段。你正從「我會做 agent」走向「我能讓 agent **真的給人穩定用**——多個 agent 協作、有 eval、有 observability、會 deploy」。**「進階應用 / production」 ≠ enterprise scale**——只要 agent 能穩定產出 + 給別人跑、就算進入這 stage 範圍。
+最後一個階段。你正從「我會做 agent」走向「我能讓 agent **真的給人穩定用**——多個 agent 協作、有 eval、有 observability、能部署到可用環境」。**「Production 化」 ≠ enterprise scale**——只要 agent 能穩定產出 + 能讓別人使用、就算進入這 stage 範圍。
 
-## 🎯 Multi-Agent · 進階應用 是什麼（先定位）
+## 🎯 Multi-Agent · Production 化 是什麼（先定位）
 
 **本 stage = 多 agent 怎麼協作 + 把 agent 從 prototype 推到能穩定給人用的程度**。三句話釐清範圍：
 
 - **不是只學 framework**——Stage 4 已教 framework 怎麼挑
-- **不一定要 enterprise scale**——只要 agent 能讓別人用、就算 "production"
-- **核心是 harness engineering**——8 個 runtime 元件 + eval + observability + cost / latency 控制
+- **不一定要 enterprise scale**——只要 agent 能讓別人用、就算 production 化
+- **核心是 harness engineering**——8 個核心元件 + eval + observability + cost / latency 控制
 
 **跟前後 stage 的分工**：
 
 - **Stage 4** = 單 agent framework 怎麼挑、ReAct / Plan-Execute 等 pattern
-- **本 stage** = **多 agent 協作** + **harness engineering**（runtime 工程）+ **deploy / observability / eval**
+- **本 stage** = **多 agent 協作** + **harness engineering**（執行系統工程）+ **部署到可用環境 / observability / eval**
 
-**Discipline lineage**（你現在在第 3 層 = 最上層）：
+### 三層工程分工：Prompt → Context → Harness
 
-| 層 | Discipline | 解決什麼 | 在哪 stage |
-|---|---|---|---|
-| 1 | **Prompt Engineering** | 單次 LLM call 怎麼問才準 | [Stage 2](02-prompt-engineering.md) |
-| 2 | **Context Engineering** | 跨多次 call 怎麼動態組 prompt | [Stage 6](06-memory-rag.md) |
-| **3** | **Harness Engineering**<br>（**本 stage**） | **把多個 LLM call 包成可以給人跑的 runtime** | **本 stage** |
+工程分工可以分成三層、對應 stack 不同位置（不是 call 一次 vs 多次的差別）：
 
-**本 stage 3 個 problem domain**：
+| 層級 | 概念 | 核心問題 | 關注單位 | 對應 stage |
+|---|---|---|---|---|
+| 1 | **Prompt Engineering** | 這一次要怎麼問？ | **單次 LLM call** | [Stage 2](02-prompt-engineering.md) |
+| 2 | **Context Engineering** | 這次該給模型哪些資訊？ | **多次互動中的上下文** | [Stage 6](06-memory-rag.md) |
+| **3** | **Harness Engineering**<br>（**本 stage**） | 整個流程怎麼跑起來？ | **可執行的 LLM workflow / system** | **本 stage** |
+
+**白話差異**：
+- **Prompt** = 設計一個好的問法，讓模型這次回答準
+- **Context** = 動態決定要放入哪些背景、記憶、文件、工具結果，讓模型知道現在情境
+- **Harness** = 把 prompt、context、工具、狀態、流程控制、錯誤處理串成一套可以運作的系統
+
+**本 stage 三個核心問題**：
 
 1. **Multi-agent 協作** — debate / planner-executor / peer review / handoff / supervisor-worker pattern
-2. **Harness Engineering** — agent loop / tool registry / context manager / safety / retry / telemetry / eval / cost（8 個 component、下面詳述）
-3. **進階應用**（production-grade）— eval harness / observability / cost & latency 優化 / deploy
+2. **Harness Engineering** — agent loop / tool registry（agent 可呼叫工具的清單 + 介面定義）/ context manager / safety / retry / telemetry / eval / cost（8 個核心元件、下面詳述）
+3. **Production 化** — eval harness / observability / cost & latency 優化 / 部署到可用環境
 
 **跟 Stage 5 的分工**（避免混淆）：
 
 | 跟誰比 | 那邊講什麼 | 本 stage 講什麼 |
 |---|---|---|
 | **Stage 5.5 Subagents** | Claude Code 原生 subagent 機制（markdown-based、不寫程式）| 通用 multi-agent framework（autogen / crewAI / langgraph、跨 vendor）|
-| **Stage 5.6 Claude Code source** | Claude Code source 解剖（reference harness case study）| Harness engineering 通則（discipline-level、不綁特定 vendor）|
+| **Stage 5.6 Claude Code source** | Claude Code source 解剖（參考實作 case study）| Harness engineering 通則（不綁特定 vendor）|
 
 ### ⚠ 但你真的需要 multi-agent 嗎？
 
-**Multi-agent 不是 default、是 last resort**。**Anthropic 跟 Cognition 兩家 frontier lab 在 2024-2025 都明白寫過：90% 用例其實不該用 multi-agent**——硬上會付 **3-10× token、debug 困難、context fragmentation 嚴重**。
+**Multi-agent 不是 default、是任務真的需要時才上的設計**。多數場景應先嘗試 simple workflow 或 single agent；**只有在任務天然可分解、需要平行探索、單一 context 不夠、或需要明確角色分工時，multi-agent 才值得引入**。硬上會付 **3-10× token、debug 困難、context fragmentation（context 被切散在多個 agent、彼此看不到全貌）嚴重**。
 
 | 立場 | 來源 | 核心論點 |
 |---|---|---|
-| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | 多數場景 simple workflow + single agent 就夠；multi-agent 只在「**研究型 / 並行探索**」任務真的有幫助 |
+| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | multi-agent 適合**高價值、可平行探索、需要大量工具或超出單一 context 的任務**；token 使用量可能比 single chat 高很多倍 |
 | **Cognition** | [Don't Build Multi-Agents (2025)](https://cognition.ai/blog/dont-build-multi-agents) | multi-agent 的 context fragmentation 嚴重、shared state 維護痛苦；先窮盡 single-agent + long-context 才考慮 |
 
-**4 個明確訊號**才上 multi-agent（詳見 [Stage 4 §什麼時候真的需要 multi-agent](04-agent-frameworks.md#什麼時候真的需要-multi-agent不要硬上)）：
+**4 個明確訊號**才上 multi-agent（詳見 [Stage 4 什麼時候真的需要 multi-agent](04-agent-frameworks.md#什麼時候真的需要-multi-agent不要硬上)）：
 
 1. **任務天然分解** — 大任務有清楚子步驟、能 step-by-step 完成 → Sequential / Planner-Executor
 2. **Token explosion** — single agent prompt 塞不下所有 tool description / context → Supervisor-Worker
@@ -68,16 +75,16 @@
 - 設計 multi-agent orchestration 模式（debate、planner-executor、peer review）
 - 為 agent 架一套 evaluation harness
 - 加上 observability（tracing、logging、cost tracking）
-- 用 Anthropic SDK / OpenAI SDK 做 production deploy（進階功能：streaming、prompt caching、batching）
+- 用 Anthropic SDK / OpenAI SDK 部署到可用環境（進階功能：streaming、prompt caching、batching）
 - 把 agent deploy 到 production（Docker、serverless、monitoring）
 
 ## 🚪 進入條件
 
 你應該已經：
 - 完成 Stage 4（用過至少一個 agent framework 跑 multi-agent demo）
-- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，並用 §5.6 解剖過 harness 內部）
+- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，並用 5.6 解剖過 harness 內部）
 - 完成 Stage 6（會基本 RAG，能講出 memory pattern 差異）
-- 對 Docker / git / CI 基礎熟悉（production deploy 會用到）
+- 對 Docker / git / CI 基礎熟悉（部署成可用服務會用到）
 
 沒到的話 → 補完前面幾個 stage。本 stage 是「組合所有前面學到的東西 → 跑 production」，缺一塊都會卡。
 
@@ -86,27 +93,40 @@
 1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) — 用 production 的角度再讀一次
 2. [**Anthropic — Prompt Caching**](https://www.anthropic.com/news/prompt-caching) — 90% 成本下降的技巧
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — 非同步 batch job
-4. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
-5. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 780+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
-6. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 從 Claude Code 原始碼學 harness 設計（中文）
+4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 4「Prompt Evaluations」對應本 stage eval / observability 部分**。Jupyter notebook、教怎麼系統化評估 prompt 跟 agent 行為
+5. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 780+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
+7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 從 Claude Code 原始碼學 harness 設計（中文）
 
-## 🏗 Harness Engineering — production agent runtime 的工程學 ⭐ 本 stage 核心概念
+## 🏗 Harness Engineering — production agent runtime 的工程設計 ⭐ 本 stage 核心概念
 
-### Discipline 定位：prompt → context → harness 三層
+### 定位：模型外圍的執行與控制層
 
-把 LLM 用成 production agent 系統、有 3 層**工程學科**（discipline）。每一層 cover 不同問題、後一層假設前一層已經沒問題：
+要把 LLM 變成可用的 agent，通常會碰到三層工程問題。這三層對應的是不同工程位置，不是單純用「一次 call」或「多次 call」來區分。
 
-| Discipline | 解決什麼問題 | 主要技巧 | 在哪學 |
-|---|---|---|---|
-| **1. Prompt Engineering** | 單次 LLM call 怎麼問才會準 | system prompt / few-shot / CoT / structured output | **[Stage 2](02-prompt-engineering.md)** |
-| **2. Context Engineering** | 跨多次 call 怎麼動態組裝 prompt | RAG retrieval / memory / context window 管理 / tool description 排序 | **[Stage 6](06-memory-rag.md)** + Stage 2 §進階 |
-| **3. Harness Engineering**<br>（**本節**） | 把多個 LLM call 包成 production agent runtime | agent loop / retry / safety / telemetry / observability / cost control | **本 stage** |
+> 💡 **Simon Willison 2025**：「coding agent = LLM + harness」、harness = 所有**不是 model 本身**的程式碼。
+>
+> 💡 **OpenAI 2026 也使用 "Harness Engineering" 這個說法**（見 [OpenAI Harness Engineering article](https://openai.com/index/harness-engineering)、2026-02 發布）。
 
-→ **2025 後段「harness engineering」才正式成為業界共識詞**（Anthropic / Cursor / Cognition 等 AI coding tool 團隊用得最多）——因為前兩層已經被 prompt eng / context eng 解決得差不多了、production agent 的剩餘複雜度都在 runtime 工程。
+| 層級 | 工程的對象 | 在哪學 |
+|---|---|---|
+| **1. Prompt Engineering** | 送進 LLM 的**字串**（system prompt / few-shot / 格式） | [Stage 2](02-prompt-engineering.md) |
+| **2. Context Engineering** | 視窗裡裝的**資訊**（RAG / memory / tool defs / history 組裝） | [Stage 6](06-memory-rag.md) |
+| **3. Harness Engineering**<br>（**本節**） | 模型**外圍的執行與控制層**（loop / retry / sandbox / observability / 部署） | 本 stage |
+
+**怎麼分辨自己在做哪一層？問**：
+
+1. 我改的是**字串本身**嗎？→ Prompt engineering
+2. 我改的是**塞進視窗的資訊**嗎？→ Context engineering
+3. 我改的是**呼叫模型的外圍程式**嗎？→ Harness engineering
+
+→ 三層**正交**：1 次 call 的 RAG app 也在做 context engineering（重點是組視窗）；50 次 call 但沒做 retrieval 的 chatbot 仍只在做 prompt engineering。
 
 ### Harness 的 8 個核心元件
 
-**Harness = 把 LLM agent 包成 production 系統的「工具帶」**。一個 production agent runtime 包含這 8 個元件（前 6 個是 runtime 內建、第 7 個 eval 是外掛工具、第 8 個 cost / latency 是 cross-cutting concern 跨所有層）：
+**Harness Engineering（Agent 執行系統設計）= 把 LLM、tools、memory、state、workflow control、retry、safety、eval、observability 與 deployment 串成一套可執行、可觀測、可維護的 agent 系統**。
+
+→ 所有**不屬於 model weights、也不只是 prompt string 本身**的工程元件都算 harness 範圍。一個 production-grade agent runtime 包含這 8 個核心元件（前 6 個是 runtime 內建、第 7 個 eval 是外掛工具、第 8 個 cost / latency 是跨層議題）：
 
 | 元件 | 做什麼 | 對應本 stage 練習 |
 |---|---|---|
@@ -123,7 +143,7 @@
 - **Framework**（[Stage 4](04-agent-frameworks.md)）規範 **API** — 你呼叫的介面長什麼樣
 - **Harness**（本節）規範 **runtime** — 怎麼跑、怎麼 recovery、怎麼觀測
 
-### Reference 實作
+### 參考實作
 
 想看 production-grade harness 長什麼樣？兩個 reference：
 
@@ -132,14 +152,14 @@
 
 → 本 stage 剩下的 6 個練習（multi-agent / eval / observability / SDK / deploy / cost）每個都是 harness 的一個面向。學完整 stage = 拼出完整的 harness engineering mental model。
 
-### 第 8 個 component 深入 — Cost / Latency Optimization（2024-2026 production 必修）
+### 第 8 個核心元件深入 — Cost / Latency Optimization（2024-2026 Production 化必修）
 
-Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算與用戶體驗**。2024-2026 frontier model 都把這當 first-class API feature——**會用 = 省 50-90% cost / latency**。
+Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算與用戶體驗**。2024-2026 前沿模型都把這當 first-class API feature——**會用 = 省 50-90% cost / latency**。
 
 | 技巧 | 怎麼省 | 2026 狀態 |
 |---|---|---|
 | **Prompt caching** | 重複 prefix（system prompt、long context）一次計費、後續 cache hit 折扣 ~90% | Anthropic / OpenAI / Gemini 全支援、自動或手動標記 |
-| **Model routing / cascade** | 簡單 query → 小 model、難 query → frontier model | [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) production 內建 |
+| **Model routing / cascade** | 簡單 query → 小 model、難 query → 前沿模型 | [RouteLLM](https://github.com/lm-sys/RouteLLM) / [OpenRouter](https://openrouter.ai/) production 內建 |
 | **Thinking budget** | reasoning model 可控 thinking token 上限、trade latency / quality | Claude / Gemini API 參數、o-series 預設高 |
 | **Speculative decoding** | 小 model 預測 N token、大 model 一次驗證、單 model 速度 ×2-3 | vLLM / TGI 內建、推論層自動 |
 | **Batching** | 多 query 並行處理、GPU 利用率高 | vLLM、production inference layer |
@@ -153,7 +173,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 **Track B 怎麼 build**（自己寫 agent 的人）：
 - 自架 cascade router、把 query embedding → classifier → model 對應
 - 在 agent loop 內監控 token cost、超 budget 自動降級
-- production deploy 整合 semantic cache 層
+- 部署到可用環境時整合 semantic cache 層
 - [Helicone](https://github.com/Helicone/helicone) / [langfuse](https://github.com/langfuse/langfuse) 等 observability 平台都已內建這幾招、不用自己寫
 
 ## 🛠 動手練習（基礎 illustrative 練習）
@@ -176,9 +196,9 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 ### 練習 6：Cost Optimization（新加）⭐
 量你前面任一個練習 agent 的 token cost、加上 prompt caching、再量一次。觀察 cache hit rate 跟 cost 下降的對應關係。**Bonus**：接 [RouteLLM](https://github.com/lm-sys/RouteLLM) 或 [OpenRouter](https://openrouter.ai/)、做 cascade routing（簡單 query → Haiku / 難 query → Opus），量平均 cost。
 
-## 📊 Agent Benchmark Landscape（2026-05 最新）+ ⚠ Reward-Hacking 警告
+## 📊 Agent Benchmark Landscape：怎麼看，不要只看排行榜 + ⚠ Reward-Hacking 警告
 
-挑 model / build agent 之前、你會想看 benchmark 數字——但 **2026-04 UC Berkeley 發現 8 個主流 agent benchmark 全部可被 reward-hack 到 ~100%**。下面是 2026 leaderboard 現況 + 怎麼看不被騙。
+挑 model / 打造 agent 之前、你會想看 benchmark 數字——但 **2026-04 UC Berkeley 發現 8 個主流 agent benchmark 全部可被 reward-hack 到 ~100%**。下面是 2026 leaderboard 現況 + 怎麼看不被騙。
 
 ### 主流 Agent Benchmark 2026-05 SOTA
 
@@ -188,7 +208,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal 任務 | 領先 | Claude Opus 4.5 / 4.7 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5（Princeton HAL）|
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web 導航 | **68.7%** | Claude Mythos Preview |
-| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | ~**38%** | （仍困難、有大幅成長空間）|
+| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | **76.26%**（SOTA、superhuman vs human 72.36%）| OpenAI CUA 38%、多數 frontier 仍卡 50% 以下 |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多輪對話 | （較難 hack）| Anthropic / OpenAI 領先 |
 | **RE-bench** | research engineering | （較難 hack、接近人類 baseline）| Frontier model |
 
@@ -217,7 +237,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 
 > 💡 **production agent 的 eval 紀律**：
 > - 不要把外部 benchmark 數字當 ground truth、它告訴你「上限」不是「真實表現」
-> - 你自己的 eval set（內部 hold-out test）才是 production decision 的依據
+> - 你自己的 eval set（內部 hold-out test）才是上線決策的依據
 > - 每次 model upgrade → 跑內部 eval set 驗證、不只看廠商公布的 benchmark 提升
 > - 接 [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) 把 eval 自動化、每次 deploy 都跑
 
@@ -237,7 +257,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **打造 Claude agent**（programmatic）| [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Anthropic 官方 agent SDK、跟 Claude Code 同 runtime |
 | **Deploy agent 成 API service** | [BentoML](https://github.com/bentoml/BentoML) | 最完整、Docker + serving |
 | **自架開源 LLM**（取代付費 API）| [vLLM](https://github.com/vllm-project/vllm) | 高吞吐量、★ 79k+ |
-| **Fine-tune 開源 LLM** | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | 100+ 模型統一 SFT/DPO/PPO/GRPO、Web UI 零 code、中文社群最廣、★ 70k+ |
+| **Fine-tune 開源 LLM** | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | 100+ 模型統一 SFT/DPO/PPO/GRPO、Web UI 零程式碼、中文社群最廣、★ 70k+ |
 
 **建議入手順序**：
 1. 第一個 multi-agent：**crewAI**（role-based、最簡單）
@@ -271,12 +291,12 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐⭐ | LangChain agent 快速 deploy | 底層 FastAPI |
 | | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | 自架開源 LLM 取代付費 API | 高吞吐量 LLM serving、Llama / Qwen 等。★ 79k+、Apache 2.0 |
 | **中文 deploy / fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | 中文團隊要自架開源 LLM | training-to-deployment 完整中文指南、Qwen / Llama / GLM / 多模態。★ 30k+、Apache 2.0 |
-| | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | 要 fine-tune 開源 LLM（不只 prompt eng）| 100+ 模型統一 SFT/DPO/PPO/GRPO、Web UI 零 code、中文社群最廣。★ 70k+、Apache 2.0 |
+| | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | 要 fine-tune 開源 LLM（不只 prompt eng）| 100+ 模型統一 SFT/DPO/PPO/GRPO、Web UI 零程式碼、中文社群最廣。★ 70k+、Apache 2.0 |
 | **Multi-Agent 案例研究** | [geekan/MetaGPT](https://github.com/geekan/MetaGPT) | ⭐⭐⭐⭐⭐ | 想看角色分工 + artifact 交接 pattern | SOP-based PM / Architect / Engineer multi-agent team、PRD → 設計 → code 一路產出。★ 67k+、MIT |
 | | [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev) | ⭐⭐⭐⭐ | 想看 agent debate / peer-review pattern | 對話式軟體開發、agents 在 design / code / test 互相辯論。★ 33k+、Apache 2.0、有 zh README |
 | | [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent) | ⭐⭐⭐⭐ | 理解為什麼 tool 設計 > prompt tuning | Agent-Computer Interface (ACI) 設計思路、Princeton paper-backed、SWE-Bench 領先方法。★ 19k+、MIT |
 
-> 🌳 **Claude 原生 subagent 機制**（不用 framework 也能 multi-agent）見 [Stage 5.5](05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 編排。
+> 🌳 **Claude 原生 subagent 機制**（不用 framework 也能 multi-agent）見 [Stage 5.5](05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制-2025-新功能)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 編排。
 
 ## ✅ Stage 7 之後的自我檢查
 
@@ -287,7 +307,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 - [ ] 在真實 workload 上量測 prompt caching 前後的成本差異
 - [ ] 把 agent deploy 到雲端（任何 provider）
 
-如果都可以 → 你已經跑完主路線。挑一個[特化分支](../README.md#️-7-階段學習地圖)，或回過頭來貢獻這份 repo。
+如果都可以 → 進 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**兩 track 共用 hub**）學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Sandbox）。或挑一個[特化分支](../README.md#️-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
 
 ## 💡 接下來
 
@@ -295,4 +315,4 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 1. **挑一個 production 系統** 從 prototype 推到 production
 2. **回饋上游**（LangGraph、AutoGen、MCP servers、Anthropic cookbook）
 3. **讀論文**——agent 研究進展很快
-4. **做出看得到的東西**——開源一個真的工具，不要再寫教學了
+4. **做出看得到的東西**——開源一個真的工具、不要只停留在寫教學
