@@ -31,9 +31,8 @@ jobs:
         run: |
           git checkout main
           git restore --source=upstream/main --worktree --staged .
-          git restore --source=HEAD --worktree --staged .github/workflows/upstream-sync.yml || true
-          if [ -f .github/workflows/lint.yml ]; then
-            git restore --source=HEAD --worktree --staged .github/workflows/lint.yml || true
+          if [ -d .github/workflows ]; then
+            git restore --source=HEAD --worktree --staged .github/workflows || true
           fi
 
       - name: Commit synced changes
