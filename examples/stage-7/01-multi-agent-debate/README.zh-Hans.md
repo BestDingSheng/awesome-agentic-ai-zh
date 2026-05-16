@@ -1,4 +1,6 @@
-> [繁體中文](./README.md) | **简体中文** | [English](./README.en.md)
+<div align="right">
+  <a href="./README.md">繁體中文</a> | <strong>简体中文</strong> | <a href="./README.en.md">English</a>
+</div>
 
 # 练习 1：Multi-Agent 辩论
 
@@ -8,11 +10,7 @@
 
 3 个 agent（PRO + CON + Judge）对同问题辩论：
 
-```
-            ┌────── PRO agent ──────┐
-question ──>│                       ├──> Judge ──> WINNER
-            └────── CON agent ──────┘
-```
+![Multi-agent debate：PRO / CON / Judge](../../../resources/diagrams/multi-agent-debate-flow.zh-Hans.png)
 
 PRO 跟 CON **独立** call、互不看到对方论点（避免 bias propagation）；Judge 看完两边再裁决。
 

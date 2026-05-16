@@ -1,4 +1,6 @@
-> [繁體中文](./README.md) | [简体中文](./README.zh-Hans.md) | **English**
+<div align="right">
+  <a href="./README.md">繁體中文</a> | <a href="./README.zh-Hans.md">简体中文</a> | <strong>English</strong>
+</div>
 
 # Exercise 1: Multi-Agent Debate
 
@@ -8,11 +10,7 @@ Pairs with [Stage 7 — Multi-Agent & Production](../../../stages/07-multi-agent
 
 Three agents (PRO + CON + Judge) debate the same question:
 
-```
-            ┌────── PRO agent ──────┐
-question ──>│                       ├──> Judge ──> WINNER
-            └────── CON agent ──────┘
-```
+![Multi-agent debate: PRO / CON / Judge](../../../resources/diagrams/multi-agent-debate-flow.en.png)
 
 PRO and CON are called **independently** — they don't see each other's arguments (prevents bias propagation). The Judge sees both and decides.
 
