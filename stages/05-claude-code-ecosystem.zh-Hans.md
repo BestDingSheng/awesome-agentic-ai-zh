@@ -4,6 +4,8 @@
 
 ⏱ **时间估算**：3-4 周（约 15-25 小时）
 
+> 🚪 **进入条件**（共用 hub、依 track 不同）：**Track A（CLI Power User）** 从 A1-A2 过来、会用 Python + 跑过基本 CLI 即可、从 5.1/5.2 起步；**Track B（Agent Builder）** 建议先完成 [Stage 3](03-tool-use-and-hello-agent.zh-Hans.md)（tool use）+ [Stage 4](04-agent-frameworks.zh-Hans.md)（agent frameworks）再进、把整个 stage 当「Claude Code 内部怎么运作」深读。不确定走哪条 → 看下面 📌 的两轨说明。
+
 > 💡 整个 stage 围绕 4 个关键词（**MCP / Skills / Plugins / Marketplace**）展开 → 不熟先翻 [`resources/glossary.zh-Hans.md` 5](../resources/glossary.zh-Hans.md#5-claude-code-生态)。
 
 **👥 共用 hub**：本 stage 是 Track A（CLI Power User）+ Track B（Agent Builder）两条路径的共用中心。Stage 5 跟 [Stage 8 — Agent Interfaces](08-agent-interfaces.zh-Hans.md) 是 curriculum 的两个 hub。
@@ -45,6 +47,81 @@
 
 ---
 
+## 🗺️ 7-Layer Architecture Map（先看这张图、再读 5.1-5.6）
+
+> 📋 **这节是什么**：把 Claude Code 的 7 个 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）对应到 **7 个架构层 + 3 个工程学 discipline**——进 5.1-5.6 之前先看一次，知道接下来在学什么层；学完回头看，就是 synthesis。**分层是教学选择，不是 absolute 真理**。
+
+![Claude Code 7-Layer Architecture Map](../resources/diagrams/claude-architecture-map.zh-Hans.png)
+
+> 📊 **上图**：Claude Code 7 个架构层 + 3 个工程学 discipline 整合视图（accessible ASCII 版见下）。
+
+### ASCII 版（accessible、git diff friendly）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Layer 7 — Interface       │ CLI / GUI                      │
+│            （界面层）        │ → Claude: claude-code CLI      │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 6 — Workflow        │ ◄── Skills 主要住这             │
+│            （固定流程）      │     Slash commands             │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 5 — Coordination    │ Subagents / Multi-agent        │
+│            （协调层）        │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 4 — Memory / Context│ History / Compaction / /compact │
+│            （记忆 / 上下文） │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 3 — Control Plane   │ Hooks（PreToolUse / PostToolUse）│
+│            （控制层）        │                                │
+├─────────────────────────────────────────────────────────────┤
+│  Layer 2 — Tool Use        │ Anthropic Tool Use protocol     │
+│            （工具调用）      │                                 │
+│  Layer 2.5 — Tool Provider │ ◄── MCP servers 在这(protocol层)│
+├─────────────────────────────────────────────────────────────┤
+│  Layer 1 — Foundation      │ Anthropic API（Sonnet/Opus/...) │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 每层 1 句白话 + Claude 的版本
+
+| Layer | 是什么 | Claude 的版本 | 谁管 | 学在 |
+|---|---|---|---|---|
+| **L7 Interface** | 用户和 agent 交谈入口 | claude-code CLI / Desktop | Harness Engineering | [Stage 5.1](#51--claude-code-基础) |
+| **L6 Workflow** | 固定可复用流程模板 | **Skills**（SKILL.md）+ Slash commands + **Plugins**（打包 Skills / hooks / commands、属 packaging）| Prompt Engineering | [Stage 5.3](#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层) / [5.4](#54--plugins-与-marketplaces) |
+| **L5 Coordination** | 多 agent 分工合作 | **Subagents** + Agent team + Background | Harness Engineering | [Stage 5.5](#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能) |
+| **L4 Memory / Context** | 跨对话 / 跨 session 记事情 | History / `/compact` / Memory hooks | Context Engineering | [Stage 6](06-memory-rag.zh-Hans.md) |
+| **L3 Control Plane** | tool 执行前 / 后拦截 / validation / 阻挡 | **Hooks**（PreToolUse / PostToolUse 等）| Harness Engineering | [Stage 5.1 hooks 段](#51--claude-code-基础) |
+| **L2 Tool Use** | LLM 调用外部 function 的 protocol | Anthropic Tool Use（`input_schema`）| Tool design | [Stage 3](03-tool-use-and-hello-agent.zh-Hans.md) |
+| **L2.5 Tool Provider** | 把外部 API 包成 tool 给 Layer 2 用 | **MCP servers**（Notion / Gmail / Slack）| Context Engineering + Tool | [Stage 5.2](#52--mcpmodel-context-protocol-基础) |
+| **L1 Foundation** | LLM 本体（system prompt 直接送达这一层）| Anthropic API | Prompt Engineering | [Stage 1](01-llm-basics.zh-Hans.md) + [Stage 2](02-prompt-engineering.zh-Hans.md) |
+
+### 3 工程学 Discipline overlay（核心 insight）
+
+Prompt / Context / Harness 是**不同层的 discipline**——学会其中一个，不会自动会另一个：
+
+| Discipline | 负责哪些 layer | 1 句话 | 学在 |
+|---|---|---|---|
+| **Prompt Engineering** | L1 + L6 | "送进 LLM 的字符串怎么设计" | [Stage 2](02-prompt-engineering.zh-Hans.md) |
+| **Context Engineering** | L4 + L2.5 | "context window 装什么信息" | [Stage 6](06-memory-rag.zh-Hans.md) |
+| **Harness Engineering** | L3 + L5 + L7 | "LLM 外面的 runtime scaffolding" | [Stage 7 §Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念) |
+
+> 💡 **MCP 的特殊位置**：MCP 严格说是 **Context Engineering**（feed context source）+ **Tool design**（协议规范）跨层东西，不纯归任一 discipline——所以图里用 Layer 2.5 标明。
+
+### 跨 CLI vendor mini-comparison（2026-05 snapshot）
+
+只有 Claude Code 有**完整 7-layer stack**；其他 CLI 大多停在 single-agent + 简化版：
+
+| 层 | Claude Code | OpenAI Codex | Gemini CLI |
+|---|---|---|---|
+| L5 Coordination（multi-agent）| ✅ Subagents | ❌ single-agent | ❌ |
+| L3 Control Plane（Hooks）| ✅ Hooks | ❌ | ❌ |
+| L2.5 Tool Provider（MCP）| ✅ | ✅（已支持 MCP）| ✅（需手动装 MCP server）|
+| L6 Workflow（Skills）| ✅ SKILL.md | AGENTS.md（context only）| GEMINI.md（context only）|
+
+→ 细看 [`resources/cli-agents-guide.zh-Hans.md`](../resources/cli-agents-guide.zh-Hans.md)
+
+---
+
 ## 5.1 — Claude Code 基础
 
 ### Claude Code 是什么（先定位）
@@ -78,7 +155,7 @@
 4. [**Anthropic — Settings**](https://docs.claude.com/en/docs/claude-code/settings) — `settings.json` 完整 schema + env var
 5. [**KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh**](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) — 简中入门指南
 
-> 🛠️ **要写好 CLAUDE.md？** 先看 [Stage 7.5 核心 Harness Engineering 原则（多 source 整理）](07.5-advanced-agentic-concepts.zh-Hans.md#-核心-harness-engineering-原则多-source-整理) 建概念、再用下面 2 个 prompt 动手。
+> 🛠️ **要写好 CLAUDE.md？** 先看 [Stage 7.5 核心 Harness Engineering 原则（多 source 整理）](07.5-advanced-agentic-concepts.zh-Hans.md#-跨概念-harness-engineering-原则多-source-整理) 建概念、再用下面 2 个 prompt 动手。
 
 ### 📋 CLAUDE.md 设计 prompts（依 5 原则）
 
@@ -243,7 +320,7 @@ Skill = **一个 markdown 文件**（`.claude/skills/<name>/SKILL.md`），告�
 
 > 🛠️ **要写好 SKILL.md？** 两条路：
 > - **路 A：用 Anthropic 官方 `skill-creator` skill 自动产生**（5.3.x 之后安装段落会教），它会自动产 frontmatter + 子目录结构、是 Anthropic 维护的 canonical 工具。
-> - **路 B：用下面 SKILL.md 设计 prompts 自己写**——先看 [Stage 7.5 核心 Harness Engineering 原则](07.5-advanced-agentic-concepts.zh-Hans.md#-核心-harness-engineering-原则多-source-整理) 建概念、再用 prompt 动手。
+> - **路 B：用下面 SKILL.md 设计 prompts 自己写**——先看 [Stage 7.5 核心 Harness Engineering 原则](07.5-advanced-agentic-concepts.zh-Hans.md#-跨概念-harness-engineering-原则多-source-整理) 建概念、再用 prompt 动手。
 >
 > 两条不冲突：`skill-creator` 给结构、5 原则 prompt 给内容质量检查。
 
@@ -702,16 +779,16 @@ You are a senior code reviewer. When invoked:
 
 ## 5.6 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
 
-> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 三层 lineage 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个 production-grade reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
+> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 三层 lineage 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个 production-grade reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
 
 ### 学习目标
 
 完成本节后你会：
 - 看得懂 `claude-agent-sdk-python` source 的 main loop（不是逐行、是抓得到主干）
-- 在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念)**中**前 6 个 runtime-internal 元件（agent loop / tool registry / context manager / safety layer / retry / telemetry）各自的 file:line。Stage 7 列的第 7 个 Eval 是外挂、第 8 个 Cost / Latency 是 cross-cutting、不在 source 主 loop 内、不在本练习范围
+- 在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**中**前 6 个 runtime-internal 元件（agent loop / tool registry / context manager / safety layer / retry / telemetry）各自的 file:line。Stage 7 列的第 7 个 Eval 是外挂、第 8 个 Cost / Latency 是 cross-cutting、不在 source 主 loop 内、不在本练习范围
 - 讲得出 Claude Code 的 agent loop 跟 Stage 3 练习 3 from-scratch ReAct 差在哪——production-grade 多了哪些东西
 
-> **discipline 级概念在哪**：harness engineering 是什么 / framework vs harness 差别 / prompt→context→harness 三层 lineage → 全部见 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念)**。本节只负责 Claude Code source 的 case study。
+> **discipline 级概念在哪**：harness engineering 是什么 / framework vs harness 差别 / prompt→context→harness 三层 lineage → 全部见 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**。本节只负责 Claude Code source 的 case study。
 
 ### 📚 必修阅读
 
@@ -727,7 +804,7 @@ You are a senior code reviewer. When invoked:
 **步骤**：
 1. **clone**：`git clone https://github.com/anthropics/claude-agent-sdk-python`
 2. **定位 agent loop**：找出 `_internal/client.py` 里实际发出 LLM call、收 tool_use response、dispatch 给 tool runner 的核心 loop。提示：找 `async def` 跟 `tool_use_id` 关键词
-3. **标出前 6 个 runtime-internal harness 元件**在 source 里的位置（文件名 + 行号）——对应 [Stage 7 列的 8 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念)的前 6 个（第 7 个 Eval 外挂 / 第 8 个 Cost-Latency cross-cutting 不在 source 主 loop）：
+3. **标出前 6 个 runtime-internal harness 元件**在 source 里的位置（文件名 + 行号）——对应 [Stage 7 列的 8 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)的前 6 个（第 7 个 Eval 外挂 / 第 8 个 Cost-Latency cross-cutting 不在 source 主 loop）：
    - (a) **Agent loop**：实际发出 LLM call + 收 response 的循环在哪
    - (b) **Tool registry / dispatch**：LLM 回 tool_use → 怎么 route 到对应 tool 实现
    - (c) **Context manager**：tool result 怎么写回 message history、context window 控制 / auto-compact
@@ -764,7 +841,7 @@ You are a senior code reviewer. When invoked:
 - [ ] 写一份能在特定触发词自动加载的 `SKILL.md`
 - [ ] 把 skill 打包成 plugin，再用 `marketplace.json` 发布
 - [ ] **写过 `.claude/agents/` 自定义 subagent 并从 Task tool invoke 过**
-- [ ] **读过 `claude-agent-sdk-python` 的 main loop、能在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念) 的前 6 个 runtime-internal 元件**位置（5.6 练习）
+- [ ] **读过 `claude-agent-sdk-python` 的 main loop、能在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念) 的前 6 个 runtime-internal 元件**位置（5.6 练习）
 - [ ] 从角色分工说出 MCP / Skills / Plugins / Subagents / SDK 各自的位置
 
 如果都可以 → 前往 [Stage 6 — Memory & RAG](06-memory-rag.zh-Hans.md)。

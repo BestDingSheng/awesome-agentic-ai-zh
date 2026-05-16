@@ -56,19 +56,7 @@
 
 **Multi-agent 不是 default，而是任务真的需要时才上的设计**。多数场景应先尝试 simple workflow 或 single agent；**只有在任务天然可分解、需要平行探索、单一 context 不够、或需要明确角色分工时，multi-agent 才值得引入**。硬上会付 **3-10× token、debug 困难、context fragmentation（context 被切散在多个 agent、彼此看不到全貌）严重**。
 
-| 立场 | 来源 | 核心论点 |
-|---|---|---|
-| **Anthropic** | [Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents)、[How we built our multi-agent research system (2025)](https://www.anthropic.com/engineering/built-multi-agent-research-system) | multi-agent 适合**高价值、可平行探索、需要大量工具或超出单一 context 的任务**；token 用量可能比 single chat 高很多倍 |
-| **Cognition** | [Don't Build Multi-Agents (2025)](https://cognition.ai/blog/dont-build-multi-agents) | multi-agent 的 context fragmentation 严重、shared state 维护痛苦；先穷尽 single-agent + long-context 才考虑 |
-
-**4 个明确信号**才上 multi-agent（详见 [Stage 4 什么时候真的需要 multi-agent](04-agent-frameworks.md#什么时候真的需要-multi-agent不要硬上)）：
-
-1. **任务天然分解** — 大任务有清楚子步骤、能 step-by-step 完成 → Sequential / Planner-Executor
-2. **Token explosion** — single agent prompt 塞不下所有 tool description / context → Supervisor-Worker
-3. **角色冲突** — 同一个 LLM 既当 writer 又当 critic 会 self-justify → Debate / Peer review
-4. **平行加速** — 3 个 research 子任务同时跑、wall-clock 1/3 → Parallel / Map-Reduce
-
-**4 个信号都不在？** → single agent + 好 prompt + tool use 就够，别硬上 multi-agent。**本 stage 的 harness engineering 部分（8 个元件 / eval / observability）即使你最后用 single agent 也都会用到**——所以即使你决定不走 multi-agent，本 stage 仍是必修。
+> 📌 **决策框架的 canonical 在 Stage 4**：完整的 Anthropic / Cognition 立场对照 + 4 个"该上 multi-agent"信号 + 每个信号对应的 pattern，见 [Stage 4 §什么时候真的需要 multi-agent](04-agent-frameworks.zh-Hans.md#什么时候真的需要-multi-agent不要硬上)（设计阶段决策）。本节只做 production 前的最后回头检查——**4 个信号一个都不在？** → single agent + 好 prompt + tool use 就够，别硬上 multi-agent。**本 stage 的 harness engineering 部分（8 个元件 / eval / observability）即使你最后用 single agent 也都会用到**——所以即使你决定不走 multi-agent，本 stage 仍是必修。
 
 ## 📌 学习目标
 
@@ -296,7 +284,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | | [OpenBMB/ChatDev](https://github.com/OpenBMB/ChatDev) | ⭐⭐⭐⭐ | 想看 agent debate / peer-review pattern | 对话式软件开发、agents 在 design / code / test 互相辩论。★ 33k+、Apache 2.0、有 zh README |
 | | [princeton-nlp/SWE-agent](https://github.com/princeton-nlp/SWE-agent) | ⭐⭐⭐⭐ | 理解为什么 tool 设计 > prompt tuning | Agent-Computer Interface (ACI) 设计思路、Princeton paper-backed、SWE-Bench 领先方法。★ 19k+、MIT |
 
-> 🌳 **Claude 原生 subagent 机制**（不用 framework 也能 multi-agent）见 [Stage 5.5](05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 编排。
+> 🌳 **Claude 原生 subagent 机制**（不用 framework 也能 multi-agent）见 [Stage 5.5](05-claude-code-ecosystem.zh-Hans.md#55--subagentsclaude-code-原生-multi-agent-机制-2025-新功能)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 编排。
 
 ## ✅ Stage 7 之后的自我检查
 
@@ -307,7 +295,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 - [ ] 在真实 workload 上量测 prompt caching 前后的成本差异
 - [ ] 把 agent deploy 到云端（任何 provider）
 
-如果都可以 → 进 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**两 track 共用 hub**）学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Sandbox）。或挑一个[特化分支](../README.md#️-7-阶段学习地图)、或回头来贡献这份 repo。
+如果都可以 → 先进 [**Stage 7.5 — 进阶 Agentic 概念地图**](07.5-advanced-agentic-concepts.md)（1 周、不写 code、建立 frontier 概念地图、定位业界还在讨论哪些进阶概念），再进 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**两 track 共用 hub**）学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Sandbox）。或挑一个[特化分支](../README.zh-Hans.md#-学习地图两条学习路径)、或回头来贡献这份 repo。
 
 ## 💡 接下来
 

@@ -14,7 +14,7 @@
 | Term | Chinese | One-liner |
 |---|---|---|
 | **token** | 詞元 | the unit LLMs use to count text length and price (1 Chinese char ≈ 1.5-2 tokens; 1 English word ≈ 1.3 tokens) |
-| **context window** | 上下文視窗 | How many tokens the model sees at once (Claude 200k / GPT-4o 128k / Gemini 2M) |
+| **context window** | 上下文視窗 | How many tokens the model sees at once (Claude 1M / GPT ~400k / Gemini 2M) |
 | **temperature** | 隨機程度參數 | Controls how stable or creative the output is (0 = deterministic, 1 = creative; use 0.0-0.3 for classification, 0.7-1.0 for creative writing) |
 
 → These 3 terms run through every later stage. The goal of Stage 1 is to call the API yourself and feel firsthand how they shape the output.
@@ -42,7 +42,7 @@ These 3 are SaaS APIs: you pay per token and cannot self-host them.
 
 | Model family | Flagship (2026-05) | Context | Strengths | Best for | Official docs |
 |---|---|---|---|---|---|
-| **Claude** (Anthropic) | Opus 4.7 / Sonnet 4.6 / Haiku 4.5 | 200k (Sonnet 4.6 ent 1M) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude** (Anthropic) | Opus 4.7 / Sonnet 4.6 / Haiku 4.5 | 1M (Haiku 4.5 is 200k) | long-form / coding / agent / safety alignment | writing papers / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT** (OpenAI) | GPT-5.5 / GPT-5 / o-series | ~400k | general-purpose / function calling / broadest ecosystem | broad queries / function-call frameworks / GPTs ecosystem | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini** (Google) | 3.1 Pro / Flash | **2M** (Pro series; Flash is 1M) | long context / native multimodal / Google integration | PDF / video and audio / large document sets / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 
@@ -127,7 +127,7 @@ If not — go back to Stage 0 first.
 
 > 🦙 **This stage defaults to Ollama** (cost-driven; `gemma4:e4b` runs locally for $0/run). Every exercise has Path A (Ollama, default) + Path B (Anthropic, optional — use it when you want to see cloud-quality answers). Full three-path trade-off in [`examples/README.en.md`](../examples/README.en.md#three-paths--default-is-ollama-cost-driven).
 >
-> 💰 **Stage 1 budget estimate** (all 6 exercises, 3-5 runs each): **all local = $0**, **all haiku ≈ $0.30**, **all sonnet ≈ $0.90**. Full model list + Stage 1-7 total budget: [`examples/README.en.md#recommended-llm-list`](../examples/README.en.md#recommended-llm-list-local--cloud-user-perspective).
+> 💰 **Stage 1 budget estimate** (all 6 exercises, 3-5 runs each): **all local = $0**, **all haiku ≈ $0.30**, **all sonnet ≈ $0.90**. Full model list + Stage 1-7 total budget: [`examples/README.en.md#recommended-llm-list`](../examples/README.en.md#recommended-llm-list).
 >
 > 💡 **No Ollama yet?** Each exercise also ships a Path B Anthropic version — pick one. To enable Path A in one step: [`pip install openai && ollama pull gemma4:e4b`](https://ollama.com).
 

@@ -83,7 +83,7 @@ Track A users are **already using** [Stage 7.5 advanced concepts](../../stages/0
   |---|---|
   | HumanLayer | [Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) |
   | Anthropic | [How Anthropic teams use Claude Code (PDF)](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf) |
-  | Internal | [Stage 7.5 🧭 work boundary stack](../../stages/07.5-advanced-agentic-concepts.en.md#-core-mental-model-the-four-layer-work-boundary) |
+  | Internal | [Stage 7.5 🧭 work boundary stack](../../stages/07.5-advanced-agentic-concepts.en.md#-concept-map-spine-the-four-layer-work-boundary) |
 
 ### 📋 Playbook 2: Multi-agent parallel runs, results conflict
 
@@ -165,7 +165,7 @@ Track A users are **already using** [Stage 7.5 advanced concepts](../../stages/0
   |---|---|
   | HumanLayer | [Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) |
   | agent-collab-skills | [observed-failure-modes.md](https://github.com/WenyuChiou/agent-collab-skills/blob/main/docs/observed-failure-modes.md) |
-  | Internal | [Stage 7.5 🔁 failure-mode lifecycle](../../stages/07.5-advanced-agentic-concepts.en.md#-failure-mode-lifecycle-how-f11-f14-evolved) |
+  | Internal | [Stage 7.5 🔁 failure-mode lifecycle](../../stages/07.5-advanced-agentic-concepts.en.md#-failure-mode-lifecycle-how-industry-agent-failures-evolved-into-best-practice) |
 
 ---
 
@@ -229,7 +229,7 @@ Can you:
 - [ ] Packaged your CLAUDE.md / commands at least once (even just for yourself)
 - [ ] Know which tasks deserve observability and which don't
 
-If yes → **Track A complete**. Pick a [specialized branch](../../README.en.md#️-learning-map-two-tracks) and continue (researcher / developer / teacher / knowledge-worker / everyday-users).
+If yes → **Track A complete**. We recommend continuing to [**Stage 8 — Agent Interfaces**](../../stages/08-agent-interfaces.en.md) (**a shared hub for both tracks**: Computer Use / Browser Use / Code Sandbox, ~1-2 weeks from the Track A angle), or pick a [specialized branch](../../README.en.md#️-learning-map-two-tracks) and continue (researcher / developer / teacher / knowledge-worker / everyday-users).
 
 If you want to go deeper into "**how to write your own CLI agent**" (not use existing) → jump to [Track B Stage 3](../../stages/03-tool-use-and-hello-agent.en.md). Track A and Track B are complementary.
 

@@ -4,6 +4,8 @@
 
 ⏱ **時間估算**：3-4 週（約 15-25 小時）
 
+> 🚪 **進入條件**（共用 hub、依 track 不同）：**Track A（CLI Power User）** 從 A1-A2 過來、會用 Python + 跑過基本 CLI 即可、從 5.1/5.2 起步；**Track B（Agent Builder）** 建議先完成 [Stage 3](03-tool-use-and-hello-agent.md)（tool use）+ [Stage 4](04-agent-frameworks.md)（agent frameworks）再進、把整個 stage 當「Claude Code 內部怎麼運作」深讀。不確定走哪條 → 看下面 📌 的兩軌說明。
+
 > 💡 整個 stage 圍繞 4 個關鍵詞（**MCP / Skills / Plugins / Marketplace**）展開 → 不熟先翻 [`resources/glossary.md` 5](../resources/glossary.md#5-claude-code-生態)。
 
 **👥 共用 hub**：本 stage 是 Track A（CLI Power User）+ Track B（Agent Builder）兩條路徑的共用中心。Stage 5 跟 [Stage 8 — Agent Interfaces](08-agent-interfaces.md) 是 curriculum 的兩個 hub。
@@ -49,7 +51,9 @@
 
 > 📋 **這節是什麼**：把 Claude Code 的 7 個 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）對應到 **7 個架構層 + 3 個工程學 discipline**——進 5.1-5.6 之前看一次知道接下來在學什麼層、學完回頭看是 synthesis。**分層是教學選擇、不是 absolute 真理**。
 
-> 📊 PNG 版（PNG 待 user 生成、目前先用下面 ASCII）：`resources/diagrams/claude-architecture-map.png`
+![Claude Code 7-Layer Architecture Map](../resources/diagrams/claude-architecture-map.png)
+
+> 📊 **上圖**：Claude Code 7 個架構層 + 3 個工程學 discipline 整合視圖（accessible ASCII 版見下）。
 
 ### ASCII 版（accessible、git diff friendly）
 
