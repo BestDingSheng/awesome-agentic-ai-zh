@@ -279,7 +279,7 @@ Prompt / Context / Harness 是**不同层的 discipline**——学会其中一�
 | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk) | ⭐⭐⭐⭐ | 喜欢 TS 的人 | Python SDK 的 TypeScript 版、MIT |
 | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) ⭐ 目录 | ⭐⭐⭐⭐⭐ | 自己写前先找有没有现成的 | 150+ 社区 MCP server 目录，按 search / code / cloud / communication / finance 分类。投稿走 mcpservers.org |
 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | ⭐⭐⭐⭐ | 跟 wong2 交叉比对 | 另一份 MCP server 目录、组织方式不同、通常更新更实时 |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | 想看 production-grade MCP server source | GitHub 官方维护、真正 production 在跑的范例 |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | 想看实际上线的 MCP server source | GitHub 官方维护、真正 production 在跑的范例 |
 | [21st-dev/magic-mcp](https://github.com/21st-dev/magic-mcp) | ⭐⭐⭐ | 做完练习 2 找灵感 | 会生成 UI 组件的非平凡 MCP server、★ 4.8k+、NOASSERTION。**看 MCP 不只能做数据抓取** |
 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | ⭐⭐⭐⭐⭐ | 喂整个 codebase 给 LLM | ★ 24k+、MIT。把 repo 打包成单个 AI-friendly 文件，带 MCP server mode + tree-sitter 压缩（约 70% token 节省）+ secretlint 过滤敏感信息。**Claude Code / Codex 的 daily-driver 工具。** |
 
@@ -735,7 +735,7 @@ You are a senior code reviewer. When invoked:
 
 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|
-| [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) ⭐ 官方 | ⭐⭐⭐⭐⭐ | 5.5 完成后想看“production-grade 怎么长” | Anthropic 官方 chapter-length 范例。**`tool_use/customer_service_agent.ipynb`** = orchestrator-workers canonical（multi-agent routing + handoff）。Python / Jupyter notebook、MIT。**注**：`computer_use_demo` 完整版在另一个 repo [`claude-quickstarts/computer-use-demo`](https://github.com/anthropics/claude-quickstarts/tree/main/computer-use-demo) |
+| [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) ⭐ 官方 | ⭐⭐⭐⭐⭐ | 5.5 完成后想看“实际在用的 agent 范例怎么写” | Anthropic 官方 chapter-length 范例。**`tool_use/customer_service_agent.ipynb`** = orchestrator-workers canonical（multi-agent routing + handoff）。Python / Jupyter notebook、MIT。**注**：`computer_use_demo` 完整版在另一个 repo [`claude-quickstarts/computer-use-demo`](https://github.com/anthropics/claude-quickstarts/tree/main/computer-use-demo) |
 | [wshobson/agents](https://github.com/wshobson/agents) ⭐ subagent canonical | ⭐⭐⭐⭐⭐ | 写过 1-2 个 subagent 想看真实 team 范本 | 50+ subagent definition 的 production workflow pattern collection。**看 `.claude/agents/` 目录结构 + 命名 convention + 跨 agent handoff 写法** |
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 想看 skill + subagent 混搭实践 | 在 Stage 5.3 已介绍。**重点看“什么任务归 skill、什么归 subagent”决策**——production 范本 |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) 官方 | ⭐⭐⭐⭐ | 看 plugin 怎么打包 subagent | 在 Stage 5.4 已介绍。每个 plugin 内 `agents/` 子目录是 subagent definition、看打包方式 |
@@ -752,14 +752,14 @@ You are a senior code reviewer. When invoked:
 
 ## 5.6 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
 
-> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 三层 lineage 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个 production-grade reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
+> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 三层 lineage 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个被广泛使用的 reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
 
 ### 学习目标
 
 完成本节后你会：
 - 看得懂 `claude-agent-sdk-python` source 的 main loop（不是逐行、是抓得到主干）
 - 在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**中**前 6 个 runtime-internal 元件（agent loop / tool registry / context manager / safety layer / retry / telemetry）各自的 file:line。Stage 7 列的第 7 个 Eval 是外挂、第 8 个 Cost / Latency 是 cross-cutting、不在 source 主 loop 内、不在本练习范围
-- 讲得出 Claude Code 的 agent loop 跟 Stage 3 练习 3 from-scratch ReAct 差在哪——production-grade 多了哪些东西
+- 讲得出 Claude Code 的 agent loop 跟 Stage 3 练习 3 from-scratch ReAct 差在哪——上线部署的 agent 多了哪些东西
 
 > **discipline 级概念在哪**：harness engineering 是什么 / framework vs harness 差别 / prompt→context→harness 三层 lineage → 全部见 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**。本节只负责 Claude Code source 的 case study。
 
@@ -784,7 +784,7 @@ You are a senior code reviewer. When invoked:
    - (d) **Safety layer**：tool 执行前有没有 permission gate / sandboxing
    - (e) **Retry / recovery**：tool fail 时怎么处理（exception vs LLM 自己看 error 反思）
    - (f) **Telemetry**：metrics / logging / token counting 接在哪
-4. **写一段 80-150 字摘要**：“Claude Code 的 agent loop 跟你 Stage 3 练习 3 from-scratch ReAct 差在哪”。重点不是“Claude Code 比较复杂”这种废话，是**讲得出多了哪些东西、为什么那些是 production-grade 必须**
+4. **写一段 80-150 字摘要**：“Claude Code 的 agent loop 跟你 Stage 3 练习 3 from-scratch ReAct 差在哪”。重点不是“Claude Code 比较复杂”这种废话，是**讲得出多了哪些东西、为什么那些是上线部署必须有的**
 
 **交付物**：一段笔记（写在自己的 obsidian / notion / `.md` 都行），不必交。但**讲不出来你就还没懂**——这是进 Stage 7 production deploy 之前的必要 mental model。
 
@@ -799,9 +799,81 @@ You are a senior code reviewer. When invoked:
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 所有 Track B 学习者、想搞清楚“Claude Code 内部怎么跑” | **canonical Python harness、本节练习就是读这个 repo**。后面 Stage 7 deploy 也会 import |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | 中文 reader 想看“为什么 Claude Code 这样设计” | 中文圈最完整 CC 内部解读（harness 概念 → CC 实现 → 跟其他 AI coding tool 对比）。**配合 SDK source 互补看**——一个告诉你“怎么做”、一个告诉你“为什么这么做” |
 | [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.6 读完想扩大视野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 1.1k+）。**广度资源库、非教程**——挑感兴趣的 sub-topic 钻进去 |
-| [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 写完 5.5 自己的 subagent 后想看 production-grade 范本 | 50+ subagent definition 的 ergonomic 设计（description / tool list / system prompt 分层）。**读 source 比读文件学得多**。在 5.5 已介绍、本节 cross-ref |
+| [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 写完 5.5 自己的 subagent 后想看实际在用的范本 | 50+ subagent definition 的 ergonomic 设计（description / tool list / system prompt 分层）。**读 source 比读文件学得多**。在 5.5 已介绍、本节 cross-ref |
 
 > 💡 **本节跟 Stage 7 的差别**：本节学“Claude Code 这个 harness 怎么跑”（具体 reference）；Stage 7 学“production harness 一般要有什么”（抽象 pattern）。**先具体后抽象**、看完本节再进 Stage 7 会轻松很多。
+
+---
+
+## 5.7 — SDK：把 Claude Code 拆开来自己组 ⭐ Track B 可选、production 才需要
+
+> 🎯 **这节是给谁看的**：99% 的人读完 5.1-5.6 已经够用，**只在你想做 CLI 做不到的事**才往下走。Stage 5.6 叫你读 SDK source 是为了理解 harness 内部；这节是为了让你**会用 SDK** 包成自己的服务。
+
+### 1 个比喻把 SDK / CLI / `CLAUDE.md` 分清楚
+
+- **CLI**（`claude` / `codex` / 等）= 一台**现成的车子**，点一下就能上路
+- 改 `CLAUDE.md` / `AGENTS.md` / 加 hooks / 写 skills = **调车子的性能**，让它开得更顺、更贴你工作习惯 —— 一样是这台车
+- **SDK**（`claude-agent-sdk-python` / `openai-agents-python`）= **把车子从引擎开始重造一台** —— 用 Python / TS 控制 agent loop、tool dispatch、memory 怎么接
+
+**99% 的学习者天花板停在“调车”就够了。** 只在“调车怎么调都到不了你要的场景”时，才需要爬到 SDK。
+
+### 阶梯式三层 —— 你现在在哪？
+
+1. **第 1 层 直接用 CLI** —— 90% 的个人 + 团队使用情境。看 5.1
+2. **第 2 层 CLI + 自定** —— 写 `CLAUDE.md`、加 hooks、自己写 skill、套 plugin。看 5.1-5.4。**多数人停在这层、且够用**
+3. **第 3 层 SDK** —— 把 agent 嵌进你的应用。这节在教
+
+### 什么时候才需要爬到第 3 层
+
+具体场景（不抽象）：
+- **嵌进你已有的 web app / 后端** —— 用户不开 terminal，就不能用 CLI
+- **cron / scheduler 自动触发** —— 没有人在 session 里点 enter，CLI 交互模式不适用
+- **公司内部包一层** —— 加 auth、audit log、限额、自定 prompt template，让 CLI 的能力以受控方式对外
+- **同时跑多 agent、要 programmatic 控制 hand-off** —— 比 Stage 5.5 的 Task tool 更细的控制权
+
+如果你做的不在上面，你大概不需要 SDK。**该回 5.1-5.4。**
+
+### Hello SDK（4 行 Python）
+
+```python
+from claude_agent_sdk import query
+
+async for msg in query(prompt="用 git status 看当前状态"):
+    print(msg)  # 所有 message type 都能 print；要拿 agent 回复要 filter AssistantMessage
+```
+
+就这样 —— 包进 `async def` 就能跑。`query()` 会 yield 多种 message type（`AssistantMessage` / `ResultMessage` / `SystemMessage` 等），上面的 `print(msg)` 全部都能安全打印；想拿到 agent 真正的回复要 `isinstance(msg, AssistantMessage)` 再取 `msg.content` —— retry / streaming / prompt caching 等进阶用法在 Stage 7 练习 4。
+
+### vs CLI / vs 自定 对照表（看完上面再看这张）
+
+| | CLI（claude / codex） | CLI + 自定（改 CLAUDE.md / hooks） | SDK |
+|---|---|---|---|
+| 嵌进你的 app | ❌ | ❌ | ✅ |
+| cron / 排程跑 | ⚠️ 勉强（`-p` flag） | ⚠️ 同左 | ✅ |
+| 换语言 / 环境 | 绑 Node / Bash | 同左 | Python / TS 随你 |
+| programmatic 控制 | ❌ | ❌ | ✅ |
+| 客制 system prompt | 受限 | 受限 | 完全自由 |
+| 学习成本 | 1 天 | 1-2 周 | 1 个月+ |
+| 适合谁 | 个人日常用 | 个人 / 小团队长期用 | 包成产品 / 服务 |
+
+### 两个主要 SDK
+
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | [openai-agents-python](https://github.com/openai/openai-agents-python) |
+|---|---|---|
+| 出品 | Anthropic 官方 | OpenAI 官方 |
+| 模型 | Claude（Opus / Sonnet / Haiku） | OpenAI 系列 + 其他 |
+| 强项 | 跟 Claude Code 一致的 tool / skill / hook 抽象 | handoff / agents-as-tools 模式、2026-04 内建 sandbox |
+| 适合 | 已在用 Claude Code 想嵌服务的人 | 已 commit OpenAI 生态的人 |
+
+两个都 MIT 授权、API 设计干净，**重点是你的下游选哪家模型**。
+
+### 接下来
+
+- **看代码**：回 5.6，读 `claude-agent-sdk-python` 的 `_internal/client.py` —— 你现在会用 SDK 了，读那边的 main loop 会看懂更多
+- **动手练 SDK 进阶**：Stage 7 练习 4（streaming + prompt caching）；Stage 7 练习 5（FastAPI + Docker production deploy）
+- **如果你发现你其实不需要 SDK**：那很好 —— 回 5.1-5.4，把 CLI + 自定这层用透，通常已经比写 SDK 划算
+
+> 💡 **本节跟 Stage 7 的区别**：本节学“SDK 是什么、什么时候用”（定位 + 入门）；Stage 7 学“用 SDK 写一个可上线部署的 agent 服务”（streaming / caching / deploy）。
 
 ---
 

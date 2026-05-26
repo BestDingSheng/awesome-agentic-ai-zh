@@ -7,7 +7,7 @@
 對應 [Stage 3 — Tool Use & Agent 入門](../../../stages/03-tool-use-and-hello-agent.md) 練習 3。
 > 🎓 **學習模式**：這份 `starter.py` 是**完整解答**、不是 TODO skeleton。建議用**主動模式**——`mv starter.py starter_reference.py`、看 signature 不看 body、自己重寫一份 `starter.py`、跑 `python test.py` 驗證；卡 20 分鐘再回去對照 reference。完整方法論看 [`docs/HOW_TO_USE.md`](../../../docs/HOW_TO_USE.md)。
 
-> 📚 **想要 chapter-length 深入版？** 本 folder 的 starter 是 70-150 行 illustrative 版、聚焦 `核心 pattern + 兩條 SDK path`，不是 production-grade tutorial。深度教材推薦：
+> 📚 **想要 chapter-length 深入版？** 本 folder 的 starter 是 70-150 行 illustrative 版、聚焦 `核心 pattern + 兩條 SDK path`，不是進階深度教材。深度教材推薦：
 > - [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents) ⭐ 中文圈最完整、章節式 + 16 種 production 能力。**本練習對應 hello-agents 的 ReAct 章節（搭配 [`learn_version` 分支](https://github.com/jjyaoao/HelloAgents/tree/learn_version)）**
 > - [ReAct 原論文](https://arxiv.org/abs/2210.03629)（Yao et al. 2022 第 3 節） + [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch)（本機 LLM 從零實作）
 > - 完整 references 見 [Stage 3 精選 Projects](../../../stages/03-tool-use-and-hello-agent.md#-精選-projects)
@@ -58,7 +58,7 @@ python starter_anthropic.py
 預期看到（Path A、本機）：
 
 ```
-❓ 問題：台北人口除以紐約人口、答案保留 4 位小數。
+❓ 問題：'台北人口' 除以 '紐約人口'、答案保留 4 位小數。
 ------------------------------------------------------------
 [step 0] thought: 我先查台北人口...
            tool: lookup_fact({'query': '台北人口'}) → 2602000

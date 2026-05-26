@@ -134,10 +134,11 @@ Slack / Gmail / Discord 等。Anthropic 原本維護的 reference server 已於 
 | **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity（網頁版） | 大多數知識工作者從這裡開始 | 0（會用瀏覽器就行） |
 | **Tier 1** | Claude Desktop + MCP（Gmail / Notion / 行事曆） | 要對本機 / 雲端檔案重複跑流程 | 半天裝好 |
 | **Tier 2** | n8n / Make / Langflow（自動化平台） | 要把多個 SaaS 工具串起來、不寫 code | 1 週 setup |
-| **Tier 3** | Claude Code / Codex / 自己寫 Python | 有 dev 背景或團隊有 dev 支援、要 production-grade | 數週、跟 Track A 重疊 |
+| **Tier 3** | Claude Code / Codex / 自己寫 Python | 有 dev 背景或團隊有 dev 支援、要做能上線部署的成果 | 數週、跟 Track A 重疊 |
 
 **Tier 3+（CLI / SDK）對多數知識工作者任務來說太重**——不要被別人慫恿過去。多數人停在 Tier 1-2 就夠。
 
 ## 閱讀
 
 - [How I Turned Claude Code Into My Personal AI Agent OS](https://aimaker.substack.com/p/how-i-turned-claude-code-into-personal-ai-agent-operating-system-for-writing-research-complete-guide) — 知識工作者個案研究
+- [**Anthropic — The Founder's Playbook**](https://claude.com/blog/the-founders-playbook) — Anthropic 2026-05-14 發布的 35 頁 startup 指南;Idea / MVP / Launch / Scale 四階段對應到 2026 AI capability
