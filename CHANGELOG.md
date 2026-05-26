@@ -6,6 +6,13 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-05-25
+
+- **tooling** · `scripts/check-catalog-staleness.py` shipped — queries `gh api repos/<owner>/<repo>` for `pushed_at` + `archived`, flags catalog entries dormant >= N months (default 12) or archived. Report-only (text / markdown / json). Initial run on the 247-repo catalog surfaced 17 stale entries: 5 archived (incl. `langchain-ai/langserve` archived 2026-05-05 still cited as live, `RooCodeInc/Roo-Code` archived 2026-05-15 in setup-guide) + 12 dormant (oldest: `microsoft/prompt-engine` 37 mo).
+- **i18n** · Stage 1 + Stage 2 mirror schema resync — `## 🎯 Curated Projects` regenerated from canonical (en hand-translated · zh-Hans via opencc tw2s + zh-hans-localize vocab); −358 lines of stale H3-card format replaced with compact-table parity to canonical. Also normalized 5 Stage 1 .zh-Hans H2 titles back to canonical wording + emoji. Eliminates the forward-schema drift documented in `MIRROR-SYNC-TODO.md`.
+
+---
+
 ## 2026-05-19
 
 - **catalog** · `microsoft/ai-agents-for-beginners` added to Stage 3 選讀/進階補充 as a parallel beginner course (explicitly *not* a substitute for the stage's hands-on practice), tri-locale (`2d83f72`, `94f2d73`).
