@@ -34,6 +34,8 @@
 | 2 | **Context Engineering** | 這次該給模型哪些資訊？ | **多次互動中的上下文** | [Stage 6](06-memory-rag.md) |
 | **3** | **Harness Engineering**<br>（**本 stage**） | 整個流程怎麼跑起來？ | **可執行的 LLM workflow / system** | **本 stage** |
 
+> 🔁 **下一層：Loop Engineering（迴圈工程）**：prompt → context → harness 之後，2026 浮現的第四層是「**設計 agent 的迭代迴圈本身**」——目標、可用工具、context 管理、**終止條件**、錯誤處理，讓 agent 跑數百步、跨 session 仍可靠。Claude Code 的 `/goal`（給一個可驗證的完成條件、agent 自己 loop 到達成）就是這個方向；[Stage 5.6 Dynamic Workflows](05-claude-code-ecosystem.md) 則是 agent 自己寫出 loop 腳本。譜系：ReAct（2022）→ AutoGPT（2023）→ /goal（2026）。
+
 **白話差異**：
 - **Prompt** = 設計一個好的問法，讓模型這次回答準
 - **Context** = 動態決定要放入哪些背景、記憶、文件、工具結果，讓模型知道現在情境
@@ -200,7 +202,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多輪對話 | （較難 hack）| Anthropic / OpenAI 領先 |
 | **RE-bench** | research engineering | （較難 hack、接近人類 baseline）| Frontier model |
 
-> **新頂層（2026-06-09）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）已成為對外開放的最高能力 Claude 層級；其姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放寬、限定核准客戶）同日發布。上表數字維持原本歸屬的 model；Fable 5 官方 benchmark 數字尚未公布，故未列入。Opus 4.8 仍為 Opus-class 旗艦，並作為 Fable 5 的安全回退（敏感查詢回退至 Opus 4.8）。
+> **Mythos-class 層級（2026-06-09 發布、2026-06-12 暫停存取）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）曾短暫成為對外開放的最高能力 Claude 層級，與姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放寬、限定核准客戶）同日發布。⚠️ **2026-06-12 美國出口管制指令暫停了兩者全部存取（[狀態頁](https://status.claude.com/) · [官方聲明](https://www.anthropic.com/news/fable-mythos-access)），目前無法使用且無恢復時程。** 上表數字維持原本歸屬的 model；Fable 5 官方 benchmark 數字始終未公布，故未列入。**Opus 4.8 仍為 Opus-class 旗艦，也是目前可用的最高層級。**
 
 → 詳細排行 + 即時更新：[Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/)、[Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
@@ -230,6 +232,8 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 > - 你自己的 eval set（內部 hold-out test）才是上線決策的依據
 > - 每次 model upgrade → 跑內部 eval set 驗證、不只看廠商公布的 benchmark 提升
 > - 接 [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) 把 eval 自動化、每次 deploy 都跑
+
+> 📊 **observability 認一個可攜標準 + 兩個評估觀念**：(1) **OpenTelemetry GenAI 慣例**（`gen_ai.*` semantic conventions）——langfuse / Arize Phoenix / Helicone 都吐 OTel-相容 span，認這層才不被單一工具綁死；OTel-native 的 [Arize Phoenix](https://github.com/Arize-ai/phoenix)（★10k）可看。(2) **pass^k**（同一題連對 k 次的機率 = 可靠度，不是只看過一次）+ [τ²-bench](https://github.com/sierra-research/tau2-bench)。(3) 多 agent 失敗有現成詞彙：**MAST**（[arXiv 2503.13657](https://arxiv.org/abs/2503.13657)、14 種失敗模式分 3 類）。
 
 ## 🎯 常用 Multi-Agent / Production 工具推薦（按用途分類）
 

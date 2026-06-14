@@ -224,6 +224,27 @@ Prompt / Context / Harness 是**不同层的 discipline**——学会其中一�
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐⭐ | 想看社区有什么（slash commands / skills / hooks 范例）| 较广泛的资源清单（目前正在重整）|
 | [KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh) | ⭐⭐⭐⭐ | 中文读者要逐步教学 | 简中入门导读 |
 
+### Hooks（L3 控制层）⭐ 把规则写成程序、自动拦截
+
+MCP / Skills 是“给 agent 更多能力”；**Hooks 则是反过来：在 agent 的生命周期事件上挂你自己的 script，做检查、拦截、注入**。这是 Claude Code 的控制层（架构图的 L3）。
+
+**怎么运作**：在 `settings.json` 的 `hooks` 里设置“某事件发生时跑哪个 command”。常用事件（2026 已扩到 ~28 个，先记核心几个）：
+
+| 事件 | 触发时机 | 典型用途 |
+|---|---|---|
+| `PreToolUse` | 工具调用前 | 挡危险指令、权限 gate |
+| `PostToolUse` | 工具调用后 | 自动 format / lint / 跑测试 |
+| `UserPromptSubmit` | 你发送 prompt 时 | 注入 context、挡掉某些输入 |
+| `Stop` / `SubagentStop` | （子）agent 想停时 | 强制它继续、或做收尾检查 |
+| `SessionStart` / `SessionEnd` | session 开始 / 结束 | 加载状态、写 log |
+| `PreCompact` | context 压缩前 | 保护重要内容 |
+
+**关键语义**：hook **返回 exit code 2 = 阻挡**：Claude 会把 stderr 当错误信息读回去（例如 `PreToolUse` 返回 2 就挡下那个工具调用、`UserPromptSubmit` 返回 2 就挡下 prompt）。这就是“用程序强制规则”的机制。
+
+> ⚠️ **安全**：hook 是在你机器上跑的 shell command，别乱装别人的 hook，也别在 hook 里跑未经检查的输入。
+>
+> 完整事件清单 + JSON 进阶用法见官方文档：[Claude Code Hooks](https://code.claude.com/docs/en/hooks)。
+
 ---
 
 ## 5.2 — MCP（Model Context Protocol）⭐ 基础
@@ -270,7 +291,7 @@ Prompt / Context / Harness 是**不同层的 discipline**——学会其中一�
 ### 精选 Projects（spec / SDK / 范本参考）
 
 > 💡 **找日常工具的 MCP（Notion / Obsidian / Excel / Postgres / Playwright / Figma 等）？**
-> 看 [`resources/mcp-skills-catalog.zh-Hans.md`](../resources/mcp-skills-catalog.zh-Hans.md)——按 15 个分类整理 65+ 个常用 MCP server / Skill，每个都附 stars / license / 适合谁。下表保留的是“**写自己 MCP server 时的 reference**”性质的官方 server / SDK。
+> 看 [`resources/mcp-skills-catalog.zh-Hans.md`](../resources/mcp-skills-catalog.zh-Hans.md)——按 16 个分类整理 65+ 个常用 MCP server / Skill，每个都附 stars / license / 适合谁。下表保留的是“**写自己 MCP server 时的 reference**”性质的官方 server / SDK。
 
 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|
@@ -282,6 +303,8 @@ Prompt / Context / Harness 是**不同层的 discipline**——学会其中一�
 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | ⭐⭐⭐⭐ | 想看实际上线的 MCP server source | GitHub 官方维护、真正 production 在跑的范例 |
 | [21st-dev/magic-mcp](https://github.com/21st-dev/magic-mcp) | ⭐⭐⭐ | 做完练习 2 找灵感 | 会生成 UI 组件的非平凡 MCP server、★ 4.8k+、NOASSERTION。**看 MCP 不只能做数据抓取** |
 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | ⭐⭐⭐⭐⭐ | 喂整个 codebase 给 LLM | ★ 24k+、MIT。把 repo 打包成单个 AI-friendly 文件，带 MCP server mode + tree-sitter 压缩（约 70% token 节省）+ secretlint 过滤敏感信息。**Claude Code / Codex 的 daily-driver 工具。** |
+
+> 🔭 **MCP 在 2026：从“知道是什么”到“会用生态”**：(1) **官方 Registry**（registry.modelcontextprotocol.io）——发现 / 发布 MCP server 的中央目录；(2) **FastMCP**（[jlowin/fastmcp](https://github.com/jlowin/fastmcp)、★25k）——用 `@mcp.tool` 几行写出 server，比 low-level SDK 省事；(3) ⚠️ **MCP 安全**：tool 返回的内容是**不可信输入**（tool poisoning、confused-deputy），别把没检查过的第三方 server 接上有权限的 agent。
 
 ---
 
@@ -752,7 +775,7 @@ You are a senior code reviewer. When invoked:
 
 ## 5.6 — Dynamic Workflows（让 Claude 自己写出 workflow）⭐ Opus 4.8+ 新机制
 
-> **本节定位**：5.5 教你**手动**派 subagent；本节更上一层——**让 Claude 自己生成一份 workflow 脚本、再自己执行**。这是 Opus 4.8 起的新机制（research preview 出身，Fable 5 世代延续），新版 Claude Code 内置。本节只把它放进生态地图、讲清楚跟 5.5 的分工；**机制 / 实例 / quality pattern 的完整版在 [Stage 7.5 — Dynamic Workflows 深入](07.5-advanced-agentic-concepts.zh-Hans.md#-dynamic-workflowsopus-48-当-agent-自己写出-workflow)**。
+> **本节定位**：5.5 教你**手动**派 subagent；本节更上一层——**让 Claude 自己生成一份 workflow 脚本、再自己执行**。这是 Opus 4.8 起的新机制（research preview 出身），新版 Claude Code 内置。本节只把它放进生态地图、讲清楚跟 5.5 的分工；**机制 / 实例 / quality pattern 的完整版在 [Stage 7.5 — Dynamic Workflows 深入](07.5-advanced-agentic-concepts.zh-Hans.md#-dynamic-workflowsopus-48-当-agent-自己写出-workflow)**。
 
 ### 跟 5.5 Subagents 的差别
 
