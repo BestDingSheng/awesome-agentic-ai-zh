@@ -219,7 +219,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多轮对话 | （较难 hack）| Anthropic / OpenAI 领先 |
 | **RE-bench** | research engineering | （较难 hack、接近人类 baseline）| Frontier model |
 
-> **Mythos-class 层级（2026-06-09 发布、2026-06-12 暂停访问）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）曾短暂成为对外开放的最高能力 Claude 层级，与姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放宽、限定核准客户）同日发布。⚠️ **2026-06-12 美国出口管制指令暂停了两者全部访问（[状态页](https://status.claude.com/) · [官方声明](https://www.anthropic.com/news/fable-mythos-access)），目前无法使用且无恢复时间。** 上表数字维持原本归属的 model；Fable 5 官方 benchmark 数字始终未公布，故未列入。**Opus 4.8 仍为 Opus-class 旗舰，也是目前可用的最高层级。**
+> **Mythos-class 层级（Claude Fable 5 — 2026-06-09 发布；2026-06-12 暂停、2026-07-01 恢复）**：[**Claude Fable 5**](https://www.anthropic.com/news/claude-fable-5-mythos-5)（`claude-fable-5`，Mythos-class、定位在 Opus 之上）是对外开放的最高能力 Claude 层级，与姊妹版 Claude Mythos 5（`claude-mythos-5`，部分安全措施放宽、限定核准客户）同日发布。2026-06-12 曾被美国出口管制指令暂停，但出口管制 2026-06-30 解除、[Fable 5 于 2026-07-01 全球恢复](https://www.anthropic.com/news/redeploying-fable-5)（重新部署时加了新安全 classifier；Mythos 5 仅对核准的美国组织恢复）。上表数字维持原本归属的 model；Fable 5 官方 benchmark 数字始终未公布，故未列入。**Fable 5 又是最高阶的 Claude 层级；Opus 4.8 为 Opus-class 旗舰。**
 
 → 详细排行 + 即时更新：[Agent Benchmark Leaderboard 2026](https://benchmarkingagents.com/agent-benchmarks/)、[Rapid Claw AI Agent Framework Scorecard 2026](https://rapidclaw.dev/blog/ai-agent-benchmarks-2026)
 
@@ -262,7 +262,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辩论、Microsoft 出品 |
 | **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
 | **eval 标准化**（CI / regression 必装）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比较、★ 22k+ |
-| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 28k+ |
+| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 31k+ |
 | **不改程序、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不绑 framework |
 | **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商业）| LangChain 官方 observability |
 | **打造 Claude agent**（programmatic）| [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Anthropic 官方 agent SDK、跟 Claude Code 同 runtime |
@@ -287,9 +287,9 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水线 | 角色式 multi-agent（research → writer → reviewer），最简单 production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路线、production 控制最强 |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程标准化、CI 整合 | YAML config、跨模型比较。★ 22k+、MIT |
-| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 学术 benchmark 主张（MMLU / HellaSwag / GSM8K）| 学术等级。★ 12k+、MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 学术 benchmark 主张（MMLU / HellaSwag / GSM8K）| 学术等级。★ 13k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 专属 eval / 想回馈上游 | ★ 18k+ |
-| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 28k+、MIT |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 31k+、MIT |
 | | [LangSmith](https://www.langchain.com/langsmith)（商业）| ⭐⭐⭐⭐ | 全 stack 在 LangChain / LangGraph 上 | LangChain 官方、只有 hosted 版 |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 不想改程序、快速上 instrumentation | proxy 中介、顺便拿到 logging + caching。★ 5.7k+、Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | 团队已在用 W&B 做 ML 实验追踪 | W&B tracing + eval、跟 wandb 整合 |
@@ -298,7 +298,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | **Safety / Guardrails** | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | ⭐⭐⭐⭐ | 想在 agent 的输入 / 输出加上安全规则 | 包在 LLM app 外的安全规则——让它不离题、挡 jailbreak、过滤不当输出。★ 6.6k+、Apache 2.0 |
 | **Anthropic SDK 进阶** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | 直接基于 Claude API 做应用 | 官方 Python SDK：streaming / async / tool use / prompt caching / batches / files |
 | | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | TypeScript / Node / web app | Python SDK 的 TS 版 |
-| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | 打造 Claude-based agent 而非只 API | 内建 tool use loop / file access / sandbox / subagent 编排；跟 Claude Code 同 runtime、想看内部运作直接读 source。★ 6.9k+、MIT |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | 打造 Claude-based agent 而非只 API | 内建 tool use loop / file access / sandbox / subagent 编排；跟 Claude Code 同 runtime、想看内部运作直接读 source。★ 7.6k+、MIT |
 | | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | Node / web app 环境 Claude agent | Claude Agent SDK TS 版。★ 1.6k+ |
 | | [Anthropic Cookbook（进阶）](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | 想看官方进阶 SDK pattern | 特别是 `prompt_caching.ipynb` / `tool_use/` / `multimodal/` 三个 notebook |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | 想稳定拿到任何模型输出的可靠 JSON | 一个专用小语言、帮你从 LLM 稳定取得经过检查的 JSON；支持 Claude / OpenAI / 本地模型、7 种编程语言。★ 8k+、Apache 2.0 |
