@@ -215,7 +215,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal 任務 | 領先 | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5（Princeton HAL）|
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web 導航 | **68.7%** | （領先 model 未公布）|
-| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | **76.26%**（SOTA、superhuman vs human 72.36%）| OpenAI CUA 38%、多數 frontier 仍卡 50% 以下 |
+| [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | v1 **76.26%**（接近飽和）| OpenAI CUA 38%；[OSWorld 2.0](https://osworld-v2.xlang.ai/)（2026-06、long-horizon）已取代 v1、真實長任務 SOTA 僅 ~20%（Opus 4.8 20.6%），見 Stage 8 |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多輪對話 | （較難 hack）| Anthropic / OpenAI 領先 |
 | **RE-bench** | research engineering | （較難 hack、接近人類 baseline）| Frontier model |
 
@@ -303,7 +303,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | | [Anthropic Cookbook（進階）](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | 想看官方進階 SDK pattern | 特別是 `prompt_caching.ipynb` / `tool_use/` / `multimodal/` 三個 notebook |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | 想穩定拿到任何模型輸出的可靠 JSON | 一個專用小語言、幫你從 LLM 穩定取得經過檢查的 JSON；支援 Claude / OpenAI / 本機模型、7 種程式語言。★ 8k+、Apache 2.0 |
 | **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | 把 agent 包成 production API service | Docker + serving framework。★ 8k+、Apache 2.0 |
-| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐⭐ | LangChain agent 快速 deploy | 底層 FastAPI |
+| | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐（⚠️ 已封存）| LangChain agent 快速 deploy | 底層 FastAPI；⚠️ **repo 已封存 2026-05**、新部署改用 LangGraph Platform |
 | | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | 自架開源 LLM 取代付費 API | 高吞吐量 LLM serving、Llama / Qwen 等。★ 79k+、Apache 2.0 |
 | **中文 deploy / fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | 中文團隊要自架開源 LLM | training-to-deployment 完整中文指南、Qwen / Llama / GLM / 多模態。★ 30k+、Apache 2.0 |
 | | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | 要 fine-tune 開源 LLM（不只 prompt eng）| 100+ 模型統一 SFT/DPO/PPO/GRPO、Web UI 零程式碼、中文社群最廣。★ 70k+、Apache 2.0 |
