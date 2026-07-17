@@ -24,7 +24,7 @@
 
 ## 精選 Projects
 
-> **CLI agent 比較**：7 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent）的並列比較見 [`resources/cli-agents-guide.md`](../resources/cli-agents-guide.md)。第一次接觸 CLI agent 想要 step-by-step 入門 → [`tracks/cli/A1-cli-intro.md`](../tracks/cli/A1-cli-intro.md)（Track A 第一站）。
+> **CLI agent 比較**：8 個主流 CLI agent（Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent / Grok Build）的並列比較見 [`resources/cli-agents-guide.md`](../resources/cli-agents-guide.md)。第一次接觸 CLI agent 想要 step-by-step 入門 → [`tracks/cli/A1-cli-intro.md`](../tracks/cli/A1-cli-intro.md)（Track A 第一站）。
 >
 > **MCP catalog**：要把 CLI 接到日常工具（GitHub、Linear、Atlassian、Postgres、Playwright、Figma 等）→ [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（65+ 個分類整理）。
 >
@@ -53,8 +53,8 @@
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
 ★ 43k+ · Apache-2.0 — 開源、可擴充的 AI agent，超出純 code suggestion——能 install / execute / edit / test，搭配任何 LLM。同時支援多家 LLM provider 跟 MCP，提供 desktop app、CLI、API 三種介面。（repo 現指向 `aaif-goose/goose`。）
 
-#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐⭐
-★ 23k+ · Apache-2.0 — VS Code 的 coding agent，採用「**多種專業 mode**」的設計，跟 Cline 的單一 agent flow 不同。VS Code 使用者要 multi-mode 替代方案的選擇。
+#### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐（⚠️ 已封存）
+★ 23k+ · Apache-2.0 — VS Code 的 coding agent，採用「**多種專業 mode**」的設計，跟 Cline 的單一 agent flow 不同。**⚠️ repo 已於 2026-05 封存（read-only、不再維護）**——仍可用，但別預期新功能。
 
 ### Code Review
 
