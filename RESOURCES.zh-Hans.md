@@ -4,9 +4,9 @@
 
 > [← 返回主路线 README](README.zh-Hans.md)
 
-这份文件集中放：用語说明、常用 MCP / Skill 集成 highlight、同主题 awesome list、中文社群资源。从主 README 抽出避免主页过长。
+这份文件集中放：用语说明、常用 MCP / Skill 集成 highlight、同主题 awesome list、中文社群资源。从主 README 抽出避免主页过长。
 
-> 💡 **不懂某个词**（LLM、agent、RAG、token、向量数据库⋯）→ [`resources/glossary.zh-Hans.md`](resources/glossary.zh-Hans.md)（用語小词典，30 多个词每个 30-80 字解释）
+> 💡 **不懂某个词**（LLM、agent、RAG、token、向量数据库⋯）→ [`resources/glossary.zh-Hans.md`](resources/glossary.zh-Hans.md)（用语小词典，30 多个词每个 30-80 字解释）
 
 ---
 
@@ -36,7 +36,7 @@
 ### 办公文件（Word / Excel / PowerPoint / PDF）
 
 - [**anthropics/skills**](https://github.com/anthropics/skills) ★ 158k+ — Anthropic **官方** Skills 集合，docx / xlsx / pptx / pdf 处理直接内建
-- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 725 — 补强版 Office skills（PPTX/DOCX/XLSX/PDF），含自动化 workflow
+- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 800 — 补强版 Office skills（PPTX/DOCX/XLSX/PDF），含自动化 workflow
 
 ### Google Workspace（Gmail / Docs / Drive / Calendar）
 
@@ -51,7 +51,7 @@
 
 ### 研究工作流（本 repo 维护者出品）
 
-- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 165 — 14 个研究流程 skill，5-plugin marketplace
+- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 182 — 14 个研究流程 skill，5-plugin marketplace
 - [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 38 — Zotero + Obsidian + NotebookLM 集成 workspace
 - [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 45 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34（⚠️ 已封存）— Multi-LLM delegation 对（Gemini lane 建议改用 Gemini CLI 直接做）
@@ -60,7 +60,7 @@
 
 - [**leemysw/feishu-docx**](https://github.com/leemysw/feishu-docx) ★ 235 — 飞书（Lark）docs / sheet / bitable ↔ Markdown，含 Claude Skills 支持
 
-> 上面只是 highlight。**完整 65+ 个集成的分类目录**（含数据库、浏览器自动化、Figma、Excalidraw、Cloudflare、Stripe、学术写作 / Multi-LLM delegation 等）在 [`resources/mcp-skills-catalog.zh-Hans.md`](resources/mcp-skills-catalog.zh-Hans.md)。
+> 上面只是 highlight。**完整 76+ 个集成的分类目录**（含数据库、浏览器自动化、Figma、Excalidraw、Cloudflare、Stripe、学术写作 / Multi-LLM delegation 等）在 [`resources/mcp-skills-catalog.zh-Hans.md`](resources/mcp-skills-catalog.zh-Hans.md)。
 
 > 想找更多 MCP server catalog？看 [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) / [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers)（按分类整理）。**Canva** 现有官方 MCP（[canva.dev/docs/mcp](https://www.canva.dev/docs/mcp/)、endpoint `mcp.canva.com`、~32 工具、任何方案可用、支持 Claude / ChatGPT / Cursor / VS Code）。
 
