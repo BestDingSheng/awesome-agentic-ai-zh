@@ -83,7 +83,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | Apache-2.0 |
 
 **教什么**：Hugging Face 官方的 agent 课程——notebook、练习、结业认证。是一份**现成的“AI agent 教学”素材**。
@@ -221,4 +221,4 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 - 教师专属的 MCP server（成绩册集成、LMS 串接如 Canvas / Moodle / Google Classroom）
 - **某学科 + 某年级的完整 case study**（例如“我用 AI 带初中数学一个学期，这是我的 workflow”）
 
-请见 [CONTRIBUTING.md](../CONTRIBUTING.zh-Hans.md)。
+请见 [CONTRIBUTING.zh-Hans.md](../CONTRIBUTING.zh-Hans.md)。
