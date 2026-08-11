@@ -171,6 +171,79 @@ def test_apply_replacements_skips_out_of_range_and_stale_lines():
     assert (applied, files_changed) == (0, 0)
     assert fp.read_text(encoding="utf-8") == "★ 10k+\n"
 
+def test_changelog_is_never_scanned():
+    """CHANGELOG.md records what a count WAS; refreshing it falsifies history.
+
+    Same class as the .github exclusion (2026-07: the bot overwrote historical
+    launch stats and other repos' counts with this repo's current number). At
+    at the v2026.08.11 tag CHANGELOG.md held 30 historical ★ with 0 bound to a
+    repo, so --apply could not reach them yet; this pins it shut before a future
+    entry pairs a repo URL with a ★ on one line. (The ★ total climbs with every
+    changelog entry — "0 bound" is the figure that describes the exposure.)
+    """
+    assert "CHANGELOG.md" in rs.EXCLUDE_FILES
+    scanned = rs.find_md_files(rs.REPO_ROOT)
+    assert not [p for p in scanned if p.name == "CHANGELOG.md"], \
+        "CHANGELOG.md must not be scanned"
+    # The real file exists — otherwise this test would pass vacuously.
+    assert (rs.REPO_ROOT / "CHANGELOG.md").is_file()
+
+
+def test_excluded_file_is_never_rewritten_by_apply():
+    """The exclusion has to hold on the WRITE path, not just the report.
+
+    A filter that only hides a file from the report while --apply still edits it
+    is the worst of both worlds: silent history corruption with no evidence in
+    the log.
+
+    Routes through the REAL find_md_files by pointing rs.REPO_ROOT at a temp
+    corpus, rather than mocking find_md_files. The first version of this test
+    mocked it with an inline copy of the exclusion check, which made it blind to
+    exactly the regression that matters: deleting the filter from
+    find_md_files() left this test passing, because it never called that
+    function. It only caught an emptied EXCLUDE_FILES — which the simpler
+    test_changelog_is_never_scanned already catches — so it was pure redundancy
+    dressed up as write-path coverage.
+    """
+    import io, tempfile, pathlib, shutil, sys as _s
+    from contextlib import redirect_stdout, redirect_stderr
+    root = pathlib.Path(tempfile.mkdtemp())
+    changelog = root / "CHANGELOG.md"
+    # A repo URL and a ★ on ONE line — the shape that becomes rewritable the
+    # moment the exclusion is gone. A sibling .md proves the corpus is live.
+    changelog.write_text(
+        "- bumped [alpha](https://github.com/acme/alpha) ★ 5k+ that week\n",
+        encoding="utf-8")
+    sibling = root / "page.md"
+    sibling.write_text(
+        "- [alpha](https://github.com/acme/alpha) ★ 5k+\n", encoding="utf-8")
+    before = changelog.read_bytes()
+
+    orig_root, orig_fetch, orig_argv = rs.REPO_ROOT, rs.fetch_stars, _s.argv
+    rs.REPO_ROOT = root                                  # real find_md_files runs
+    rs.fetch_stars = lambda repo, retries=2: 50_000      # 10x -> genuine drift
+    _s.argv = ["refresh-stars.py", "--apply"]
+    buf = io.StringIO()
+    try:
+        with redirect_stdout(buf), redirect_stderr(io.StringIO()):
+            try:
+                rs.main()
+            except SystemExit:
+                pass
+        out = buf.getvalue()
+        after = changelog.read_bytes()
+        sibling_text = sibling.read_text(encoding="utf-8")
+    finally:
+        rs.REPO_ROOT, rs.fetch_stars, _s.argv = orig_root, orig_fetch, orig_argv
+        shutil.rmtree(root, ignore_errors=True)
+
+    assert after == before, "an excluded file was rewritten by --apply"
+    # The sibling MUST have been rewritten — otherwise this test would pass
+    # simply because nothing was ever eligible, and prove nothing at all.
+    assert "★ 50k+" in sibling_text, f"corpus was not actually live: {sibling_text}"
+    assert "Applied 1 drift fixes across 1 files" in out, out
+
+
 def test_prose_stars_re_matches_every_locale_wording():
     """Prose counts must be seen in all three locales, ★-form must not be eaten.
 
@@ -288,6 +361,138 @@ def test_prose_path_really_reads_prose_threshold_not_threshold():
                           md, 108_651)
     assert code == 0, "--prose-threshold 50 must suppress a 26% gap"
     assert "Prose-form drift:      0" in out, out
+
+
+def test_bind_re_matches_the_name_but_not_lookalikes():
+    """Name-binding is how the no-URL prose counts got under the gate.
+
+    12 counts in stage 08 (4 per locale) were prose sentences with no GitHub
+    link, so the URL-anchored pass structurally could not see them: a table cell
+    naming the tool without linking it, a bullet whose only link is the docs
+    site, and two "why is it popular" sentences.
+    """
+    rx = rs.bind_re("browser-use/browser-use")
+    assert rx.search("Why is browser-use so popular (108k stars)?")
+    assert rx.search("為什麼 browser-use 這麼火")            # CJK neighbours
+    assert rx.search("Comet / browser-use (OSS, 108k stars)")
+    assert rx.search("[**browser-use docs**](https://docs.browser-use.com/)")
+    # Lookalikes must NOT match — a false bind publishes repo B's count as A's.
+    assert not rx.search("mcp-server-browserbase is archived")
+    assert not rx.search("browser-useful things")
+    assert not rx.search("my-browser-use-fork")
+
+    # Short names are the risky case: 'cua' must not match inside another word.
+    cua = rs.bind_re("trycua/cua")
+    assert cua.search("cua is an open toolkit, 21k+ stars")
+    assert not cua.search("cuatro")
+    assert not cua.search("focus on this")
+
+
+def test_generic_repo_names_never_bind():
+    """"agents 12k+ stars" identifies nothing — this repo links several.
+
+    Binding a generic short name would attribute one project's count to another,
+    which is the exact failure the ★ path already had to fix (15 live leaks).
+    """
+    for repo in ("livekit/agents", "openai/agents", "anthropics/skills"):
+        assert not rs.bind_re(repo).search(f"{repo.split('/')[-1]} has 12k+ stars"), repo
+    # A distinctive name still binds.
+    assert rs.bind_re("browser-use/browser-use").search("browser-use 12k+ stars")
+
+
+def test_a_line_naming_two_repos_is_reported_not_guessed():
+    """The `len(hits) == 1` rule, exercised through main() with a real fixture.
+
+    The corpus-scan test above passes whether or not that rule exists, because
+    no live line is ambiguous today — so it cannot catch a regression to "bind
+    to whichever repo matched first". This one can: relaxing the rule to
+    `>= 1` makes the ambiguous line bind and report drift, failing here.
+    """
+    md = (
+        "- [alpha](https://github.com/acme/alpha) ★ 12k+\n"
+        "- [beta](https://github.com/acme/beta) ★ 12k+\n"
+        "Comparing alpha and beta: it sits around 5k+ stars today.\n"
+    )
+    code, out = _run_main(["--check"], md, 12_000)
+    assert "Prose, unbindable:     1" in out, out
+    assert "Prose-form drift:      0" in out, out
+    assert "ambiguous" in out, out
+    assert code == 0, "an unbindable count must not fail the check"
+
+
+def test_binding_does_not_leak_across_files():
+    """A repo linked only in file A must not bind a bare mention in file B.
+
+    `file_repos` is built fresh inside the per-file loop. Hoisting it out — the
+    kind of thing a "don't rebuild the set every iteration" refactor does — makes
+    binding global, and then a file that merely NAMES a tool inherits a repo it
+    never linked. That fails silently: no warning, no red exit, just someone
+    else's star count published under the wrong project.
+
+    Uses two fixture files, since _run_main's single-file corpus cannot express
+    "linked over there, mentioned over here".
+    """
+    import tempfile, pathlib, io, sys as _s
+    from contextlib import redirect_stdout, redirect_stderr
+    d = rs.REPO_ROOT / "_test_tmp_scope"
+    d.mkdir(exist_ok=True)
+    linked = d / "linked.md"
+    mentions = d / "mentions.md"
+    # alpha is linked ONLY here.
+    linked.write_text("- [alpha](https://github.com/acme/alpha) ★ 12k+\n", encoding="utf-8")
+    # ...and merely named here, with a count. Must NOT bind.
+    mentions.write_text("alpha is great, about 5k+ stars now.\n", encoding="utf-8")
+
+    orig_find, orig_fetch, orig_argv = rs.find_md_files, rs.fetch_stars, _s.argv
+    rs.find_md_files = lambda _root: [linked, mentions]
+    rs.fetch_stars = lambda repo, retries=2: 12_000
+    _s.argv = ["refresh-stars.py", "--check"]
+    buf = io.StringIO()
+    try:
+        with redirect_stdout(buf), redirect_stderr(io.StringIO()):
+            try:
+                rs.main()
+                code = 0
+            except SystemExit as e:
+                code = e.code or 0
+        out = buf.getvalue()
+    finally:
+        rs.find_md_files, rs.fetch_stars, _s.argv = orig_find, orig_fetch, orig_argv
+        linked.unlink(missing_ok=True)
+        mentions.unlink(missing_ok=True)
+        d.rmdir()
+
+    assert "Prose, unbindable:     1" in out, out
+    assert "Prose-form drift:      0" in out, out
+    assert "names no linked repo" in out, out
+    assert code == 0, "a cross-file mention must not be bound, so must not fail"
+
+
+def test_no_repo_in_corpus_binds_a_prose_count_ambiguously():
+    """Every prose count in the live corpus binds to 0 or 1 repo, never 2+.
+
+    A 2+ case would mean main() had to choose, and it deliberately refuses —
+    but this pins that the corpus has not drifted into needing that choice.
+    """
+    ambiguous = []
+    for fp in rs.find_md_files(rs.REPO_ROOT):
+        lines = fp.read_text(encoding="utf-8").splitlines()
+        known = {}
+        for line in lines:
+            m = rs.GITHUB_RE.search(line)
+            if m:
+                r = rs.normalize_repo(m.group(1), m.group(2))
+                if r:
+                    known[r] = rs.bind_re(r)
+        for n, line in enumerate(lines, 1):
+            if "★" in line or rs.GITHUB_RE.search(line):
+                continue
+            if not rs.PROSE_STARS_RE.search(line):
+                continue
+            hits = [r for r, rx in known.items() if rx.search(line)]
+            if len(hits) > 1:
+                ambiguous.append(f"{fp}:{n} -> {hits}")
+    assert not ambiguous, f"prose count naming 2+ linked repos: {ambiguous}"
 
 
 def test_prose_threshold_default_is_5_not_10():
