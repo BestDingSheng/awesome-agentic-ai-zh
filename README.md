@@ -49,7 +49,7 @@
   - [線上閱讀](#線上閱讀)
   - [本地下載](#本地下載)
   - [✨ 你會收穫什麼？](#-你會收穫什麼)
-- [🗺️ 學習地圖（兩條學習路徑）](#️-學習地圖兩條學習路徑)
+- [🗺️ 學習地圖（兩條學習路徑）](#-學習地圖兩條學習路徑)
 - [💡 如何學習](#-如何學習)
 - [📚 相關資源](#-相關資源)
 - [🤝 如何貢獻](#-如何貢獻)
@@ -67,7 +67,7 @@
 先看 **[`resources/setup-guide.md`](resources/setup-guide.md)** — 30-45 分鐘從零帶你申請 API key、裝好 Python、跑出第一個 LLM hello-world。
 
 ### 線上閱讀
-- **[學習地圖（兩條學習路徑）](#️-學習地圖兩條學習路徑)** — 看完這節決定走 Track A 還 Track B
+- **[學習地圖（兩條學習路徑）](#-學習地圖兩條學習路徑)** — 看完這節決定走 Track A 還 Track B
 - **[Stage 0 基礎準備](stages/00-foundations.md)** — 已經會 Python / git / API 的人可以直接跳 Stage 1
 
 ### 本地下載
@@ -90,7 +90,7 @@ cd awesome-agentic-ai-zh
 
 ---
 
-## 🗺️ 學習地圖（兩條學習路徑）
+## 🗺 學習地圖（兩條學習路徑）
 
 ![AI Agent 學習地圖](resources/diagrams/learning-map.png)
 
@@ -307,7 +307,7 @@ PR 流程跟 style 規範請看 [CONTRIBUTING.md](CONTRIBUTING.md) 跟 [resource
   author = {Chiou, Wenyu},
   year = {2026},
   url = {https://github.com/WenyuChiou/awesome-agentic-ai-zh},
-  note = {8-stage learning path from prerequisites to Agent Interfaces (Computer Use / Browser Use / Sandbox), with curated projects + hello-X demos. Bilingual (zh-TW / English).}
+  note = {8-stage learning path from prerequisites to Agent Interfaces (Computer Use / Browser Use / Code Sandbox), with curated projects + hello-X demos. Trilingual (zh-TW / 简中 / English).}
 }
 ```
 
