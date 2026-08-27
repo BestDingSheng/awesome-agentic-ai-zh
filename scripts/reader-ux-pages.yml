@@ -3,6 +3,9 @@ schema_version: 1
 # This is a ratchet, not a claim that every page has already been migrated.
 # Add one page only after its visible beginner path has been reviewed in all
 # three locales. Lower limits when a later edit makes a page easier to scan.
+# A newly reviewed page also adds core_terms: the gate then locks its visible
+# bold first use, definition order, minimum explanation, and position before
+# the first exercise. Older enrolled pages migrate in their own stacked PRs.
 forbidden_open_summary_terms:
   zh-TW: [時間, 先備, 環境, 費用, 預算, 必修閱讀, 補充, 選修, 疑難排解, 排錯, 資源]
   en: [time, prerequisite, environment, cost, budget, required reading, supplementary, optional, troubleshooting, resources]
@@ -51,6 +54,9 @@ pages:
           heading: "✅ 完成检查"
           anchor: -完成检查
     resource_group_rowspans: [5, 4, 3, 3, 3]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
 
   - id: stage-01
     canonical: stages/01-llm-basics.md
@@ -58,11 +64,31 @@ pages:
       en: stages/01-llm-basics.en.md
       zh-Hans: stages/01-llm-basics.zh-Hans.md
     max_visible_chars:
-      zh-TW: 6609
-      en: 10066
-      zh-Hans: 6601
+      zh-TW: 6771
+      en: 10298
+      zh-Hans: 6764
     max_open_details: 3
     required_visible_sections:
+      core-terms:
+        zh-TW:
+          heading: "三個核心詞"
+          anchor: 三個核心詞
+        en:
+          heading: "Three Core Terms"
+          anchor: three-core-terms
+        zh-Hans:
+          heading: "三个核心词"
+          anchor: 三个核心词
+      exercise-1:
+        zh-TW:
+          heading: "練習 1：LLM API（hello world）"
+          anchor: 練習-1llm-apihello-world
+        en:
+          heading: "Exercise 1: LLM API (hello world)"
+          anchor: exercise-1-llm-api-hello-world
+        zh-Hans:
+          heading: "练习 1：LLM API（hello world）"
+          anchor: 练习-1llm-apihello-world
       exercise-4:
         zh-TW:
           heading: "練習 4：Cross-Provider 比較"
@@ -93,4 +119,909 @@ pages:
         zh-Hans:
           heading: "练习 6：Local LLM"
           anchor: 练习-6local-llm
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: exercise-1
+      min_definition_chars: 20
+      terms:
+        - id: token
+          zh-TW: {term: Token, label: "Token（詞元）"}
+          en: {term: Token, label: Token}
+          zh-Hans: {term: Token, label: "Token（词元）"}
+        - id: context-window
+          zh-TW: {term: Context Window, label: "Context Window（上下文視窗）"}
+          en: {term: Context Window, label: Context Window}
+          zh-Hans: {term: Context Window, label: "Context Window（上下文窗口）"}
+        - id: temperature
+          zh-TW: {term: Temperature, label: "Temperature（溫度）"}
+          en: {term: Temperature, label: Temperature}
+          zh-Hans: {term: Temperature, label: "Temperature（温度）"}
     resource_group_rowspans: [4, 4, 2, 4, 3]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+
+  - id: stage-02
+    canonical: stages/02-prompt-engineering.md
+    mirrors:
+      en: stages/02-prompt-engineering.en.md
+      zh-Hans: stages/02-prompt-engineering.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3185
+      en: 6332
+      zh-Hans: 3239
+    max_open_details: 0
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "Zero-Shot"
+        - "One-Shot"
+        - "Few-Shot"
+        - "Chain-of-Thought"
+    required_visible_sections:
+      learning-goals:
+        zh-TW:
+          heading: "📌 學習目標"
+          anchor: -學習目標
+        en:
+          heading: "📌 Learning Goals"
+          anchor: -learning-goals
+        zh-Hans:
+          heading: "📌 学习目标"
+          anchor: -学习目标
+      core-terms:
+        zh-TW:
+          heading: "🧩 先認識核心詞"
+          anchor: -先認識核心詞
+        en:
+          heading: "🧩 Core Terms First"
+          anchor: -core-terms-first
+        zh-Hans:
+          heading: "🧩 先认识核心词"
+          anchor: -先认识核心词
+      required-reading:
+        zh-TW:
+          heading: "📚 必修閱讀"
+          anchor: -必修閱讀
+        en:
+          heading: "📚 Required Reading"
+          anchor: -required-reading
+        zh-Hans:
+          heading: "📚 必修阅读"
+          anchor: -必修阅读
+      hands-on:
+        zh-TW:
+          heading: "🛠 動手練習"
+          anchor: -動手練習
+        en:
+          heading: "🛠 Hands-on Exercises"
+          anchor: -hands-on-exercises
+        zh-Hans:
+          heading: "🛠 动手练习"
+          anchor: -动手练习
+      exercise-1:
+        zh-TW:
+          heading: "練習 1：Prompt 四格（把要求放進四格）"
+          anchor: 練習-1prompt-四格把要求放進四格
+        en:
+          heading: "Exercise 1: Four-Part Prompt (put the request into four parts)"
+          anchor: exercise-1-four-part-prompt-put-the-request-into-four-parts
+        zh-Hans:
+          heading: "练习 1：Prompt 四部分（把要求放进四部分）"
+          anchor: 练习-1prompt-四部分把要求放进四部分
+      exercise-2:
+        zh-TW:
+          heading: "練習 2：Few-Shot（給例子，再測同一組題目）"
+          anchor: 練習-2few-shot給例子再測同一組題目
+        en:
+          heading: "Exercise 2: Few-Shot (give examples, then test the same questions)"
+          anchor: exercise-2-few-shot-give-examples-then-test-the-same-questions
+        zh-Hans:
+          heading: "练习 2：Few-Shot（给范例，再测试同一组题目）"
+          anchor: 练习-2few-shot给范例再测试同一组题目
+      exercise-3:
+        zh-TW:
+          heading: "練習 3：Iterative Refinement（一次只改一件事）"
+          anchor: 練習-3iterative-refinement一次只改一件事
+        en:
+          heading: "Exercise 3: Iterative Refinement (change one thing at a time)"
+          anchor: exercise-3-iterative-refinement-change-one-thing-at-a-time
+        zh-Hans:
+          heading: "练习 3：Iterative Refinement（一次只改一件事）"
+          anchor: 练习-3iterative-refinement一次只改一件事
+      completion:
+        zh-TW:
+          heading: "✅ 進 Stage 3 前的自我檢查"
+          anchor: -進-stage-3-前的自我檢查
+        en:
+          heading: "✅ Self-Check Before Stage 3"
+          anchor: -self-check-before-stage-3
+        zh-Hans:
+          heading: "✅ 进入 Stage 3 前的自我检查"
+          anchor: -进入-stage-3-前的自我检查
+      projects:
+        zh-TW:
+          heading: "🎯 精選 Projects"
+          anchor: -精選-projects
+        en:
+          heading: "🎯 Curated Projects"
+          anchor: -curated-projects
+        zh-Hans:
+          heading: "🎯 精选 Projects"
+          anchor: -精选-projects
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: exercise-1
+      min_definition_chars: 20
+      terms:
+        - id: prompt
+          zh-TW: {term: Prompt, label: "Prompt（提示）"}
+          en: {term: Prompt, label: Prompt}
+          zh-Hans: {term: Prompt, label: "Prompt（提示）"}
+        - id: instruction
+          zh-TW: {term: Instruction, label: "Instruction（指令）"}
+          en: {term: Instruction, label: Instruction}
+          zh-Hans: {term: Instruction, label: "Instruction（指令）"}
+        - id: input-data
+          zh-TW: {term: Input Data, label: "Input Data（輸入資料）"}
+          en: {term: Input Data, label: Input Data}
+          zh-Hans: {term: Input Data, label: "Input Data（输入数据）"}
+        - id: example
+          zh-TW: {term: Example, label: "Example（範例）"}
+          en: {term: Example, label: Example}
+          zh-Hans: {term: Example, label: "Example（范例）"}
+        - id: eval
+          zh-TW: {term: Eval, label: "Eval（評估）"}
+          en: {term: Eval, label: Eval}
+          zh-Hans: {term: Eval, label: "Eval（评估）"}
+        - id: zero-shot
+          zh-TW: {term: Zero-Shot, label: "Zero-Shot（零範例）"}
+          en: {term: Zero-Shot, label: Zero-Shot}
+          zh-Hans: {term: Zero-Shot, label: "Zero-Shot（零范例）"}
+        - id: one-shot
+          zh-TW: {term: One-Shot, label: "One-Shot（一個範例）"}
+          en: {term: One-Shot, label: One-Shot}
+          zh-Hans: {term: One-Shot, label: "One-Shot（一个范例）"}
+        - id: few-shot
+          zh-TW: {term: Few-Shot, label: "Few-Shot（少量範例）"}
+          en: {term: Few-Shot, label: Few-Shot}
+          zh-Hans: {term: Few-Shot, label: "Few-Shot（少量范例）"}
+        - id: chain-of-thought
+          zh-TW: {term: Chain-of-Thought, label: "Chain-of-Thought（CoT，思維鏈）"}
+          en: {term: Chain-of-Thought, label: "Chain-of-Thought (CoT)"}
+          zh-Hans: {term: Chain-of-Thought, label: "Chain-of-Thought（CoT，思维链）"}
+    resource_group_rowspans: [5, 4, 4, 4, 1]
+
+  - id: stage-03
+    canonical: stages/03-tool-use-and-hello-agent.md
+    mirrors:
+      en: stages/03-tool-use-and-hello-agent.en.md
+      zh-Hans: stages/03-tool-use-and-hello-agent.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 4365
+      en: 8140
+      zh-Hans: 4431
+    max_open_details: 0
+    visible_section_order:
+      - learning-goals
+      - entry-conditions
+      - core-terms
+      - required-reading
+      - classic-patterns
+      - hands-on
+      - exercise-1
+      - exercise-2
+      - structured-output
+      - exercise-3
+      - exercise-4
+      - exercise-5
+      - exercise-6
+      - mini-project
+      - reflection
+      - projects
+      - completion
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-27"
+        - "qwen2.5:3b"
+        - "claude-haiku-4-5-20251001"
+        - "$1 / $5"
+        - "$0.007"
+        - "2,000"
+        - "1,000"
+        - "MAX_STEPS"
+        - "additionalProperties"
+        - "is_error"
+        - "schema → call → execute → result → answer"
+    required_visible_sections:
+      learning-goals:
+        zh-TW:
+          heading: "📌 學習目標"
+          anchor: -學習目標
+        en:
+          heading: "📌 Learning Objectives"
+          anchor: -learning-objectives
+        zh-Hans:
+          heading: "📌 学习目标"
+          anchor: -学习目标
+      entry-conditions:
+        zh-TW:
+          heading: "🚪 進入條件"
+          anchor: -進入條件
+        en:
+          heading: "🚪 Entry Conditions"
+          anchor: -entry-conditions
+        zh-Hans:
+          heading: "🚪 进入条件"
+          anchor: -进入条件
+      core-terms:
+        zh-TW:
+          heading: "🧩 先認識八個核心詞"
+          anchor: -先認識八個核心詞
+        en:
+          heading: "🧩 Eight Core Terms First"
+          anchor: -eight-core-terms-first
+        zh-Hans:
+          heading: "🧩 先认识八个核心词"
+          anchor: -先认识八个核心词
+      required-reading:
+        zh-TW:
+          heading: "📚 必修閱讀"
+          anchor: -必修閱讀
+        en:
+          heading: "📚 Required Reading"
+          anchor: -required-reading
+        zh-Hans:
+          heading: "📚 必修阅读"
+          anchor: -必修阅读
+      classic-patterns:
+        zh-TW:
+          heading: "Agent 的經典範式（thinking patterns）"
+          anchor: agent-的經典範式thinking-patterns
+        en:
+          heading: "Classic Agent Paradigms (thinking patterns)"
+          anchor: classic-agent-paradigms-thinking-patterns
+        zh-Hans:
+          heading: "Agent 的经典范式（thinking patterns）"
+          anchor: agent-的经典范式thinking-patterns
+      hands-on:
+        zh-TW:
+          heading: "🛠 動手練習"
+          anchor: -動手練習
+        en:
+          heading: "🛠 Hands-on Exercises"
+          anchor: -hands-on-exercises
+        zh-Hans:
+          heading: "🛠 动手练习"
+          anchor: -动手练习
+      exercise-1:
+        zh-TW:
+          heading: "練習 1：Function Calling（一個工具、一次呼叫）"
+          anchor: 練習-1function-calling一個工具一次呼叫
+        en:
+          heading: "Exercise 1: Function Calling (One Tool, One Call)"
+          anchor: exercise-1-function-calling-one-tool-one-call
+        zh-Hans:
+          heading: "练习 1：Function Calling（一个工具、一次调用）"
+          anchor: 练习-1function-calling一个工具一次调用
+      exercise-2:
+        zh-TW:
+          heading: "練習 2：多工具選擇"
+          anchor: 練習-2多工具選擇
+        en:
+          heading: "Exercise 2: Multi-Tool Selection"
+          anchor: exercise-2-multi-tool-selection
+        zh-Hans:
+          heading: "练习 2：多工具选择"
+          anchor: 练习-2多工具选择
+      structured-output:
+        zh-TW:
+          heading: "結構化輸出（Structured Outputs / JSON mode）⭐ function calling 的孿生兄弟"
+          anchor: 結構化輸出structured-outputs--json-mode-function-calling-的孿生兄弟
+        en:
+          heading: "Structured Output (Structured Outputs / JSON mode) ⭐ function calling’s twin"
+          anchor: structured-output-structured-outputs--json-mode--function-callings-twin
+        zh-Hans:
+          heading: "结构化输出（Structured Outputs / JSON mode）⭐ function calling 的孪生兄弟"
+          anchor: 结构化输出structured-outputs--json-mode-function-calling-的孪生兄弟
+      exercise-3:
+        zh-TW:
+          heading: "練習 3：從零實作 ReAct（不用 framework）"
+          anchor: 練習-3從零實作-react不用-framework
+        en:
+          heading: "Exercise 3: Implement ReAct from Scratch (No Framework)"
+          anchor: exercise-3-implement-react-from-scratch-no-framework
+        zh-Hans:
+          heading: "练习 3：从零实现 ReAct（不用 framework）"
+          anchor: 练习-3从零实现-react不用-framework
+      exercise-4:
+        zh-TW:
+          heading: "練習 4：多步驟推理任務"
+          anchor: 練習-4多步驟推理任務
+        en:
+          heading: "Exercise 4: Multi-Step Reasoning Task"
+          anchor: exercise-4-multi-step-reasoning-task
+        zh-Hans:
+          heading: "练习 4：多步骤推理任务"
+          anchor: 练习-4多步骤推理任务
+      exercise-5:
+        zh-TW:
+          heading: "練習 5：錯誤處理"
+          anchor: 練習-5錯誤處理
+        en:
+          heading: "Exercise 5: Error Handling"
+          anchor: exercise-5-error-handling
+        zh-Hans:
+          heading: "练习 5：错误处理"
+          anchor: 练习-5错误处理
+      exercise-6:
+        zh-TW:
+          heading: "練習 6：Function schema 設計（壞 schema 修到好）"
+          anchor: 練習-6function-schema-設計壞-schema-修到好
+        en:
+          heading: "Exercise 6: Function Schema Design (Fixing a Bad Schema)"
+          anchor: exercise-6-function-schema-design-fixing-a-bad-schema
+        zh-Hans:
+          heading: "练习 6：Function schema 设计（坏 schema 修到好）"
+          anchor: 练习-6function-schema-设计坏-schema-修到好
+      mini-project:
+        zh-TW:
+          heading: "🎒 推薦小專案：安全的天氣小幫手"
+          anchor: -推薦小專案安全的天氣小幫手
+        en:
+          heading: "🎒 Recommended Mini-Project: A Safe Weather Helper"
+          anchor: -recommended-mini-project-a-safe-weather-helper
+        zh-Hans:
+          heading: "🎒 推荐小项目：安全的天气小助手"
+          anchor: -推荐小项目安全的天气小助手
+      reflection:
+        zh-TW:
+          heading: "🪞 反思（Reflexion / Self-Refine）— 概念 + 路由"
+          anchor: -反思reflexion--self-refine-概念--路由
+        en:
+          heading: "🪞 Reflection (Reflexion / Self-Refine) — Concept + Routing"
+          anchor: -reflection-reflexion--self-refine--concept--routing
+        zh-Hans:
+          heading: "🪞 反思（Reflexion / Self-Refine）— 概念 + 路由"
+          anchor: -反思reflexion--self-refine-概念--路由
+      projects:
+        zh-TW:
+          heading: "🎯 精選 Projects"
+          anchor: -精選-projects
+        en:
+          heading: "🎯 Curated Projects"
+          anchor: -curated-projects
+        zh-Hans:
+          heading: "🎯 精选 Projects"
+          anchor: -精选-projects
+      completion:
+        zh-TW:
+          heading: "✅ 進 Stage 4 前的自我檢查"
+          anchor: -進-stage-4-前的自我檢查
+        en:
+          heading: "✅ Self-Check Before Stage 4"
+          anchor: -self-check-before-stage-4
+        zh-Hans:
+          heading: "✅ 进 Stage 4 前的自我检查"
+          anchor: -进-stage-4-前的自我检查
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: exercise-1
+      min_definition_chars: 20
+      terms:
+        - id: tool-use
+          zh-TW: {term: Tool Use, label: "Tool Use（工具使用）"}
+          en: {term: Tool Use, label: Tool Use}
+          zh-Hans: {term: Tool Use, label: "Tool Use（工具使用）"}
+        - id: function-calling
+          zh-TW: {term: Function Calling, label: "Function Calling（函式呼叫）"}
+          en: {term: Function Calling, label: Function Calling}
+          zh-Hans: {term: Function Calling, label: "Function Calling（函数调用）"}
+        - id: tool-schema
+          zh-TW: {term: Tool Schema, label: "Tool Schema（工具綱要）"}
+          en: {term: Tool Schema, label: Tool Schema}
+          zh-Hans: {term: Tool Schema, label: "Tool Schema（工具纲要）"}
+        - id: tool-call
+          zh-TW: {term: Tool Call, label: "Tool Call（工具請求）"}
+          en: {term: Tool Call, label: Tool Call}
+          zh-Hans: {term: Tool Call, label: "Tool Call（工具请求）"}
+        - id: tool-result
+          zh-TW: {term: Tool Result, label: "Tool Result（工具結果）"}
+          en: {term: Tool Result, label: Tool Result}
+          zh-Hans: {term: Tool Result, label: "Tool Result（工具结果）"}
+        - id: agent-loop
+          zh-TW: {term: Agent Loop, label: "Agent Loop（Agent 執行迴圈）"}
+          en: {term: Agent Loop, label: Agent Loop}
+          zh-Hans: {term: Agent Loop, label: "Agent Loop（Agent 执行循环）"}
+        - id: react
+          zh-TW: {term: ReAct, label: "ReAct（Reasoning + Acting）"}
+          en: {term: ReAct, label: ReAct}
+          zh-Hans: {term: ReAct, label: "ReAct（Reasoning + Acting）"}
+        - id: structured-output
+          zh-TW: {term: Structured Output, label: "Structured Output（結構化輸出）"}
+          en: {term: Structured Output, label: Structured Output}
+          zh-Hans: {term: Structured Output, label: "Structured Output（结构化输出）"}
+    resource_group_rowspans: [6, 4, 4, 3, 2, 2]
+
+  - id: track-a1
+    canonical: tracks/cli/A1-cli-intro.md
+    mirrors:
+      en: tracks/cli/A1-cli-intro.en.md
+      zh-Hans: tracks/cli/A1-cli-intro.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3676
+      en: 6291
+      zh-Hans: 3740
+    max_open_details: 0
+    visible_section_order: [learning-goals, core-terms, required-reading, hands-on, projects, completion]
+    required_visible_sections:
+      learning-goals:
+        zh-TW:
+          heading: "📌 學習目標"
+          anchor: -學習目標
+        en:
+          heading: "📌 Learning Goals"
+          anchor: -learning-goals
+        zh-Hans:
+          heading: "📌 学习目标"
+          anchor: -学习目标
+      core-terms:
+        zh-TW:
+          heading: "🧩 先認識五個核心詞"
+          anchor: -先認識五個核心詞
+        en:
+          heading: "🧩 Five Core Terms First"
+          anchor: -five-core-terms-first
+        zh-Hans:
+          heading: "🧩 先认识五个核心词"
+          anchor: -先认识五个核心词
+      required-reading:
+        zh-TW:
+          heading: "📚 必修閱讀"
+          anchor: -必修閱讀
+        en:
+          heading: "📚 Required Reading"
+          anchor: -required-reading
+        zh-Hans:
+          heading: "📚 必读"
+          anchor: -必读
+      hands-on:
+        zh-TW:
+          heading: "🛠 動手練習"
+          anchor: -動手練習
+        en:
+          heading: "🛠 Hands-on Exercises"
+          anchor: -hands-on-exercises
+        zh-Hans:
+          heading: "🛠 动手练习"
+          anchor: -动手练习
+      projects:
+        zh-TW:
+          heading: "🎯 精選 Projects"
+          anchor: -精選-projects
+        en:
+          heading: "🎯 Curated Projects"
+          anchor: -curated-projects
+        zh-Hans:
+          heading: "🎯 精选 Projects"
+          anchor: -精选-projects
+      cli-1:
+        zh-TW:
+          heading: "動手練習 CLI-1：在 demo repo 內先讀取，再做一個可復原的小改動"
+          anchor: 動手練習-cli-1在-demo-repo-內先讀取再做一個可復原的小改動
+        en:
+          heading: "Hands-on CLI-1: Read the demo repo first, then make one reversible small change"
+          anchor: hands-on-cli-1-read-the-demo-repo-first-then-make-one-reversible-small-change
+        zh-Hans:
+          heading: "动手练习 CLI-1：在 demo repo 里先读取，再做一个可撤销的小改动"
+          anchor: 动手练习-cli-1在-demo-repo-里先读取再做一个可撤销的小改动
+      cli-2:
+        zh-TW:
+          heading: "動手練習 CLI-2：讓專案規則被正確讀到"
+          anchor: 動手練習-cli-2讓專案規則被正確讀到
+        en:
+          heading: "Hands-on CLI-2: Make sure the project rules are read correctly"
+          anchor: hands-on-cli-2-make-sure-the-project-rules-are-read-correctly
+        zh-Hans:
+          heading: "动手练习 CLI-2：让项目规则被正确读取"
+          anchor: 动手练习-cli-2让项目规则被正确读取
+      cli-3:
+        zh-TW:
+          heading: "動手練習 CLI-3：用第二個 harness 重跑同一個請求"
+          anchor: 動手練習-cli-3用第二個-harness-重跑同一個請求
+        en:
+          heading: "Hands-on CLI-3: Run the same request again with a second harness"
+          anchor: hands-on-cli-3-run-the-same-request-again-with-a-second-harness
+        zh-Hans:
+          heading: "动手练习 CLI-3：用第二个 harness 重跑同一个请求"
+          anchor: 动手练习-cli-3用第二个-harness-重跑同一个请求
+      cli-4:
+        zh-TW:
+          heading: "動手練習 CLI-4：用假憑證觀察認證失敗"
+          anchor: 動手練習-cli-4用假憑證觀察認證失敗
+        en:
+          heading: "Hands-on CLI-4: Observe authentication failure with fake credentials"
+          anchor: hands-on-cli-4-observe-authentication-failure-with-fake-credentials
+        zh-Hans:
+          heading: "动手练习 CLI-4：用假凭证观察认证失败"
+          anchor: 动手练习-cli-4用假凭证观察认证失败
+      completion:
+        zh-TW:
+          heading: "✅ 進 A2 前的自我檢查"
+          anchor: -進-a2-前的自我檢查
+        en:
+          heading: "✅ Self-check before A2"
+          anchor: -self-check-before-a2
+        zh-Hans:
+          heading: "✅ 进 A2 前的自我检查"
+          anchor: -进-a2-前的自我检查
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: cli-1
+      min_definition_chars: 20
+      terms:
+        - id: llm
+          zh-TW: {term: LLM, label: "LLM（大型語言模型）"}
+          en: {term: LLM, label: "LLM (Large Language Model)"}
+          zh-Hans: {term: LLM, label: "LLM（大型语言模型）"}
+        - id: provider-api
+          zh-TW: {term: Provider API, label: "Provider API（模型服務入口）"}
+          en: {term: Provider API, label: "Provider API (model-service entry point)"}
+          zh-Hans: {term: Provider API, label: "Provider API（模型服务入口）"}
+        - id: router
+          zh-TW: {term: Router, label: "Router（路由器）"}
+          en: {term: Router, label: "Router"}
+          zh-Hans: {term: Router, label: "Router（路由器）"}
+        - id: coding-agent
+          zh-TW: {term: Coding agent, label: "Coding agent（程式工作台）"}
+          en: {term: Coding agent, label: "Coding agent (coding workbench)"}
+          zh-Hans: {term: Coding agent, label: "Coding agent（编程工作台）"}
+        - id: local-runtime
+          zh-TW: {term: Local runtime, label: "Local runtime（本機模型引擎）"}
+          en: {term: Local runtime, label: "Local runtime (local model engine)"}
+          zh-Hans: {term: Local runtime, label: "Local runtime（本地模型引擎）"}
+    resource_group_rowspans: [4, 5, 2]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+
+  - id: track-a2
+    canonical: tracks/cli/A2-cli-workflow.md
+    mirrors:
+      en: tracks/cli/A2-cli-workflow.en.md
+      zh-Hans: tracks/cli/A2-cli-workflow.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 2699
+      en: 4872
+      zh-Hans: 2682
+    max_open_details: 0
+    visible_section_order: [core-terms, learning-goals, required-reading, hands-on, projects, completion]
+    required_visible_sections:
+      learning-goals:
+        zh-TW:
+          heading: "📌 學習目標"
+          anchor: -學習目標
+        en:
+          heading: "📌 Learning Goals"
+          anchor: -learning-goals
+        zh-Hans:
+          heading: "📌 学习目标"
+          anchor: -学习目标
+      core-terms:
+        zh-TW:
+          heading: "🧩 先認識三個核心詞"
+          anchor: -先認識三個核心詞
+        en:
+          heading: "🧩 Three Core Terms First"
+          anchor: -three-core-terms-first
+        zh-Hans:
+          heading: "🧩 先认识三个核心词"
+          anchor: -先认识三个核心词
+      required-reading:
+        zh-TW:
+          heading: "📚 必修閱讀"
+          anchor: -必修閱讀
+        en:
+          heading: "📚 Required Reading"
+          anchor: -required-reading
+        zh-Hans:
+          heading: "📚 必读"
+          anchor: -必读
+      hands-on:
+        zh-TW:
+          heading: "🛠 動手練習"
+          anchor: -動手練習
+        en:
+          heading: "🛠 Hands-on Exercises"
+          anchor: -hands-on-exercises
+        zh-Hans:
+          heading: "🛠 动手练习"
+          anchor: -动手练习
+      projects:
+        zh-TW:
+          heading: "🎯 精選 Projects"
+          anchor: -精選-projects
+        en:
+          heading: "🎯 Curated Projects"
+          anchor: -curated-projects
+        zh-Hans:
+          heading: "🎯 精选 Projects"
+          anchor: -精选-projects
+      cli-5:
+        zh-TW:
+          heading: "動手練習 CLI-5：做一張最小專案規則卡"
+          anchor: 動手練習-cli-5做一張最小專案規則卡
+        en:
+          heading: "Hands-on exercise CLI-5: Make a minimal project-rules card"
+          anchor: hands-on-exercise-cli-5-make-a-minimal-project-rules-card
+        zh-Hans:
+          heading: "动手练习 CLI-5：做一张最小项目规则卡"
+          anchor: 动手练习-cli-5做一张最小项目规则卡
+      cli-6:
+        zh-TW:
+          heading: "動手練習 CLI-6：把重複 review 做成 Skill"
+          anchor: 動手練習-cli-6把重複-review-做成-skill
+        en:
+          heading: "Hands-on exercise CLI-6: Turn a repeated review into a Skill"
+          anchor: hands-on-exercise-cli-6-turn-a-repeated-review-into-a-skill
+        zh-Hans:
+          heading: "动手练习 CLI-6：把重复 review 做成 Skill"
+          anchor: 动手练习-cli-6把重复-review-做成-skill
+      cli-7:
+        zh-TW:
+          heading: "動手練習 CLI-7：把大任務切成看得見的小步驟"
+          anchor: 動手練習-cli-7把大任務切成看得見的小步驟
+        en:
+          heading: "Hands-on exercise CLI-7: Break a large task into visible small steps"
+          anchor: hands-on-exercise-cli-7-break-a-large-task-into-visible-small-steps
+        zh-Hans:
+          heading: "动手练习 CLI-7：把大任务拆成看得见的小步骤"
+          anchor: 动手练习-cli-7把大任务拆成看得见的小步骤
+      cli-8:
+        zh-TW:
+          heading: "動手練習 CLI-8：做一張 portable prompt 對照卡"
+          anchor: 動手練習-cli-8做一張-portable-prompt-對照卡
+        en:
+          heading: "Hands-on exercise CLI-8: Make a portable prompt comparison card"
+          anchor: hands-on-exercise-cli-8-make-a-portable-prompt-comparison-card
+        zh-Hans:
+          heading: "动手练习 CLI-8：做一张 portable prompt 对照卡"
+          anchor: 动手练习-cli-8做一张-portable-prompt-对照卡
+      completion:
+        zh-TW:
+          heading: "✅ 進 A3 前的自我檢查"
+          anchor: -進-a3-前的自我檢查
+        en:
+          heading: "✅ Self-check before A3"
+          anchor: -self-check-before-a3
+        zh-Hans:
+          heading: "✅ 进入 A3 前的自我检查"
+          anchor: -进入-a3-前的自我检查
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: cli-5
+      min_definition_chars: 20
+      terms:
+        - id: project-instructions
+          zh-TW: {term: Project instructions, label: "Project instructions（專案規則）"}
+          en: {term: Project instructions, label: "Project instructions (project rules)"}
+          zh-Hans: {term: Project instructions, label: "Project instructions（项目规则）"}
+        - id: skill
+          zh-TW: {term: Skill, label: "Skill（操作卡）"}
+          en: {term: Skill, label: "Skill (reusable instruction card)"}
+          zh-Hans: {term: Skill, label: "Skill（操作卡）"}
+        - id: one-off-prompt
+          zh-TW: {term: One-off prompt, label: "One-off prompt（單次提示）"}
+          en: {term: One-off prompt, label: "One-off prompt (single-task prompt)"}
+          zh-Hans: {term: One-off prompt, label: "One-off prompt（单次提示）"}
+    resource_group_rowspans: [4, 4, 4, 2, 2]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+
+  - id: track-a3
+    canonical: tracks/cli/A3-cli-production.md
+    mirrors:
+      en: tracks/cli/A3-cli-production.en.md
+      zh-Hans: tracks/cli/A3-cli-production.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3387
+      en: 5928
+      zh-Hans: 3438
+    max_open_details: 0
+    required_details_count: 8
+    visible_section_order: [learning-goals, core-terms, required-reading, hands-on, projects, completion]
+    forbidden_terms:
+      zh-TW: [plan.yml, max_cost_usd, CLAUDE.zh-Hans.md, ★, 1-2 分鐘, 1–2 分鐘]
+      en: [plan.yml, max_cost_usd, CLAUDE.zh-Hans.md, ★, 1-2 minutes, 1–2 minutes]
+      zh-Hans: [plan.yml, max_cost_usd, CLAUDE.zh-Hans.md, ★, 1-2 分钟, 1–2 分钟]
+    forbidden_terms_include_code: true
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-27"
+        - "2026-07-28"
+        - "--read-only"
+        - "pull_request_target"
+        - "GITHUB_TOKEN"
+        - 'permission-profile: ":read-only"'
+        - "@v1"
+        - "input tokens × input price + output tokens × output price"
+        - "provider spend limit"
+        - "job timeout"
+    required_visible_sections:
+      learning-goals:
+        zh-TW:
+          heading: "📌 學習目標"
+          anchor: -學習目標
+        en:
+          heading: "📌 Learning Goals"
+          anchor: -learning-goals
+        zh-Hans:
+          heading: "📌 学习目标"
+          anchor: -学习目标
+      core-terms:
+        zh-TW:
+          heading: "🧩 先認識三個核心詞"
+          anchor: -先認識三個核心詞
+        en:
+          heading: "🧩 Three Core Terms First"
+          anchor: -three-core-terms-first
+        zh-Hans:
+          heading: "🧩 先认识三个核心词"
+          anchor: -先认识三个核心词
+      required-reading:
+        zh-TW:
+          heading: "📚 必修閱讀"
+          anchor: -必修閱讀
+        en:
+          heading: "📚 Required Reading"
+          anchor: -required-reading
+        zh-Hans:
+          heading: "📚 必读"
+          anchor: -必读
+      hands-on:
+        zh-TW:
+          heading: "🛠 動手練習"
+          anchor: -動手練習
+        en:
+          heading: "🛠 Hands-on Exercises"
+          anchor: -hands-on-exercises
+        zh-Hans:
+          heading: "🛠 动手练习"
+          anchor: -动手练习
+      projects:
+        zh-TW:
+          heading: "🎯 精選 Projects"
+          anchor: -精選-projects
+        en:
+          heading: "🎯 Curated Projects"
+          anchor: -curated-projects
+        zh-Hans:
+          heading: "🎯 精选 Projects"
+          anchor: -精选-projects
+      cli-9:
+        zh-TW:
+          heading: "動手練習 CLI-9：只連一個 MCP server"
+          anchor: 動手練習-cli-9只連一個-mcp-server
+        en:
+          heading: "Hands-on exercise CLI-9: Connect only one MCP server"
+          anchor: hands-on-exercise-cli-9-connect-only-one-mcp-server
+        zh-Hans:
+          heading: "动手练习 CLI-9：只连接一个 MCP server"
+          anchor: 动手练习-cli-9只连接一个-mcp-server
+      cli-10:
+        zh-TW:
+          heading: "動手練習 CLI-10：讓 PR 多一個只讀檢查員"
+          anchor: 動手練習-cli-10讓-pr-多一個只讀檢查員
+        en:
+          heading: "Hands-on exercise CLI-10: Give a PR one more read-only checker"
+          anchor: hands-on-exercise-cli-10-give-a-pr-one-more-read-only-checker
+        zh-Hans:
+          heading: "动手练习 CLI-10：让 PR 多一个只读检查员"
+          anchor: 动手练习-cli-10让-pr-多一个只读检查员
+      cli-11:
+        zh-TW:
+          heading: "動手練習 CLI-11：看一次執行的收據"
+          anchor: 動手練習-cli-11看一次執行的收據
+        en:
+          heading: "Hands-on exercise CLI-11: Read the receipt for one run"
+          anchor: hands-on-exercise-cli-11-read-the-receipt-for-one-run
+        zh-Hans:
+          heading: "动手练习 CLI-11：看一次运行的收据"
+          anchor: 动手练习-cli-11看一次运行的收据
+      cli-12:
+        zh-TW:
+          heading: "動手練習 CLI-12：把 Skill 安全交給隊友"
+          anchor: 動手練習-cli-12把-skill-安全交給隊友
+        en:
+          heading: "Hands-on exercise CLI-12: Safely hand a Skill to a teammate"
+          anchor: hands-on-exercise-cli-12-safely-hand-a-skill-to-a-teammate
+        zh-Hans:
+          heading: "动手练习 CLI-12：安全地把 Skill 交给队友"
+          anchor: 动手练习-cli-12安全地把-skill-交给队友
+      playbook-4:
+        zh-TW:
+          heading: "📋 Playbook 4：派遣 subagent 跑獨立任務"
+          anchor: -playbook-4派遣-subagent-跑獨立任務
+        en:
+          heading: "📋 Playbook 4: Dispatching subagents for independent tasks"
+          anchor: -playbook-4-dispatching-subagents-for-independent-tasks
+        zh-Hans:
+          heading: "📋 Playbook 4：派遣 subagent 跑独立任务"
+          anchor: -playbook-4派遣-subagent-跑独立任务
+      completion:
+        zh-TW:
+          heading: "✅ Track A 完成檢查"
+          anchor: -track-a-完成檢查
+        en:
+          heading: "✅ Track A Completion Check"
+          anchor: -track-a-completion-check
+        zh-Hans:
+          heading: "✅ Track A 完成检查"
+          anchor: -track-a-完成检查
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: cli-9
+      min_definition_chars: 20
+      terms:
+        - id: mcp
+          zh-TW: {term: MCP, label: "MCP（Model Context Protocol）"}
+          en: {term: MCP, label: "MCP (Model Context Protocol)"}
+          zh-Hans: {term: MCP, label: "MCP（Model Context Protocol）"}
+        - id: ci
+          zh-TW: {term: CI, label: "CI（Continuous Integration）"}
+          en: {term: CI, label: "CI (Continuous Integration)"}
+          zh-Hans: {term: CI, label: "CI（Continuous Integration）"}
+        - id: observability
+          zh-TW: {term: Observability, label: "Observability（觀測與紀錄）"}
+          en: {term: Observability, label: "Observability"}
+          zh-Hans: {term: Observability, label: "Observability（观测与记录）"}
+    resource_group_rowspans: [4, 5, 4, 3, 2]
+
+  - id: cli-agents-guide
+    canonical: resources/cli-agents-guide.md
+    mirrors:
+      en: resources/cli-agents-guide.en.md
+      zh-Hans: resources/cli-agents-guide.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 2550
+      en: 4050
+      zh-Hans: 2600
+    max_open_details: 0
+    required_visible_sections:
+      comparison:
+        zh-TW:
+          heading: "9 個 CLI 工具"
+          anchor: 9-個-cli-工具
+        en:
+          heading: "9 CLI tools"
+          anchor: 9-cli-tools
+        zh-Hans:
+          heading: "9 个 CLI 工具"
+          anchor: 9-个-cli-工具
+      portable-prompt:
+        zh-TW:
+          heading: "Prompt 跨 CLI 搬移時保留四件事"
+          anchor: prompt-跨-cli-搬移時保留四件事
+        en:
+          heading: "Keep four things when moving a prompt between CLIs"
+          anchor: keep-four-things-when-moving-a-prompt-between-clis
+        zh-Hans:
+          heading: "Prompt 在 CLI 之间搬移时保留四件事"
+          anchor: prompt-在-cli-之间搬移时保留四件事
+      return:
+        zh-TW:
+          heading: "回到 Track A"
+          anchor: 回到-track-a
+        en:
+          heading: "Return to Track A"
+          anchor: return-to-track-a
+        zh-Hans:
+          heading: "回到 Track A"
+          anchor: 回到-track-a
+    resource_group_rowspans: [4, 5]

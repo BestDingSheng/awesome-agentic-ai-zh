@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "verified_at": "2026-08-27T06:33:23Z",
-  "repository_count": 280,
+  "verified_at": "2026-08-27T19:27:22Z",
+  "repository_count": 298,
   "repositories": {
     "01-ai/yi": {
       "requested": "01-ai/Yi",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "01-ai/Yi",
       "html_url": "https://github.com/01-ai/Yi",
@@ -28,7 +28,7 @@
     "1weiho/open-slide": {
       "requested": "1weiho/open-slide",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "1weiho/open-slide",
       "html_url": "https://github.com/1weiho/open-slide",
@@ -38,7 +38,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T16:22:38Z",
+      "pushed_at": "2026-08-27T15:27:13Z",
       "latest_release": {
         "tag": "@open-slide/core@1.19.1",
         "published_at": "2026-08-21T16:07:42Z"
@@ -53,7 +53,7 @@
     "21st-dev/magic-mcp": {
       "requested": "21st-dev/magic-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "21st-dev/magic-mcp",
       "html_url": "https://github.com/21st-dev/magic-mcp",
@@ -72,10 +72,66 @@
         "stages/05-claude-code-ecosystem.zh-Hans.md"
       ]
     },
+    "567-labs/instructor": {
+      "requested": "567-labs/instructor",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "567-labs/instructor",
+      "html_url": "https://github.com/567-labs/instructor",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T17:23:56Z",
+      "latest_release": {
+        "tag": "v1.16.0",
+        "published_at": "2026-08-27T15:33:36Z"
+      },
+      "reference_count": 6,
+      "sources": [
+        "stages/03-tool-use-and-hello-agent.en.md",
+        "stages/03-tool-use-and-hello-agent.md",
+        "stages/03-tool-use-and-hello-agent.zh-Hans.md"
+      ]
+    },
+    "aaif-goose/goose": {
+      "requested": "aaif-goose/goose",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "aaif-goose/goose",
+      "html_url": "https://github.com/aaif-goose/goose",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-27T18:27:55Z",
+      "latest_release": {
+        "tag": "v1.48.0",
+        "published_at": "2026-08-27T19:12:05Z"
+      },
+      "reference_count": 12,
+      "sources": [
+        "branches/for-developer.en.md",
+        "branches/for-developer.md",
+        "branches/for-developer.zh-Hans.md",
+        "resources/cli-agents-guide.en.md",
+        "resources/cli-agents-guide.md",
+        "resources/cli-agents-guide.zh-Hans.md",
+        "tracks/cli/A1-cli-intro.en.md",
+        "tracks/cli/A1-cli-intro.md",
+        "tracks/cli/A1-cli-intro.zh-Hans.md"
+      ]
+    },
     "agentscope-ai/agentscope": {
       "requested": "agentscope-ai/agentscope",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "agentscope-ai/agentscope",
       "html_url": "https://github.com/agentscope-ai/agentscope",
@@ -85,7 +141,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T04:00:30Z",
+      "pushed_at": "2026-08-27T16:05:30Z",
       "latest_release": {
         "tag": "v2.0.7",
         "published_at": "2026-08-24T12:47:44Z"
@@ -100,7 +156,7 @@
     "agno-agi/agno": {
       "requested": "agno-agi/agno",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "agno-agi/agno",
       "html_url": "https://github.com/agno-agi/agno",
@@ -110,7 +166,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T00:27:45Z",
+      "pushed_at": "2026-08-27T17:14:06Z",
       "latest_release": {
         "tag": "v3.0.1",
         "published_at": "2026-08-26T10:19:39Z"
@@ -125,7 +181,7 @@
     "ai-boost/awesome-harness-engineering": {
       "requested": "ai-boost/awesome-harness-engineering",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ai-boost/awesome-harness-engineering",
       "html_url": "https://github.com/ai-boost/awesome-harness-engineering",
@@ -156,7 +212,7 @@
     "aider-ai/aider": {
       "requested": "Aider-AI/aider",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Aider-AI/aider",
       "html_url": "https://github.com/Aider-AI/aider",
@@ -187,7 +243,7 @@
     "aihubcn/awesome-chinese-llm": {
       "requested": "AiHubCN/Awesome-Chinese-LLM",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "AiHubCN/Awesome-Chinese-LLM",
       "html_url": "https://github.com/AiHubCN/Awesome-Chinese-LLM",
@@ -211,7 +267,7 @@
     "alirezarezvani/claude-skills": {
       "requested": "alirezarezvani/claude-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "alirezarezvani/claude-skills",
       "html_url": "https://github.com/alirezarezvani/claude-skills",
@@ -236,7 +292,7 @@
     "all-hands-ai/openhands": {
       "requested": "All-Hands-AI/OpenHands",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "OpenHands/OpenHands",
       "html_url": "https://github.com/OpenHands/OpenHands",
@@ -246,10 +302,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:31:13Z",
+      "pushed_at": "2026-08-27T18:19:46Z",
       "latest_release": {
-        "tag": "v1.15.0",
-        "published_at": "2026-08-21T14:01:34Z"
+        "tag": "v1.16.0",
+        "published_at": "2026-08-27T18:19:22Z"
       },
       "reference_count": 3,
       "sources": [
@@ -261,7 +317,7 @@
     "amap-ml/longhorizon-harness": {
       "requested": "AMAP-ML/LongHorizon-Harness",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "AMAP-ML/LongHorizon-Harness",
       "html_url": "https://github.com/AMAP-ML/LongHorizon-Harness",
@@ -286,7 +342,7 @@
     "ankimcp/anki-mcp-server": {
       "requested": "ankimcp/anki-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ankimcp/anki-mcp-server",
       "html_url": "https://github.com/ankimcp/anki-mcp-server",
@@ -308,10 +364,47 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
+    "anomalyco/opencode": {
+      "requested": "anomalyco/opencode",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "anomalyco/opencode",
+      "html_url": "https://github.com/anomalyco/opencode",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "dev",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T19:26:45Z",
+      "latest_release": {
+        "tag": "v1.18.23",
+        "published_at": "2026-08-25T06:30:49Z"
+      },
+      "reference_count": 18,
+      "sources": [
+        "branches/for-everyday-users.en.md",
+        "branches/for-everyday-users.md",
+        "branches/for-everyday-users.zh-Hans.md",
+        "resources/agent-paradigms.en.md",
+        "resources/agent-paradigms.md",
+        "resources/agent-paradigms.zh-Hans.md",
+        "resources/cli-agents-guide.en.md",
+        "resources/cli-agents-guide.md",
+        "resources/cli-agents-guide.zh-Hans.md",
+        "resources/setup-guide.en.md",
+        "resources/setup-guide.md",
+        "resources/setup-guide.zh-Hans.md",
+        "tracks/cli/A1-cli-intro.en.md",
+        "tracks/cli/A1-cli-intro.md",
+        "tracks/cli/A1-cli-intro.zh-Hans.md"
+      ]
+    },
     "answerdotai/ragatouille": {
       "requested": "AnswerDotAI/RAGatouille",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "AnswerDotAI/RAGatouille",
       "html_url": "https://github.com/AnswerDotAI/RAGatouille",
@@ -336,7 +429,7 @@
     "anthropics/anthropic-cookbook": {
       "requested": "anthropics/anthropic-cookbook",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-cookbooks",
       "html_url": "https://github.com/anthropics/claude-cookbooks",
@@ -358,7 +451,7 @@
     "anthropics/anthropic-quickstarts": {
       "requested": "anthropics/anthropic-quickstarts",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-quickstarts",
       "html_url": "https://github.com/anthropics/claude-quickstarts",
@@ -380,7 +473,7 @@
     "anthropics/anthropic-sdk-python": {
       "requested": "anthropics/anthropic-sdk-python",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/anthropic-sdk-python",
       "html_url": "https://github.com/anthropics/anthropic-sdk-python",
@@ -390,7 +483,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:53:05Z",
+      "pushed_at": "2026-08-27T17:52:12Z",
       "latest_release": {
         "tag": "v1.1.0",
         "published_at": "2026-08-26T17:14:40Z"
@@ -405,7 +498,7 @@
     "anthropics/anthropic-sdk-typescript": {
       "requested": "anthropics/anthropic-sdk-typescript",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/anthropic-sdk-typescript",
       "html_url": "https://github.com/anthropics/anthropic-sdk-typescript",
@@ -415,7 +508,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:39:17Z",
+      "pushed_at": "2026-08-27T18:26:21Z",
       "latest_release": {
         "tag": "google-cloud-sdk-v0.0.11",
         "published_at": "2026-08-26T17:24:32Z"
@@ -430,7 +523,7 @@
     "anthropics/claude-agent-sdk-python": {
       "requested": "anthropics/claude-agent-sdk-python",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-agent-sdk-python",
       "html_url": "https://github.com/anthropics/claude-agent-sdk-python",
@@ -464,7 +557,7 @@
     "anthropics/claude-agent-sdk-typescript": {
       "requested": "anthropics/claude-agent-sdk-typescript",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-agent-sdk-typescript",
       "html_url": "https://github.com/anthropics/claude-agent-sdk-typescript",
@@ -489,7 +582,7 @@
     "anthropics/claude-code": {
       "requested": "anthropics/claude-code",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-code",
       "html_url": "https://github.com/anthropics/claude-code",
@@ -535,7 +628,7 @@
     "anthropics/claude-code-action": {
       "requested": "anthropics/claude-code-action",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-code-action",
       "html_url": "https://github.com/anthropics/claude-code-action",
@@ -563,7 +656,7 @@
     "anthropics/claude-cookbooks": {
       "requested": "anthropics/claude-cookbooks",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-cookbooks",
       "html_url": "https://github.com/anthropics/claude-cookbooks",
@@ -575,11 +668,17 @@
       "license": "MIT",
       "pushed_at": "2026-08-19T20:42:54Z",
       "latest_release": null,
-      "reference_count": 21,
+      "reference_count": 27,
       "sources": [
+        "examples/stage-3/01-function-calling/README.en.md",
+        "examples/stage-3/01-function-calling/README.md",
+        "examples/stage-3/01-function-calling/README.zh-Hans.md",
         "examples/stage-3/02-multi-tool-selection/README.en.md",
         "examples/stage-3/02-multi-tool-selection/README.md",
         "examples/stage-3/02-multi-tool-selection/README.zh-Hans.md",
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md",
         "stages/02-prompt-engineering.en.md",
         "stages/02-prompt-engineering.md",
         "stages/02-prompt-engineering.zh-Hans.md",
@@ -597,7 +696,7 @@
     "anthropics/claude-for-legal": {
       "requested": "anthropics/claude-for-legal",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-for-legal",
       "html_url": "https://github.com/anthropics/claude-for-legal",
@@ -619,7 +718,7 @@
     "anthropics/claude-plugins-official": {
       "requested": "anthropics/claude-plugins-official",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-plugins-official",
       "html_url": "https://github.com/anthropics/claude-plugins-official",
@@ -629,9 +728,9 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T07:40:55Z",
+      "pushed_at": "2026-08-27T10:42:02Z",
       "latest_release": null,
-      "reference_count": 88,
+      "reference_count": 91,
       "sources": [
         "README.zh-Hans.md",
         "RESOURCES.en.md",
@@ -651,7 +750,7 @@
     "anthropics/claude-quickstarts": {
       "requested": "anthropics/claude-quickstarts",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/claude-quickstarts",
       "html_url": "https://github.com/anthropics/claude-quickstarts",
@@ -676,7 +775,7 @@
     "anthropics/courses": {
       "requested": "anthropics/courses",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/courses",
       "html_url": "https://github.com/anthropics/courses",
@@ -690,6 +789,9 @@
       "latest_release": null,
       "reference_count": 12,
       "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md",
         "stages/02-prompt-engineering.en.md",
         "stages/02-prompt-engineering.md",
         "stages/02-prompt-engineering.zh-Hans.md",
@@ -704,7 +806,7 @@
     "anthropics/knowledge-work-plugins": {
       "requested": "anthropics/knowledge-work-plugins",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/knowledge-work-plugins",
       "html_url": "https://github.com/anthropics/knowledge-work-plugins",
@@ -714,7 +816,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T16:05:07Z",
+      "pushed_at": "2026-08-27T10:38:09Z",
       "latest_release": null,
       "reference_count": 45,
       "sources": [
@@ -726,7 +828,7 @@
     "anthropics/launch-your-agent": {
       "requested": "anthropics/launch-your-agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/launch-your-agent",
       "html_url": "https://github.com/anthropics/launch-your-agent",
@@ -748,7 +850,7 @@
     "anthropics/life-sciences": {
       "requested": "anthropics/life-sciences",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/life-sciences",
       "html_url": "https://github.com/anthropics/life-sciences",
@@ -773,7 +875,7 @@
     "anthropics/prompt-eng-interactive-tutorial": {
       "requested": "anthropics/prompt-eng-interactive-tutorial",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/prompt-eng-interactive-tutorial",
       "html_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
@@ -785,17 +887,20 @@
       "license": "NOASSERTION",
       "pushed_at": "2026-03-01T17:07:40Z",
       "latest_release": null,
-      "reference_count": 3,
+      "reference_count": 9,
       "sources": [
         "stages/02-prompt-engineering.en.md",
         "stages/02-prompt-engineering.md",
-        "stages/02-prompt-engineering.zh-Hans.md"
+        "stages/02-prompt-engineering.zh-Hans.md",
+        "tracks/cli/A2-cli-workflow.en.md",
+        "tracks/cli/A2-cli-workflow.md",
+        "tracks/cli/A2-cli-workflow.zh-Hans.md"
       ]
     },
     "anthropics/skills": {
       "requested": "anthropics/skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "anthropics/skills",
       "html_url": "https://github.com/anthropics/skills",
@@ -826,7 +931,7 @@
     "arize-ai/phoenix": {
       "requested": "Arize-ai/phoenix",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Arize-ai/phoenix",
       "html_url": "https://github.com/Arize-ai/phoenix",
@@ -836,25 +941,28 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T06:32:24Z",
+      "pushed_at": "2026-08-27T19:21:03Z",
       "latest_release": {
         "tag": "arize-phoenix-v20.4.0",
         "published_at": "2026-08-26T03:46:03Z"
       },
-      "reference_count": 9,
+      "reference_count": 15,
       "sources": [
         "examples/stage-7/03-observability/README.en.md",
         "examples/stage-7/03-observability/README.md",
         "examples/stage-7/03-observability/README.zh-Hans.md",
         "stages/07-multi-agent-production.en.md",
         "stages/07-multi-agent-production.md",
-        "stages/07-multi-agent-production.zh-Hans.md"
+        "stages/07-multi-agent-production.zh-Hans.md",
+        "tracks/cli/A3-cli-production.en.md",
+        "tracks/cli/A3-cli-production.md",
+        "tracks/cli/A3-cli-production.zh-Hans.md"
       ]
     },
     "arunpshankar/react-from-scratch": {
       "requested": "arunpshankar/react-from-scratch",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "arunpshankar/react-from-scratch",
       "html_url": "https://github.com/arunpshankar/react-from-scratch",
@@ -866,7 +974,7 @@
       "license": "Apache-2.0",
       "pushed_at": "2025-05-30T12:42:53Z",
       "latest_release": null,
-      "reference_count": 6,
+      "reference_count": 3,
       "sources": [
         "stages/03-tool-use-and-hello-agent.en.md",
         "stages/03-tool-use-and-hello-agent.md",
@@ -876,7 +984,7 @@
     "assafelovic/gpt-researcher": {
       "requested": "assafelovic/gpt-researcher",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "assafelovic/gpt-researcher",
       "html_url": "https://github.com/assafelovic/gpt-researcher",
@@ -901,7 +1009,7 @@
     "atlassian/atlassian-mcp-server": {
       "requested": "atlassian/atlassian-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "atlassian/atlassian-mcp-server",
       "html_url": "https://github.com/atlassian/atlassian-mcp-server",
@@ -926,7 +1034,7 @@
     "awslabs/mcp": {
       "requested": "awslabs/mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "awslabs/mcp",
       "html_url": "https://github.com/awslabs/mcp",
@@ -936,10 +1044,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:16:12Z",
+      "pushed_at": "2026-08-27T14:32:30Z",
       "latest_release": {
-        "tag": "2026.08.20260826125954",
-        "published_at": "2026-08-26T22:13:42Z"
+        "tag": "2026.08.20260827142639",
+        "published_at": "2026-08-27T14:43:47Z"
       },
       "reference_count": 3,
       "sources": [
@@ -951,7 +1059,7 @@
     "ayanami0730/arag": {
       "requested": "Ayanami0730/arag",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Ayanami0730/arag",
       "html_url": "https://github.com/Ayanami0730/arag",
@@ -973,7 +1081,7 @@
     "benborla/mcp-server-mysql": {
       "requested": "benborla/mcp-server-mysql",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "benborla/mcp-server-mysql",
       "html_url": "https://github.com/benborla/mcp-server-mysql",
@@ -998,7 +1106,7 @@
     "bentoml/bentoml": {
       "requested": "bentoml/BentoML",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "bentoml/BentoML",
       "html_url": "https://github.com/bentoml/BentoML",
@@ -1023,7 +1131,7 @@
     "berriai/litellm": {
       "requested": "BerriAI/litellm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "BerriAI/litellm",
       "html_url": "https://github.com/BerriAI/litellm",
@@ -1033,7 +1141,7 @@
       "visibility": "public",
       "default_branch": "litellm_internal_staging",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T06:28:18Z",
+      "pushed_at": "2026-08-27T19:26:01Z",
       "latest_release": {
         "tag": "v1.98.0",
         "published_at": "2026-08-23T00:28:24Z"
@@ -1045,41 +1153,10 @@
         "stages/04-agent-frameworks.zh-Hans.md"
       ]
     },
-    "block/goose": {
-      "requested": "block/goose",
-      "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
-      "api_status": 200,
-      "canonical": "aaif-goose/goose",
-      "html_url": "https://github.com/aaif-goose/goose",
-      "redirected": true,
-      "archived": false,
-      "disabled": false,
-      "visibility": "public",
-      "default_branch": "main",
-      "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T03:05:44Z",
-      "latest_release": {
-        "tag": "v1.47.0",
-        "published_at": "2026-08-21T18:14:59Z"
-      },
-      "reference_count": 9,
-      "sources": [
-        "branches/for-developer.en.md",
-        "branches/for-developer.md",
-        "branches/for-developer.zh-Hans.md",
-        "resources/cli-agents-guide.en.md",
-        "resources/cli-agents-guide.md",
-        "resources/cli-agents-guide.zh-Hans.md",
-        "tracks/cli/A1-cli-intro.en.md",
-        "tracks/cli/A1-cli-intro.md",
-        "tracks/cli/A1-cli-intro.zh-Hans.md"
-      ]
-    },
     "boundaryml/baml": {
       "requested": "BoundaryML/baml",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "BoundaryML/baml",
       "html_url": "https://github.com/BoundaryML/baml",
@@ -1089,10 +1166,10 @@
       "visibility": "public",
       "default_branch": "canary",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T05:04:29Z",
+      "pushed_at": "2026-08-27T18:46:14Z",
       "latest_release": {
-        "tag": "baml-language-0.17.1-nightly.20260824.b",
-        "published_at": "2026-08-25T11:31:29Z"
+        "tag": "baml-language-0.17.1-nightly.20260826.a",
+        "published_at": "2026-08-27T18:46:14Z"
       },
       "reference_count": 3,
       "sources": [
@@ -1104,7 +1181,7 @@
     "browser-use/browser-use": {
       "requested": "browser-use/browser-use",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "browser-use/browser-use",
       "html_url": "https://github.com/browser-use/browser-use",
@@ -1114,7 +1191,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T18:41:37Z",
+      "pushed_at": "2026-08-27T17:55:07Z",
       "latest_release": {
         "tag": "0.13.8",
         "published_at": "2026-08-16T18:48:54Z"
@@ -1132,7 +1209,7 @@
     "browserbase/mcp-server-browserbase": {
       "requested": "browserbase/mcp-server-browserbase",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "browserbase/mcp-server-browserbase",
       "html_url": "https://github.com/browserbase/mcp-server-browserbase",
@@ -1157,7 +1234,7 @@
     "bytebase/dbhub": {
       "requested": "bytebase/dbhub",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "bytebase/dbhub",
       "html_url": "https://github.com/bytebase/dbhub",
@@ -1182,7 +1259,7 @@
     "bytedance/ui-tars-desktop": {
       "requested": "bytedance/UI-TARS-desktop",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "bytedance/UI-TARS-desktop",
       "html_url": "https://github.com/bytedance/UI-TARS-desktop",
@@ -1207,7 +1284,7 @@
     "cft0808/edict": {
       "requested": "cft0808/edict",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "cft0808/edict",
       "html_url": "https://github.com/cft0808/edict",
@@ -1230,7 +1307,7 @@
     "chatchat-space/langchain-chatchat": {
       "requested": "chatchat-space/Langchain-Chatchat",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "chatchat-space/Langchain-Chatchat",
       "html_url": "https://github.com/chatchat-space/Langchain-Chatchat",
@@ -1258,7 +1335,7 @@
     "chroma-core/chroma": {
       "requested": "chroma-core/chroma",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "chroma-core/chroma",
       "html_url": "https://github.com/chroma-core/chroma",
@@ -1283,7 +1360,7 @@
     "chromedevtools/chrome-devtools-mcp": {
       "requested": "ChromeDevTools/chrome-devtools-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ChromeDevTools/chrome-devtools-mcp",
       "html_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
@@ -1293,7 +1370,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T14:26:02Z",
+      "pushed_at": "2026-08-27T12:29:48Z",
       "latest_release": {
         "tag": "chrome-devtools-mcp-v1.8.0",
         "published_at": "2026-08-25T11:35:48Z"
@@ -1308,7 +1385,7 @@
     "cline/cline": {
       "requested": "cline/cline",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "cline/cline",
       "html_url": "https://github.com/cline/cline",
@@ -1318,7 +1395,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:31:45Z",
+      "pushed_at": "2026-08-27T19:25:40Z",
       "latest_release": {
         "tag": "cli-v3.0.60",
         "published_at": "2026-08-26T09:43:26Z"
@@ -1333,7 +1410,7 @@
     "cloudflare/mcp-server-cloudflare": {
       "requested": "cloudflare/mcp-server-cloudflare",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "cloudflare/mcp-server-cloudflare",
       "html_url": "https://github.com/cloudflare/mcp-server-cloudflare",
@@ -1358,7 +1435,7 @@
     "cloudflare/security-audit-skill": {
       "requested": "cloudflare/security-audit-skill",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "cloudflare/security-audit-skill",
       "html_url": "https://github.com/cloudflare/security-audit-skill",
@@ -1380,7 +1457,7 @@
     "coddingtonbear/obsidian-local-rest-api": {
       "requested": "coddingtonbear/obsidian-local-rest-api",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "coddingtonbear/obsidian-local-rest-api",
       "html_url": "https://github.com/coddingtonbear/obsidian-local-rest-api",
@@ -1405,7 +1482,7 @@
     "comet-ml/opik": {
       "requested": "comet-ml/opik",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "comet-ml/opik",
       "html_url": "https://github.com/comet-ml/opik",
@@ -1415,10 +1492,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T02:07:11Z",
+      "pushed_at": "2026-08-27T19:04:08Z",
       "latest_release": {
-        "tag": "2.2.41",
-        "published_at": "2026-08-26T09:31:20Z"
+        "tag": "2.2.43",
+        "published_at": "2026-08-27T15:03:29Z"
       },
       "reference_count": 3,
       "sources": [
@@ -1430,7 +1507,7 @@
     "composiohq/composio": {
       "requested": "ComposioHQ/composio",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ComposioHQ/composio",
       "html_url": "https://github.com/ComposioHQ/composio",
@@ -1440,10 +1517,10 @@
       "visibility": "public",
       "default_branch": "next",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:57:37Z",
+      "pushed_at": "2026-08-27T19:12:24Z",
       "latest_release": {
-        "tag": "@composio/cli@0.4.0",
-        "published_at": "2026-08-23T22:55:41Z"
+        "tag": "@composio/vercel@0.11.2",
+        "published_at": "2026-08-27T18:24:56Z"
       },
       "reference_count": 3,
       "sources": [
@@ -1455,7 +1532,7 @@
     "continuedev/continue": {
       "requested": "continuedev/continue",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "continuedev/continue",
       "html_url": "https://github.com/continuedev/continue",
@@ -1465,25 +1542,22 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T10:07:03Z",
+      "pushed_at": "2026-08-27T13:11:02Z",
       "latest_release": {
         "tag": "v2.0.0-vscode",
         "published_at": "2026-06-19T00:24:01Z"
       },
-      "reference_count": 6,
+      "reference_count": 3,
       "sources": [
         "branches/for-developer.en.md",
         "branches/for-developer.md",
-        "branches/for-developer.zh-Hans.md",
-        "tracks/cli/A3-cli-production.en.md",
-        "tracks/cli/A3-cli-production.md",
-        "tracks/cli/A3-cli-production.zh-Hans.md"
+        "branches/for-developer.zh-Hans.md"
       ]
     },
     "coze-dev/coze-loop": {
       "requested": "coze-dev/coze-loop",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "coze-dev/coze-loop",
       "html_url": "https://github.com/coze-dev/coze-loop",
@@ -1493,7 +1567,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T04:38:45Z",
+      "pushed_at": "2026-08-27T12:30:59Z",
       "latest_release": {
         "tag": "v1.5.1",
         "published_at": "2026-01-20T12:35:01Z"
@@ -1508,7 +1582,7 @@
     "coze-dev/coze-studio": {
       "requested": "coze-dev/coze-studio",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "coze-dev/coze-studio",
       "html_url": "https://github.com/coze-dev/coze-studio",
@@ -1533,7 +1607,7 @@
     "crewaiinc/crewai": {
       "requested": "crewAIInc/crewAI",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "crewAIInc/crewAI",
       "html_url": "https://github.com/crewAIInc/crewAI",
@@ -1543,10 +1617,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:13:19Z",
+      "pushed_at": "2026-08-27T18:07:18Z",
       "latest_release": {
-        "tag": "1.15.17",
-        "published_at": "2026-08-20T00:27:23Z"
+        "tag": "1.15.18",
+        "published_at": "2026-08-27T18:07:19Z"
       },
       "reference_count": 9,
       "sources": [
@@ -1561,7 +1635,7 @@
     "crewaiinc/crewai-examples": {
       "requested": "crewAIInc/crewAI-examples",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "crewAIInc/crewAI-examples",
       "html_url": "https://github.com/crewAIInc/crewAI-examples",
@@ -1583,7 +1657,7 @@
     "dair-ai/prompt-engineering-guide": {
       "requested": "dair-ai/Prompt-Engineering-Guide",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "dair-ai/Prompt-Engineering-Guide",
       "html_url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
@@ -1605,7 +1679,7 @@
     "datawhalechina/agentic-ai": {
       "requested": "datawhalechina/agentic-ai",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "datawhalechina/agentic-ai",
       "html_url": "https://github.com/datawhalechina/agentic-ai",
@@ -1624,10 +1698,35 @@
         "resources/courses.zh-Hans.md"
       ]
     },
+    "datawhalechina/happy-llm": {
+      "requested": "datawhalechina/happy-llm",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "datawhalechina/happy-llm",
+      "html_url": "https://github.com/datawhalechina/happy-llm",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "NOASSERTION",
+      "pushed_at": "2026-08-08T17:18:48Z",
+      "latest_release": {
+        "tag": "v1.0.2",
+        "published_at": "2026-01-29T06:35:12Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "datawhalechina/hello-agents": {
       "requested": "datawhalechina/hello-agents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "datawhalechina/hello-agents",
       "html_url": "https://github.com/datawhalechina/hello-agents",
@@ -1642,7 +1741,7 @@
         "tag": "V1.0.3",
         "published_at": "2026-07-17T09:29:47Z"
       },
-      "reference_count": 108,
+      "reference_count": 99,
       "sources": [
         ".github/outreach/_send-day-packages.md",
         ".github/outreach/datawhale.md",
@@ -1653,6 +1752,9 @@
         "RESOURCES.en.md",
         "RESOURCES.md",
         "RESOURCES.zh-Hans.md",
+        "examples/stage-3/01-function-calling/README.en.md",
+        "examples/stage-3/01-function-calling/README.md",
+        "examples/stage-3/01-function-calling/README.zh-Hans.md",
         "examples/stage-3/02-multi-tool-selection/README.en.md",
         "examples/stage-3/02-multi-tool-selection/README.md",
         "examples/stage-3/02-multi-tool-selection/README.zh-Hans.md",
@@ -1736,10 +1838,35 @@
         "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
       ]
     },
+    "datawhalechina/llm-cookbook": {
+      "requested": "datawhalechina/llm-cookbook",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "datawhalechina/llm-cookbook",
+      "html_url": "https://github.com/datawhalechina/llm-cookbook",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "NOASSERTION",
+      "pushed_at": "2025-06-12T14:48:07Z",
+      "latest_release": {
+        "tag": "v1,0,0",
+        "published_at": "2023-08-17T08:25:36Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "datawhalechina/llm-universe": {
       "requested": "datawhalechina/llm-universe",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "datawhalechina/llm-universe",
       "html_url": "https://github.com/datawhalechina/llm-universe",
@@ -1754,17 +1881,20 @@
         "tag": "v1",
         "published_at": "2024-04-14T14:37:32Z"
       },
-      "reference_count": 3,
+      "reference_count": 6,
       "sources": [
         "branches/for-teacher.en.md",
         "branches/for-teacher.md",
-        "branches/for-teacher.zh-Hans.md"
+        "branches/for-teacher.zh-Hans.md",
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
       ]
     },
     "datawhalechina/self-llm": {
       "requested": "datawhalechina/self-llm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "datawhalechina/self-llm",
       "html_url": "https://github.com/datawhalechina/self-llm",
@@ -1786,7 +1916,7 @@
     "deepseek-ai/deepseek-harness": {
       "requested": "deepseek-ai/deepseek-harness",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "deepseek-ai/deepseek-harness",
       "html_url": "https://github.com/deepseek-ai/deepseek-harness",
@@ -1796,7 +1926,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "MIT",
-      "pushed_at": "2026-08-21T12:35:08Z",
+      "pushed_at": "2026-08-27T17:06:36Z",
       "latest_release": null,
       "reference_count": 9,
       "sources": [
@@ -1809,7 +1939,7 @@
     "deepset-ai/haystack": {
       "requested": "deepset-ai/haystack",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "deepset-ai/haystack",
       "html_url": "https://github.com/deepset-ai/haystack",
@@ -1819,7 +1949,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:25:53Z",
+      "pushed_at": "2026-08-27T14:26:31Z",
       "latest_release": {
         "tag": "v3.1.0",
         "published_at": "2026-08-24T15:19:09Z"
@@ -1834,7 +1964,7 @@
     "deusdata/codebase-memory-mcp": {
       "requested": "DeusData/codebase-memory-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "DeusData/codebase-memory-mcp",
       "html_url": "https://github.com/DeusData/codebase-memory-mcp",
@@ -1844,7 +1974,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T03:56:03Z",
+      "pushed_at": "2026-08-27T19:17:45Z",
       "latest_release": {
         "tag": "v0.10.8",
         "published_at": "2026-08-19T02:42:10Z"
@@ -1859,7 +1989,7 @@
     "docling-project/docling": {
       "requested": "docling-project/docling",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "docling-project/docling",
       "html_url": "https://github.com/docling-project/docling",
@@ -1884,7 +2014,7 @@
     "dottxt-ai/outlines": {
       "requested": "dottxt-ai/outlines",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "dottxt-ai/outlines",
       "html_url": "https://github.com/dottxt-ai/outlines",
@@ -1894,12 +2024,12 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T04:11:32Z",
+      "pushed_at": "2026-08-27T08:06:21Z",
       "latest_release": {
         "tag": "1.3.3",
         "published_at": "2026-08-06T12:26:25Z"
       },
-      "reference_count": 3,
+      "reference_count": 6,
       "sources": [
         "stages/03-tool-use-and-hello-agent.en.md",
         "stages/03-tool-use-and-hello-agent.md",
@@ -1909,7 +2039,7 @@
     "e2b-dev/e2b": {
       "requested": "e2b-dev/E2B",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "e2b-dev/E2B",
       "html_url": "https://github.com/e2b-dev/E2B",
@@ -1919,7 +2049,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:22:31Z",
+      "pushed_at": "2026-08-27T13:36:05Z",
       "latest_release": {
         "tag": "@e2b/python-sdk@2.46.0",
         "published_at": "2026-08-25T11:21:11Z"
@@ -1931,10 +2061,63 @@
         "stages/08-agent-interfaces.zh-Hans.md"
       ]
     },
+    "earendil-works/pi": {
+      "requested": "earendil-works/pi",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "earendil-works/pi",
+      "html_url": "https://github.com/earendil-works/pi",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T17:10:30Z",
+      "latest_release": {
+        "tag": "v0.84.3",
+        "published_at": "2026-08-24T11:09:57Z"
+      },
+      "reference_count": 9,
+      "sources": [
+        "resources/cli-agents-guide.en.md",
+        "resources/cli-agents-guide.md",
+        "resources/cli-agents-guide.zh-Hans.md",
+        "tracks/cli/A1-cli-intro.en.md",
+        "tracks/cli/A1-cli-intro.md",
+        "tracks/cli/A1-cli-intro.zh-Hans.md"
+      ]
+    },
+    "ehmatthes/pcc_3e": {
+      "requested": "ehmatthes/pcc_3e",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "ehmatthes/pcc_3e",
+      "html_url": "https://github.com/ehmatthes/pcc_3e",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "NOASSERTION",
+      "pushed_at": "2026-03-24T15:31:24Z",
+      "latest_release": {
+        "tag": "v1.0.0",
+        "published_at": "2023-02-28T18:20:19Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
+      ]
+    },
     "eleutherai/lm-evaluation-harness": {
       "requested": "EleutherAI/lm-evaluation-harness",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "EleutherAI/lm-evaluation-harness",
       "html_url": "https://github.com/EleutherAI/lm-evaluation-harness",
@@ -1944,7 +2127,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T16:38:13Z",
+      "pushed_at": "2026-08-27T18:12:08Z",
       "latest_release": {
         "tag": "v0.4.12",
         "published_at": "2026-05-11T13:04:19Z"
@@ -1959,7 +2142,7 @@
     "ergut/mcp-logseq": {
       "requested": "ergut/mcp-logseq",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ergut/mcp-logseq",
       "html_url": "https://github.com/ergut/mcp-logseq",
@@ -1984,7 +2167,7 @@
     "exa-labs/exa-mcp-server": {
       "requested": "exa-labs/exa-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "exa-labs/exa-mcp-server",
       "html_url": "https://github.com/exa-labs/exa-mcp-server",
@@ -2006,7 +2189,7 @@
     "excalidraw/excalidraw-mcp": {
       "requested": "excalidraw/excalidraw-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "excalidraw/excalidraw-mcp",
       "html_url": "https://github.com/excalidraw/excalidraw-mcp",
@@ -2031,7 +2214,7 @@
     "explodinggradients/ragas": {
       "requested": "explodinggradients/ragas",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "vibrantlabsai/ragas",
       "html_url": "https://github.com/vibrantlabsai/ragas",
@@ -2056,7 +2239,7 @@
     "f/awesome-chatgpt-prompts": {
       "requested": "f/awesome-chatgpt-prompts",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "f/prompts.chat",
       "html_url": "https://github.com/f/prompts.chat",
@@ -2066,28 +2249,22 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T04:53:07Z",
+      "pushed_at": "2026-08-27T10:04:29Z",
       "latest_release": null,
-      "reference_count": 12,
+      "reference_count": 6,
       "sources": [
         "branches/for-everyday-users.en.md",
         "branches/for-everyday-users.md",
         "branches/for-everyday-users.zh-Hans.md",
         "branches/for-teacher.en.md",
         "branches/for-teacher.md",
-        "branches/for-teacher.zh-Hans.md",
-        "stages/02-prompt-engineering.en.md",
-        "stages/02-prompt-engineering.md",
-        "stages/02-prompt-engineering.zh-Hans.md",
-        "tracks/cli/A2-cli-workflow.en.md",
-        "tracks/cli/A2-cli-workflow.md",
-        "tracks/cli/A2-cli-workflow.zh-Hans.md"
+        "branches/for-teacher.zh-Hans.md"
       ]
     },
     "firecrawl/firecrawl-mcp-server": {
       "requested": "firecrawl/firecrawl-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "firecrawl/firecrawl-mcp-server",
       "html_url": "https://github.com/firecrawl/firecrawl-mcp-server",
@@ -2097,7 +2274,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T19:49:10Z",
+      "pushed_at": "2026-08-27T18:59:12Z",
       "latest_release": {
         "tag": "v3.2.1",
         "published_at": "2025-09-26T07:31:17Z"
@@ -2112,7 +2289,7 @@
     "flagopen/flagembedding": {
       "requested": "FlagOpen/FlagEmbedding",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "FlagOpen/FlagEmbedding",
       "html_url": "https://github.com/FlagOpen/FlagEmbedding",
@@ -2137,7 +2314,7 @@
     "flonat/claude-research": {
       "requested": "flonat/claude-research",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "flonat/flonat-research",
       "html_url": "https://github.com/flonat/flonat-research",
@@ -2162,7 +2339,7 @@
     "fullstackretrieval-com/retrievaltutorials": {
       "requested": "FullStackRetrieval-com/RetrievalTutorials",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "FullStackRetrieval-com/RetrievalTutorials",
       "html_url": "https://github.com/FullStackRetrieval-com/RetrievalTutorials",
@@ -2184,7 +2361,7 @@
     "future-house/paper-qa": {
       "requested": "Future-House/paper-qa",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Future-House/paper-qa",
       "html_url": "https://github.com/Future-House/paper-qa",
@@ -2209,7 +2386,7 @@
     "geekan/metagpt": {
       "requested": "geekan/MetaGPT",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "FoundationAgents/MetaGPT",
       "html_url": "https://github.com/FoundationAgents/MetaGPT",
@@ -2234,7 +2411,7 @@
     "getsentry/sentry-mcp": {
       "requested": "getsentry/sentry-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "getsentry/sentry-mcp",
       "html_url": "https://github.com/getsentry/sentry-mcp",
@@ -2244,10 +2421,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T00:17:53Z",
+      "pushed_at": "2026-08-27T16:42:56Z",
       "latest_release": {
-        "tag": "0.38.0",
-        "published_at": "2026-08-26T06:46:24Z"
+        "tag": "0.39.0",
+        "published_at": "2026-08-27T06:47:34Z"
       },
       "reference_count": 3,
       "sources": [
@@ -2259,7 +2436,7 @@
     "getzep/graphiti": {
       "requested": "getzep/graphiti",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "getzep/graphiti",
       "html_url": "https://github.com/getzep/graphiti",
@@ -2284,7 +2461,7 @@
     "getzep/zep": {
       "requested": "getzep/zep",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "getzep/zep",
       "html_url": "https://github.com/getzep/zep",
@@ -2306,10 +2483,35 @@
         "stages/06-memory-rag.zh-Hans.md"
       ]
     },
+    "ggml-org/llama.cpp": {
+      "requested": "ggml-org/llama.cpp",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "ggml-org/llama.cpp",
+      "html_url": "https://github.com/ggml-org/llama.cpp",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T19:07:19Z",
+      "latest_release": {
+        "tag": "v0.3.0",
+        "published_at": "2026-08-25T10:22:58Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "github/github-mcp-server": {
       "requested": "github/github-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "github/github-mcp-server",
       "html_url": "https://github.com/github/github-mcp-server",
@@ -2319,12 +2521,12 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T19:36:05Z",
+      "pushed_at": "2026-08-27T14:22:25Z",
       "latest_release": {
         "tag": "v1.11.0",
         "published_at": "2026-08-25T14:31:44Z"
       },
-      "reference_count": 9,
+      "reference_count": 15,
       "sources": [
         "RESOURCES.en.md",
         "RESOURCES.md",
@@ -2334,13 +2536,16 @@
         "resources/mcp-skills-catalog.zh-Hans.md",
         "stages/05-claude-code-ecosystem.en.md",
         "stages/05-claude-code-ecosystem.md",
-        "stages/05-claude-code-ecosystem.zh-Hans.md"
+        "stages/05-claude-code-ecosystem.zh-Hans.md",
+        "tracks/cli/A3-cli-production.en.md",
+        "tracks/cli/A3-cli-production.md",
+        "tracks/cli/A3-cli-production.zh-Hans.md"
       ]
     },
     "glips/figma-context-mcp": {
       "requested": "GLips/Figma-Context-MCP",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "GLips/Figma-Context-MCP",
       "html_url": "https://github.com/GLips/Figma-Context-MCP",
@@ -2365,7 +2570,7 @@
     "gongrzhe/office-powerpoint-mcp-server": {
       "requested": "GongRzhe/Office-PowerPoint-MCP-Server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "GongRzhe/Office-PowerPoint-MCP-Server",
       "html_url": "https://github.com/GongRzhe/Office-PowerPoint-MCP-Server",
@@ -2387,10 +2592,32 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
+    "google-gemini/cookbook": {
+      "requested": "google-gemini/cookbook",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "google-gemini/cookbook",
+      "html_url": "https://github.com/google-gemini/cookbook",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-27T15:44:54Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/02-prompt-engineering.en.md",
+        "stages/02-prompt-engineering.md",
+        "stages/02-prompt-engineering.zh-Hans.md"
+      ]
+    },
     "google-gemini/gemini-cli": {
       "requested": "google-gemini/gemini-cli",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "google-gemini/gemini-cli",
       "html_url": "https://github.com/google-gemini/gemini-cli",
@@ -2430,7 +2657,7 @@
     "googleapis/mcp-toolbox": {
       "requested": "googleapis/mcp-toolbox",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "googleapis/mcp-toolbox",
       "html_url": "https://github.com/googleapis/mcp-toolbox",
@@ -2440,7 +2667,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:20:00Z",
+      "pushed_at": "2026-08-27T19:22:16Z",
       "latest_release": {
         "tag": "v1.9.0",
         "published_at": "2026-08-14T01:16:16Z"
@@ -2455,7 +2682,7 @@
     "googlecloudplatform/generative-ai": {
       "requested": "GoogleCloudPlatform/generative-ai",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "GoogleCloudPlatform/generative-ai",
       "html_url": "https://github.com/GoogleCloudPlatform/generative-ai",
@@ -2465,7 +2692,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T00:50:14Z",
+      "pushed_at": "2026-08-27T16:24:05Z",
       "latest_release": null,
       "reference_count": 3,
       "sources": [
@@ -2477,7 +2704,7 @@
     "grafana/mcp-grafana": {
       "requested": "grafana/mcp-grafana",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "grafana/mcp-grafana",
       "html_url": "https://github.com/grafana/mcp-grafana",
@@ -2487,7 +2714,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T23:14:38Z",
+      "pushed_at": "2026-08-27T17:15:25Z",
       "latest_release": {
         "tag": "v1.2.0",
         "published_at": "2026-08-25T14:26:33Z"
@@ -2502,7 +2729,7 @@
     "gusye1234/nano-graphrag": {
       "requested": "gusye1234/nano-graphrag",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "gusye1234/nano-graphrag",
       "html_url": "https://github.com/gusye1234/nano-graphrag",
@@ -2527,7 +2754,7 @@
     "hardness1020/awesome-agent-architecture": {
       "requested": "hardness1020/awesome-agent-architecture",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "hardness1020/awesome-agent-architecture",
       "html_url": "https://github.com/hardness1020/awesome-agent-architecture",
@@ -2552,7 +2779,7 @@
     "haris-musa/excel-mcp-server": {
       "requested": "haris-musa/excel-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "haris-musa/excel-mcp-server",
       "html_url": "https://github.com/haris-musa/excel-mcp-server",
@@ -2577,7 +2804,7 @@
     "helicone/helicone": {
       "requested": "Helicone/helicone",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Helicone/helicone",
       "html_url": "https://github.com/Helicone/helicone",
@@ -2592,7 +2819,7 @@
         "tag": "v2025.08.21-1",
         "published_at": "2025-08-21T18:47:38Z"
       },
-      "reference_count": 12,
+      "reference_count": 15,
       "sources": [
         "stages/07-multi-agent-production.en.md",
         "stages/07-multi-agent-production.md",
@@ -2605,7 +2832,7 @@
     "henryfcb/openclaw-memory-enhancer": {
       "requested": "henryfcb/openclaw-memory-enhancer",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "henryfcb/openclaw-memory-enhancer",
       "html_url": "https://github.com/henryfcb/openclaw-memory-enhancer",
@@ -2630,7 +2857,7 @@
     "hesreallyhim/awesome-claude-code": {
       "requested": "hesreallyhim/awesome-claude-code",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "hesreallyhim/awesome-claude-code",
       "html_url": "https://github.com/hesreallyhim/awesome-claude-code",
@@ -2640,7 +2867,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T04:48:50Z",
+      "pushed_at": "2026-08-27T15:43:04Z",
       "latest_release": null,
       "reference_count": 14,
       "sources": [
@@ -2663,7 +2890,7 @@
     "hiyouga/llama-factory": {
       "requested": "hiyouga/LLaMA-Factory",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "hiyouga/LlamaFactory",
       "html_url": "https://github.com/hiyouga/LlamaFactory",
@@ -2673,7 +2900,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T21:14:26Z",
+      "pushed_at": "2026-08-27T10:50:57Z",
       "latest_release": {
         "tag": "v0.9.5",
         "published_at": "2026-05-30T15:57:58Z"
@@ -2688,7 +2915,7 @@
     "hkuds/lightrag": {
       "requested": "HKUDS/LightRAG",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "HKUDS/LightRAG",
       "html_url": "https://github.com/HKUDS/LightRAG",
@@ -2698,7 +2925,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:26:54Z",
+      "pushed_at": "2026-08-27T18:18:07Z",
       "latest_release": {
         "tag": "v1.5.7rc2",
         "published_at": "2026-08-19T07:01:48Z"
@@ -2710,10 +2937,35 @@
         "stages/06-memory-rag.zh-Hans.md"
       ]
     },
+    "httpie/cli": {
+      "requested": "httpie/cli",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "httpie/cli",
+      "html_url": "https://github.com/httpie/cli",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "BSD-3-Clause",
+      "pushed_at": "2024-12-17T17:30:35Z",
+      "latest_release": {
+        "tag": "3.2.4",
+        "published_at": "2024-11-01T17:33:07Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
+      ]
+    },
     "huggingface/agents-course": {
       "requested": "huggingface/agents-course",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "huggingface/agents-course",
       "html_url": "https://github.com/huggingface/agents-course",
@@ -2735,7 +2987,7 @@
     "huggingface/smolagents": {
       "requested": "huggingface/smolagents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "huggingface/smolagents",
       "html_url": "https://github.com/huggingface/smolagents",
@@ -2766,7 +3018,7 @@
     "illuin-tech/colpali": {
       "requested": "illuin-tech/colpali",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "illuin-tech/colpali",
       "html_url": "https://github.com/illuin-tech/colpali",
@@ -2791,7 +3043,7 @@
     "infiniflow/ragflow": {
       "requested": "infiniflow/ragflow",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "infiniflow/ragflow",
       "html_url": "https://github.com/infiniflow/ragflow",
@@ -2801,7 +3053,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:23:37Z",
+      "pushed_at": "2026-08-27T16:44:49Z",
       "latest_release": {
         "tag": "v0.27.0",
         "published_at": "2026-08-19T09:15:03Z"
@@ -2816,7 +3068,7 @@
     "instructor-ai/instructor": {
       "requested": "instructor-ai/instructor",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "567-labs/instructor",
       "html_url": "https://github.com/567-labs/instructor",
@@ -2826,10 +3078,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-09T14:55:49Z",
+      "pushed_at": "2026-08-27T17:23:56Z",
       "latest_release": {
-        "tag": "v1.15.4",
-        "published_at": "2026-06-28T07:36:13Z"
+        "tag": "v1.16.0",
+        "published_at": "2026-08-27T15:33:36Z"
       },
       "reference_count": 3,
       "sources": [
@@ -2841,7 +3093,7 @@
     "jd/tenacity": {
       "requested": "jd/tenacity",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "jd/tenacity",
       "html_url": "https://github.com/jd/tenacity",
@@ -2866,7 +3118,7 @@
     "jerhadf/linear-mcp-server": {
       "requested": "jerhadf/linear-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "jerhadf/linear-mcp-server",
       "html_url": "https://github.com/jerhadf/linear-mcp-server",
@@ -2888,10 +3140,35 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
+    "jingyaogong/minimind": {
+      "requested": "jingyaogong/minimind",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "jingyaogong/minimind",
+      "html_url": "https://github.com/jingyaogong/minimind",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-21T08:49:07Z",
+      "latest_release": {
+        "tag": "v2",
+        "published_at": "2025-10-21T14:37:05Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "jjyaoao/helloagents": {
       "requested": "jjyaoao/HelloAgents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "jjyaoao/HelloAgents",
       "html_url": "https://github.com/jjyaoao/HelloAgents",
@@ -2916,10 +3193,32 @@
         "stages/03-tool-use-and-hello-agent.zh-Hans.md"
       ]
     },
+    "jlevy/the-art-of-command-line": {
+      "requested": "jlevy/the-art-of-command-line",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "jlevy/the-art-of-command-line",
+      "html_url": "https://github.com/jlevy/the-art-of-command-line",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "NOASSERTION",
+      "pushed_at": "2024-06-25T18:13:44Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
+      ]
+    },
     "joonspk-research/generative_agents": {
       "requested": "joonspk-research/generative_agents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "joonspk-research/generative_agents",
       "html_url": "https://github.com/joonspk-research/generative_agents",
@@ -2938,35 +3237,57 @@
         "stages/06-memory-rag.zh-Hans.md"
       ]
     },
-    "jxnl/instructor": {
-      "requested": "jxnl/instructor",
+    "jqlang/jq": {
+      "requested": "jqlang/jq",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
-      "canonical": "567-labs/instructor",
-      "html_url": "https://github.com/567-labs/instructor",
-      "redirected": true,
+      "canonical": "jqlang/jq",
+      "html_url": "https://github.com/jqlang/jq",
+      "redirected": false,
       "archived": false,
       "disabled": false,
       "visibility": "public",
-      "default_branch": "main",
-      "license": "MIT",
-      "pushed_at": "2026-08-09T14:55:49Z",
+      "default_branch": "master",
+      "license": "NOASSERTION",
+      "pushed_at": "2026-08-23T15:06:16Z",
       "latest_release": {
-        "tag": "v1.15.4",
-        "published_at": "2026-06-28T07:36:13Z"
+        "tag": "jq-1.8.2",
+        "published_at": "2026-06-20T14:11:27Z"
       },
       "reference_count": 3,
       "sources": [
-        "stages/03-tool-use-and-hello-agent.en.md",
-        "stages/03-tool-use-and-hello-agent.md",
-        "stages/03-tool-use-and-hello-agent.zh-Hans.md"
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
+      ]
+    },
+    "k88hudson/git-flight-rules": {
+      "requested": "k88hudson/git-flight-rules",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "k88hudson/git-flight-rules",
+      "html_url": "https://github.com/k88hudson/git-flight-rules",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "CC-BY-SA-4.0",
+      "pushed_at": "2026-07-23T20:48:50Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
       ]
     },
     "kaixindelele/chatpaper": {
       "requested": "kaixindelele/ChatPaper",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "kaixindelele/ChatPaper",
       "html_url": "https://github.com/kaixindelele/ChatPaper",
@@ -2985,10 +3306,32 @@
         "branches/for-researcher.zh-Hans.md"
       ]
     },
+    "karpathy/llm101n": {
+      "requested": "karpathy/LLM101n",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "karpathy/LLM101n",
+      "html_url": "https://github.com/karpathy/LLM101n",
+      "redirected": false,
+      "archived": true,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "NOASSERTION",
+      "pushed_at": "2024-08-01T01:20:33Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "khoj-ai/khoj": {
       "requested": "khoj-ai/khoj",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "khoj-ai/khoj",
       "html_url": "https://github.com/khoj-ai/khoj",
@@ -3013,7 +3356,7 @@
     "kimtaeyoon83/mcp-server-youtube-transcript": {
       "requested": "kimtaeyoon83/mcp-server-youtube-transcript",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "kimtaeyoon83/mcp-server-youtube-transcript",
       "html_url": "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript",
@@ -3035,7 +3378,7 @@
     "kimyx0207/claude-code-x-openclaw-guide-zh": {
       "requested": "KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "KimYx0207/AI-Coding-Guide-Zh",
       "html_url": "https://github.com/KimYx0207/AI-Coding-Guide-Zh",
@@ -3060,7 +3403,7 @@
     "korotovsky/slack-mcp-server": {
       "requested": "korotovsky/slack-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "korotovsky/slack-mcp-server",
       "html_url": "https://github.com/korotovsky/slack-mcp-server",
@@ -3088,7 +3431,7 @@
     "kreuzberg-dev/kreuzberg": {
       "requested": "kreuzberg-dev/kreuzberg",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "xberg-io/xberg",
       "html_url": "https://github.com/xberg-io/xberg",
@@ -3098,7 +3441,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:20:33Z",
+      "pushed_at": "2026-08-27T07:06:37Z",
       "latest_release": {
         "tag": "v1.0.14",
         "published_at": "2026-08-04T20:29:02Z"
@@ -3113,7 +3456,7 @@
     "kyrolabs/awesome-agents": {
       "requested": "kyrolabs/awesome-agents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "kyrolabs/awesome-agents",
       "html_url": "https://github.com/kyrolabs/awesome-agents",
@@ -3133,7 +3476,7 @@
     "kyrolabs/awesome-langchain": {
       "requested": "kyrolabs/awesome-langchain",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "kyrolabs/awesome-langchain",
       "html_url": "https://github.com/kyrolabs/awesome-langchain",
@@ -3153,7 +3496,7 @@
     "lancedb/lancedb": {
       "requested": "lancedb/lancedb",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "lancedb/lancedb",
       "html_url": "https://github.com/lancedb/lancedb",
@@ -3163,7 +3506,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T05:42:32Z",
+      "pushed_at": "2026-08-27T19:23:28Z",
       "latest_release": {
         "tag": "v0.37.1",
         "published_at": "2026-08-10T07:55:09Z"
@@ -3178,7 +3521,7 @@
     "langchain-ai/deepagents": {
       "requested": "langchain-ai/deepagents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/deepagents",
       "html_url": "https://github.com/langchain-ai/deepagents",
@@ -3188,7 +3531,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:38:28Z",
+      "pushed_at": "2026-08-27T19:22:25Z",
       "latest_release": {
         "tag": "deepagents==0.7.9",
         "published_at": "2026-08-25T21:02:54Z"
@@ -3206,7 +3549,7 @@
     "langchain-ai/langchain": {
       "requested": "langchain-ai/langchain",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/langchain",
       "html_url": "https://github.com/langchain-ai/langchain",
@@ -3216,7 +3559,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "MIT",
-      "pushed_at": "2026-08-26T23:12:17Z",
+      "pushed_at": "2026-08-27T19:21:42Z",
       "latest_release": {
         "tag": "langchain-core==1.6.0",
         "published_at": "2026-08-19T15:55:57Z"
@@ -3232,7 +3575,7 @@
     "langchain-ai/langgraph": {
       "requested": "langchain-ai/langgraph",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/langgraph",
       "html_url": "https://github.com/langchain-ai/langgraph",
@@ -3242,7 +3585,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T02:59:56Z",
+      "pushed_at": "2026-08-27T16:59:11Z",
       "latest_release": {
         "tag": "sdk==0.4.3",
         "published_at": "2026-08-19T18:05:32Z"
@@ -3260,7 +3603,7 @@
     "langchain-ai/langmem": {
       "requested": "langchain-ai/langmem",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/langmem",
       "html_url": "https://github.com/langchain-ai/langmem",
@@ -3282,7 +3625,7 @@
     "langchain-ai/langserve": {
       "requested": "langchain-ai/langserve",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/langserve",
       "html_url": "https://github.com/langchain-ai/langserve",
@@ -3307,7 +3650,7 @@
     "langchain-ai/open_deep_research": {
       "requested": "langchain-ai/open_deep_research",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/open_deep_research",
       "html_url": "https://github.com/langchain-ai/open_deep_research",
@@ -3329,7 +3672,7 @@
     "langchain-ai/openwiki": {
       "requested": "langchain-ai/openwiki",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/openwiki",
       "html_url": "https://github.com/langchain-ai/openwiki",
@@ -3339,7 +3682,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:03:35Z",
+      "pushed_at": "2026-08-27T18:42:22Z",
       "latest_release": {
         "tag": "v0.4.3",
         "published_at": "2026-08-27T05:03:36Z"
@@ -3354,7 +3697,7 @@
     "langchain-ai/react-agent": {
       "requested": "langchain-ai/react-agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langchain-ai/react-agent",
       "html_url": "https://github.com/langchain-ai/react-agent",
@@ -3376,7 +3719,7 @@
     "langflow-ai/langflow": {
       "requested": "langflow-ai/langflow",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langflow-ai/langflow",
       "html_url": "https://github.com/langflow-ai/langflow",
@@ -3386,7 +3729,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T01:43:38Z",
+      "pushed_at": "2026-08-27T19:07:25Z",
       "latest_release": {
         "tag": "v1.11.5",
         "published_at": "2026-08-25T15:35:11Z"
@@ -3401,7 +3744,7 @@
     "langfuse/langfuse": {
       "requested": "langfuse/langfuse",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "langfuse/langfuse",
       "html_url": "https://github.com/langfuse/langfuse",
@@ -3411,12 +3754,12 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T06:29:46Z",
+      "pushed_at": "2026-08-27T19:24:50Z",
       "latest_release": {
-        "tag": "v4.21.0",
-        "published_at": "2026-08-26T12:36:06Z"
+        "tag": "v4.22.0",
+        "published_at": "2026-08-27T07:24:31Z"
       },
-      "reference_count": 18,
+      "reference_count": 21,
       "sources": [
         "examples/stage-7/03-observability/README.en.md",
         "examples/stage-7/03-observability/README.md",
@@ -3432,7 +3775,7 @@
     "laude-institute/terminal-bench": {
       "requested": "laude-institute/terminal-bench",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "harbor-framework/terminal-bench-1",
       "html_url": "https://github.com/harbor-framework/terminal-bench-1",
@@ -3454,7 +3797,7 @@
     "leemysw/feishu-docx": {
       "requested": "leemysw/feishu-docx",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "leemysw/feishu-docx",
       "html_url": "https://github.com/leemysw/feishu-docx",
@@ -3485,7 +3828,7 @@
     "letta-ai/letta": {
       "requested": "letta-ai/letta",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "letta-ai/letta",
       "html_url": "https://github.com/letta-ai/letta",
@@ -3516,7 +3859,7 @@
     "liaokongvfx/langchain-chinese-getting-started-guide": {
       "requested": "liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
       "html_url": "https://github.com/liaokongVFX/LangChain-Chinese-Getting-Started-Guide",
@@ -3540,7 +3883,7 @@
     "livekit/agents": {
       "requested": "livekit/agents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "livekit/agents",
       "html_url": "https://github.com/livekit/agents",
@@ -3550,7 +3893,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T05:51:22Z",
+      "pushed_at": "2026-08-27T15:57:09Z",
       "latest_release": {
         "tag": "livekit-agents@1.7.1",
         "published_at": "2026-08-27T03:42:44Z"
@@ -3565,7 +3908,7 @@
     "liyupi/ai-guide": {
       "requested": "liyupi/ai-guide",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "liyupi/ai-guide",
       "html_url": "https://github.com/liyupi/ai-guide",
@@ -3577,21 +3920,18 @@
       "license": "NOASSERTION",
       "pushed_at": "2026-08-21T07:07:15Z",
       "latest_release": null,
-      "reference_count": 7,
+      "reference_count": 4,
       "sources": [
         ".github/outreach/liyupi.md",
         "README.en.md",
         "README.md",
-        "README.zh-Hans.md",
-        "stages/03-tool-use-and-hello-agent.en.md",
-        "stages/03-tool-use-and-hello-agent.md",
-        "stages/03-tool-use-and-hello-agent.zh-Hans.md"
+        "README.zh-Hans.md"
       ]
     },
     "lm-sys/routellm": {
       "requested": "lm-sys/RouteLLM",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "lm-sys/RouteLLM",
       "html_url": "https://github.com/lm-sys/RouteLLM",
@@ -3613,7 +3953,7 @@
     "lobehub/lobe-chat": {
       "requested": "lobehub/lobe-chat",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "lobehub/lobehub",
       "html_url": "https://github.com/lobehub/lobehub",
@@ -3623,7 +3963,7 @@
       "visibility": "public",
       "default_branch": "canary",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T06:13:16Z",
+      "pushed_at": "2026-08-27T19:21:22Z",
       "latest_release": {
         "tag": "v2.2.14",
         "published_at": "2026-08-16T07:02:43Z"
@@ -3638,7 +3978,7 @@
     "lsdefine/genericagent": {
       "requested": "lsdefine/GenericAgent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "lsdefine/GenericAgent",
       "html_url": "https://github.com/lsdefine/GenericAgent",
@@ -3648,7 +3988,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-25T10:29:05Z",
+      "pushed_at": "2026-08-27T13:45:10Z",
       "latest_release": {
         "tag": "desktop-portable-v0.2.0",
         "published_at": "2026-08-24T04:58:35Z"
@@ -3663,7 +4003,7 @@
     "makenotion/notion-mcp-server": {
       "requested": "makenotion/notion-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "makenotion/notion-mcp-server",
       "html_url": "https://github.com/makenotion/notion-mcp-server",
@@ -3691,7 +4031,7 @@
     "markuspfundstein/mcp-obsidian": {
       "requested": "MarkusPfundstein/mcp-obsidian",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "MarkusPfundstein/mcp-obsidian",
       "html_url": "https://github.com/MarkusPfundstein/mcp-obsidian",
@@ -3716,7 +4056,7 @@
     "mattambrogi/agent-implementation": {
       "requested": "mattambrogi/agent-implementation",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "mattambrogi/agent-implementation",
       "html_url": "https://github.com/mattambrogi/agent-implementation",
@@ -3738,7 +4078,7 @@
     "mattpocock/skills": {
       "requested": "mattpocock/skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "mattpocock/skills",
       "html_url": "https://github.com/mattpocock/skills",
@@ -3766,7 +4106,7 @@
     "meirtz/awesome-context-engineering": {
       "requested": "Meirtz/Awesome-Context-Engineering",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Meirtz/Awesome-Context-Engineering",
       "html_url": "https://github.com/Meirtz/Awesome-Context-Engineering",
@@ -3778,20 +4118,17 @@
       "license": "MIT",
       "pushed_at": "2026-05-28T05:40:26Z",
       "latest_release": null,
-      "reference_count": 6,
+      "reference_count": 3,
       "sources": [
         "resources/glossary.en.md",
         "resources/glossary.md",
-        "resources/glossary.zh-Hans.md",
-        "stages/02-prompt-engineering.en.md",
-        "stages/02-prompt-engineering.md",
-        "stages/02-prompt-engineering.zh-Hans.md"
+        "resources/glossary.zh-Hans.md"
       ]
     },
     "mem0ai/mem0": {
       "requested": "mem0ai/mem0",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "mem0ai/mem0",
       "html_url": "https://github.com/mem0ai/mem0",
@@ -3801,10 +4138,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T17:28:49Z",
+      "pushed_at": "2026-08-27T16:42:05Z",
       "latest_release": {
-        "tag": "mem0-strands-v0.1.0",
-        "published_at": "2026-08-24T20:06:40Z"
+        "tag": "deepseek-plugin-v0.1.1",
+        "published_at": "2026-08-27T08:22:06Z"
       },
       "reference_count": 24,
       "sources": [
@@ -3819,7 +4156,7 @@
     "merill/lokka": {
       "requested": "merill/lokka",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "merill/lokka",
       "html_url": "https://github.com/merill/lokka",
@@ -3841,7 +4178,7 @@
     "microsoft/agent-framework": {
       "requested": "microsoft/agent-framework",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/agent-framework",
       "html_url": "https://github.com/microsoft/agent-framework",
@@ -3851,7 +4188,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T23:53:44Z",
+      "pushed_at": "2026-08-27T18:41:38Z",
       "latest_release": {
         "tag": "dotnet-1.19.0",
         "published_at": "2026-08-22T12:48:00Z"
@@ -3866,7 +4203,7 @@
     "microsoft/ai-agents-for-beginners": {
       "requested": "microsoft/ai-agents-for-beginners",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/ai-agents-for-beginners",
       "html_url": "https://github.com/microsoft/ai-agents-for-beginners",
@@ -3876,7 +4213,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:51:17Z",
+      "pushed_at": "2026-08-27T09:55:57Z",
       "latest_release": null,
       "reference_count": 3,
       "sources": [
@@ -3888,7 +4225,7 @@
     "microsoft/autogen": {
       "requested": "microsoft/autogen",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/autogen",
       "html_url": "https://github.com/microsoft/autogen",
@@ -3919,7 +4256,7 @@
     "microsoft/graphrag": {
       "requested": "microsoft/graphrag",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/graphrag",
       "html_url": "https://github.com/microsoft/graphrag",
@@ -3944,7 +4281,7 @@
     "microsoft/markitdown": {
       "requested": "microsoft/markitdown",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/markitdown",
       "html_url": "https://github.com/microsoft/markitdown",
@@ -3969,7 +4306,7 @@
     "microsoft/mcp-for-beginners": {
       "requested": "microsoft/mcp-for-beginners",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/mcp-for-beginners",
       "html_url": "https://github.com/microsoft/mcp-for-beginners",
@@ -3991,7 +4328,7 @@
     "microsoft/omniparser": {
       "requested": "microsoft/OmniParser",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/OmniParser",
       "html_url": "https://github.com/microsoft/OmniParser",
@@ -4016,7 +4353,7 @@
     "microsoft/playwright-mcp": {
       "requested": "microsoft/playwright-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/playwright-mcp",
       "html_url": "https://github.com/microsoft/playwright-mcp",
@@ -4044,7 +4381,7 @@
     "microsoft/prompt-engine": {
       "requested": "microsoft/prompt-engine",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/prompt-engine",
       "html_url": "https://github.com/microsoft/prompt-engine",
@@ -4066,7 +4403,7 @@
     "microsoft/promptflow": {
       "requested": "microsoft/promptflow",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/promptflow",
       "html_url": "https://github.com/microsoft/promptflow",
@@ -4091,7 +4428,7 @@
     "microsoft/semantic-kernel": {
       "requested": "microsoft/semantic-kernel",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "microsoft/semantic-kernel",
       "html_url": "https://github.com/microsoft/semantic-kernel",
@@ -4101,7 +4438,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T16:41:58Z",
+      "pushed_at": "2026-08-27T16:58:48Z",
       "latest_release": {
         "tag": "dotnet-1.80.0",
         "published_at": "2026-08-18T15:00:38Z"
@@ -4116,7 +4453,7 @@
     "mintplex-labs/anything-llm": {
       "requested": "Mintplex-Labs/anything-llm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Mintplex-Labs/anything-llm",
       "html_url": "https://github.com/Mintplex-Labs/anything-llm",
@@ -4126,10 +4463,10 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "MIT",
-      "pushed_at": "2026-08-27T02:04:41Z",
+      "pushed_at": "2026-08-27T16:42:20Z",
       "latest_release": {
-        "tag": "v1.16.0",
-        "published_at": "2026-08-13T21:38:01Z"
+        "tag": "v1.16.1",
+        "published_at": "2026-08-27T16:42:21Z"
       },
       "reference_count": 3,
       "sources": [
@@ -4138,10 +4475,35 @@
         "branches/for-knowledge-worker.zh-Hans.md"
       ]
     },
+    "ml-explore/mlx": {
+      "requested": "ml-explore/mlx",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "ml-explore/mlx",
+      "html_url": "https://github.com/ml-explore/mlx",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T16:08:09Z",
+      "latest_release": {
+        "tag": "v0.32.2",
+        "published_at": "2026-08-25T10:58:55Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "modelcontextprotocol/python-sdk": {
       "requested": "modelcontextprotocol/python-sdk",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "modelcontextprotocol/python-sdk",
       "html_url": "https://github.com/modelcontextprotocol/python-sdk",
@@ -4166,7 +4528,7 @@
     "modelcontextprotocol/servers": {
       "requested": "modelcontextprotocol/servers",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "modelcontextprotocol/servers",
       "html_url": "https://github.com/modelcontextprotocol/servers",
@@ -4181,7 +4543,7 @@
         "tag": "2026.8.18",
         "published_at": "2026-08-18T16:16:12Z"
       },
-      "reference_count": 15,
+      "reference_count": 18,
       "sources": [
         "RESOURCES.en.md",
         "RESOURCES.md",
@@ -4203,7 +4565,7 @@
     "modelcontextprotocol/typescript-sdk": {
       "requested": "modelcontextprotocol/typescript-sdk",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "modelcontextprotocol/typescript-sdk",
       "html_url": "https://github.com/modelcontextprotocol/typescript-sdk",
@@ -4228,7 +4590,7 @@
     "mongodb-js/mongodb-mcp-server": {
       "requested": "mongodb-js/mongodb-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "mongodb-js/mongodb-mcp-server",
       "html_url": "https://github.com/mongodb-js/mongodb-mcp-server",
@@ -4238,7 +4600,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T17:38:18Z",
+      "pushed_at": "2026-08-27T15:46:04Z",
       "latest_release": {
         "tag": "mongodb-atlas-mcp-remote/v1.0.0",
         "published_at": "2026-08-10T14:59:21Z"
@@ -4253,7 +4615,7 @@
     "moonshotai/kimi-k2": {
       "requested": "MoonshotAI/Kimi-K2",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "MoonshotAI/Kimi-K2",
       "html_url": "https://github.com/MoonshotAI/Kimi-K2",
@@ -4275,7 +4637,7 @@
     "morluto/jacobian": {
       "requested": "morluto/jacobian",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "morluto/jacobian",
       "html_url": "https://github.com/morluto/jacobian",
@@ -4285,10 +4647,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:25:03Z",
+      "pushed_at": "2026-08-27T18:29:39Z",
       "latest_release": {
-        "tag": "jacobian-v0.14.0",
-        "published_at": "2026-08-26T03:31:12Z"
+        "tag": "jacobian-v0.15.0",
+        "published_at": "2026-08-27T09:15:06Z"
       },
       "reference_count": 3,
       "sources": [
@@ -4300,7 +4662,7 @@
     "mozilla/diversity": {
       "requested": "mozilla/diversity",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "mozilla/inclusion",
       "html_url": "https://github.com/mozilla/inclusion",
@@ -4319,10 +4681,35 @@
         "CODE_OF_CONDUCT.zh-Hans.md"
       ]
     },
+    "mudler/localai": {
+      "requested": "mudler/LocalAI",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "mudler/LocalAI",
+      "html_url": "https://github.com/mudler/LocalAI",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "master",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T18:34:01Z",
+      "latest_release": {
+        "tag": "v4.9.0",
+        "published_at": "2026-08-20T15:59:49Z"
+      },
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "muisedestiny/zotero-gpt": {
       "requested": "MuiseDestiny/zotero-gpt",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "MuiseDestiny/zotero-gpt",
       "html_url": "https://github.com/MuiseDestiny/zotero-gpt",
@@ -4353,7 +4740,7 @@
     "n8n-io/n8n": {
       "requested": "n8n-io/n8n",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "n8n-io/n8n",
       "html_url": "https://github.com/n8n-io/n8n",
@@ -4363,7 +4750,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T06:32:20Z",
+      "pushed_at": "2026-08-27T19:17:13Z",
       "latest_release": {
         "tag": "n8n@2.36.7",
         "published_at": "2026-08-25T13:02:22Z"
@@ -4378,7 +4765,7 @@
     "netease-youdao/lobsterai": {
       "requested": "netease-youdao/LobsterAI",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "netease-youdao/LobsterAI",
       "html_url": "https://github.com/netease-youdao/LobsterAI",
@@ -4388,10 +4775,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:26:42Z",
+      "pushed_at": "2026-08-27T12:01:36Z",
       "latest_release": {
-        "tag": "2026.8.25",
-        "published_at": "2026-08-25T13:45:21Z"
+        "tag": "2026.8.26",
+        "published_at": "2026-08-27T11:34:52Z"
       },
       "reference_count": 3,
       "sources": [
@@ -4403,7 +4790,7 @@
     "nirdiamant/prompt_engineering": {
       "requested": "NirDiamant/Prompt_Engineering",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NirDiamant/Prompt_Engineering",
       "html_url": "https://github.com/NirDiamant/Prompt_Engineering",
@@ -4425,7 +4812,7 @@
     "nirdiamant/rag_techniques": {
       "requested": "NirDiamant/RAG_Techniques",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NirDiamant/RAG_Techniques",
       "html_url": "https://github.com/NirDiamant/RAG_Techniques",
@@ -4435,7 +4822,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-26T13:27:45Z",
+      "pushed_at": "2026-08-27T19:16:42Z",
       "latest_release": {
         "tag": "book-v1.0",
         "published_at": "2026-04-15T15:30:39Z"
@@ -4450,7 +4837,7 @@
     "noahshinn/reflexion": {
       "requested": "noahshinn/reflexion",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "noahshinn/reflexion",
       "html_url": "https://github.com/noahshinn/reflexion",
@@ -4472,7 +4859,7 @@
     "nolabs-ai/nono": {
       "requested": "nolabs-ai/nono",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "nolabs-ai/nono",
       "html_url": "https://github.com/nolabs-ai/nono",
@@ -4482,7 +4869,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T15:40:28Z",
+      "pushed_at": "2026-08-27T14:45:22Z",
       "latest_release": {
         "tag": "v0.74.0",
         "published_at": "2026-08-19T13:28:06Z"
@@ -4498,7 +4885,7 @@
     "nousresearch/hermes-agent": {
       "requested": "NousResearch/hermes-agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NousResearch/hermes-agent",
       "html_url": "https://github.com/NousResearch/hermes-agent",
@@ -4508,10 +4895,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:19:59Z",
+      "pushed_at": "2026-08-27T19:26:32Z",
       "latest_release": {
-        "tag": "v2026.8.19",
-        "published_at": "2026-08-21T12:16:39Z"
+        "tag": "v2026.8.27",
+        "published_at": "2026-08-27T12:06:53Z"
       },
       "reference_count": 18,
       "sources": [
@@ -4532,7 +4919,7 @@
     "nvidia-nemo/guardrails": {
       "requested": "NVIDIA-NeMo/Guardrails",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NVIDIA-NeMo/Guardrails",
       "html_url": "https://github.com/NVIDIA-NeMo/Guardrails",
@@ -4542,7 +4929,7 @@
       "visibility": "public",
       "default_branch": "develop",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-26T21:38:00Z",
+      "pushed_at": "2026-08-27T16:40:49Z",
       "latest_release": {
         "tag": "v0.24.0",
         "published_at": "2026-08-26T19:31:04Z"
@@ -4557,7 +4944,7 @@
     "nvidia/nemoclaw": {
       "requested": "NVIDIA/NemoClaw",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NVIDIA/NemoClaw",
       "html_url": "https://github.com/NVIDIA/NemoClaw",
@@ -4567,7 +4954,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:33:52Z",
+      "pushed_at": "2026-08-27T19:27:03Z",
       "latest_release": null,
       "reference_count": 4,
       "sources": [
@@ -4580,7 +4967,7 @@
     "nvidia/openshell": {
       "requested": "NVIDIA/OpenShell",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "NVIDIA/OpenShell",
       "html_url": "https://github.com/NVIDIA/OpenShell",
@@ -4590,10 +4977,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:33:43Z",
+      "pushed_at": "2026-08-27T19:25:28Z",
       "latest_release": {
-        "tag": "v0.0.113",
-        "published_at": "2026-08-25T15:04:30Z"
+        "tag": "v0.0.115",
+        "published_at": "2026-08-27T18:03:17Z"
       },
       "reference_count": 4,
       "sources": [
@@ -4606,7 +4993,7 @@
     "obra/superpowers": {
       "requested": "obra/superpowers",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "obra/superpowers",
       "html_url": "https://github.com/obra/superpowers",
@@ -4646,7 +5033,7 @@
     "obra/superpowers-marketplace": {
       "requested": "obra/superpowers-marketplace",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "obra/superpowers-marketplace",
       "html_url": "https://github.com/obra/superpowers-marketplace",
@@ -4671,7 +5058,7 @@
     "ollama/ollama": {
       "requested": "ollama/ollama",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ollama/ollama",
       "html_url": "https://github.com/ollama/ollama",
@@ -4686,11 +5073,14 @@
         "tag": "v0.33.1",
         "published_at": "2026-08-26T18:09:57Z"
       },
-      "reference_count": 6,
+      "reference_count": 12,
       "sources": [
         "branches/for-everyday-users.en.md",
         "branches/for-everyday-users.md",
         "branches/for-everyday-users.zh-Hans.md",
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md",
         "tracks/cli/A1-cli-intro.en.md",
         "tracks/cli/A1-cli-intro.md",
         "tracks/cli/A1-cli-intro.zh-Hans.md"
@@ -4699,7 +5089,7 @@
     "onyx-dot-app/onyx": {
       "requested": "onyx-dot-app/onyx",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "onyx-dot-app/onyx",
       "html_url": "https://github.com/onyx-dot-app/onyx",
@@ -4709,7 +5099,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T04:54:32Z",
+      "pushed_at": "2026-08-27T19:17:46Z",
       "latest_release": {
         "tag": "v4.6.3",
         "published_at": "2026-08-26T00:43:09Z"
@@ -4724,7 +5114,7 @@
     "open-multi-agent/open-multi-agent": {
       "requested": "open-multi-agent/open-multi-agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "open-multi-agent/open-multi-agent",
       "html_url": "https://github.com/open-multi-agent/open-multi-agent",
@@ -4749,7 +5139,7 @@
     "openai/codex": {
       "requested": "openai/codex",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "openai/codex",
       "html_url": "https://github.com/openai/codex",
@@ -4759,12 +5149,12 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:33:36Z",
+      "pushed_at": "2026-08-27T19:22:47Z",
       "latest_release": {
         "tag": "rust-v0.150.1",
         "published_at": "2026-08-27T01:56:54Z"
       },
-      "reference_count": 18,
+      "reference_count": 15,
       "sources": [
         "branches/for-everyday-users.en.md",
         "branches/for-everyday-users.md",
@@ -4783,10 +5173,32 @@
         "tracks/cli/A1-cli-intro.zh-Hans.md"
       ]
     },
+    "openai/codex-action": {
+      "requested": "openai/codex-action",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "openai/codex-action",
+      "html_url": "https://github.com/openai/codex-action",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "pushed_at": "2026-08-26T00:12:45Z",
+      "latest_release": null,
+      "reference_count": 6,
+      "sources": [
+        "tracks/cli/A3-cli-production.en.md",
+        "tracks/cli/A3-cli-production.md",
+        "tracks/cli/A3-cli-production.zh-Hans.md"
+      ]
+    },
     "openai/evals": {
       "requested": "openai/evals",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "openai/evals",
       "html_url": "https://github.com/openai/evals",
@@ -4808,7 +5220,7 @@
     "openai/openai-agents-python": {
       "requested": "openai/openai-agents-python",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "openai/openai-agents-python",
       "html_url": "https://github.com/openai/openai-agents-python",
@@ -4818,7 +5230,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:05:07Z",
+      "pushed_at": "2026-08-27T14:05:58Z",
       "latest_release": {
         "tag": "v0.22.0",
         "published_at": "2026-08-19T13:44:38Z"
@@ -4836,10 +5248,35 @@
         "stages/08-agent-interfaces.zh-Hans.md"
       ]
     },
+    "openai/openai-cookbook": {
+      "requested": "openai/openai-cookbook",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "openai/openai-cookbook",
+      "html_url": "https://github.com/openai/openai-cookbook",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T15:56:20Z",
+      "latest_release": null,
+      "reference_count": 6,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md",
+        "stages/02-prompt-engineering.en.md",
+        "stages/02-prompt-engineering.md",
+        "stages/02-prompt-engineering.zh-Hans.md"
+      ]
+    },
     "openai/swarm": {
       "requested": "openai/swarm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "openai/swarm",
       "html_url": "https://github.com/openai/swarm",
@@ -4861,7 +5298,7 @@
     "openbmb/chatdev": {
       "requested": "OpenBMB/ChatDev",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "OpenBMB/ChatDev",
       "html_url": "https://github.com/OpenBMB/ChatDev",
@@ -4886,7 +5323,7 @@
     "opendatalab/mineru": {
       "requested": "opendatalab/MinerU",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "opendatalab/MinerU",
       "html_url": "https://github.com/opendatalab/MinerU",
@@ -4896,7 +5333,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "NOASSERTION",
-      "pushed_at": "2026-08-27T03:38:04Z",
+      "pushed_at": "2026-08-27T10:14:42Z",
       "latest_release": {
         "tag": "mineru-3.4.5-released",
         "published_at": "2026-08-14T07:55:40Z"
@@ -4911,7 +5348,7 @@
     "osu-nlp-group/hipporag": {
       "requested": "OSU-NLP-Group/HippoRAG",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "OSU-NLP-Group/HippoRAG",
       "html_url": "https://github.com/OSU-NLP-Group/HippoRAG",
@@ -4936,7 +5373,7 @@
     "osu-nlp-group/mind2web": {
       "requested": "OSU-NLP-Group/Mind2Web",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "OSU-NLP-Group/Mind2Web",
       "html_url": "https://github.com/OSU-NLP-Group/Mind2Web",
@@ -4958,7 +5395,7 @@
     "parthsarthi03/raptor": {
       "requested": "parthsarthi03/raptor",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "parthsarthi03/raptor",
       "html_url": "https://github.com/parthsarthi03/raptor",
@@ -4980,7 +5417,7 @@
     "patchy631/ai-engineering-hub": {
       "requested": "patchy631/ai-engineering-hub",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "patchy631/ai-engineering-hub",
       "html_url": "https://github.com/patchy631/ai-engineering-hub",
@@ -5002,7 +5439,7 @@
     "pbakaus/impeccable": {
       "requested": "pbakaus/impeccable",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "pbakaus/impeccable",
       "html_url": "https://github.com/pbakaus/impeccable",
@@ -5012,7 +5449,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:00:49Z",
+      "pushed_at": "2026-08-27T14:32:34Z",
       "latest_release": {
         "tag": "ext-v1.3.3",
         "published_at": "2026-08-26T06:04:41Z"
@@ -5027,7 +5464,7 @@
     "pguso/ai-agents-from-scratch": {
       "requested": "pguso/ai-agents-from-scratch",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "pguso/ai-agents-from-scratch",
       "html_url": "https://github.com/pguso/ai-agents-from-scratch",
@@ -5052,7 +5489,7 @@
     "pgvector/pgvector": {
       "requested": "pgvector/pgvector",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "pgvector/pgvector",
       "html_url": "https://github.com/pgvector/pgvector",
@@ -5074,7 +5511,7 @@
     "pleaseprompto/notebooklm-skill": {
       "requested": "PleasePrompto/notebooklm-skill",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "PleasePrompto/notebooklm-skill",
       "html_url": "https://github.com/PleasePrompto/notebooklm-skill",
@@ -5105,7 +5542,7 @@
     "prefecthq/fastmcp": {
       "requested": "PrefectHQ/fastmcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "PrefectHQ/fastmcp",
       "html_url": "https://github.com/PrefectHQ/fastmcp",
@@ -5115,7 +5552,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T05:49:36Z",
+      "pushed_at": "2026-08-27T16:08:04Z",
       "latest_release": {
         "tag": "v3.4.7",
         "published_at": "2026-08-10T21:17:13Z"
@@ -5130,7 +5567,7 @@
     "princeton-nlp/swe-agent": {
       "requested": "princeton-nlp/SWE-agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "SWE-agent/SWE-agent",
       "html_url": "https://github.com/SWE-agent/SWE-agent",
@@ -5155,7 +5592,7 @@
     "promptfoo/promptfoo": {
       "requested": "promptfoo/promptfoo",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "promptfoo/promptfoo",
       "html_url": "https://github.com/promptfoo/promptfoo",
@@ -5165,13 +5602,16 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:14:28Z",
+      "pushed_at": "2026-08-27T19:07:59Z",
       "latest_release": {
         "tag": "0.122.1",
         "published_at": "2026-08-26T20:33:34Z"
       },
-      "reference_count": 24,
+      "reference_count": 33,
       "sources": [
+        "examples/stage-2/01-prompt-eval-loop/README.en.md",
+        "examples/stage-2/01-prompt-eval-loop/README.md",
+        "examples/stage-2/01-prompt-eval-loop/README.zh-Hans.md",
         "examples/stage-5/tool-calling-tutor/README.en.md",
         "examples/stage-5/tool-calling-tutor/README.md",
         "examples/stage-5/tool-calling-tutor/README.zh-Hans.md",
@@ -5181,6 +5621,9 @@
         "resources/schema-design-cheatsheet.en.md",
         "resources/schema-design-cheatsheet.md",
         "resources/schema-design-cheatsheet.zh-Hans.md",
+        "stages/02-prompt-engineering.en.md",
+        "stages/02-prompt-engineering.md",
+        "stages/02-prompt-engineering.zh-Hans.md",
         "stages/07-multi-agent-production.en.md",
         "stages/07-multi-agent-production.md",
         "stages/07-multi-agent-production.zh-Hans.md",
@@ -5192,7 +5635,7 @@
     "punkpeye/awesome-mcp-servers": {
       "requested": "punkpeye/awesome-mcp-servers",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "punkpeye/awesome-mcp-servers",
       "html_url": "https://github.com/punkpeye/awesome-mcp-servers",
@@ -5229,7 +5672,7 @@
     "pydantic/logfire": {
       "requested": "pydantic/logfire",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "pydantic/logfire",
       "html_url": "https://github.com/pydantic/logfire",
@@ -5239,7 +5682,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:11:16Z",
+      "pushed_at": "2026-08-27T18:38:57Z",
       "latest_release": {
         "tag": "v4.41.0",
         "published_at": "2026-08-20T17:28:58Z"
@@ -5254,7 +5697,7 @@
     "pydantic/pydantic-ai": {
       "requested": "pydantic/pydantic-ai",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "pydantic/pydantic-ai",
       "html_url": "https://github.com/pydantic/pydantic-ai",
@@ -5264,7 +5707,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:06:10Z",
+      "pushed_at": "2026-08-27T19:22:02Z",
       "latest_release": {
         "tag": "v2.35.1",
         "published_at": "2026-08-27T04:13:40Z"
@@ -5279,7 +5722,7 @@
     "qdrant/qdrant": {
       "requested": "qdrant/qdrant",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "qdrant/qdrant",
       "html_url": "https://github.com/qdrant/qdrant",
@@ -5289,7 +5732,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T15:13:55Z",
+      "pushed_at": "2026-08-27T16:26:21Z",
       "latest_release": {
         "tag": "v1.19.0",
         "published_at": "2026-08-05T11:26:05Z"
@@ -5304,7 +5747,7 @@
     "quantalogic/quantalogic": {
       "requested": "quantalogic/quantalogic",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "quantalogic/quantalogic",
       "html_url": "https://github.com/quantalogic/quantalogic",
@@ -5332,7 +5775,7 @@
     "qwenlm/qwen-agent": {
       "requested": "QwenLM/Qwen-Agent",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "QwenLM/Qwen-Agent",
       "html_url": "https://github.com/QwenLM/Qwen-Agent",
@@ -5354,10 +5797,32 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
+    "rasbt/llms-from-scratch": {
+      "requested": "rasbt/LLMs-from-scratch",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "rasbt/LLMs-from-scratch",
+      "html_url": "https://github.com/rasbt/LLMs-from-scratch",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "NOASSERTION",
+      "pushed_at": "2026-08-26T22:54:48Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/01-llm-basics.en.md",
+        "stages/01-llm-basics.md",
+        "stages/01-llm-basics.zh-Hans.md"
+      ]
+    },
     "raudaschl/rag-fusion": {
       "requested": "Raudaschl/rag-fusion",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Raudaschl/rag-fusion",
       "html_url": "https://github.com/Raudaschl/rag-fusion",
@@ -5379,7 +5844,7 @@
     "redis/mcp-redis": {
       "requested": "redis/mcp-redis",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "redis/mcp-redis",
       "html_url": "https://github.com/redis/mcp-redis",
@@ -5404,7 +5869,7 @@
     "rohitg00/agentmemory": {
       "requested": "rohitg00/agentmemory",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "rohitg00/agentmemory",
       "html_url": "https://github.com/rohitg00/agentmemory",
@@ -5429,7 +5894,7 @@
     "rohitg00/awesome-claude-code-toolkit": {
       "requested": "rohitg00/awesome-claude-code-toolkit",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "rohitg00/awesome-claude-code-toolkit",
       "html_url": "https://github.com/rohitg00/awesome-claude-code-toolkit",
@@ -5454,7 +5919,7 @@
     "roocodeinc/roo-code": {
       "requested": "RooCodeInc/Roo-Code",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "RooCodeInc/Roo-Code",
       "html_url": "https://github.com/RooCodeInc/Roo-Code",
@@ -5482,7 +5947,7 @@
     "run-llama/llama_index": {
       "requested": "run-llama/llama_index",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "run-llama/llama_index",
       "html_url": "https://github.com/run-llama/llama_index",
@@ -5492,7 +5957,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T04:16:34Z",
+      "pushed_at": "2026-08-27T15:01:49Z",
       "latest_release": {
         "tag": "v0.14.24",
         "published_at": "2026-08-19T18:48:01Z"
@@ -5510,7 +5975,7 @@
     "ryaker/outlook-mcp": {
       "requested": "ryaker/outlook-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ryaker/outlook-mcp",
       "html_url": "https://github.com/ryaker/outlook-mcp",
@@ -5532,7 +5997,7 @@
     "safishamsi/graphify": {
       "requested": "safishamsi/graphify",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Graphify-Labs/graphify",
       "html_url": "https://github.com/Graphify-Labs/graphify",
@@ -5557,7 +6022,7 @@
     "sakanaai/ai-scientist-v2": {
       "requested": "SakanaAI/AI-Scientist-v2",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "SakanaAI/AI-Scientist-v2",
       "html_url": "https://github.com/SakanaAI/AI-Scientist-v2",
@@ -5579,7 +6044,7 @@
     "saseq/discord-mcp": {
       "requested": "SaseQ/discord-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "SaseQ/discord-mcp",
       "html_url": "https://github.com/SaseQ/discord-mcp",
@@ -5604,7 +6069,7 @@
     "shubhamsaboo/awesome-llm-apps": {
       "requested": "Shubhamsaboo/awesome-llm-apps",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Shubhamsaboo/awesome-llm-apps",
       "html_url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
@@ -5624,7 +6089,7 @@
     "sierra-research/tau-bench": {
       "requested": "sierra-research/tau-bench",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "sierra-research/tau-bench",
       "html_url": "https://github.com/sierra-research/tau-bench",
@@ -5646,7 +6111,7 @@
     "sierra-research/tau2-bench": {
       "requested": "sierra-research/tau2-bench",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "sierra-research/tau2-bench",
       "html_url": "https://github.com/sierra-research/tau2-bench",
@@ -5674,7 +6139,7 @@
     "simonlin1212/a-stock-data": {
       "requested": "simonlin1212/a-stock-data",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "simonlin1212/a-stock-data",
       "html_url": "https://github.com/simonlin1212/a-stock-data",
@@ -5699,7 +6164,7 @@
     "skridlevsky/graphthulhu": {
       "requested": "skridlevsky/graphthulhu",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "skridlevsky/graphthulhu",
       "html_url": "https://github.com/skridlevsky/graphthulhu",
@@ -5724,7 +6189,7 @@
     "softeria/ms-365-mcp-server": {
       "requested": "Softeria/ms-365-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "Softeria/ms-365-mcp-server",
       "html_url": "https://github.com/Softeria/ms-365-mcp-server",
@@ -5749,7 +6214,7 @@
     "sooperset/mcp-atlassian": {
       "requested": "sooperset/mcp-atlassian",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "sooperset/mcp-atlassian",
       "html_url": "https://github.com/sooperset/mcp-atlassian",
@@ -5759,7 +6224,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-26T21:36:03Z",
+      "pushed_at": "2026-08-27T16:28:46Z",
       "latest_release": {
         "tag": "v0.23.1",
         "published_at": "2026-08-19T00:38:15Z"
@@ -5771,47 +6236,10 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
-    "sst/opencode": {
-      "requested": "sst/opencode",
-      "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
-      "api_status": 200,
-      "canonical": "anomalyco/opencode",
-      "html_url": "https://github.com/anomalyco/opencode",
-      "redirected": true,
-      "archived": false,
-      "disabled": false,
-      "visibility": "public",
-      "default_branch": "dev",
-      "license": "MIT",
-      "pushed_at": "2026-08-27T06:32:58Z",
-      "latest_release": {
-        "tag": "v1.18.23",
-        "published_at": "2026-08-25T06:30:49Z"
-      },
-      "reference_count": 15,
-      "sources": [
-        "branches/for-everyday-users.en.md",
-        "branches/for-everyday-users.md",
-        "branches/for-everyday-users.zh-Hans.md",
-        "resources/agent-paradigms.en.md",
-        "resources/agent-paradigms.md",
-        "resources/agent-paradigms.zh-Hans.md",
-        "resources/cli-agents-guide.en.md",
-        "resources/cli-agents-guide.md",
-        "resources/cli-agents-guide.zh-Hans.md",
-        "resources/setup-guide.en.md",
-        "resources/setup-guide.md",
-        "resources/setup-guide.zh-Hans.md",
-        "tracks/cli/A1-cli-intro.en.md",
-        "tracks/cli/A1-cli-intro.md",
-        "tracks/cli/A1-cli-intro.zh-Hans.md"
-      ]
-    },
     "stablyai/orca": {
       "requested": "stablyai/orca",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "stablyai/orca",
       "html_url": "https://github.com/stablyai/orca",
@@ -5821,7 +6249,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:32:21Z",
+      "pushed_at": "2026-08-27T19:27:15Z",
       "latest_release": {
         "tag": "v1.4.190",
         "published_at": "2026-08-26T19:45:57Z"
@@ -5837,7 +6265,7 @@
     "stacklok/toolhive": {
       "requested": "stacklok/toolhive",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "stacklok/toolhive",
       "html_url": "https://github.com/stacklok/toolhive",
@@ -5847,10 +6275,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T02:32:03Z",
+      "pushed_at": "2026-08-27T17:04:17Z",
       "latest_release": {
-        "tag": "v0.45.0",
-        "published_at": "2026-08-26T13:23:20Z"
+        "tag": "v0.46.0",
+        "published_at": "2026-08-27T17:04:19Z"
       },
       "reference_count": 4,
       "sources": [
@@ -5863,7 +6291,7 @@
     "stanford-oval/storm": {
       "requested": "stanford-oval/storm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "stanford-oval/storm",
       "html_url": "https://github.com/stanford-oval/storm",
@@ -5888,7 +6316,7 @@
     "stanfordnlp/dspy": {
       "requested": "stanfordnlp/dspy",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "stanfordnlp/dspy",
       "html_url": "https://github.com/stanfordnlp/dspy",
@@ -5898,7 +6326,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T04:48:29Z",
+      "pushed_at": "2026-08-27T17:48:21Z",
       "latest_release": {
         "tag": "3.3.1",
         "published_at": "2026-08-21T23:07:09Z"
@@ -5919,7 +6347,7 @@
     "strands-agents/sdk-python": {
       "requested": "strands-agents/sdk-python",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "strands-agents/harness-sdk",
       "html_url": "https://github.com/strands-agents/harness-sdk",
@@ -5929,7 +6357,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T21:13:59Z",
+      "pushed_at": "2026-08-27T18:44:45Z",
       "latest_release": {
         "tag": "python/v1.53.0",
         "published_at": "2026-08-21T16:24:31Z"
@@ -5944,7 +6372,7 @@
     "stripe/ai": {
       "requested": "stripe/ai",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "stripe/ai",
       "html_url": "https://github.com/stripe/ai",
@@ -5966,7 +6394,7 @@
     "supabase-community/supabase-mcp": {
       "requested": "supabase-community/supabase-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "supabase/mcp",
       "html_url": "https://github.com/supabase/mcp",
@@ -5976,7 +6404,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-26T18:53:16Z",
+      "pushed_at": "2026-08-27T16:10:57Z",
       "latest_release": {
         "tag": "mcp-server-postgrest-v0.2.0",
         "published_at": "2026-08-20T12:15:12Z"
@@ -5991,7 +6419,7 @@
     "sylphxai/pdf-reader-mcp": {
       "requested": "SylphxAI/pdf-reader-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "SylphxAI/pdf-reader-mcp",
       "html_url": "https://github.com/SylphxAI/pdf-reader-mcp",
@@ -6019,7 +6447,7 @@
     "tauricresearch/tradingagents": {
       "requested": "TauricResearch/TradingAgents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "TauricResearch/TradingAgents",
       "html_url": "https://github.com/TauricResearch/TradingAgents",
@@ -6044,7 +6472,7 @@
     "tavily-ai/tavily-mcp": {
       "requested": "tavily-ai/tavily-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "tavily-ai/tavily-mcp",
       "html_url": "https://github.com/tavily-ai/tavily-mcp",
@@ -6066,7 +6494,7 @@
     "taylorwilsdon/google_workspace_mcp": {
       "requested": "taylorwilsdon/google_workspace_mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "taylorwilsdon/google_workspace_mcp",
       "html_url": "https://github.com/taylorwilsdon/google_workspace_mcp",
@@ -6094,7 +6522,7 @@
     "teng-lin/notebooklm-py": {
       "requested": "teng-lin/notebooklm-py",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "teng-lin/notebooklm-py",
       "html_url": "https://github.com/teng-lin/notebooklm-py",
@@ -6122,7 +6550,7 @@
     "tfriedel/claude-office-skills": {
       "requested": "tfriedel/claude-office-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "tfriedel/claude-office-skills",
       "html_url": "https://github.com/tfriedel/claude-office-skills",
@@ -6147,7 +6575,7 @@
     "thebrierfox/intuitek-ace": {
       "requested": "thebrierfox/intuitek-ace",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "thebrierfox/intuitek-ace",
       "html_url": "https://github.com/thebrierfox/intuitek-ace",
@@ -6169,7 +6597,7 @@
     "theshiphq/claw-spark": {
       "requested": "theshiphq/claw-spark",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "theshiphq/claw-spark",
       "html_url": "https://github.com/theshiphq/claw-spark",
@@ -6191,7 +6619,7 @@
     "tiger-ai-lab/clawbench": {
       "requested": "TIGER-AI-Lab/ClawBench",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "TIGER-AI-Lab/ClawBench",
       "html_url": "https://github.com/TIGER-AI-Lab/ClawBench",
@@ -6216,7 +6644,7 @@
     "timescale/pg-aiguide": {
       "requested": "timescale/pg-aiguide",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "timescale/pg-aiguide",
       "html_url": "https://github.com/timescale/pg-aiguide",
@@ -6226,7 +6654,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-06-26T19:47:09Z",
+      "pushed_at": "2026-08-27T09:22:29Z",
       "latest_release": {
         "tag": "v0.5.0",
         "published_at": "2026-04-28T15:20:30Z"
@@ -6238,10 +6666,36 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
+    "tldr-pages/tldr": {
+      "requested": "tldr-pages/tldr",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "tldr-pages/tldr",
+      "html_url": "https://github.com/tldr-pages/tldr",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "NOASSERTION",
+      "pushed_at": "2026-08-27T05:47:14Z",
+      "latest_release": {
+        "tag": "v2.3",
+        "published_at": "2025-03-07T10:33:27Z"
+      },
+      "reference_count": 4,
+      "sources": [
+        "docs/plans/2026-08-27-stage00-retrospective-reader-ux.md",
+        "stages/00-foundations.en.md",
+        "stages/00-foundations.md",
+        "stages/00-foundations.zh-Hans.md"
+      ]
+    },
     "trailofbits/skills": {
       "requested": "trailofbits/skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "trailofbits/skills",
       "html_url": "https://github.com/trailofbits/skills",
@@ -6251,7 +6705,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "CC-BY-SA-4.0",
-      "pushed_at": "2026-08-27T00:01:50Z",
+      "pushed_at": "2026-08-27T18:02:00Z",
       "latest_release": null,
       "reference_count": 4,
       "sources": [
@@ -6264,7 +6718,7 @@
     "trailofbits/skills-curated": {
       "requested": "trailofbits/skills-curated",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "trailofbits/skills-curated",
       "html_url": "https://github.com/trailofbits/skills-curated",
@@ -6289,7 +6743,7 @@
     "travisvn/awesome-claude-skills": {
       "requested": "travisvn/awesome-claude-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "travisvn/awesome-claude-skills",
       "html_url": "https://github.com/travisvn/awesome-claude-skills",
@@ -6321,7 +6775,7 @@
     "truera/trulens": {
       "requested": "truera/trulens",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "truera/trulens",
       "html_url": "https://github.com/truera/trulens",
@@ -6331,7 +6785,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T01:58:32Z",
+      "pushed_at": "2026-08-27T14:37:29Z",
       "latest_release": {
         "tag": "trulens-2.13.1",
         "published_at": "2026-08-20T18:47:11Z"
@@ -6346,7 +6800,7 @@
     "trycua/cua": {
       "requested": "trycua/cua",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "trycua/cua",
       "html_url": "https://github.com/trycua/cua",
@@ -6356,7 +6810,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:08:00Z",
+      "pushed_at": "2026-08-27T19:20:26Z",
       "latest_release": {
         "tag": "sandbox-v0.4.3",
         "published_at": "2026-08-22T03:40:52Z"
@@ -6368,10 +6822,32 @@
         "stages/08-agent-interfaces.zh-Hans.md"
       ]
     },
+    "ukgovernmentbeis/inspect_ai": {
+      "requested": "UKGovernmentBEIS/inspect_ai",
+      "state": "verified",
+      "checked_at": "2026-08-27T19:27:22Z",
+      "api_status": 200,
+      "canonical": "UKGovernmentBEIS/inspect_ai",
+      "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "redirected": false,
+      "archived": false,
+      "disabled": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "license": "MIT",
+      "pushed_at": "2026-08-27T17:57:30Z",
+      "latest_release": null,
+      "reference_count": 3,
+      "sources": [
+        "stages/02-prompt-engineering.en.md",
+        "stages/02-prompt-engineering.md",
+        "stages/02-prompt-engineering.zh-Hans.md"
+      ]
+    },
     "upstash/context7": {
       "requested": "upstash/context7",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "upstash/context7",
       "html_url": "https://github.com/upstash/context7",
@@ -6381,10 +6857,10 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "MIT",
-      "pushed_at": "2026-08-26T12:24:36Z",
+      "pushed_at": "2026-08-27T13:18:20Z",
       "latest_release": {
-        "tag": "@upstash/context7-mcp@4.0.3",
-        "published_at": "2026-08-21T08:01:35Z"
+        "tag": "ctx7@0.5.9",
+        "published_at": "2026-08-27T08:21:42Z"
       },
       "reference_count": 3,
       "sources": [
@@ -6396,7 +6872,7 @@
     "usewhale/whale": {
       "requested": "usewhale/whale",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "usewhale/Whale",
       "html_url": "https://github.com/usewhale/Whale",
@@ -6421,7 +6897,7 @@
     "varunneal/spotify-mcp": {
       "requested": "varunneal/spotify-mcp",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "varunneal/spotify-mcp",
       "html_url": "https://github.com/varunneal/spotify-mcp",
@@ -6443,7 +6919,7 @@
     "vercel/eve": {
       "requested": "vercel/eve",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "vercel/eve",
       "html_url": "https://github.com/vercel/eve",
@@ -6453,10 +6929,10 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:23:50Z",
+      "pushed_at": "2026-08-27T19:25:30Z",
       "latest_release": {
-        "tag": "eve@0.45.2",
-        "published_at": "2026-08-26T22:07:30Z"
+        "tag": "eve@0.46.1",
+        "published_at": "2026-08-27T16:17:33Z"
       },
       "reference_count": 3,
       "sources": [
@@ -6468,7 +6944,7 @@
     "virattt/ai-hedge-fund": {
       "requested": "virattt/ai-hedge-fund",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "virattt/ai-hedge-fund",
       "html_url": "https://github.com/virattt/ai-hedge-fund",
@@ -6493,7 +6969,7 @@
     "vllm-project/vllm": {
       "requested": "vllm-project/vllm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "vllm-project/vllm",
       "html_url": "https://github.com/vllm-project/vllm",
@@ -6503,7 +6979,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T06:33:50Z",
+      "pushed_at": "2026-08-27T19:23:38Z",
       "latest_release": {
         "tag": "v0.28.0",
         "published_at": "2026-08-26T09:46:30Z"
@@ -6521,7 +6997,7 @@
     "voltagent/awesome-agent-skills": {
       "requested": "VoltAgent/awesome-agent-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "VoltAgent/awesome-agent-skills",
       "html_url": "https://github.com/VoltAgent/awesome-agent-skills",
@@ -6543,7 +7019,7 @@
     "wandb/weave": {
       "requested": "wandb/weave",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "wandb/weave",
       "html_url": "https://github.com/wandb/weave",
@@ -6553,7 +7029,7 @@
       "visibility": "public",
       "default_branch": "master",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-27T01:31:52Z",
+      "pushed_at": "2026-08-27T18:55:10Z",
       "latest_release": {
         "tag": "v0.53.6",
         "published_at": "2026-08-13T22:41:03Z"
@@ -6568,7 +7044,7 @@
     "wangrongsheng/awesome-llm-resources": {
       "requested": "WangRongsheng/awesome-LLM-resources",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WangRongsheng/awesome-LLM-resources",
       "html_url": "https://github.com/WangRongsheng/awesome-LLM-resources",
@@ -6592,7 +7068,7 @@
     "weaviate/weaviate": {
       "requested": "weaviate/weaviate",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "weaviate/weaviate",
       "html_url": "https://github.com/weaviate/weaviate",
@@ -6602,7 +7078,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "BSD-3-Clause",
-      "pushed_at": "2026-08-27T06:33:15Z",
+      "pushed_at": "2026-08-27T17:43:48Z",
       "latest_release": {
         "tag": "v1.39.2",
         "published_at": "2026-08-26T17:21:38Z"
@@ -6617,7 +7093,7 @@
     "web-arena-x/webarena": {
       "requested": "web-arena-x/webarena",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "web-arena-x/webarena",
       "html_url": "https://github.com/web-arena-x/webarena",
@@ -6645,7 +7121,7 @@
     "wenyuchiou/academic-writing-skills": {
       "requested": "WenyuChiou/academic-writing-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/academic-writing-skills",
       "html_url": "https://github.com/WenyuChiou/academic-writing-skills",
@@ -6673,7 +7149,7 @@
     "wenyuchiou/agent-collab-skills": {
       "requested": "WenyuChiou/agent-collab-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/agent-collab-skills",
       "html_url": "https://github.com/WenyuChiou/agent-collab-skills",
@@ -6688,7 +7164,7 @@
         "tag": "v0.1.2",
         "published_at": "2026-04-28T19:16:47Z"
       },
-      "reference_count": 21,
+      "reference_count": 15,
       "sources": [
         "resources/mcp-skills-catalog.en.md",
         "resources/mcp-skills-catalog.md",
@@ -6698,16 +7174,13 @@
         "resources/subagent-advanced.zh-Hans.md",
         "stages/07.5-advanced-agentic-concepts.en.md",
         "stages/07.5-advanced-agentic-concepts.md",
-        "stages/07.5-advanced-agentic-concepts.zh-Hans.md",
-        "tracks/cli/A3-cli-production.en.md",
-        "tracks/cli/A3-cli-production.md",
-        "tracks/cli/A3-cli-production.zh-Hans.md"
+        "stages/07.5-advanced-agentic-concepts.zh-Hans.md"
       ]
     },
     "wenyuchiou/ai-research-skills": {
       "requested": "WenyuChiou/ai-research-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/ai-research-skills",
       "html_url": "https://github.com/WenyuChiou/ai-research-skills",
@@ -6738,7 +7211,7 @@
     "wenyuchiou/awesome-agentic-ai-zh": {
       "requested": "WenyuChiou/awesome-agentic-ai-zh",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/awesome-agentic-ai-zh",
       "html_url": "https://github.com/WenyuChiou/awesome-agentic-ai-zh",
@@ -6748,7 +7221,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T05:55:08Z",
+      "pushed_at": "2026-08-27T19:27:08Z",
       "latest_release": {
         "tag": "v2026.08.23",
         "published_at": "2026-08-23T16:16:59Z"
@@ -6791,7 +7264,7 @@
     "wenyuchiou/awesome-mcp-servers": {
       "requested": "WenyuChiou/awesome-mcp-servers",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/awesome-mcp-servers",
       "html_url": "https://github.com/WenyuChiou/awesome-mcp-servers",
@@ -6811,7 +7284,7 @@
     "wenyuchiou/codex-delegate": {
       "requested": "WenyuChiou/codex-delegate",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/codex-delegate",
       "html_url": "https://github.com/WenyuChiou/codex-delegate",
@@ -6839,7 +7312,7 @@
     "wenyuchiou/gemini-delegate-skill": {
       "requested": "WenyuChiou/gemini-delegate-skill",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/gemini-delegate-skill",
       "html_url": "https://github.com/WenyuChiou/gemini-delegate-skill",
@@ -6867,7 +7340,7 @@
     "wenyuchiou/research-hub": {
       "requested": "WenyuChiou/research-hub",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/research-hub",
       "html_url": "https://github.com/WenyuChiou/research-hub",
@@ -6904,7 +7377,7 @@
     "wenyuchiou/zotero-skills": {
       "requested": "WenyuChiou/zotero-skills",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "WenyuChiou/zotero-skills",
       "html_url": "https://github.com/WenyuChiou/zotero-skills",
@@ -6935,32 +7408,10 @@
         "resources/mcp-skills-catalog.zh-Hans.md"
       ]
     },
-    "windy3f3f3f3f/how-claude-code-works": {
-      "requested": "Windy3f3f3f3f/how-claude-code-works",
-      "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
-      "api_status": 200,
-      "canonical": "Windy3f3f3f3f/how-claude-code-works",
-      "html_url": "https://github.com/Windy3f3f3f3f/how-claude-code-works",
-      "redirected": false,
-      "archived": false,
-      "disabled": false,
-      "visibility": "public",
-      "default_branch": "main",
-      "license": "MIT",
-      "pushed_at": "2026-08-17T08:27:42Z",
-      "latest_release": null,
-      "reference_count": 3,
-      "sources": [
-        "stages/02-prompt-engineering.en.md",
-        "stages/02-prompt-engineering.md",
-        "stages/02-prompt-engineering.zh-Hans.md"
-      ]
-    },
     "winor30/mcp-server-datadog": {
       "requested": "winor30/mcp-server-datadog",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "winor30/mcp-server-datadog",
       "html_url": "https://github.com/winor30/mcp-server-datadog",
@@ -6985,7 +7436,7 @@
     "wong2/awesome-mcp-servers": {
       "requested": "wong2/awesome-mcp-servers",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "wong2/awesome-mcp-servers",
       "html_url": "https://github.com/wong2/awesome-mcp-servers",
@@ -7022,7 +7473,7 @@
     "wshobson/agents": {
       "requested": "wshobson/agents",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "wshobson/agents",
       "html_url": "https://github.com/wshobson/agents",
@@ -7044,7 +7495,7 @@
     "xai-org/grok-build": {
       "requested": "xai-org/grok-build",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "xai-org/grok-build",
       "html_url": "https://github.com/xai-org/grok-build",
@@ -7054,11 +7505,12 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "Apache-2.0",
-      "pushed_at": "2026-08-25T21:15:55Z",
+      "pushed_at": "2026-08-27T13:30:28Z",
       "latest_release": null,
-      "reference_count": 10,
+      "reference_count": 20,
       "sources": [
         "CHANGELOG.md",
+        "docs/plans/2026-08-27-track-a-progressive-disclosure.md",
         "resources/cli-agents-guide.en.md",
         "resources/cli-agents-guide.md",
         "resources/cli-agents-guide.zh-Hans.md",
@@ -7073,7 +7525,7 @@
     "xing5/mcp-google-sheets": {
       "requested": "xing5/mcp-google-sheets",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "xing5/mcp-google-sheets",
       "html_url": "https://github.com/xing5/mcp-google-sheets",
@@ -7098,7 +7550,7 @@
     "xlang-ai/osworld": {
       "requested": "xlang-ai/OSWorld",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "xlang-ai/OSWorld",
       "html_url": "https://github.com/xlang-ai/OSWorld",
@@ -7126,7 +7578,7 @@
     "yamadashy/repomix": {
       "requested": "yamadashy/repomix",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "yamadashy/repomix",
       "html_url": "https://github.com/yamadashy/repomix",
@@ -7157,7 +7609,7 @@
     "yc-software/qm": {
       "requested": "yc-software/qm",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "yc-software/qm",
       "html_url": "https://github.com/yc-software/qm",
@@ -7167,7 +7619,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T00:13:51Z",
+      "pushed_at": "2026-08-27T19:23:04Z",
       "latest_release": {
         "tag": "v0.1.5",
         "published_at": "2026-08-17T21:27:42Z"
@@ -7183,7 +7635,7 @@
     "yctimlin/mcp_excalidraw": {
       "requested": "yctimlin/mcp_excalidraw",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "yctimlin/mcp_excalidraw",
       "html_url": "https://github.com/yctimlin/mcp_excalidraw",
@@ -7205,7 +7657,7 @@
     "zai-org/glm-4.5": {
       "requested": "zai-org/GLM-4.5",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "zai-org/GLM-4.5",
       "html_url": "https://github.com/zai-org/GLM-4.5",
@@ -7227,7 +7679,7 @@
     "zhanghandong/harness-engineering-from-cc-to-ai-coding": {
       "requested": "ZhangHanDong/harness-engineering-from-cc-to-ai-coding",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ZhangHanDong/harness-engineering-from-cc-to-ai-coding",
       "html_url": "https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding",
@@ -7255,7 +7707,7 @@
     "zilliztech/gptcache": {
       "requested": "zilliztech/GPTCache",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "zilliztech/GPTCache",
       "html_url": "https://github.com/zilliztech/GPTCache",
@@ -7280,7 +7732,7 @@
     "zilliztech/vectordbbench": {
       "requested": "zilliztech/VectorDBBench",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "zilliztech/VectorDBBench",
       "html_url": "https://github.com/zilliztech/VectorDBBench",
@@ -7290,7 +7742,7 @@
       "visibility": "public",
       "default_branch": "main",
       "license": "MIT",
-      "pushed_at": "2026-08-27T06:26:08Z",
+      "pushed_at": "2026-08-27T09:42:43Z",
       "latest_release": {
         "tag": "v1.0.22",
         "published_at": "2026-05-15T10:06:45Z"
@@ -7305,7 +7757,7 @@
     "zubeidhendricks/youtube-mcp-server": {
       "requested": "ZubeidHendricks/youtube-mcp-server",
       "state": "verified",
-      "checked_at": "2026-08-27T06:33:23Z",
+      "checked_at": "2026-08-27T19:27:22Z",
       "api_status": 200,
       "canonical": "ZubeidHendricks/youtube-mcp-server",
       "html_url": "https://github.com/ZubeidHendricks/youtube-mcp-server",
