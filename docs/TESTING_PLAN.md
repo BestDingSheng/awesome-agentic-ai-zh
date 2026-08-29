@@ -99,6 +99,14 @@ What learners do for Track A: follow each numbered exercise in the outline doc, 
 
 **Potential v2** (not committed): could ship `examples/track-a/` containing a sample project-instructions file, `skills/review-changes/SKILL.md`, and a sample GHA workflow yml. Low priority — current outline is self-contained.
 
+### Stage 3–4 — Agent Loop to Workflow Graph bridge covered
+
+Stage 3 is the first **Agent Loop** chapter. Its three localized titles, opening definition, and visible core terms use the exact sequence `model → tool call → execute → tool result → model`. Three required readings, all six exercise outcomes and first actions, and the complete 21-row rated resource map remain visible. Eleven closed disclosures hold setup, budget, long code, provider-specific detail, troubleshooting, and optional depth.
+
+Stage 4 keeps **Agent Frameworks** in the title and adds **Workflow Graphs**; it is not renamed to Graph Engineering. A five-row visible bridge separates Agent Loop, Agent Framework, Workflow Graph, Loop Engineering, and Graph Engineering. The contract treats a framework as a toolbox, a Workflow Graph as the node／edge／branch／state map built with those tools, and Loop／Graph Engineering as the Stage 7 production design work. It also rejects the old implication that an Agent framework requires multiple Agents. Four required-reading steps with five official links, five exercise entries, and the complete 18-row rated project map remain visible; six disclosures hold setup and secondary detail.
+
+`scripts/test_stage04_content.py` locks the three localized H1s, the exact visible loop sequence in both stages, the five-row bridge, old and new framework-heading anchors, Agent-framework boundary, required-reading URLs, 21／18 resource counts and ratings, mdBook summary labels, and the localized Stage 3／4 return labels in the directly affected example READMEs. `scripts/test_agent_engineering_route.py` locks the Stage 3 → Stage 4 → Stage 7 terminology route. `scripts/test_site_route_coherence.py` additionally locks the same localized titles in README, index, PROGRESS, the Stage 2 exit, the examples overview, all six Stage 3 example folders, the Stage 5 tool-calling tutor, and the schema-design cheatsheet; it requires README to distinguish learning order from the five-layer control-scope order and scans non-historical Markdown for legacy full-title strings. `scripts/check-reader-ux.py` requires exactly `11／6` closed disclosures, zero default-open disclosures, the visible resource minimums, and the localized section order. These title changes do not alter executable behavior, filenames, or legacy anchors.
+
 ### Stage 5 — reader path covered; meta-example hardening pending
 
 Stage 5 (`stages/05-claude-code-ecosystem.md`) has five cumulative exercises and eight reference sections (5.1–5.8). The first reader-UX layer keeps every exercise outcome and first copyable action visible, while longer setup and troubleshooting stay closed by default.
@@ -172,19 +180,31 @@ at `4,625／7,281／4,702` non-whitespace characters with only a 50-character al
 and requires all eight core terms before Exercise 1. The freshness gate separately enforces
 the 90-day fact pack for Computer Use, Browser Use, sandboxes, availability, benchmarks, and security.
 
-### Researcher and developer role paths — progressive entry and current identities covered
+### Role paths — progressive entry, current identities, and safe first tasks
 
-The researcher path keeps eight bold evidence terms, one public-paper citation-verification task,
-three starting tools, a short completion check, and the next Stage visible. Five closed disclosures
-hold time/privacy, official reading, the 10-row project catalog, reproducible workflows, and
-troubleshooting. The developer path uses the same visible landmarks around eight coding-safety
-terms and one copyable `read-only plan → small change → diff → test → human approval → rollback`
-exercise that explicitly withholds push, merge, and deploy authority.
+All five enrolled role paths keep the next safe action visible before optional detail. The researcher
+path starts with eight evidence terms and a public-paper citation check. The developer path starts
+with eight coding-safety terms and a copyable
+`read-only plan → small change → diff → test → human approval → rollback` exercise that explicitly
+withholds push, merge, and deploy authority. The teacher path starts with eight teaching terms, five
+safety lines, and a fictional lesson-review task. The knowledge-worker path starts with nine terms
+and a fictional meeting-to-action table. The everyday-user path starts with nine terms and a
+fictional draft that separates copied facts from details that still need confirmation.
 
-`scripts/test_role_paths.py` compares the three locales structurally rather than by keyword count.
+The current structural contract is:
+
+| Path | Core terms | Closed disclosures | Rated resources | Accessible rowgroups |
+|---|---:|---:|---:|---|
+| Researcher | 8 | 3 | 15 | `3／4／5／2／1` |
+| Developer | 8 | 3 | 14 | `4／6／2／2` |
+| Teacher | 8 | 5 | 12 | `3／3／3／3` |
+| Knowledge worker | 9 | 3 | 15 | `4／4／2／3／2` |
+| Everyday user | 9 | 3 | 15 | `4／4／4／2／1` |
+
+`scripts/test_role_paths.py` compares the five role paths and three locales structurally rather than by keyword count.
 It locks each resource row's identity, surface, status, license or service type, safety limitation,
-URL, and rating; researcher rowgroups (`3／4／2／1`); developer rowgroups (`9／2／1`); closed
-disclosures; freshness markers; copy-block steps; and semantic legacy-anchor landings. A mutation
+URL, and rating; the five rowgroup shapes and disclosure counts in the table above; freshness
+markers; copy-block steps; and semantic legacy-anchor landings. A mutation
 test proves that a row cannot borrow a surface or safety fact from the row above it. It also
 rejects volatile GitHub stars, maintainer self-promotion, fixed line-count safety rules, current use
 of archived `open_deep_research` or Roo Code, and the old NotebookLM name without Gemini Notebook.
@@ -192,11 +212,54 @@ Developer checks keep core identity separate from multi-valued surface: Cursor, 
 remain coding-agent products even when they expose IDE, CLI, cloud, SDK, or CI surfaces; OpenRouter
 remains a router and Ollama remains a local model runtime.
 
-This C2a gate covers only researcher and developer pages enrolled in `scripts/reader-ux-pages.yml`.
-Unqualified current-name prose in `branches/for-teacher*`, `resources/cookbook*`, `RESOURCES*`, and
-`resources/README*` is recorded for the next role/site freshness layer; package and repository
-identifiers keep their published names. This scoped exception prevents the C2a changelist from
-silently claiming that every site surface was already migrated.
+The everyday-user contract removes the old Tier upgrade ladder and locks four job-based doors:
+Chat surface, App／Connector, CLI Agent, and Local LLM／Runtime. It requires nine bold terms before
+a fictional copyable exercise, six visible official readings, three closed disclosures, and a
+15-row rated resource table with `4／4／4／2／1` accessible rowgroups. It rejects volatile stars and
+setup times, unsupported product rankings, stale prompt links, high-risk medical／legal／financial
+starter workflows, and blanket local-privacy claims. Ollama cloud models and LM Studio cloud
+features must remain distinct from local execution; write actions and CLI mutations keep an
+Approval Gate and human confirmation.
+
+This gate covers the researcher, developer, teacher, knowledge-worker, and everyday-user pages
+enrolled in `scripts/reader-ux-pages.yml`, across all three locales. Package and repository
+identifiers keep their published names. Cookbook, glossary, README, and other site-wide surfaces
+have separate contracts and release layers; passing the role-path gate does not claim those surfaces
+are already migrated.
+
+### Public resource entry and MCP／Skills catalog
+
+`scripts/test_public_entry_resources.py` covers `RESOURCES`, the resource index, and the MCP／Skills
+catalog in all three locales. It keeps the task choices, core definitions, safe starts, and curated
+resources visible; requires all 16 highlight links and ratings to remain outside closed disclosures,
+and verifies the accessible `4／3／4／4／1` rowgroups;
+requires current Notion, Google Workspace, GitHub, Atlassian, Linear, Slack, Canva, MCP Registry,
+reference-server, and Anthropic Skills entry points; and rejects the replaced Linear and Slack
+community defaults. A per-locale fact matrix locks Developer Preview, dedicated product servers,
+OAuth 2.0／2.1, least-privilege tokens, Streamable HTTP, read-only options, signed-in-user permissions,
+and human approval instead of checking URLs and ratings alone. The resource index mirrors canonical,
+official-source, unknown-value, rating, and next-step rules across all three locales. Gemini Notebook
+is the display name unless NotebookLM is part of an exact package, URL, or historical identifier.
+
+The catalog contract requires 17 visible category landings, 17 closed disclosures, zero default-open
+disclosures, and matching entry URL／editorial-rating order across all locales. It rejects volatile
+GitHub stars, advertised catalog totals, popularity rankings, fixed integration or context counts,
+stale last-commit claims, free-plan promises, and permanent model job assignments. Targeted semantic
+assertions keep least privilege, source-version checks, bounded delegation, financial disclaimers, and
+human review of freshness warnings in every locale. `scripts/check-catalog-counts.py` may report the
+machine count but blocks reader-facing totals and per-category count labels. Its repository-wide
+scan also rejects `NN+` and approximate project／resource／integration totals, exact use-case category
+counts, and stale Stage 7／8 route claims in current READMEs, site cards, outreach copy, and repository
+contracts. Outreach additionally rejects cached stars, stargazers, forks, clone counts, views, visitors,
+and other traffic snapshots through the same shared gate functions used by the file-level regression;
+changelog history, implementation plans, and test fixtures remain evidence rather than current advertising.
+
+Repository health is a separate fact layer. `repository-freshness.yml` performs a fork-safe changed-line
+check on PRs and a scheduled full scan of every unique GitHub repository. It records canonical owner,
+redirect, archive／disabled status, license metadata, release and push signals. Hard contradictions can
+block; missing release metadata or older activity remains a human-review warning and never deletes an
+entry automatically. The ordinary URL checker continues to cover non-GitHub documentation and hosted
+service links.
 
 ### Whole-site learner-route coherence
 

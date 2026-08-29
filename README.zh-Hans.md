@@ -10,7 +10,7 @@
 
 ### 🤖 AI Agent 学习地图 — 从基础 LLM 概念到自己构建多 agent 系统
 
-<p><em><b>学习路线图 + 240+ 资源 curation + 简单 illustrative 案例</b><br/>结构化 8 阶段、从“LLM 是什么、token 怎么算”走到 multi-agent 编排、Computer Use / Browser Use / Sandbox</em></p>
+<p><em><b>学习路线图 + 精选资源 + 简单 illustrative 案例</b><br/>结构化 8 阶段、从“LLM 是什么、token 怎么算”走到 multi-agent 编排、Computer Use / Browser Use / Sandbox</em></p>
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![繁中](https://img.shields.io/badge/语言-繁體中文-red?style=flat)](README.md)
@@ -28,15 +28,15 @@
 
 ## 🎯 项目介绍
 
-**本 repo 角色定位**：**学习路线图 + 240+ 资源 curation + 简单 illustrative 案例**——三件事为核心、帮想学 AI / AI agent 的人从“不知道从哪开始”走到“能设计多 agent 系统”。
+**本 repo 角色定位**：**学习路线图 + 精选资源 + 简单 illustrative 案例**——三件事为核心、帮想学 AI / AI agent 的人从“不知道从哪开始”走到“能设计多 agent 系统”。
 
 具体做法：
 
 | 核心 | 做什么 | 规模 |
 |---|---|---|
 | **学习路线图** | 把网上散落的高质量项目、教材、必修阅读，按**从零开始、循序渐进**整理成 **8 个阶段**（含 Stage 5 + Stage 8 两个共用 hub）+ 2 条学习路线 + 5 条延伸路径 | 8 stages、2 tracks |
-| **资源 curation** | 每阶段精选 **240+** 个 project（含星等、适合谁、教什么、怎么跑），加上中文 AI 生态(DeepSeek / Zhipu / Kimi 等)MCP / Skill 完整 catalog | 240+ projects、81 MCP/Skill |
-| **简单 illustrative 案例** | 每阶段附 1-5 个**基础练习**（70-150 行 starter + dual-path Ollama/Anthropic SDK 对照 + mock-based test） | 23 个练习 folder |
+| **资源 curation** | 每阶段精选有官方或 canonical 来源的 project，说明编辑评分、适合谁、教什么、限制与怎么跑；另有按工作找路的 MCP / Skill catalog | 按 Stage 与工作分类 |
+| **简单 illustrative 案例** | 每阶段提供可复制的**基础练习**，需要连接模型时保留 Ollama / Anthropic 对照，并用离线或 mock-based test 检查关键行为 | 按学习成果安排 |
 
 走完这条路线，你会从“**LLM 用户**”进阶到“**agent 系统构建者**”——能看懂 framework 在做什么、能设计多 agent 协作、能写自己的 MCP server。
 
@@ -84,7 +84,7 @@ cd awesome-agentic-ai-zh
 - 📖 **完全免费** — MIT 授权，所有内容开放共学
 - 🗺️ **两条学习路径** — Track A（CLI Power User）给“想 USE 现成 CLI agent”的人；Track B（Agent Builder）给“想 BUILD 自己 agent”的人。共用 Stage 0-2 基础
 - 🛠️ **基础动手练习** — 每阶段附 1-5 个 illustrative 练习（题目 + dual-path SDK 对照 + success criteria）。定位是**基础入门 + 路线确认**——chapter-length 深度练习见对应 stage 的 hello-agents / Anthropic Cookbook callout
-- 🎯 **精选 240+ 个 projects** — 每个都附星等推荐、适合谁、教什么、怎么跑（含本地 LLM 执行：Ollama、llama.cpp、LocalAI、MLX）
+- 🎯 **精选 Projects** — 每笔都附编辑评分、适合谁、教什么、限制与怎么跑（含本地 LLM 执行：Ollama、llama.cpp、LocalAI、MLX）
 - 🌏 **三语完整维护** — 繁中(canonical)/ 简中 / English,三版皆完整维护、英文非薄翻译
 - 🎓 **不只“框架”、还有“Claude Code 生态”** — MCP / Skills / Plugins 完整堆叠
 - 🔬 **5 条依用户分流的延伸路线** — 研究员 / 开发者 / 老师 / 知识工作者 / 日常用户
@@ -129,8 +129,8 @@ cd awesome-agentic-ai-zh
 
 | Stage | 主题 | 关键内容 | 预估时程 |
 |---|---|---|---|
-| **3** ⭐ | [工具使用与第一个 Agent（Tool Use & Hello Agent）](stages/03-tool-use-and-hello-agent.zh-Hans.md) | function calling · ReAct · 6 个动手练习 | 2-3 周 |
-| **4** | [Agent 框架（Agent Frameworks）](stages/04-agent-frameworks.zh-Hans.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 周 |
+| **3** ⭐ | [工具使用与第一个 Agent Loop](stages/03-tool-use-and-hello-agent.zh-Hans.md) | function calling · ReAct · 6 个动手练习 | 2-3 周 |
+| **4** | [Agent 框架与 Workflow Graph](stages/04-agent-frameworks.zh-Hans.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 周 |
 | **5** ⭐⭐ | [Claude Code 生态系（Claude Code Ecosystem）](stages/05-claude-code-ecosystem.zh-Hans.md)（**共用 hub**、Track A 也学）| MCP · Skills · Plugins · Subagents | 3-4 周（Track B 视角）|
 | **6** | [上下文管理（Context Engineering）：RAG 与 Memory](stages/06-memory-rag.zh-Hans.md) | vector DB · long-term memory · contextual retrieval | 2 周 |
 | **7** | [多 Agent 系统与稳定运作（Multi-Agent & Production）](stages/07-multi-agent-production.zh-Hans.md) | multi-agent orchestration · eval · observability · SDK 进阶 | 2-4 周 |
@@ -176,12 +176,12 @@ cd awesome-agentic-ai-zh
 主干分 5 部分：
 
 - **Part 1（Stage 0-2）：基础与 LLM 入门** — Python / git / API、什么是 LLM、怎么设计 prompt
-- **Part 2（Stage 3-4）：构建你的 Agent** — 从 tool use 进化到 agent，学主流 framework
+- **Part 2（Stage 3-4）：构建你的 Agent** — Stage 3 写出第一个 **Agent Loop**；Stage 4 用 framework 把多步流程组成看得见的 **Workflow Graph**
 - **Part 3（Stage 5） 共用 hub** — Claude Code 生态系（MCP / Skills / Plugins / Subagents、Track A + B 都会用到）
-- **Part 4（Stage 6-7）：进阶集成** — memory / RAG / multi-agent 协作 / harness engineering
+- **Part 4（Stage 6-7）：进阶集成** — Stage 6 用 RAG / memory 深入 **Context Engineering**；Stage 7 让 loop / graph 在 production 稳定运行
 - **Part 5（Stage 8） 共用 hub** — Agent Interfaces（Computer Use / Browser Use / Code Sandbox、2024-2026 frontier、两条 track 都会用到）
 
-> 🔭 **概念分层的演进**：**prompt engineering**（Stage 2、单一 prompt 怎么写）→ **context engineering**（Stage 3 之后、怎么动态组 system prompt + memory + retrieved chunks + tool schema）→ **harness engineering**（Stage 7、agent loop / eval / observability / deploy 整套包成 production system）。2026 之后社群又往外接了 **loop**（让它自己跑完）与 **graph**（把流程摊开来看得到）两层——**完整五层与各层目的见 [Stage 7 五层工程分工](stages/07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)**。详见 [`stages/02-prompt-engineering.zh-Hans.md`](stages/02-prompt-engineering.zh-Hans.md) 进阶：context engineering 跟 [`stages/07-multi-agent-production.zh-Hans.md`](stages/07-multi-agent-production.zh-Hans.md) 必修阅读 5+6。
+> 🔭 **学习顺序和五层堆叠回答不同问题**：学习时先在 Stage 2 写好 **Prompt**，Stage 3 写出 **Agent Loop**，Stage 4 再用 framework 组成 **Workflow Graph**；Stage 6 深入 **Context Engineering**，Stage 7 才把 harness、loop 和 graph 做到能长时间稳定运行。五层堆叠 `prompt → context → harness → loop → graph` 说的是“控制范围由小到大”，不是章节编号。完整定义见 [Stage 7 五层工程分工](stages/07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)，Prompt 与 Context 的界线见 [Stage 2](stages/02-prompt-engineering.zh-Hans.md)。
 
 走完主干（Track B 16-22 周 / Track A 8-10 周）后，依你的身份挑一条延伸路线继续走。
 
@@ -230,8 +230,8 @@ cd awesome-agentic-ai-zh
 
 | 你的状况 | 去哪 | 规模 |
 |---|---|---|
-| 接 Notion / Obsidian / Excel / GitHub 等工具 | [`RESOURCES.zh-Hans.md` 接日常工具](RESOURCES.zh-Hans.md#接日常工具常用-mcp-server--skill) | 7-8 个 highlight |
-| 完整 MCP server / Skill 目录（含星等、分类） | [`resources/mcp-skills-catalog.zh-Hans.md`](resources/mcp-skills-catalog.zh-Hans.md) | 81+ 条、16 大分类 |
+| 接 Notion / Obsidian / Excel / GitHub 等工具 | [`RESOURCES.zh-Hans.md` 接日常工具](RESOURCES.zh-Hans.md#接日常工具常用-mcp-server--skill) | 可见的安全起点与有编辑评分的精选资源 |
+| 完整 MCP server / Skill 目录（含星等、分类） | [`resources/mcp-skills-catalog.zh-Hans.md`](resources/mcp-skills-catalog.zh-Hans.md) | 按工作分类；每笔标示用途、状态与限制 |
 
 ### 🔬 研究 / production 级
 

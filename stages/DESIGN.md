@@ -107,7 +107,9 @@ Stage 5（Claude Code 生態）兩條軌都會碰到：
 
 走完 Track A 的 A3 或 Track B 的 Stage 7 後，都接到 5 條 branch（researcher / developer / teacher / knowledge-worker / everyday-users）。Branch entry 的 curation **不依軌道區分**——同一個工具不論是 Track A 用法還是 Track B 用法，都放在對應的 branch。
 
-Branch 的可見主線沿用 Stage 的漸進式揭露規則：先定位角色、說清目標與核心詞，再給一個可直接複製的最小任務、三個起點、完成條件與回到主路線的下一站。研究人員與開發者頁另外以 `scripts/test_role_paths.py` 鎖住 citation 核對、私人資料、read-only plan、diff／test／rollback、工具身分與多 surface、三語資源表及 archived 狀態；長閱讀與完整 project catalog 不得重新攤回首屏。
+Branch 的可見主線沿用 Stage 的漸進式揭露規則：先定位角色、說清目標與核心詞，再給一個可直接複製的最小任務、三個起點、必修閱讀、精選 Projects／學習資源、完成條件與回到主路線的下一站。被稱為「必修」或「精選」的內容要直接可見；setup、帳號／費用、進階流程、替代方案與排錯才預設收合。研究人員與開發者頁另外以 `scripts/test_role_paths.py` 鎖住 citation 核對、私人資料、read-only plan、diff／test／rollback、工具身分與多 surface、三語資源表及 archived 狀態。
+
+研究人員路線固定保留八個可見核心詞與「一篇 paper、三個問題、逐條回原文」的第一個練習。六份必修閱讀與 15 筆五星編輯評分資源表直接可見；資源分成 `3／4／5／2／1` 五組，使用真正 HTML `rowspan`，並由「可重現與證據」組補上文獻篩選、資料版本、實驗紀錄、可引用保存與環境重建。Gemini Notebook 名稱、隱私、citation、工具授權、封存狀態及研究服務轉型使用 90 天 freshness marker；GitHub stars 不進教材。OSF Projects 已宣布 2026-11-16 停止新建、2027-02-19 轉唯讀，因此不能再當成新研究專案的一般儲存預設；需要現行可引用保存入口時優先導向 Zenodo 或領域／機構核准 repository。
 
 ---
 
@@ -137,8 +139,8 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 | **0** 基礎準備 | 「我的開發環境準備好了嗎？」 | 4 個 動手練習 self-test |
 | **1** LLM 入門 | 「LLM 是什麼、token 怎麼算、不同 LLM 的差別？」 | 從 API call 到本地 LLM，含 from-scratch 訓練 |
 | **2** Prompt 設計 | 「怎麼讓 LLM 照我的意思做事，而且知道修改有沒有用？」 | 四格 prompt / few-shot / 固定 eval / 一次只改一件事 |
-| **3** ⭐ Tool Use & Agent 入門 | 「怎麼讓 LLM 呼叫外部工具？」 | 完整 tool round trip + 有界 ReAct loop + 6 個動手練習 |
-| **4** Agent 框架 | 「哪個 framework 該學、為什麼？」 | LangGraph / AutoGen / CrewAI / Smolagents 對比 |
+| **3** ⭐ 工具使用與第一個 Agent Loop | 「怎麼讓 LLM 呼叫外部工具，並重複做完一個有界 loop？」 | 完整 tool round trip + 有界 ReAct loop + 6 個動手練習 |
+| **4** Agent 框架與 Workflow Graph | 「怎麼選 framework，把多個步驟接成看得見的 graph？」 | LangGraph / AutoGen / CrewAI / Smolagents 對比 |
 | **5** ⭐⭐ Claude Code 生態 | 「Claude Code 生態系怎麼吃？」 | MCP / Skills / Plugins / Marketplace 4 個 sub-stage |
 | **6** Memory · RAG | 「怎麼讓 agent 記得事情？怎麼讓它能查自家文件？」 | embedding / vector DB / RAG / contextual retrieval |
 | **7** 進階 Multi-Agent | 「multi-agent 跟 production 怎麼一起？」 | orchestration / eval / observability / SDK 進階 |
@@ -155,13 +157,15 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 
 Stage 2 的固定主線是「目標／資料／規則／輸出 → Zero-Shot／One-Shot／Few-Shot → Chain-of-Thought 的正確邊界 → 六筆固定案例 → 一次只改一件事 → 比較分數」。三語概念圖固定放在可見核心詞之後：先由正文定義，再用同構圖整理關係；圖片不能取代定義，也不能畫入正文已撤掉的固定數字。程式碼、模型比較、安全補充與 18 筆完整資源表預設收合。CoT 必須先用白話解釋，但不當成要求模型公開完整內部推理的通用步驟。
 
-Stage 3 的固定主線是「八個可見核心詞 → Tool Use 六步亮色圖 → 一般回答／Structured Output／Function Calling 的選擇 → 五條安全底線 → schema → Tool Call → 程式執行 → Tool Result → final answer → 有界 Agent Loop」。三語同構圖要清楚畫出模型只提出請求、程式先驗證再執行，以及 allowlist、HITL、最大輪數三個安全邊界；圖片不取代正文定義。六題的標題、成果與第一個可複製動作保持可見；完整程式、供應商差異、費用、排錯、Reflection 路由與 21 筆資源表預設收合。ReAct 使用可觀察的 action／observation loop 教學，不要求公開私人 Chain-of-Thought。
+Stage 3 的章名與固定主線都把 **Agent Loop** 當成入口：「八個可見核心詞 → Tool Use 六步亮色圖 → 一般回答／Structured Output／Function Calling 的選擇 → 五條安全底線 → schema → Tool Call → 程式執行 → Tool Result → final answer → 有界 Agent Loop」。正文必須直接寫出 `model → tool call → execute → tool result → model`，避免只看章名還不知道 loop 是什麼。三語同構圖要清楚畫出模型只提出請求、程式先驗證再執行，以及 allowlist、HITL、最大輪數三個安全邊界；圖片不取代正文定義。三份必修閱讀、六題的標題／成果／第一個可複製動作，以及完整 21 筆五星編輯評分資源表保持可見；先備條件、環境、時間、預算、完整程式、供應商差異、費用、排錯與 Reflection 路由預設收合。ReAct 使用可觀察的 action／observation loop 教學，不要求公開私人 Chain-of-Thought。
 
 Stage 3 的六題也各有一個 `examples/stage-3/NN-*` 可執行資料夾。每題同時提供 Ollama Path A、Anthropic Path B，以及兩個不連網的 mock tests。模型產生的工具名稱、JSON 與欄位一律視為不可信輸入：程式先做 allowlist 與參數驗證，再執行工具；錯誤要帶回原本的 call ID，Anthropic client tool 使用 `is_error: true`。多輪迴圈必須有最大步數，並把正常完成、token 截斷、拒絕／其他停止原因分開。README 以 PowerShell 為第一條可複製路徑，再收合 macOS／Linux 指令；SDK 使用已查核的 major 範圍、雲端模型使用固定 ID，費用寫公式與查核日，不用沒有 token 假設的固定小數，也不用單次結果宣稱某模型一定更快或更穩。
 
-Stage 4 的固定主線是「八個可見核心詞 → workflow／agent × single／multi 選擇圖 → 先用最簡單能完成任務的形狀 → 五種協作 pattern → 依需求選工具 → 五題練習」。八個主核心詞是 **Framework**、**Workflow**、**Agent**、**Orchestration**、**State**、**Checkpoint**、**Handoff** 與 **Human-in-the-loop（HITL）**；Supervisor、Worker、CodeAct 與 Type-safe 也必須在第一次可見使用時粗體解釋，不能為了縮短頁面刪掉。三語亮色圖只整理正文已先定義的關係，不放版本、價格、stars 或沒有通則的數字。
+Stage 4 的章名固定保留 **Agent Framework**，並補上 **Workflow Graph**；它不是直接改名為 Graph Engineering。固定主線是「八個可見核心詞 → Agent Loop／Agent Framework／Workflow Graph／Loop Engineering／Graph Engineering 五項橋接 → workflow／agent × single／multi 選擇圖 → 先用最簡單能完成任務的形狀 → 五種協作 pattern → 依需求選工具 → 五題練習」。八個主核心詞是 **Framework**、**Workflow／Workflow Graph**、**Agent**、**Orchestration**、**State**、**Checkpoint**、**Handoff** 與 **Human-in-the-loop（HITL）**；Supervisor、Worker、CodeAct 與 Type-safe 也必須在第一次可見使用時粗體解釋，不能為了縮短頁面刪掉。橋接表必須說清楚：Agent Loop 是 Stage 3 的執行迴圈，framework 是工具箱，Workflow Graph 是 node／edge／branch／state 組成的工作地圖，Loop／Graph Engineering 是 Stage 7 加入預算、驗證、復原、觀測與人工核准後的設計工作。Multi-Agent 是可選的系統形狀，不是 framework 的定義，也不是每張 graph 的必要條件。三語亮色圖只整理正文已先定義的關係，不放版本、價格、stars 或沒有通則的數字。
 
-Stage 4 的時間、環境、完整閱讀、研究證據、進階 tool patterns、五題完整步驟、疑難排解與 18 筆完整資源表預設收合。`📌`、`🚪`、`📚`、`🛠`、`🎯`、`✅`，簡短進入條件、五題 heading／anchor、每題成果、第一個可複製 PowerShell 動作與預算提醒保持可見。資源表固定為五組 `4／6／4／3／1`，使用真正 HTML `rowspan`，保留編輯推薦星級、移除會變動的 GitHub stars；Preview、維護、凍結／歷史與遷移狀態依官方來源明寫。OpenAI Swarm 只作教育參考，不能再有 production 評分；框架版本、維護、授權與安全資訊使用 90 天 freshness marker。
+章節學習順序與五層工程堆疊必須分開說。章節依「先做出來，再看見結構，最後做穩」排列：Stage 2 Prompt → Stage 3 Agent Loop → Stage 4 Agent Framework／Workflow Graph → Stage 6 Context 深化 → Stage 7 Harness／Loop／Graph Engineering。五層的 `prompt → context → harness → loop → graph` 則表示控制範圍由小到大，不是章節順序。README、首頁 index、PROGRESS、MkDocs／mdBook 導覽、Stage 2 出口、範例返回連結與補充資源若直接寫出完整章名，必須使用同一組三語標題；檔名與既有 anchor 不因章名修正而更動。
+
+Stage 4 的 4 個必修閱讀步驟（共 5 個官方連結）與 18 筆五星編輯評分資源表保持可見；時間、環境、研究證據、進階 tool patterns、五題完整步驟與疑難排解預設收合。`📌`、`🚪`、`📚`、`🛠`、`🎯`、`✅`，簡短進入條件、五題 heading／anchor、每題成果、第一個可複製 PowerShell 動作與預算提醒保持可見。資源表固定為五組 `4／6／4／3／1`，使用真正 HTML `rowspan`，保留編輯推薦星級、移除會變動的 GitHub stars；Preview、維護、凍結／歷史與遷移狀態依官方來源明寫。OpenAI Swarm 只作教育參考，不能再有 production 評分；框架版本、維護、授權與安全資訊使用 90 天 freshness marker。
 
 Stage 4 使用兩層 stacked PR：第一層只定稿三語教材、官方事實包、圖、資源表與 reader-UX gate；第二層才更新五個 `examples/stage-4/` 資料夾的 current-major SDK、Ollama／Anthropic 雙路徑、安全邊界與離線測試。這讓閱讀設計和 executable API migration 可以各自回溯、review 與驗證。
 
@@ -349,8 +353,22 @@ entry 的「教什麼」應該是該 stage 核心問題的一個答案的具體�
 - framing 重複的 entry 要刪一個
 
 ### 廣度 vs 深度
-- 同類型工具列 2-3 個就夠（譬如 vector DB 列 Chroma + Qdrant + pgvector + Weaviate，但不需要列 5 個更小眾的）
-- 同 audience 工具列 3-5 個（譬如 coding agent 列 Cursor + Aider + Cline + Continue + Goose）
+- 同類型只收足以說清楚取捨的代表入口；數量本身不能證明完整或有用。
+- 同 audience 的項目要各自補上不同工作、限制或部署形狀；只換名字但 framing 相同的 entry 不重複收錄。
+
+---
+
+## 公共資源入口與 catalog 的固定閱讀形狀
+
+公共資源分成三層，不能把首頁、索引與完整 catalog 混成同一堵工具牆：
+
+1. `RESOURCES.md` 先讓讀者按工作選路，直接看見 **MCP**、**Skill**、**Plugin** 三個核心詞、五個安全起點與 16 筆有編輯評分的精選資源。精選表使用 `4／3／4／4／1` 五個真正合併的 rowgroup；只有挑選規則與補充治理可以收合。
+2. `resources/README.md` 直接顯示七個工作入口；維護者說明與補充導覽預設收合。
+3. `resources/mcp-skills-catalog.md` 直接顯示全部工作分類與每類安全邊界；完整 entry 放在各分類的預設關閉 `<details>`，因為讀者只在需要該工作時才展開。機器可以計數，讀者頁面不宣告會自然漂移的總數。
+
+三語必須保留相同的 entry URL、順序與 `⭐⭐－⭐⭐⭐⭐⭐` 編輯推薦度；評分不是 GitHub stars，也不是客觀排行榜。官方狀態、hosted endpoint、認證、權限與 service availability 以供應商文件為準；社群 repo 的 canonical owner、redirect、archive、license 與維護訊號由 repository-freshness workflow 掃描，再由人判斷。沒有 release 或較久未 push 只能是複查訊號，不能自動刪除仍穩定且有教學價值的工具。
+
+catalog 不使用 popularity 排名、固定 GitHub stars、固定安裝時間、會自然改變的整合數、免費額度保證、單一 last-commit 日期或永久模型分工。高影響工具先教測試資料、read-only、最小權限與人工核准；金融 entry 必須明說不是投資建議。`modelcontextprotocol/servers` 只作 reference implementation，不當成 production 推薦清單；產品顯示名稱使用 Gemini Notebook，舊的 NotebookLM 只留在 package、URL 或歷史識別說明。
 
 ---
 

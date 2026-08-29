@@ -22,8 +22,8 @@ hide:
 
 <div class="aaz-stats" markdown>
 <div class="aaz-stat"><span class="aaz-num">8</span><span class="aaz-lbl">stages</span></div>
-<div class="aaz-stat"><span class="aaz-num">240+</span><span class="aaz-lbl">projects</span></div>
-<div class="aaz-stat"><span class="aaz-num">23</span><span class="aaz-lbl">exercises</span></div>
+<div class="aaz-stat"><span class="aaz-num">curated</span><span class="aaz-lbl">projects</span></div>
+<div class="aaz-stat"><span class="aaz-num">hands-on</span><span class="aaz-lbl">exercises</span></div>
 <div class="aaz-stat"><span class="aaz-num">3</span><span class="aaz-lbl">languages</span></div>
 </div>
 
@@ -69,7 +69,7 @@ hide:
 
     [:octicons-arrow-right-24: Open](stages/02-prompt-engineering.en.md)
 
--   :material-tools:{ .lg .middle } __Stage 3 — Tool use__
+-   :material-tools:{ .lg .middle } __Stage 3 — Tool Use & Your First Agent Loop__
 
     ---
 
@@ -77,7 +77,7 @@ hide:
 
     [:octicons-arrow-right-24: Open](stages/03-tool-use-and-hello-agent.en.md)
 
--   :material-view-grid:{ .lg .middle } __Stage 4 — Agent frameworks__
+-   :material-view-grid:{ .lg .middle } __Stage 4 — Agent Frameworks & Workflow Graphs__
 
     ---
 

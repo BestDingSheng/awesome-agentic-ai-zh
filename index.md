@@ -22,8 +22,8 @@ hide:
 
 <div class="aaz-stats" markdown>
 <div class="aaz-stat"><span class="aaz-num">8</span><span class="aaz-lbl">階段</span></div>
-<div class="aaz-stat"><span class="aaz-num">240+</span><span class="aaz-lbl">精選專案</span></div>
-<div class="aaz-stat"><span class="aaz-num">23</span><span class="aaz-lbl">動手練習</span></div>
+<div class="aaz-stat"><span class="aaz-num">精選</span><span class="aaz-lbl">專案</span></div>
+<div class="aaz-stat"><span class="aaz-num">動手</span><span class="aaz-lbl">練習</span></div>
 <div class="aaz-stat"><span class="aaz-num">3</span><span class="aaz-lbl">語言</span></div>
 </div>
 
@@ -69,7 +69,7 @@ hide:
 
     [:octicons-arrow-right-24: 進入](stages/02-prompt-engineering.md)
 
--   :material-tools:{ .lg .middle } __Stage 3 — 工具呼叫__
+-   :material-tools:{ .lg .middle } __Stage 3 — 工具使用與第一個 Agent Loop__
 
     ---
 
@@ -77,7 +77,7 @@ hide:
 
     [:octicons-arrow-right-24: 進入](stages/03-tool-use-and-hello-agent.md)
 
--   :material-view-grid:{ .lg .middle } __Stage 4 — Agent 框架__
+-   :material-view-grid:{ .lg .middle } __Stage 4 — Agent 框架與 Workflow Graph__
 
     ---
 

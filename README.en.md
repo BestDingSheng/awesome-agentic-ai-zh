@@ -10,7 +10,7 @@
 
 ### 🤖 AI Agent Learning Roadmap — from basic LLM concepts to building your own multi-agent systems
 
-<p><em><b>Learning roadmap + 240+ curated resources + simple illustrative cases</b><br/>A structured 8-stage path, from "what is an LLM, how are tokens counted" to multi-agent orchestration, Computer Use / Browser Use / Sandbox</em></p>
+<p><em><b>Learning roadmap + curated resources + simple illustrative cases</b><br/>A structured 8-stage path, from "what is an LLM, how are tokens counted" to multi-agent orchestration, Computer Use / Browser Use / Sandbox</em></p>
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![繁中](https://img.shields.io/badge/lang-繁體中文-red?style=flat)](README.md)
@@ -30,15 +30,15 @@
 
 ## 🎯 Why this exists
 
-**What this repo is**: **a learning roadmap + 240+ curated resources + simple illustrative cases** — three pillars helping AI / AI-agent learners go from "I don't know where to start" to "I can design multi-agent systems."
+**What this repo is**: **a learning roadmap + curated resources + simple illustrative cases** — three pillars helping AI / AI-agent learners go from "I don't know where to start" to "I can design multi-agent systems."
 
 Concretely:
 
 | Pillar | What it does | Scale |
 |---|---|---|
 | **Learning roadmap** | Organizes scattered high-quality projects, tutorials, and required reading into **8 stages** (including Stage 5 + Stage 8 as two shared hubs) + 2 tracks + 5 specialized branches, from zero to advanced | 8 stages, 2 tracks |
-| **Resource curation** | Each stage curates **240+** projects (star rating, audience, what they teach, how to run) plus an MCP/Skill catalog covering the Chinese AI ecosystem (DeepSeek, Zhipu, Kimi, …) | 240+ projects, 81 MCP/Skill |
-| **Simple illustrative cases** | Each stage ships 1-5 **foundational exercises** (70-150 line starter + dual-path Ollama/Anthropic SDK comparison + mock-based tests) | 23 exercise folders |
+| **Resource curation** | Each stage selects projects with official or canonical sources and explains the editorial rating, audience, lesson, limits, and how to run them; a task-based MCP / Skill catalog provides another entry point | Grouped by stage and task |
+| **Simple illustrative cases** | Each stage provides copyable **foundational exercises**, preserves Ollama / Anthropic paths when a model connection is needed, and checks important behavior with offline or mock-based tests | Organized by learning outcome |
 
 After the main path, you go from "**LLM user**" to "**agent system builder**" — capable of designing multi-agent collaboration, writing your own MCP server, and shipping real agent systems.
 
@@ -84,7 +84,7 @@ cd awesome-agentic-ai-zh
 - 📖 **Fully free** — MIT-licensed, all content open
 - 🗺️ **Two learning tracks** — Track A (CLI Power User) for "use existing CLIs"; Track B (Agent Builder) for "build your own". Shared Stages 0-2 foundation.
 - 🛠️ **Foundational hands-on exercises** — 1-5 illustrative exercises per stage (specs + dual-path SDK comparison + success criteria). Positioned as **foundational + roadmap verification** — for chapter-length depth exercises see the hello-agents / Anthropic Cookbook callout in each stage
-- 🎯 **240+ curated projects** — each with star rating, audience, what it teaches, how to run (incl. local LLM runners: Ollama, llama.cpp, LocalAI, MLX)
+- 🎯 **Curated projects** — each with an editorial rating, audience, lesson, limits, and how to run it (including local LLM runners: Ollama, llama.cpp, LocalAI, MLX)
 - 🌏 **Trilingual, fully maintained** — zh-TW (canonical) / 简中 / English; the English edition is complete, not a thin mirror
 - 🎓 **Beyond frameworks: Claude Code ecosystem** — MCP / Skills / Plugins / SDK full stack
 - 🔬 **5 specialized branches** — researcher / developer / teacher / knowledge worker / **everyday user**
@@ -129,8 +129,8 @@ The two tracks are **not mutually exclusive** — most people start with A to ge
 
 | Stage | Topic | Key Content | Time |
 |---|---|---|---|
-| **3** ⭐ | [Tool Use & Hello Agent](stages/03-tool-use-and-hello-agent.en.md) | function calling · ReAct · 6 hands-on exercises | 2-3 wks |
-| **4** | [Agent Frameworks](stages/04-agent-frameworks.en.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 wks |
+| **3** ⭐ | [Tool Use & Your First Agent Loop](stages/03-tool-use-and-hello-agent.en.md) | function calling · ReAct · 6 hands-on exercises | 2-3 wks |
+| **4** | [Agent Frameworks & Workflow Graphs](stages/04-agent-frameworks.en.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 wks |
 | **5** ⭐⭐ | [Claude Code Ecosystem](stages/05-claude-code-ecosystem.en.md) (**Shared Hub**, Track A also studies) | MCP · Skills · Plugins · Subagents | 3-4 wks (Track B view) |
 | **6** | [Context Engineering: RAG and Memory](stages/06-memory-rag.en.md) | vector DB · long-term memory · contextual retrieval | 2 wks |
 | **7** | [Multi-Agent · Productionization](stages/07-multi-agent-production.en.md) | multi-agent orchestration · eval · observability · advanced SDK | 2-4 wks |
@@ -176,12 +176,12 @@ If anything's missing, do Stage 0; if not, **start at Stage 1**.
 The main path has 5 parts:
 
 - **Part 1 (Stages 0-2): Foundations & LLM Basics** — Python / git / API, what's an LLM, prompt design
-- **Part 2 (Stages 3-4): Build Your Agent** — from tool use to agents, learn the major frameworks
+- **Part 2 (Stages 3-4): Build Your Agent** — Stage 3 builds your first **Agent Loop**; Stage 4 uses a framework to turn multiple steps into a visible **Workflow Graph**
 - **Part 3 (Stage 5) Shared Hub** — Claude Code Ecosystem (MCP / Skills / Plugins / Subagents; used by both Track A + B)
-- **Part 4 (Stages 6-7): Advanced Integration** — memory / RAG / multi-agent collaboration / harness engineering
+- **Part 4 (Stages 6-7): Advanced Integration** — Stage 6 deepens **Context Engineering** with RAG / memory; Stage 7 makes loops / graphs reliable in production
 - **Part 5 (Stage 8) Shared Hub** — Agent Interfaces (Computer Use / Browser Use / Code Sandbox, 2024-2026 frontier; used by both tracks)
 
-> 🔭 **How the concept layers evolved**: **prompt engineering** (Stage 2 — how to write a single prompt) → **context engineering** (Stage 3 onward — how to dynamically assemble system prompt + memory + retrieved chunks + tool schema) → **harness engineering** (Stage 7 — agent loop / eval / observability / deploy as a complete production system). After 2026, the community extended this outward with two more layers: **loop** (letting the agent run itself to completion) and **graph** (making the execution flow explicit). For the full five-layer model and each layer's purpose, see [Stage 7 five-layer engineering split](stages/07-multi-agent-production.en.md#the-five-layer-engineering-split-prompt--context--harness--loop--graph). See [`stages/02-prompt-engineering.en.md`](stages/02-prompt-engineering.en.md) "Beyond prompts: context engineering" and [`stages/07-multi-agent-production.en.md`](stages/07-multi-agent-production.en.md) Required Reading 5+6.
+> 🔭 **The learning order and the five-layer stack answer different questions**: first write a good **Prompt** in Stage 2, build an **Agent Loop** in Stage 3, then use a framework to make a **Workflow Graph** in Stage 4. Stage 6 deepens **Context Engineering**; Stage 7 makes the harness, loop, and graph reliable over long runs. The five-layer stack `prompt → context → harness → loop → graph` describes a growing control scope, not chapter numbers. See the [Stage 7 five-layer engineering split](stages/07-multi-agent-production.en.md#the-five-layer-engineering-split-prompt--context--harness--loop--graph) and the [Stage 2 Prompt/Context boundary](stages/02-prompt-engineering.en.md).
 
 After the main path (16-22 weeks for Track B, 8-10 weeks for Track A), pick a branch.
 
@@ -230,8 +230,8 @@ Common quick links, grouped by **scenario**:
 
 | Your situation | Where | Scope |
 |---|---|---|
-| Connect to Notion / Obsidian / Excel / GitHub / etc. | [`RESOURCES.en.md` daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) | 7-8 highlights |
-| Full MCP server / Skill catalog (stars, categories) | [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md) | 81+ entries, 16 categories |
+| Connect to Notion / Obsidian / Excel / GitHub / etc. | [`RESOURCES.en.md` daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) | Visible safe starts and rated highlights |
+| Full MCP server / Skill catalog (ratings and categories) | [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md) | Grouped by task; each entry states purpose, status, and limits |
 
 ### 🔬 Research / Production
 
