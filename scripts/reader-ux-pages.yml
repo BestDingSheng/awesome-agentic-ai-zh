@@ -830,9 +830,9 @@ pages:
       en: stages/05-claude-code-ecosystem.en.md
       zh-Hans: stages/05-claude-code-ecosystem.zh-Hans.md
     max_visible_chars:
-      zh-TW: 4930
-      en: 9201
-      zh-Hans: 4759
+      zh-TW: 5148
+      en: 9469
+      zh-Hans: 5017
     max_open_details: 0
     required_details_count: 16
     visible_section_order:
@@ -847,6 +847,7 @@ pages:
       - exercise-3
       - exercise-4
       - exercise-5
+      - system-flow
       - section-5-1
       - section-5-2
       - section-5-3
@@ -865,7 +866,7 @@ pages:
       ordered_external_urls: true
       resource_url_ratings: true
       literals:
-        - "2026-08-28"
+        - "2026-08-29"
         - "2026-07-28"
         - "Plan"
         - "general-purpose"
@@ -921,6 +922,10 @@ pages:
         zh-TW: {heading: "練習 5：用一個 Subagent 做唯讀檢查", anchor: 練習-5用一個-subagent-做唯讀檢查}
         en: {heading: "Exercise 5: Use a Subagent for a read-only check", anchor: exercise-5-use-a-subagent-for-a-read-only-check}
         zh-Hans: {heading: "练习 5：用 Subagent 做只读检查", anchor: 练习-5用-subagent-做只读检查}
+      system-flow:
+        zh-TW: {heading: "先看 5.1–5.7 怎麼接在一起", anchor: 先看-5157-怎麼接在一起}
+        en: {heading: "See how 5.1–5.7 fit together", anchor: see-how-5157-fit-together}
+        zh-Hans: {heading: "先看 5.1–5.7 怎样连在一起", anchor: 先看-5157-怎样连在一起}
       section-5-1:
         zh-TW: {heading: "5.1 — Claude Code 基礎", anchor: 51--claude-code-基礎}
         en: {heading: "5.1 — Claude Code fundamentals", anchor: 51--claude-code-fundamentals}
@@ -958,9 +963,9 @@ pages:
         en: {heading: "🎯 Curated projects and learning resources", anchor: -curated-projects-and-learning-resources}
         zh-Hans: {heading: "🎯 精选项目与学习资源", anchor: -精选项目与学习资源}
       completion:
-        zh-TW: {heading: "✅ 進入 Stage 6 前的自我檢查", anchor: -進入-stage-6-前的自我檢查}
-        en: {heading: "✅ Self-check before Stage 6", anchor: -self-check-before-stage-6}
-        zh-Hans: {heading: "✅ 进入 Stage 6 前的自我检查", anchor: -进入-stage-6-前的自我检查}
+        zh-TW: {heading: "✅ 進入下一站前的自我檢查", anchor: -進入下一站前的自我檢查}
+        en: {heading: "✅ Self-check before your next stop", anchor: -self-check-before-your-next-stop}
+        zh-Hans: {heading: "✅ 进入下一站前的自我检查", anchor: -进入下一站前的自我检查}
     core_terms:
       section_id: core-terms
       first_exercise_section_id: exercise-1
@@ -1003,6 +1008,527 @@ pages:
           en: {term: Claude Agent SDK, label: Claude Agent SDK}
           zh-Hans: {term: Claude Agent SDK, label: Claude Agent SDK}
     resource_group_rowspans: [4, 8, 8, 7, 4, 4]
+
+  - id: stage-06
+    canonical: stages/06-memory-rag.md
+    mirrors:
+      en: stages/06-memory-rag.en.md
+      zh-Hans: stages/06-memory-rag.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3340
+      en: 6417
+      zh-Hans: 3390
+    max_open_details: 0
+    required_details_count: 7
+    visible_section_order:
+      - learning-goals
+      - core-terms
+      - choice-table
+      - entry-paths
+      - required-reading
+      - hands-on
+      - exercise-1
+      - exercise-2
+      - exercise-3
+      - exercise-4
+      - exercise-5
+      - project
+      - projects
+      - completion
+    forbidden_terms:
+      zh-TW: [text-embedding-ada-002, explodinggradients/ragas, "★", '""', "“”"]
+      en: [text-embedding-ada-002, explodinggradients/ragas, "★", '""', "“”"]
+      zh-Hans: [text-embedding-ada-002, explodinggradients/ragas, "★", '""', "“”"]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-28"
+        - "5.7%"
+        - "1.9%"
+        - "top-20"
+        - "MIT"
+        - "Apache-2.0"
+        - "Zep Cloud"
+        - "letta-ai/letta-code"
+        - "vibrantlabsai/ragas"
+    required_visible_sections:
+      learning-goals:
+        zh-TW: {heading: "📌 學習目標", anchor: -學習目標}
+        en: {heading: "📌 Learning goals", anchor: -learning-goals}
+        zh-Hans: {heading: "📌 学习目标", anchor: -学习目标}
+      core-terms:
+        zh-TW: {heading: "🧩 先認識七個核心詞", anchor: -先認識七個核心詞}
+        en: {heading: "🧩 Meet seven core terms first", anchor: -meet-seven-core-terms-first}
+        zh-Hans: {heading: "🧩 先认识七个核心术语", anchor: -先认识七个核心术语}
+      choice-table:
+        zh-TW: {heading: "一張表先選對方法", anchor: 一張表先選對方法}
+        en: {heading: "Choose the right method with one table", anchor: choose-the-right-method-with-one-table}
+        zh-Hans: {heading: "一张表先选对方法", anchor: 一张表先选对方法}
+      entry-paths:
+        zh-TW: {heading: "🚪 進入條件與閱讀路線", anchor: -進入條件與閱讀路線}
+        en: {heading: "🚪 Entry requirements and reading paths", anchor: -entry-requirements-and-reading-paths}
+        zh-Hans: {heading: "🚪 进入条件与阅读路径", anchor: -进入条件与阅读路径}
+      required-reading:
+        zh-TW: {heading: "📚 必修閱讀", anchor: -必修閱讀}
+        en: {heading: "📚 Required reading", anchor: -required-reading}
+        zh-Hans: {heading: "📚 必修阅读", anchor: -必修阅读}
+      hands-on:
+        zh-TW: {heading: "🛠 動手練習", anchor: -動手練習}
+        en: {heading: "🛠 Hands-on exercises", anchor: -hands-on-exercises}
+        zh-Hans: {heading: "🛠 动手练习", anchor: -动手练习}
+      exercise-1:
+        zh-TW: {heading: "練習 1：把兩句話變成 Embedding", anchor: 練習-1把兩句話變成-embedding}
+        en: {heading: "Exercise 1: Turn two sentences into embeddings", anchor: exercise-1-turn-two-sentences-into-embeddings}
+        zh-Hans: {heading: "练习 1：把两句话变成 Embedding", anchor: 练习-1把两句话变成-embedding}
+      exercise-2:
+        zh-TW: {heading: "練習 2：把 Embedding 放進 Vector Database", anchor: 練習-2把-embedding-放進-vector-database}
+        en: {heading: "Exercise 2: Put embeddings in a vector database", anchor: exercise-2-put-embeddings-in-a-vector-database}
+        zh-Hans: {heading: "练习 2：把 Embedding 放进 Vector Database", anchor: 练习-2把-embedding-放进-vector-database}
+      exercise-3:
+        zh-TW: {heading: "練習 3：比較三種 Chunking 方法", anchor: 練習-3比較三種-chunking-方法}
+        en: {heading: "Exercise 3: Compare three chunking methods", anchor: exercise-3-compare-three-chunking-methods}
+        zh-Hans: {heading: "练习 3：比较三种 Chunking 方法", anchor: 练习-3比较三种-chunking-方法}
+      exercise-4:
+        zh-TW: {heading: "練習 4：串起完整 RAG", anchor: 練習-4串起完整-rag}
+        en: {heading: "Exercise 4: Connect a complete RAG pipeline", anchor: exercise-4-connect-a-complete-rag-pipeline}
+        zh-Hans: {heading: "练习 4：串起完整 RAG", anchor: 练习-4串起完整-rag}
+      exercise-5:
+        zh-TW: {heading: "練習 5：記住一項偏好", anchor: 練習-5記住一項偏好}
+        en: {heading: "Exercise 5: Remember a preference", anchor: exercise-5-remember-a-preference}
+        zh-Hans: {heading: "练习 5：记住一项偏好", anchor: 练习-5记住一项偏好}
+      project:
+        zh-TW: {heading: "推薦小專案：會翻資料、也會記偏好的助理", anchor: 推薦小專案會翻資料也會記偏好的助理}
+        en: {heading: "Recommended mini-project: an assistant that retrieves and remembers", anchor: recommended-mini-project-an-assistant-that-retrieves-and-remembers}
+        zh-Hans: {heading: "推荐小项目：会查资料、也会记偏好的助理", anchor: 推荐小项目会查资料也会记偏好的助理}
+      projects:
+        zh-TW: {heading: "🎯 精選 Projects 與學習資源", anchor: -精選-projects-與學習資源}
+        en: {heading: "🎯 Curated projects and learning resources", anchor: -curated-projects-and-learning-resources}
+        zh-Hans: {heading: "🎯 精选项目与学习资源", anchor: -精选项目与学习资源}
+      completion:
+        zh-TW: {heading: "✅ 進入 Stage 7 前的自我檢查", anchor: -進入-stage-7-前的自我檢查}
+        en: {heading: "✅ Self-check before Stage 7", anchor: -self-check-before-stage-7}
+        zh-Hans: {heading: "✅ 进入 Stage 7 前的自我检查", anchor: -进入-stage-7-前的自我检查}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: exercise-1
+      min_definition_chars: 20
+      terms:
+        - id: retrieval
+          zh-TW: {term: Retrieval, label: "Retrieval（檢索）"}
+          en: {term: Retrieval, label: Retrieval}
+          zh-Hans: {term: Retrieval, label: "Retrieval（检索）"}
+        - id: rag
+          zh-TW: {term: RAG, label: "RAG（Retrieval-Augmented Generation）"}
+          en: {term: RAG, label: "RAG (Retrieval-Augmented Generation)"}
+          zh-Hans: {term: RAG, label: "RAG（Retrieval-Augmented Generation）"}
+        - id: embedding
+          zh-TW: {term: Embedding, label: "Embedding（嵌入向量）"}
+          en: {term: Embedding, label: Embedding}
+          zh-Hans: {term: Embedding, label: "Embedding（嵌入向量）"}
+        - id: vector-store
+          zh-TW: {term: Vector Store, label: "Vector Store／Vector Database"}
+          en: {term: Vector Store, label: "Vector Store / Vector Database"}
+          zh-Hans: {term: Vector Store, label: "Vector Store／Vector Database"}
+        - id: chunk
+          zh-TW: {term: Chunk, label: "Chunk（文字片段）"}
+          en: {term: Chunk, label: Chunk}
+          zh-Hans: {term: Chunk, label: "Chunk（文字片段）"}
+        - id: reranking
+          zh-TW: {term: Reranking, label: "Reranking（重新排序）"}
+          en: {term: Reranking, label: Reranking}
+          zh-Hans: {term: Reranking, label: "Reranking（重新排序）"}
+        - id: memory
+          zh-TW: {term: Memory, label: "Memory（記憶）"}
+          en: {term: Memory, label: Memory}
+          zh-Hans: {term: Memory, label: "Memory（记忆）"}
+    resource_group_rowspans: [4, 5, 4, 3, 2]
+
+  - id: stage-07
+    canonical: stages/07-multi-agent-production.md
+    mirrors:
+      en: stages/07-multi-agent-production.en.md
+      zh-Hans: stages/07-multi-agent-production.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 10918
+      en: 16573
+      zh-Hans: 11058
+    max_open_details: 0
+    required_details_count: 6
+    visible_section_order:
+      - learning-goals
+      - core-terms
+      - entry-conditions
+      - required-reading
+      - five-layers
+      - harness
+      - harness-components
+      - tool-roles
+      - hands-on
+      - exercise-1
+      - exercise-2
+      - exercise-3
+      - exercise-4
+      - exercise-5
+      - mini-project
+      - benchmark
+      - projects
+      - completion
+    forbidden_terms:
+      zh-TW: ["2026-05", "★", '""', "“”", LangServe, "qwen2.5:3b", benchmarkingagents.com, rapidclaw.dev, "本專案教學用語"]
+      en: ["2026-05", "★", '""', "“”", LangServe, "qwen2.5:3b", benchmarkingagents.com, rapidclaw.dev, "a teaching term in this project"]
+      zh-Hans: ["2026-05", "★", '""', "“”", LangServe, "qwen2.5:3b", benchmarkingagents.com, rapidclaw.dev, "本项目教学用语"]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-29"
+        - "OpenRouter"
+        - "Pi"
+        - "OpenCode"
+        - "Orca"
+        - "QM"
+        - "Developer preview"
+        - "Alpha"
+        - "best-effort"
+    required_visible_sections:
+      learning-goals:
+        zh-TW: {heading: "📌 學習目標", anchor: -學習目標}
+        en: {heading: "📌 Learning Goals", anchor: -learning-goals}
+        zh-Hans: {heading: "📌 学习目标", anchor: -学习目标}
+      core-terms:
+        zh-TW: {heading: "🧩 九個核心詞", anchor: -九個核心詞}
+        en: {heading: "🧩 Nine Core Terms", anchor: -nine-core-terms}
+        zh-Hans: {heading: "🧩 九个核心词", anchor: -九个核心词}
+      entry-conditions:
+        zh-TW: {heading: "🚪 進入條件", anchor: -進入條件}
+        en: {heading: "🚪 Entry Conditions", anchor: -entry-conditions}
+        zh-Hans: {heading: "🚪 进入条件", anchor: -进入条件}
+      required-reading:
+        zh-TW: {heading: "📚 必修閱讀", anchor: -必修閱讀}
+        en: {heading: "📚 Required Reading", anchor: -required-reading}
+        zh-Hans: {heading: "📚 必读内容", anchor: -必读内容}
+      five-layers:
+        zh-TW: {heading: "五層工程分工：Prompt → Context → Harness → Loop → Graph", anchor: 五層工程分工prompt--context--harness--loop--graph}
+        en: {heading: "The Five-Layer Engineering Split: Prompt → Context → Harness → Loop → Graph", anchor: the-five-layer-engineering-split-prompt--context--harness--loop--graph}
+        zh-Hans: {heading: "五层工程分工：Prompt → Context → Harness → Loop → Graph", anchor: 五层工程分工prompt--context--harness--loop--graph}
+      harness:
+        zh-TW: {heading: "🏗 Harness Engineering — production agent runtime 的工程設計 ⭐ 本 stage 核心概念", anchor: -harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念}
+        en: {heading: "🏗 Harness Engineering — Production Agent Runtime Design ⭐ Core Concept of This Stage", anchor: -harness-engineering--production-agent-runtime-design--core-concept-of-this-stage}
+        zh-Hans: {heading: "🏗 Harness Engineering — production agent runtime 的工程设计 ⭐ 本 stage 核心概念", anchor: -harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念}
+      harness-components:
+        zh-TW: {heading: "Harness 的 8 個核心元件", anchor: harness-的-8-個核心元件}
+        en: {heading: "The 8 Core Components of a Harness", anchor: the-8-core-components-of-a-harness}
+        zh-Hans: {heading: "Harness 的 8 个核心元件", anchor: harness-的-8-个核心元件}
+      tool-roles:
+        zh-TW: {heading: "🧭 OpenRouter、Pi、OpenCode、Orca、QM 到底差在哪？", anchor: -openrouterpiopencodeorcaqm-到底差在哪}
+        en: {heading: "🧭 What Is the Difference Between OpenRouter, Pi, OpenCode, Orca, and QM?", anchor: -what-is-the-difference-between-openrouter-pi-opencode-orca-and-qm}
+        zh-Hans: {heading: "🧭 OpenRouter、Pi、OpenCode、Orca、QM 到底有什么差别？", anchor: -openrouterpiopencodeorcaqm-到底有什么差别}
+      hands-on:
+        zh-TW: {heading: "🛠 動手練習", anchor: -動手練習}
+        en: {heading: "🛠 Hands-on Exercises", anchor: -hands-on-exercises}
+        zh-Hans: {heading: "🛠 动手练习", anchor: -动手练习}
+      exercise-1:
+        zh-TW: {heading: "練習 1：Multi-Agent 辯論", anchor: 練習-1multi-agent-辯論}
+        en: {heading: "Exercise 1: Multi-Agent Debate", anchor: exercise-1-multi-agent-debate}
+        zh-Hans: {heading: "练习 1：Multi-Agent 辩论", anchor: 练习-1multi-agent-辩论}
+      exercise-2:
+        zh-TW: {heading: "練習 2：Eval", anchor: 練習-2eval}
+        en: {heading: "Exercise 2: Eval", anchor: exercise-2-eval}
+        zh-Hans: {heading: "练习 2：Eval", anchor: 练习-2eval}
+      exercise-3:
+        zh-TW: {heading: "練習 3：Observability", anchor: 練習-3observability}
+        en: {heading: "Exercise 3: Observability", anchor: exercise-3-observability}
+        zh-Hans: {heading: "练习 3：Observability", anchor: 练习-3observability}
+      exercise-4:
+        zh-TW: {heading: "練習 4：SDK 進階", anchor: 練習-4sdk-進階}
+        en: {heading: "Exercise 4: Advanced SDK Features", anchor: exercise-4-advanced-sdk-features}
+        zh-Hans: {heading: "练习 4：SDK 进阶", anchor: 练习-4sdk-进阶}
+      exercise-5:
+        zh-TW: {heading: "練習 5：Deploy", anchor: 練習-5deploy}
+        en: {heading: "Exercise 5: Deploy", anchor: exercise-5-deploy}
+        zh-Hans: {heading: "练习 5：Deploy", anchor: 练习-5deploy}
+      mini-project:
+        zh-TW: {heading: "🧪 推薦小專案：有收據的研究小隊", anchor: -推薦小專案有收據的研究小隊}
+        en: {heading: "🧪 Recommended Mini-Project: A Research Team with a Receipt", anchor: -recommended-mini-project-a-research-team-with-a-receipt}
+        zh-Hans: {heading: "🧪 推荐小项目：有收据的研究小队", anchor: -推荐小项目有收据的研究小队}
+      benchmark:
+        zh-TW: {heading: "📊 Agent Benchmark Landscape：怎麼看，不要只看排行榜 + ⚠ Reward-Hacking 警告", anchor: -agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告}
+        en: {heading: "📊 Agent Benchmark Landscape: How to read it, not just the leaderboard + ⚠ Reward-Hacking Warning", anchor: -agent-benchmark-landscape-how-to-read-it-not-just-the-leaderboard---reward-hacking-warning}
+        zh-Hans: {heading: "📊 Agent Benchmark Landscape：怎么看，不要只看排行榜 + ⚠ Reward-Hacking 警告", anchor: -agent-benchmark-landscape怎么看不要只看排行榜---reward-hacking-警告}
+      projects:
+        zh-TW: {heading: "🎯 精選 Projects（範本 / SDK / 工具 collection）", anchor: -精選-projects範本--sdk--工具-collection}
+        en: {heading: "🎯 Featured Projects (Templates / SDKs / Tool Collections)", anchor: -featured-projects-templates--sdks--tool-collections}
+        zh-Hans: {heading: "🎯 精选 Projects（范本 / SDK / 工具 collection）", anchor: -精选-projects范本--sdk--工具-collection}
+      completion:
+        zh-TW: {heading: "✅ Stage 7 之後的自我檢查", anchor: -stage-7-之後的自我檢查}
+        en: {heading: "✅ Self-Check After Stage 7", anchor: -self-check-after-stage-7}
+        zh-Hans: {heading: "✅ Stage 7 之后的自我检查", anchor: -stage-7-之后的自我检查}
+    visible_section_minimums:
+      required-reading: {min_links: 5}
+      projects: {min_links: 20, min_ratings: 20}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: exercise-1
+      min_definition_chars: 20
+      terms:
+        - id: multi-agent
+          zh-TW: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
+          en: {term: Multi-Agent, label: Multi-Agent}
+          zh-Hans: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
+        - id: orchestration
+          zh-TW: {term: Orchestration, label: Orchestration}
+          en: {term: Orchestration, label: Orchestration}
+          zh-Hans: {term: Orchestration, label: Orchestration}
+        - id: handoff
+          zh-TW: {term: Handoff, label: Handoff}
+          en: {term: Handoff, label: Handoff}
+          zh-Hans: {term: Handoff, label: Handoff}
+        - id: harness
+          zh-TW: {term: Harness, label: Harness}
+          en: {term: Harness, label: Harness}
+          zh-Hans: {term: Harness, label: Harness}
+        - id: eval
+          zh-TW: {term: Eval, label: Eval}
+          en: {term: Eval, label: Eval}
+          zh-Hans: {term: Eval, label: Eval}
+        - id: observability
+          zh-TW: {term: Observability, label: Observability}
+          en: {term: Observability, label: Observability}
+          zh-Hans: {term: Observability, label: Observability}
+        - id: guardrail
+          zh-TW: {term: Guardrail, label: Guardrail}
+          en: {term: Guardrail, label: Guardrail}
+          zh-Hans: {term: Guardrail, label: Guardrail}
+        - id: loop-engineering
+          zh-TW: {term: Loop Engineering, label: Loop Engineering}
+          en: {term: Loop Engineering, label: Loop Engineering}
+          zh-Hans: {term: Loop Engineering, label: Loop Engineering}
+        - id: graph-engineering
+          zh-TW: {term: Graph Engineering, label: Graph Engineering}
+          en: {term: Graph Engineering, label: Graph Engineering}
+          zh-Hans: {term: Graph Engineering, label: Graph Engineering}
+    resource_group_rowspans: [4, 6, 5, 5]
+
+  - id: stage-07.5
+    canonical: stages/07.5-advanced-agentic-concepts.md
+    mirrors:
+      en: stages/07.5-advanced-agentic-concepts.en.md
+      zh-Hans: stages/07.5-advanced-agentic-concepts.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 4824
+      en: 7768
+      zh-Hans: 4850
+    max_open_details: 0
+    required_details_count: 9
+    visible_section_order:
+      - learning-goals
+      - core-terms
+      - concept-map
+      - problem-map
+      - boundary-card
+      - topics
+      - resources
+      - completion
+    forbidden_terms:
+      zh-TW: ["Replit Agent 2024", "Voyager paper (Wang 2024)", "Context 200k", "< 500 行", "3.5 PR/day", "75% reward hacking", "2026-05 snapshot", '""', "“”"]
+      en: ["Replit Agent 2024", "Voyager paper (Wang 2024)", "Context 200k", "< 500 lines", "3.5 PR/day", "75% reward hacking", "2026-05 snapshot", '""', "“”"]
+      zh-Hans: ["Replit Agent 2024", "Voyager paper (Wang 2024)", "Context 200k", "< 500 行", "3.5 PR/day", "75% reward hacking", "2026-05 snapshot", '""', "“”"]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-28"
+        - "v2.1.154+"
+        - "v2.1.203+"
+        - "1,000"
+        - "Microsoft Agent Framework"
+        - "maintenance mode"
+        - "Sandbox Agents"
+        - "Beta"
+        - "Constitutional AI"
+    required_visible_sections:
+      learning-goals:
+        zh-TW: {heading: "📌 學習目標", anchor: -學習目標}
+        en: {heading: "📌 Learning goals", anchor: -learning-goals}
+        zh-Hans: {heading: "📌 学习目标", anchor: -学习目标}
+      core-terms:
+        zh-TW: {heading: "🔑 六個核心詞", anchor: -六個核心詞}
+        en: {heading: "🔑 Six core terms", anchor: -six-core-terms}
+        zh-Hans: {heading: "🔑 六个核心词", anchor: -六个核心词}
+      concept-map:
+        zh-TW: {heading: "🗺️ 12 個概念：先按問題分四組", anchor: -12-個概念先按問題分四組}
+        en: {heading: "🗺️ 12 concepts: four groups by problem", anchor: -12-concepts-four-groups-by-problem}
+        zh-Hans: {heading: "🗺️ 12 个概念：先按问题分四组", anchor: -12-个概念先按问题分四组}
+      problem-map:
+        zh-TW: {heading: "🧭 你現在卡在哪裡？", anchor: -你現在卡在哪裡}
+        en: {heading: "🧭 Where are you stuck?", anchor: -where-are-you-stuck}
+        zh-Hans: {heading: "🧭 你现在卡在哪里？", anchor: -你现在卡在哪里}
+      boundary-card:
+        zh-TW: {heading: "🛠 三分鐘工作邊界卡", anchor: -三分鐘工作邊界卡}
+        en: {heading: "🛠 Three-minute work-boundary card", anchor: -three-minute-work-boundary-card}
+        zh-Hans: {heading: "🛠 三分钟工作边界卡", anchor: -三分钟工作边界卡}
+      topics:
+        zh-TW: {heading: "🔬 遇到需要時才展開的專題", anchor: -遇到需要時才展開的專題}
+        en: {heading: "🔬 Topics to open when needed", anchor: -topics-to-open-when-needed}
+        zh-Hans: {heading: "🔬 遇到需要时才展开的专题", anchor: -遇到需要时才展开的专题}
+      resources:
+        zh-TW: {heading: "🎯 精選閱讀：先挑一條", anchor: -精選閱讀先挑一條}
+        en: {heading: "🎯 Curated reading: choose one path", anchor: -curated-reading-choose-one-path}
+        zh-Hans: {heading: "🎯 精选阅读：先挑一条", anchor: -精选阅读先挑一条}
+      completion:
+        zh-TW: {heading: "✅ 自我檢查", anchor: -自我檢查}
+        en: {heading: "✅ Self-check", anchor: -self-check}
+        zh-Hans: {heading: "✅ 自我检查", anchor: -自我检查}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: boundary-card
+      min_definition_chars: 20
+      terms:
+        - id: work-boundary
+          zh-TW: {term: Work Boundary, label: "Work Boundary（工作邊界）"}
+          en: {term: Work Boundary, label: "Work Boundary (scope)"}
+          zh-Hans: {term: Work Boundary, label: "Work Boundary（工作边界）"}
+        - id: contract
+          zh-TW: {term: Contract, label: "Contract（契約）"}
+          en: {term: Contract, label: Contract}
+          zh-Hans: {term: Contract, label: "Contract（契约）"}
+        - id: reflection
+          zh-TW: {term: Reflection, label: "Reflection（反思／回看）"}
+          en: {term: Reflection, label: "Reflection (look-back)"}
+          zh-Hans: {term: Reflection, label: "Reflection（反思／回看）"}
+        - id: autonomy
+          zh-TW: {term: Autonomy, label: "Autonomy（自主權）"}
+          en: {term: Autonomy, label: Autonomy}
+          zh-Hans: {term: Autonomy, label: "Autonomy（自主权）"}
+        - id: budget-gate
+          zh-TW: {term: Budget Gate, label: "Budget Gate（預算閘門）"}
+          en: {term: Budget Gate, label: Budget Gate}
+          zh-Hans: {term: Budget Gate, label: "Budget Gate（预算闸门）"}
+        - id: graceful-degradation
+          zh-TW: {term: Graceful Degradation, label: "Graceful Degradation（平穩降級）"}
+          en: {term: Graceful Degradation, label: Graceful Degradation}
+          zh-Hans: {term: Graceful Degradation, label: "Graceful Degradation（平稳降级）"}
+    resource_group_rowspans: [5, 5, 5, 5, 4]
+
+  - id: stage-08
+    canonical: stages/08-agent-interfaces.md
+    mirrors:
+      en: stages/08-agent-interfaces.en.md
+      zh-Hans: stages/08-agent-interfaces.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 4675
+      en: 7331
+      zh-Hans: 4752
+    max_open_details: 0
+    required_details_count: 10
+    visible_section_order:
+      - learning-goals
+      - entry
+      - required-reading
+      - core-terms
+      - selector
+      - safety
+      - hands-on
+      - resources
+      - completion
+    forbidden_terms:
+      zh-TW: [108k, 5 行 Python, 10 行內, < 90ms, 唯一 GPU sandbox, anthropics/anthropic-quickstarts, Stage 9, '""', "“”"]
+      en: [108k, 5 lines of Python, 10 lines, < 90ms, only GPU sandbox, Top 5, anthropics/anthropic-quickstarts, Stage 9, '""', "“”"]
+      zh-Hans: [108k, 5 行 Python, 10 行内, < 90ms, 唯一 GPU sandbox, anthropics/anthropic-quickstarts, Stage 9, '""', "“”"]
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-28"
+        - "computer_toolset_20260801"
+        - "browser_toolset_20260801"
+        - '"computer"'
+        - "computer-use-preview"
+        - "computer_use_preview"
+        - "deprecated"
+        - "SandboxAgent"
+        - "Manifest"
+        - "SandboxRunConfig"
+        - "Beta"
+        - "gradual rollout"
+        - "CC-BY-4.0"
+        - "20.6%"
+    required_visible_sections:
+      learning-goals:
+        zh-TW: {heading: "📌 學習目標", anchor: -學習目標}
+        en: {heading: "📌 Learning goals", anchor: -learning-goals}
+        zh-Hans: {heading: "📌 学习目标", anchor: -学习目标}
+      entry:
+        zh-TW: {heading: "🚪 進入條件", anchor: -進入條件}
+        en: {heading: "🚪 Entry requirements", anchor: -entry-requirements}
+        zh-Hans: {heading: "🚪 进入条件", anchor: -进入条件}
+      required-reading:
+        zh-TW: {heading: "📚 必修閱讀", anchor: -必修閱讀}
+        en: {heading: "📚 Required reading", anchor: -required-reading}
+        zh-Hans: {heading: "📚 必读", anchor: -必读}
+      core-terms:
+        zh-TW: {heading: "🔑 八個核心詞", anchor: -八個核心詞}
+        en: {heading: "🔑 Eight core terms", anchor: -eight-core-terms}
+        zh-Hans: {heading: "🔑 八个核心词", anchor: -八个核心词}
+      selector:
+        zh-TW: {heading: "🧭 先選最小的介面", anchor: -先選最小的介面}
+        en: {heading: "🧭 Choose the smallest interface first", anchor: -choose-the-smallest-interface-first}
+        zh-Hans: {heading: "🧭 先选最小的界面", anchor: -先选最小的界面}
+      safety:
+        zh-TW: {heading: "🛡️ 四道安全檢查", anchor: -四道安全檢查}
+        en: {heading: "🛡️ Four safety checks", anchor: -four-safety-checks}
+        zh-Hans: {heading: "🛡️ 四道安全检查", anchor: -四道安全检查}
+      hands-on:
+        zh-TW: {heading: "🛠 動手練習", anchor: -動手練習}
+        en: {heading: "🛠 Hands-on exercises", anchor: -hands-on-exercises}
+        zh-Hans: {heading: "🛠 动手练习", anchor: -动手练习}
+      resources:
+        zh-TW: {heading: "🎯 精選 Projects 與學習資源", anchor: -精選-projects-與學習資源}
+        en: {heading: "🎯 Featured Projects and Learning Resources", anchor: -featured-projects-and-learning-resources}
+        zh-Hans: {heading: "🎯 精选 Projects 与学习资源", anchor: -精选-projects-与学习资源}
+      completion:
+        zh-TW: {heading: "✅ 自我檢查", anchor: -自我檢查}
+        en: {heading: "✅ Self-check", anchor: -self-check}
+        zh-Hans: {heading: "✅ 自我检查", anchor: -自我检查}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: hands-on
+      min_definition_chars: 20
+      terms:
+        - id: agent-interface
+          zh-TW: {term: Agent Interface, label: "Agent Interface（Agent 操作介面）"}
+          en: {term: Agent Interface, label: Agent Interface}
+          zh-Hans: {term: Agent Interface, label: "Agent Interface（Agent 操作界面）"}
+        - id: browser-use
+          zh-TW: {term: Browser Use, label: "Browser Use（瀏覽器操作）"}
+          en: {term: Browser Use, label: Browser Use}
+          zh-Hans: {term: Browser Use, label: "Browser Use（浏览器操作）"}
+        - id: computer-use
+          zh-TW: {term: Computer Use, label: "Computer Use（電腦操作）"}
+          en: {term: Computer Use, label: Computer Use}
+          zh-Hans: {term: Computer Use, label: "Computer Use（电脑操作）"}
+        - id: sandbox
+          zh-TW: {term: Sandbox, label: "Sandbox（沙箱）"}
+          en: {term: Sandbox, label: Sandbox}
+          zh-Hans: {term: Sandbox, label: "Sandbox（沙箱）"}
+        - id: accessibility-tree
+          zh-TW: {term: Accessibility Tree, label: "Accessibility Tree（無障礙樹）"}
+          en: {term: Accessibility Tree, label: Accessibility Tree}
+          zh-Hans: {term: Accessibility Tree, label: "Accessibility Tree（无障碍树）"}
+        - id: harness
+          zh-TW: {term: Harness, label: "Harness（執行框架）"}
+          en: {term: Harness, label: Harness}
+          zh-Hans: {term: Harness, label: "Harness（执行框架）"}
+        - id: approval-gate
+          zh-TW: {term: Approval Gate, label: "Approval Gate（批准閘門）"}
+          en: {term: Approval Gate, label: Approval Gate}
+          zh-Hans: {term: Approval Gate, label: "Approval Gate（批准闸门）"}
+        - id: prompt-injection
+          zh-TW: {term: Prompt Injection, label: "Prompt Injection（提示注入）"}
+          en: {term: Prompt Injection, label: Prompt Injection}
+          zh-Hans: {term: Prompt Injection, label: "Prompt Injection（提示注入）"}
+    resource_group_rowspans: [5, 5, 4, 5, 2]
 
   - id: track-a1
     canonical: tracks/cli/A1-cli-intro.md
@@ -1153,7 +1679,7 @@ pages:
       zh-Hans: tracks/cli/A2-cli-workflow.zh-Hans.md
     max_visible_chars:
       zh-TW: 2699
-      en: 4872
+      en: 4938
       zh-Hans: 2682
     max_open_details: 0
     visible_section_order: [core-terms, learning-goals, required-reading, hands-on, projects, completion]
@@ -1250,14 +1776,14 @@ pages:
           anchor: 动手练习-cli-8做一张-portable-prompt-对照卡
       completion:
         zh-TW:
-          heading: "✅ 進 A3 前的自我檢查"
-          anchor: -進-a3-前的自我檢查
+          heading: "✅ 進 Stage 5 前的自我檢查"
+          anchor: -進-stage-5-前的自我檢查
         en:
-          heading: "✅ Self-check before A3"
-          anchor: -self-check-before-a3
+          heading: "✅ Self-check before Stage 5"
+          anchor: -self-check-before-stage-5
         zh-Hans:
-          heading: "✅ 进入 A3 前的自我检查"
-          anchor: -进入-a3-前的自我检查
+          heading: "✅ 进入 Stage 5 前的自我检查"
+          anchor: -进入-stage-5-前的自我检查
     core_terms:
       section_id: core-terms
       first_exercise_section_id: cli-5
@@ -1483,3 +2009,173 @@ pages:
           heading: "回到 Track A"
           anchor: 回到-track-a
     resource_group_rowspans: [4, 5]
+
+  - id: researcher-path
+    canonical: branches/for-researcher.md
+    mirrors:
+      en: branches/for-researcher.en.md
+      zh-Hans: branches/for-researcher.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 2334
+      en: 4339
+      zh-Hans: 2069
+    max_open_details: 0
+    required_details_count: 5
+    visible_section_order:
+      - purpose
+      - learning-goals
+      - core-terms
+      - first-exercise
+      - entry-points
+      - completion
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+    required_visible_sections:
+      purpose:
+        zh-TW: {heading: "📌 這條路幫你做什麼", anchor: -這條路幫你做什麼}
+        en: {heading: "📌 What this path helps you do", anchor: -what-this-path-helps-you-do}
+        zh-Hans: {heading: "📌 这条路帮你做什么", anchor: -这条路帮你做什么}
+      learning-goals:
+        zh-TW: {heading: "🎯 學習目標", anchor: -學習目標}
+        en: {heading: "🎯 Learning goals", anchor: -learning-goals}
+        zh-Hans: {heading: "🎯 学习目标", anchor: -学习目标}
+      core-terms:
+        zh-TW: {heading: "🧩 八個核心詞", anchor: -八個核心詞}
+        en: {heading: "🧩 Eight core terms", anchor: -eight-core-terms}
+        zh-Hans: {heading: "🧩 八个核心词", anchor: -八个核心词}
+      first-exercise:
+        zh-TW: {heading: "🛠 第一個練習：核對一篇 paper 的三個答案", anchor: -第一個練習核對一篇-paper-的三個答案}
+        en: {heading: "🛠 First exercise: verify three answers about one paper", anchor: -first-exercise-verify-three-answers-about-one-paper}
+        zh-Hans: {heading: "🛠 第一个练习：核对一篇 paper 的三个答案", anchor: -第一个练习核对一篇-paper-的三个答案}
+      entry-points:
+        zh-TW: {heading: "📚 先選一個入口", anchor: -先選一個入口}
+        en: {heading: "📚 Choose an entry point", anchor: -choose-an-entry-point}
+        zh-Hans: {heading: "📚 先选一个入口", anchor: -先选一个入口}
+      completion:
+        zh-TW: {heading: "✅ 完成檢查與下一站", anchor: -完成檢查與下一站}
+        en: {heading: "✅ Completion check and next stop", anchor: -completion-check-and-next-stop}
+        zh-Hans: {heading: "✅ 完成检查与下一站", anchor: -完成检查与下一站}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: first-exercise
+      min_definition_chars: 20
+      terms:
+        - id: source
+          zh-TW: {term: Source, label: "Source（來源）"}
+          en: {term: Source, label: Source}
+          zh-Hans: {term: Source, label: "Source（来源）"}
+        - id: claim
+          zh-TW: {term: Claim, label: "Claim（主張）"}
+          en: {term: Claim, label: Claim}
+          zh-Hans: {term: Claim, label: "Claim（主张）"}
+        - id: citation
+          zh-TW: {term: Citation, label: "Citation（引用）"}
+          en: {term: Citation, label: Citation}
+          zh-Hans: {term: Citation, label: "Citation（引用）"}
+        - id: source-verification
+          zh-TW: {term: Source Verification, label: "Source Verification（來源核對）"}
+          en: {term: Source Verification, label: Source Verification}
+          zh-Hans: {term: Source Verification, label: "Source Verification（来源核对）"}
+        - id: literature-rag
+          zh-TW: {term: Literature RAG, label: "Literature RAG（文獻 RAG）"}
+          en: {term: Literature RAG, label: Literature RAG}
+          zh-Hans: {term: Literature RAG, label: "Literature RAG（文献 RAG）"}
+        - id: reproducibility
+          zh-TW: {term: Reproducibility, label: "Reproducibility（可重現性）"}
+          en: {term: Reproducibility, label: Reproducibility}
+          zh-Hans: {term: Reproducibility, label: "Reproducibility（可重复性）"}
+        - id: private-data
+          zh-TW: {term: Private Data, label: "Private Data（私人資料）"}
+          en: {term: Private Data, label: Private Data}
+          zh-Hans: {term: Private Data, label: "Private Data（私人资料）"}
+        - id: human-review
+          zh-TW: {term: Human Review, label: "Human Review（人工審查）"}
+          en: {term: Human Review, label: Human Review}
+          zh-Hans: {term: Human Review, label: "Human Review（人工审查）"}
+    resource_group_rowspans: [3, 4, 2, 1]
+
+  - id: developer-path
+    canonical: branches/for-developer.md
+    mirrors:
+      en: branches/for-developer.en.md
+      zh-Hans: branches/for-developer.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3122
+      en: 4541
+      zh-Hans: 2821
+    max_open_details: 0
+    required_details_count: 5
+    visible_section_order:
+      - purpose
+      - learning-goals
+      - core-terms
+      - first-exercise
+      - entry-points
+      - completion
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+    required_visible_sections:
+      purpose:
+        zh-TW: {heading: "📌 這條路幫你做什麼", anchor: -這條路幫你做什麼}
+        en: {heading: "📌 What this path helps you do", anchor: -what-this-path-helps-you-do}
+        zh-Hans: {heading: "📌 这条路帮你做什么", anchor: -这条路帮你做什么}
+      learning-goals:
+        zh-TW: {heading: "🎯 學習目標", anchor: -學習目標}
+        en: {heading: "🎯 Learning goals", anchor: -learning-goals}
+        zh-Hans: {heading: "🎯 学习目标", anchor: -学习目标}
+      core-terms:
+        zh-TW: {heading: "🧩 八個核心詞", anchor: -八個核心詞}
+        en: {heading: "🧩 Eight core terms", anchor: -eight-core-terms}
+        zh-Hans: {heading: "🧩 八个核心词", anchor: -八个核心词}
+      first-exercise:
+        zh-TW: {heading: "🛠 第一個練習：完成一次可回復的小改", anchor: -第一個練習完成一次可回復的小改}
+        en: {heading: "🛠 First exercise: make one small, reversible change", anchor: -first-exercise-make-one-small-reversible-change}
+        zh-Hans: {heading: "🛠 第一个练习：完成一次可回滚的小改", anchor: -第一个练习完成一次可回滚的小改}
+      entry-points:
+        zh-TW: {heading: "📚 先選一個入口", anchor: -先選一個入口}
+        en: {heading: "📚 Choose an entry point", anchor: -choose-an-entry-point}
+        zh-Hans: {heading: "📚 先选一个入口", anchor: -先选一个入口}
+      completion:
+        zh-TW: {heading: "✅ 完成檢查與下一站", anchor: -完成檢查與下一站}
+        en: {heading: "✅ Completion check and next stop", anchor: -completion-check-and-next-stop}
+        zh-Hans: {heading: "✅ 完成检查与下一站", anchor: -完成检查与下一站}
+    core_terms:
+      section_id: core-terms
+      first_exercise_section_id: first-exercise
+      min_definition_chars: 20
+      terms:
+        - id: ide
+          zh-TW: {term: IDE, label: "IDE（Integrated Development Environment）"}
+          en: {term: IDE, label: "IDE (Integrated Development Environment)"}
+          zh-Hans: {term: IDE, label: "IDE（Integrated Development Environment）"}
+        - id: coding-agent
+          zh-TW: {term: Coding Agent, label: "Coding Agent（程式代理）"}
+          en: {term: Coding Agent, label: Coding Agent}
+          zh-Hans: {term: Coding Agent, label: "Coding Agent（程序代理）"}
+        - id: provider-router
+          zh-TW: {term: Provider／Router, label: "Provider／Router（供應商／路由器）"}
+          en: {term: Provider／Router, label: Provider／Router}
+          zh-Hans: {term: Provider／Router, label: "Provider／Router（供应商／路由器）"}
+        - id: model-runtime
+          zh-TW: {term: Model／Runtime, label: "Model／Runtime（模型／執行環境）"}
+          en: {term: Model／Runtime, label: Model／Runtime}
+          zh-Hans: {term: Model／Runtime, label: "Model／Runtime（模型／运行环境）"}
+        - id: sandbox
+          zh-TW: {term: Sandbox, label: "Sandbox（沙箱）"}
+          en: {term: Sandbox, label: Sandbox}
+          zh-Hans: {term: Sandbox, label: "Sandbox（沙箱）"}
+        - id: approval
+          zh-TW: {term: Approval, label: "Approval（人工批准）"}
+          en: {term: Approval, label: Approval}
+          zh-Hans: {term: Approval, label: "Approval（人工批准）"}
+        - id: diff-rollback
+          zh-TW: {term: Diff／Rollback, label: "Diff／Rollback（差異／回復）"}
+          en: {term: Diff／Rollback, label: Diff／Rollback}
+          zh-Hans: {term: Diff／Rollback, label: "Diff／Rollback（差异／回滚）"}
+        - id: eval-observability
+          zh-TW: {term: Eval／Observability, label: "Eval／Observability（評測／可觀察性）"}
+          en: {term: Eval／Observability, label: Eval／Observability}
+          zh-Hans: {term: Eval／Observability, label: "Eval／Observability（评测／可观测性）"}
+    resource_group_rowspans: [9, 2, 1]

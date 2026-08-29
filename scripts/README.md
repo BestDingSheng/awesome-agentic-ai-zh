@@ -64,9 +64,30 @@ python scripts/test_reader_ux.py
 python scripts/check-reader-ux.py
 ```
 
-依賴：`pip install pyyaml`
+依賴：`pip install --require-hashes -r scripts/requirements-reader-ux.txt`
 
 完成一章的三語內容與人工複查後，才把它加入設定檔。若要調高既有上限或刪除可見 heading，先解釋讀者體驗為什麼沒有倒退；不可只為了讓 gate 變綠而放寬。
+
+## `test_stage07_examples.py` — 鎖住五組可執行範例
+
+這個 gate 同時檢查五個資料夾的三語 README、current-major requirements、固定模型 ID、PowerShell-first 離線入口、預設關閉的補充內容、預算公式、嚴格 Judge parser、Prompt caching 最低長度、FastAPI 輸入上限與非 root Docker。它是結構與安全回歸，不取代十個直接執行的 behavior tests，也不會呼叫 live model。
+
+```powershell
+python -m pytest scripts/test_stage07_examples.py -q
+```
+
+## `test_stage075_content.py` — 鎖住進階概念 reading-map
+
+這個 gate 檢查 Stage 7.5 三語是否保留六個可見粗體核心詞、12 個概念、四個真正合併的
+概念群組、9 個預設關閉選單、24 筆資源與 `5／5／5／5／4` rowgroups。它也鎖住
+freshness marker、AutoGen／Agent Framework／Sandbox Agents／Dynamic Workflows 現行狀態、
+legacy 深連結，以及兩組共六張不同的 `1672×941` locale 圖。
+
+```powershell
+python -m pytest scripts/test_stage075_content.py -q
+python scripts/check-reader-ux.py
+python scripts/check-2026-freshness.py
+```
 
 ## 建議的維護節奏
 

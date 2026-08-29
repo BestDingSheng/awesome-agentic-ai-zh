@@ -84,12 +84,12 @@ stage04_fact_pack:
 
 stage05_fact_pack:
   canonical: 'stages/05-claude-code-ecosystem.md'
-  verified_on: '2026-08-28'
+  verified_on: '2026-08-29'
   scope: ['claude-code', 'mcp', 'skills', 'plugins', 'subagents', 'workflows', 'agent-sdk', 'security']
   official_sources:
     claude_code_overview: 'https://code.claude.com/docs/en/features-overview'
     claude_code_memory: 'https://code.claude.com/docs/en/memory'
-    claude_code_skills: 'https://code.claude.com/docs/en/slash-commands'
+    claude_code_skills: 'https://code.claude.com/docs/en/skills'
     claude_code_mcp: 'https://code.claude.com/docs/en/mcp'
     mcp_specification: 'https://modelcontextprotocol.io/specification'
     mcp_2026_07_28: 'https://blog.modelcontextprotocol.io/posts/2026-07-28/'
@@ -105,6 +105,108 @@ stage05_fact_pack:
     agent_sdk_migration: 'https://code.claude.com/docs/en/agent-sdk/migration-guide'
     agent_sdk_hosting: 'https://code.claude.com/docs/en/agent-sdk/hosting'
 
+stage06_fact_pack:
+  canonical: 'stages/06-memory-rag.md'
+  verified_on: '2026-08-28'
+  scope: ['rag', 'retrieval', 'embeddings', 'vector-stores', 'memory', 'evaluation', 'project-status']
+  official_sources:
+    langchain_retrieval: 'https://docs.langchain.com/oss/python/langchain/retrieval'
+    langgraph_agentic_rag: 'https://docs.langchain.com/oss/python/langgraph/agentic-rag'
+    llamaindex_concepts: 'https://developers.llamaindex.ai/python/framework/getting_started/concepts/'
+    anthropic_contextual_retrieval: 'https://www.anthropic.com/engineering/contextual-retrieval'
+    microsoft_graphrag: 'https://github.com/microsoft/graphrag'
+    microsoft_graphrag_docs: 'https://microsoft.github.io/graphrag/'
+    ragas: 'https://github.com/vibrantlabsai/ragas'
+    mem0: 'https://github.com/mem0ai/mem0'
+    letta_code: 'https://github.com/letta-ai/letta-code'
+    langmem: 'https://github.com/langchain-ai/langmem'
+    zep: 'https://github.com/getzep/zep'
+    graphiti: 'https://github.com/getzep/graphiti'
+    chroma: 'https://docs.trychroma.com/docs/overview/getting-started'
+    qdrant: 'https://qdrant.tech/documentation/'
+    pgvector: 'https://github.com/pgvector/pgvector'
+    weaviate: 'https://docs.weaviate.io/weaviate'
+    lancedb: 'https://lancedb.github.io/lancedb/'
+
+stage075_fact_pack:
+  canonical: 'stages/07.5-advanced-agentic-concepts.md'
+  verified_on: '2026-08-28'
+  scope: ['agent-patterns', 'harnesses', 'evals', 'dynamic-workflows', 'framework-status', 'research']
+  official_sources:
+    anthropic_agent_patterns: 'https://www.anthropic.com/engineering/building-effective-agents'
+    anthropic_context_engineering: 'https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents'
+    anthropic_long_running_harnesses: 'https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents'
+    anthropic_long_running_apps: 'https://www.anthropic.com/engineering/harness-design-long-running-apps'
+    anthropic_multi_agent_research: 'https://www.anthropic.com/engineering/multi-agent-research-system'
+    anthropic_evals: 'https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents'
+    anthropic_eval_noise: 'https://www.anthropic.com/engineering/infrastructure-noise'
+    anthropic_claude_code_expertise: 'https://www.anthropic.com/research/claude-code-expertise'
+    openai_harness_engineering: 'https://openai.com/index/harness-engineering/'
+    openai_sandbox_agents: 'https://openai.github.io/openai-agents-python/sandbox/guide/'
+    claude_code_permissions: 'https://code.claude.com/docs/en/permissions'
+    claude_code_dynamic_workflows: 'https://code.claude.com/docs/en/workflows'
+    microsoft_agent_framework: 'https://github.com/microsoft/agent-framework'
+    autogen_status: 'https://github.com/microsoft/autogen'
+    dspy_signatures: 'https://dspy.ai/learn/programming/signatures/'
+    react: 'https://arxiv.org/abs/2210.03629'
+    reflexion: 'https://arxiv.org/abs/2303.11366'
+    constitutional_ai: 'https://arxiv.org/abs/2212.08073'
+    camel: 'https://arxiv.org/abs/2303.17760'
+
+stage08_fact_pack:
+  canonical: 'stages/08-agent-interfaces.md'
+  verified_on: '2026-08-28'
+  scope: ['computer-use', 'browser-use', 'sandboxes', 'availability', 'benchmarks', 'security']
+  official_sources:
+    anthropic_computer_use: 'https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool'
+    anthropic_browser_use: 'https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-tool'
+    openai_computer_use: 'https://developers.openai.com/api/docs/guides/tools-computer-use'
+    openai_sandbox_agents: 'https://openai.github.io/openai-agents-python/sandbox/guide/'
+    google_gemini_in_chrome: 'https://support.google.com/chrome/answer/16283624?hl=en'
+    osworld2: 'https://osworld-v2.xlang.ai/'
+    omniparser: 'https://github.com/microsoft/OmniParser'
+    playwright_mcp: 'https://github.com/microsoft/playwright-mcp'
+    browser_use: 'https://github.com/browser-use/browser-use'
+    e2b: 'https://github.com/e2b-dev/E2B'
+    cloudflare_sandbox_sdk: 'https://github.com/cloudflare/sandbox-sdk'
+    modal_sandboxes: 'https://modal.com/docs/guide/sandboxes'
+    vercel_sandbox: 'https://vercel.com/docs/sandbox'
+    brave_indirect_prompt_injection: 'https://brave.com/blog/comet-prompt-injection/'
+    perplexity_browsesafe: 'https://www.perplexity.ai/hub/blog/browsesafe-preventing-prompt-injection-attacks-in-web-browsing-agents'
+    ninth_circuit_opinion: 'https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/04/26-1444.pdf'
+    district_court_order: 'https://cases.justia.com/federal/district-courts/california/candce/3%3A2025cv09514/459191/81/0.pdf'
+
+researcher_path_fact_pack:
+  canonical: 'branches/for-researcher.md'
+  verified_on: '2026-08-29'
+  scope: ['research-tools', 'citations', 'privacy', 'reproducibility', 'project-status']
+  official_sources:
+    gemini_notebook_rename: 'https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/'
+    gemini_notebook_citations: 'https://support.google.com/gemininotebook/answer/16179559'
+    gemini_notebook_privacy: 'https://support.google.com/gemininotebook/answer/17004255'
+    zotero: 'https://www.zotero.org/'
+    paperqa2: 'https://github.com/Future-House/paper-qa'
+    ai_scientist_v2_license: 'https://github.com/SakanaAI/AI-Scientist-v2/blob/main/LICENSE'
+    project_status: 'scripts/repository-freshness-snapshot.json'
+
+developer_path_fact_pack:
+  canonical: 'branches/for-developer.md'
+  verified_on: '2026-08-29'
+  scope: ['coding-agents', 'tool-identity', 'permissions', 'sandboxing', 'project-status']
+  official_sources:
+    claude_code_overview: 'https://code.claude.com/docs/en/overview'
+    claude_code_permissions: 'https://code.claude.com/docs/en/permissions'
+    claude_code_sandboxing: 'https://code.claude.com/docs/en/sandboxing'
+    aider_git: 'https://aider.chat/docs/git.html'
+    opencode: 'https://opencode.ai/v2/docs'
+    pi: 'https://pi.dev/docs/latest'
+    cursor: 'https://cursor.com/docs'
+    cline: 'https://github.com/cline/cline'
+    continue: 'https://github.com/continuedev/continue'
+    openrouter: 'https://openrouter.ai/docs/guides/routing/provider-selection'
+    ollama: 'https://docs.ollama.com/'
+    project_status: 'scripts/repository-freshness-snapshot.json'
+
 verified_pages:
   - canonical: 'stages/01-llm-basics.md'
     required_scopes: ['models', 'pricing', 'availability', 'deprecations']
@@ -117,6 +219,21 @@ verified_pages:
     max_age_days: 90
   - canonical: 'stages/05-claude-code-ecosystem.md'
     required_scopes: ['claude-code', 'mcp', 'skills', 'plugins', 'subagents', 'workflows', 'agent-sdk', 'security']
+    max_age_days: 90
+  - canonical: 'stages/06-memory-rag.md'
+    required_scopes: ['rag', 'retrieval', 'embeddings', 'vector-stores', 'memory', 'evaluation', 'project-status']
+    max_age_days: 90
+  - canonical: 'stages/07.5-advanced-agentic-concepts.md'
+    required_scopes: ['agent-patterns', 'harnesses', 'evals', 'dynamic-workflows', 'framework-status', 'research']
+    max_age_days: 90
+  - canonical: 'stages/08-agent-interfaces.md'
+    required_scopes: ['computer-use', 'browser-use', 'sandboxes', 'availability', 'benchmarks', 'security']
+    max_age_days: 90
+  - canonical: 'branches/for-researcher.md'
+    required_scopes: ['research-tools', 'citations', 'privacy', 'reproducibility', 'project-status']
+    max_age_days: 90
+  - canonical: 'branches/for-developer.md'
+    required_scopes: ['coding-agents', 'tool-identity', 'permissions', 'sandboxing', 'project-status']
     max_age_days: 90
 
 current_frontier_models:
@@ -252,6 +369,178 @@ stale_patterns:
     include_files: ['stages/07.5-advanced-agentic-concepts.md']
     qualifier_terms: ['before v2.1.160', 'pre-v2.1.160', 'v2.1.160 之前', 'v2.1.160 以前', '舊版', '旧版', 'historical', 'history', 'legacy']
     note: 'Current Dynamic workflow opt-in uses an explicit natural-language request or `ultracode`; literal `workflow` was the trigger before Claude Code v2.1.160'
+
+  - pattern: 'Replit Agent 2024|Voyager paper \(Wang 2024\)|Context 200k|< 500 (?:行|lines)|3\.5 PR/day|75% reward hacking|2026-05 snapshot'
+    include_files: ['stages/07.5-advanced-agentic-concepts.md']
+    qualifier_terms: ['historical', 'history', 'legacy', '舊版', '旧版', '歷史', '历史']
+    note: 'Stage 07.5 must not preserve unsupported years, fixed context/code-size rules, frozen throughput, or unscoped benchmark percentages'
+
+  - pattern: 'AutoGen.{0,100}(?:current default|production-ready|推薦新專案|推荐新项目|新專案首選|新项目首选)'
+    include_files: ['stages/07.5-advanced-agentic-concepts.md']
+    qualifier_terms: ['maintenance mode', 'maintenance', 'historical', 'history', '維護', '维护']
+    note: 'AutoGen is community-managed and in maintenance mode; new Microsoft work should start with Agent Framework'
+
+  - pattern: '(?:production|生產級|生产级).{0,120}AutoGen'
+    include_files: ['stages/04-agent-frameworks.md', 'stages/07.5-advanced-agentic-concepts.md', 'resources/mcp-skills-catalog.md']
+    qualifier_terms: ['maintenance mode', 'maintenance', 'historical', 'history', 'legacy', 'existing', '既有', '现有', '維護', '维护']
+    note: 'AutoGen is not a production recommendation for new projects; use Microsoft Agent Framework and keep AutoGen for maintenance or migration context'
+
+  - pattern: 'Sandbox Agents.{0,100}(?:generally available|\bGA\b|正式可用|穩定介面|稳定接口)'
+    include_files: ['stages/07.5-advanced-agentic-concepts.md', 'stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: ['Beta', 'beta', 'preview', '預覽', '预览']
+    note: 'OpenAI Agents SDK Sandbox Agents are currently documented as Beta'
+
+  # Stage 08 interface, availability, benchmark, and license checks. Mirror
+  # locales inherit each canonical include path through the freshness checker.
+  - pattern: 'computer-use-preview|computer_use_preview'
+    include_files: ['stages/08-agent-interfaces.md']
+    qualifier_terms: ['deprecated', 'deprecation', 'legacy', 'migration', '舊版', '旧版', '棄用', '弃用', '遷移', '迁移']
+    note: 'The current OpenAI Computer Use tool uses type=computer; preview names are legacy migration references only'
+
+  - pattern: 'OmniParser.{0,120}Apache-2\.0|Apache-2\.0.{0,120}OmniParser'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: []
+    note: 'The OmniParser repository is CC-BY-4.0; model weights have separate license boundaries'
+
+  - pattern: 'anthropics/anthropic-quickstarts'
+    include_files: ['stages/08-agent-interfaces.md']
+    qualifier_terms: ['former', 'previous', 'historical', 'redirect', '舊', '旧', '歷史', '历史']
+    note: 'Use the current anthropics/claude-quickstarts repository'
+
+  - pattern: '★\s*\d|<\s*90\s*ms|(?:只要|only)\s*(?:5|10)\s*(?:行|lines)|唯一.{0,30}GPU sandbox|only GPU sandbox|60%\s*latency'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: []
+    note: 'Stage 08 keeps editorial star ratings but rejects volatile stars, fixed line counts, universal startup records, exclusivity, and unscoped latency claims'
+
+  - pattern: 'OSWorld.{0,180}(?:76\.26%|SOTA)'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: []
+    note: 'Stage 08 teaches benchmark scope rather than freezing the old OSWorld v1 score or an unscoped SOTA label'
+
+  - pattern: 'Gemini in Chrome.{0,120}(?:available to everyone|available to all|everyone can use|所有(?:人|使用者|用户).{0,20}可用)'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: ['not', 'gradual rollout', '不是', '並非', '并非', '分批', '逐步']
+    note: 'Google documents Gemini in Chrome as a gradual rollout with account, platform, region, language, and administrator limits'
+
+  - pattern: 'OpenAI Agents SDK.{0,140}(?:natively supports|內建支援|内建支持).{0,100}(?:E2B|Daytona|Modal|Vercel)'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: []
+    note: 'Do not turn the Sandbox Agents abstraction into an unsupported blanket provider-integration claim'
+
+  - pattern: 'cloudflare/sandbox-sdk.{0,160}(?:generally available|\bGA\b|正式可用|穩定版|稳定版)'
+    include_files: ['stages/08-agent-interfaces.md', 'resources/glossary.md']
+    qualifier_terms: ['Beta', 'before v1.0', 'v1.0 前', '可能改變', '可能变化']
+    note: 'Cloudflare Sandbox SDK is Beta and its APIs may change before v1.0'
+
+  # Researcher/developer role-path facts and product identities. Mirror locales
+  # inherit each canonical include path through check-2026-freshness.py. This C2a
+  # gate intentionally covers only the role pages enrolled in
+  # scripts/reader-ux-pages.yml. Current-name prose in branches/for-teacher*,
+  # resources/cookbook*, RESOURCES*, and resources/README* remains explicit C2b
+  # follow-up scope. Package and repository identifiers keep their published names.
+  - pattern: 'NotebookLM'
+    include_files: ['branches/for-researcher.md']
+    qualifier_terms: ['Gemini Notebook', 'former', 'formerly', 'old name', '原', '舊名', '旧名', '前身']
+    note: 'On enrolled C2a role pages, NotebookLM needs the current Gemini Notebook name; other prose surfaces are tracked for C2b, while package and repository identifiers remain unchanged'
+
+  - pattern: 'open_deep_research'
+    include_files: ['branches/for-researcher.md']
+    qualifier_terms: ['archived', 'historical', 'history', '封存', '歷史', '历史', '归档']
+    note: 'langchain-ai/open_deep_research is archived and must stay in the historical group'
+
+  - pattern: 'WenyuChiou/'
+    include_files: ['branches/for-researcher.md']
+    qualifier_terms: []
+    note: 'Branch curation follows the repository zero-self-reference rule'
+
+  - pattern: 'Roo Code'
+    include_files: ['branches/for-developer.md']
+    qualifier_terms: ['archived', 'historical', 'history', '封存', '歷史', '历史', '归档']
+    note: 'Roo Code is archived and may only be presented as design history'
+
+  - pattern: 'continuedev/continue.{0,180}(?:active|actively maintained|活躍|活跃|積極維護|积极维护)'
+    include_files: ['branches/for-developer.md']
+    qualifier_terms: ['not', 'no longer', '不再', '停止']
+    note: 'The Continue repository declares itself read-only and no longer actively maintained; 2.0.0 is its final release'
+
+  - pattern: 'OpenRouter.{0,100}(?:model|coding agent|模型|程式代理|程序代理)|Ollama.{0,100}(?:coding agent|程式代理|程序代理)'
+    include_files: ['branches/for-developer.md']
+    qualifier_terms: ['not', '不是', '不等於', '不等于']
+    note: 'OpenRouter is an API router and Ollama is a local model runtime; neither is a coding agent'
+
+  - pattern: '★\s*\d|<\s*50\s*LOC'
+    include_files: ['branches/for-researcher.md', 'branches/for-developer.md']
+    qualifier_terms: []
+    note: 'Role paths keep editorial ratings but reject volatile GitHub stars and fixed line-count safety claims'
+
+  # Stage 06 fact and project status checks. Mirror locales inherit the
+  # canonical include path through check-2026-freshness.py.
+  - pattern: 'text-embedding-ada-002|OpenAI ada-002'
+    include_files: ['stages/06-memory-rag.md', 'resources/glossary.md']
+    qualifier_terms: ['historical', 'history', 'legacy', '舊版', '旧版', '歷史', '历史', '前身']
+    note: 'Stage 06 uses current embedding examples and must not recommend the legacy ada-002 model'
+
+  - pattern: 'explodinggradients/ragas'
+    include_files: ['stages/06-memory-rag.md']
+    qualifier_terms: ['former', 'previous', 'historical', '舊', '旧', '歷史', '历史', 'redirect']
+    note: 'The canonical Ragas repository moved to vibrantlabsai/ragas'
+
+  - pattern: 'Microsoft GraphRAG.{0,120}Apache-2\.0|Apache-2\.0.{0,120}Microsoft GraphRAG'
+    include_files: ['stages/06-memory-rag.md']
+    qualifier_terms: []
+    note: 'Microsoft GraphRAG is MIT licensed and currently largely in maintenance mode'
+
+  - pattern: 'github\.com/letta-ai/letta(?!-code)'
+    include_files: ['stages/06-memory-rag.md']
+    qualifier_terms: ['historical', 'history', 'retired', 'landing page', '舊', '旧', '歷史', '历史', '退役', '入口']
+    note: 'Current Letta development lives in letta-ai/letta-code; the letta repository is a landing and V1 history page'
+
+  - pattern: 'Zep Community Edition'
+    include_files: ['stages/06-memory-rag.md']
+    qualifier_terms: ['deprecated', 'legacy', 'historical', '歷史', '历史', '棄用', '弃用', '移到', 'moved']
+    note: 'Zep Community Edition is deprecated and retained under legacy/'
+
+  - pattern: '★\s*\d'
+    include_files: ['stages/06-memory-rag.md']
+    qualifier_terms: []
+    note: 'Keep editorial ratings but do not freeze volatile GitHub star counts in Stage 06'
+
+  # Stage 07 fact, redirect, and benchmark checks. The page teaches readers how
+  # to evaluate leaderboards; it must not become another frozen leaderboard.
+  - pattern: 'anthropics/anthropic-cookbook'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: ['former', 'previous', 'historical', '舊', '旧', '歷史', '历史', 'redirect']
+    note: 'The canonical Anthropic cookbook repository moved to anthropics/claude-cookbooks'
+
+  - pattern: 'laude-institute/terminal-bench|princeton-nlp/SWE-agent|geekan/MetaGPT|hiyouga/LLaMA-Factory'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: ['former', 'previous', 'historical', '舊', '旧', '歷史', '历史', 'redirect']
+    note: 'Use the current canonical owners for Terminal-Bench, SWE-agent, MetaGPT, and LlamaFactory'
+
+  - pattern: 'langchain-ai/langserve'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: ['archived', 'historical', 'maintenance', '封存', '归档', '歷史', '历史', '維護', '维护']
+    note: 'LangServe is archived and must not be presented as a current default deployment path'
+
+  - pattern: 'Prompt caching.{0,80}(Anthropic-only|Anthropic only|僅 Anthropic|仅 Anthropic)|(?:90%|50-90%).{0,80}(prompt caching|Prompt caching)'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: ['historical', 'history', '舊', '旧', '歷史', '历史']
+    note: 'Prompt caching is not Anthropic-only, and savings must be measured rather than promised as a fixed percentage'
+
+  - pattern: 'SOTA.{0,80}\d+(?:\.\d+)?%|\d+(?:\.\d+)?%.{0,80}SOTA'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: []
+    note: 'Stage 07 must teach benchmark literacy without freezing a model score or ranking'
+
+  - pattern: 'Fable 5|Mythos 5|Opus 4\.8'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: []
+    note: 'Do not duplicate fast-changing model availability or benchmark claims in the Stage 07 production chapter'
+
+  - pattern: '★\s*\d'
+    include_files: ['stages/07-multi-agent-production.md']
+    qualifier_terms: []
+    note: 'Keep editorial ratings but do not freeze volatile GitHub star counts in Stage 07'
 
   # --- MCP Python SDK (added 2026-08 after the v2 breakage) -------------------
   # The 2026-07-28 spec revision itself is invisible to a learner, but the SDK

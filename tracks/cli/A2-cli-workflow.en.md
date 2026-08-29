@@ -2,7 +2,7 @@
 
 > [繁體中文](./A2-cli-workflow.md) | [简体中文](./A2-cli-workflow.zh-Hans.md) | **English**
 
-> [← A1 — Safely complete your first CLI task](A1-cli-intro.en.md) · **Track A: CLI Power User** Stop 2 · [Next: A3](A3-cli-production.en.md)
+> [← A1 — Safely complete your first CLI task](A1-cli-intro.en.md) · **Track A: CLI Power User** Stop 2 · [Next: Stage 5 Track A core](../../stages/05-claude-code-ecosystem.en.md#-entry-requirements-and-reading-paths)
 
 This stop answers one question: **How do you make a CLI agent remember the same way of working when it enters the same repo next time?**
 
@@ -39,7 +39,7 @@ If you have not completed A1, go back and run “read-only inspection → view t
 <summary>Expand required reading and suggested order</summary>
 
 1. First read the official project-instructions documentation for your primary tool: Codex uses [`AGENTS.md`](https://learn.chatgpt.com/docs/agent-configuration/agents-md), Claude Code uses [`CLAUDE.md`](https://code.claude.com/docs/en/memory), Gemini CLI uses [`GEMINI.md`](https://geminicli.com/docs/cli/gemini-md/), and OpenCode V2 uses [`AGENTS.md`](https://opencode.ai/v2/docs/instructions).
-2. Then read your tool’s Skill documentation: [Codex/ChatGPT](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/slash-commands), [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/), and [OpenCode V2](https://opencode.ai/v2/docs/skills).
+2. Then read your tool’s Skill documentation: [Codex/ChatGPT](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/), and [OpenCode V2](https://opencode.ai/v2/docs/skills).
 3. Finally, revisit [Stage 2 — Prompt Engineering](../../stages/02-prompt-engineering.en.md) and add the “task, scope, and success conditions” to your one-off prompt.
 </details>
 
@@ -179,7 +179,7 @@ The resources below are divided into five groups by purpose. Each group shows it
 </tbody>
 <tbody>
 <tr><th scope="rowgroup" rowspan="4">Official Skill docs</th><td>Codex/ChatGPT Build skills</td><td><code>SKILL.md</code> structure and loading location</td><td>Making a reusable Codex process</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://learn.chatgpt.com/docs/build-skills">Official docs</a></td></tr>
-<tr><td>Claude Code Skills</td><td>On-demand loading, legacy commands, and permissions</td><td>Making a Claude Code Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://code.claude.com/docs/en/slash-commands">Official docs</a></td></tr>
+<tr><td>Claude Code Skills</td><td>On-demand loading, legacy commands, and permissions</td><td>Making a Claude Code Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://code.claude.com/docs/en/skills">Official docs</a></td></tr>
 <tr><td>Gemini CLI Agent Skills</td><td>Discovery, installation consent, and activation consent</td><td>Managing Gemini CLI Skills</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://geminicli.com/docs/cli/using-agent-skills/">Official docs</a></td></tr>
 <tr><td>OpenCode V2 Agent Skills</td><td>Supported locations, frontmatter, and permission</td><td>Making an OpenCode Skill</td><td>⭐⭐⭐⭐⭐</td><td><a href="https://opencode.ai/v2/docs/skills">Official docs</a></td></tr>
 </tbody>
@@ -200,14 +200,16 @@ The resources below are divided into five groups by purpose. Each group shows it
 </table>
 </details>
 
-## ✅ Self-check before A3
+<a id="-self-check-before-a3"></a>
+
+## ✅ Self-check before Stage 5
 
 - [ ] I can distinguish project instructions, Skill, and one-off prompt in my own words.
 - [ ] My project-rules card states the purpose, forbidden actions, verification command, and delivery format, and the agent can read it.
 - [ ] My review Skill reads changes only; after testing, `git status --short` shows no unexpected modifications.
 - [ ] I know that a “shared core” does not mean every CLI has the same filenames and permissions.
 
-Once all four are done, move on to [A3 — Connect a CLI agent to a safe production workflow](A3-cli-production.en.md). If not, return to the demo repo and repeat CLI-5 or CLI-6; you do not need to read every supplement first.
+Once all four are done, go to the [Stage 5 Track A core](../../stages/05-claude-code-ecosystem.en.md#-entry-requirements-and-reading-paths), read 5.1–5.4, then continue to A3. If not, return to the demo repo and repeat CLI-5 or CLI-6; you do not need to read every supplement first.
 
 <details markdown="1">
 <summary>Expand common questions and fixes</summary>

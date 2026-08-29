@@ -1,10 +1,28 @@
 # Testing Plan — T3+ Verification Log
 
-> Updated 2026-08-27. Verification is **done**; this doc is now a historical log.
-> The branch `t3-stage-4-6-7-unverified` referenced in earlier versions has been
-> fully merged into `main` and deleted.
+> Updated 2026-08-29. The opening table is the historical T3+ baseline; later
+> sections record the current chapter-by-chapter modernization layers separately.
+> The old branch `t3-stage-4-6-7-unverified` was merged into `main` and deleted,
+> but a newer layer is not called shipped until its own branch reaches `main`.
 
-## ✅ Final state (everything on `main`)
+## Visible required-reading and resource contract
+
+Important reading, featured projects, and learning resources are part of the learner's path, so a
+closed `<details>` block cannot be their only landing place. A page may configure
+`visible_section_minimums` in `scripts/reader-ux-pages.yml` with `min_links` and `min_ratings` for
+any required visible section. The checker renders the visible Markdown, then counts real text links
+and visible rating text. It accepts inline, reference-style, autolink, and HTML `<a href>` entries,
+but ignores closed disclosures, code examples, image-only links, image alt text, link destinations,
+fragment-only navigation, hidden HTML, and attributes that only look like entries. Long setup notes, alternatives, and
+troubleshooting may remain collapsed.
+
+The gate is optional until a chapter's content layer names the exact visible section and expected
+minimums. This tooling layer adds the reusable contract without silently changing existing pages;
+the following small stacked PRs activate it for Stage 1–2, Track A1–A3, and Stage 3–4.
+Install its pinned local dependencies with
+`pip install --require-hashes -r scripts/requirements-reader-ux.txt`.
+
+## Historical T3+ baseline (on `main`)
 
 | Batch | What | How verified | Bugs fixed |
 |---|---|---|---|
@@ -94,9 +112,100 @@ Stage 5 (`stages/05-claude-code-ecosystem.md`) has five cumulative exercises and
 | 5.5 Subagents | Read-only review exercise with isolated output and a visible success condition |
 | 5.6–5.8 | Current Dynamic workflows／Worktree／Agent-loop／Agent SDK reference path; optional depth stays collapsed |
 
-`scripts/test_stage05_content.py` permanently executes the Hook logger against a synthetic `PreToolUse` event, asserts that only timestamp／event／tool metadata is written, locks the three locale code blocks together, and compiles the current Python Agent SDK `AssistantMessage.content`／`TextBlock` example. It does not call a live model or claim live output quality.
+`scripts/test_stage05_content.py` permanently executes the Hook logger against a synthetic `PreToolUse` event, asserts that only timestamp／event／tool metadata is written, locks the three locale code blocks together, and compiles the current Python Agent SDK `AssistantMessage.content`／`TextBlock` example. It also locks the three distinct `1672×941` 5.1–5.7 relationship diagrams, their visible position before 5.1, locale-correct references, and a linked first mention of the official `modelcontextprotocol/servers` repository. The diagrams keep context, action, event checks, context isolation, file-tree isolation, and packaging as separate roles; they do not turn Worktree into a complete sandbox, Plugin into a runtime step, or Plugin packaging into a connection with Worktree. These checks do not call a live model or claim live output quality.
 
 The 05B layer validates the `tool-calling-tutor` frontmatter, installed and repository-relative links, translations, eval contract, model／SDK wording, and offline behavior. It stays separate from 05A so the reader rewrite and executable-example migration can be reviewed and rolled back independently.
+
+### Stage 6 — reader path covered; executable hardening stays in the next layer
+
+Stage 6 (`stages/06-memory-rag.md`) now keeps seven core terms, five cumulative exercise outcomes, the first copyable PowerShell action, one RAG + Memory mini-project, and the Stage 7 check visible. Time, setup, advanced RAG patterns, memory taxonomy, chunking, reflection, evaluation, and the 18-row resource table stay closed by default.
+
+`scripts/test_stage06_content.py` locks the three locales to the same freshness marker, concepts, five exercise headings, 109 legacy heading aliases, 18 resource URLs and ratings, five accessible rowgroups (`4／5／4／3／2`), distinct `1672×941` localized images, current project owners/statuses, the honest temporary-storage boundary in Exercise 5, and the absence of stale or mixed-language text. `scripts/check-reader-ux.py` excludes empty compatibility anchors because they render no reader-visible text, measures the collapsed mainline at `3,290／6,367／3,340` non-whitespace characters, and permits only 50 characters of growth per locale.
+
+This reader layer does not claim that the five example folders are fully hardened. The next stacked layer will separately test the chunk-overlap boundary, isolate Chroma collections, replace ephemeral “long-term” memory with real persistence, preserve Ollama／Anthropic paths, and make the teaching tests offline and behavior-based.
+
+### Stage 7 — reader path and executable hardening covered in separate stacked layers
+
+Stage 7 (`stages/07-multi-agent-production.md`) keeps the single-Agent／Multi-Agent decision, nine bold core terms, five-layer scope map, five required readings, eight-part Harness checklist, OpenRouter／Pi／OpenCode／Orca／QM role split, five real exercise headings and commands, execution-receipt mini-project, benchmark-reading discipline, the 20-row rated resource map, and self-check visible. Six closed disclosures hold setup, further reading, Loop／Graph depth, recovery／cost details, full exercise steps, and benchmark links. The featured table is deliberately visible because it is the chapter's tool-selection map, not an optional catalog.
+
+`scripts/test_stage07_content.py` locks the three locales to the same nine terms, five visible required-reading URLs, 20 resource URLs, four accessible rowgroups (`4／6／5／5`), 20 editorial ratings, six closed disclosures, five real example directories, direct `python test.py` entry commands, quiet `2026-08-29 UTC` verification date, current canonical project owners, and the absence of frozen SOTA scores, stale redirects, GitHub star counts, old “project teaching term” labels, empty-quote artifacts, or a fake sixth exercise. It also verifies six distinct locale-specific PNGs at full educational-diagram size and rejects untranslated CJK in the English page.
+
+`scripts/test_agent_engineering_route.py` locks Stage 3 as the Agent Loop entry, Stage 4 as the framework／Workflow Graph entry, and Stage 7 as the Loop／Graph Engineering production deepening point. It also locks the glossary boundary: Loop Engineering can happen in one long run or across sessions, Graph means an execution／workflow graph rather than GraphRAG, and both names remain emerging rather than being presented as official standards.
+
+`scripts/check-reader-ux.py` measures the visible mainline at `10,868／16,523／11,008` non-whitespace characters with only a 50-character ratchet buffer, requires at least five visible required-reading links plus 20 visible resource links and ratings, and locks all nine core-term definitions before Exercise 1. `scripts/check-image-locale.py` ensures the English and Simplified Chinese pages use their own bright image variants. The three regenerated `1672×941` five-layer images use one upward scope arrow, remove official／nonofficial badges, pair Graph Engineering with Workflow Graph and Loop Engineering with Bounded Agent Loops, and state that scope is not chapter order.
+
+The example-hardening layer keeps the five folders separate and adds `scripts/test_stage07_examples.py`. It locks 15 trilingual READMEs, each folder's rated `hello-agents` route to chapter-length material, five current-major requirements files, `qwen3.5:4b`, the pinned `claude-haiku-4-5-20251001` ID, PowerShell-first isolated setup, closed disclosures, ordered URL／price parity, and the absence of old fixed cost／latency／cache claims. The shared examples guide and three setup guides separately keep `qwen2.5:3b`／`llama3.2:3b` for Stage 3–6 function-calling exercises and `qwen3.5:4b` for Stage 7 production mechanics, so “Stage 3+” cannot silently choose two defaults or preserve `$0/run` wording outside the example folders.
+
+All ten directly executable offline entrypoints pass in a clean `python:3.11-slim` container with the resolved current packages. Their 55 behavior tests cover empty and whitespace-only output rejection, exact Debate／Eval Judge contracts, sanitized exception categories that do not retain a secret-bearing raw message, provider usage recording, a cache demo deliberately above Haiku 4.5's 4,096-token minimum, FastAPI input bounds, secret-marker log regressions, and 200／422／429／502／503 behavior. Debate role separation is an example shape, not evidence that more agents reduce bias or improve correctness. The deploy image also builds from scratch, runs as UID `10001` (`appuser`), and returns `{"status":"ok"}` while mounted read-only with a temporary `/tmp` and a loopback-only host port. These checks do not call a live model, prove output quality, or turn the container into a sandbox.
+
+### Stage 7.5 — progressive reading map covered; no example layer
+
+Stage 7.5 keeps six bold core terms, all 12 advanced concepts grouped by problem, a five-branch choice map, a directly copyable four-line work-boundary card, five priority readings, and a short self-check visible. Nine closed disclosures hold prerequisites, source limits, failure cases, cross-vendor and coding harness detail, benchmark discipline, Dynamic Workflows, Model–Harness Fit, and the complete resource table.
+
+`scripts/test_stage075_content.py` locks the three locales to 12 concepts in the same order, four concept rowgroups (`3／3／3／3`), 24 resource URL/rating pairs, five resource rowgroups (`5／5／5／5／4`), one matching freshness marker, nine closed disclosures, and the legacy Dynamic Workflows anchors. It also rejects the old Replit/Voyager years, fixed context/code-size/throughput claims, empty-quote artifacts, untranslated English fragments, and current-status drift for AutoGen, Microsoft Agent Framework, Sandbox Agents, and Dynamic Workflows.
+
+Six newly generated `1672×941` PNGs cover the four problem groups and the five-branch reading decision. The test requires six distinct hashes and exact locale references; `scripts/check-image-locale.py` provides the whole-repository mirror check. `scripts/check-reader-ux.py` locks the collapsed mainline at `4,824／7,768／4,850` non-whitespace characters and all six core terms before the work-boundary card. Stage 7.5 is a reading-map, so there is deliberately no runnable example-hardening layer.
+
+### Stage 8 — interface choice and safety map covered
+
+Stage 8 keeps eight bold core terms, the four parallel interface choices, four safety checks,
+two immediately copyable first actions, all four exercise titles and outcomes, and a short self-check visible. Ten closed disclosures
+hold current Computer Use contracts, OSWorld benchmark discipline, Browser Use signals, Sandbox
+terminology, Track A／B depth, security cases, 21 resources, and future interfaces. The four choice
+cards are alternatives chosen by task need; the test rejects wording that turns them into a ladder.
+
+`scripts/test_stage08_content.py` locks the three locales to the same eight terms, ten closed
+disclosures, 21 resource URL/rating pairs, five accessible rowgroups (`5／5／4／5／2`), one matching
+freshness marker, all legacy H2／H3 anchors, safe `example.com` exercises, current tool and license
+facts, and identical official-source order. It rejects the old Computer Use preview contract,
+unsupported model rankings, volatile GitHub stars, fixed line/startup claims, blanket Gemini
+availability, OmniParser Apache claims, unsafe credential tasks, and empty-quote artifacts. The test
+also executes the copyable policy example: only explicit low-impact actions over HTTPS to the exact
+allowlisted host pass; mixed-case high-impact actions ask, while unknown actions, userinfo, non-HTTPS
+schemes, and look-alike hosts fail closed. Resource checks require Cloudflare Sandbox SDK to remain
+labelled Beta with APIs that may change before v1.0, so a live repository cannot be mistaken for a stable product.
+
+Six locale-specific PNGs cover interface selection and the four safety checks. The test requires
+readable dimensions, six distinct hashes, and exact locale references; `scripts/check-image-locale.py`
+provides the whole-repository mirror check. `scripts/check-reader-ux.py` locks the collapsed mainline
+at `4,625／7,281／4,702` non-whitespace characters with only a 50-character allowance per locale,
+and requires all eight core terms before Exercise 1. The freshness gate separately enforces
+the 90-day fact pack for Computer Use, Browser Use, sandboxes, availability, benchmarks, and security.
+
+### Researcher and developer role paths — progressive entry and current identities covered
+
+The researcher path keeps eight bold evidence terms, one public-paper citation-verification task,
+three starting tools, a short completion check, and the next Stage visible. Five closed disclosures
+hold time/privacy, official reading, the 10-row project catalog, reproducible workflows, and
+troubleshooting. The developer path uses the same visible landmarks around eight coding-safety
+terms and one copyable `read-only plan → small change → diff → test → human approval → rollback`
+exercise that explicitly withholds push, merge, and deploy authority.
+
+`scripts/test_role_paths.py` compares the three locales structurally rather than by keyword count.
+It locks each resource row's identity, surface, status, license or service type, safety limitation,
+URL, and rating; researcher rowgroups (`3／4／2／1`); developer rowgroups (`9／2／1`); closed
+disclosures; freshness markers; copy-block steps; and semantic legacy-anchor landings. A mutation
+test proves that a row cannot borrow a surface or safety fact from the row above it. It also
+rejects volatile GitHub stars, maintainer self-promotion, fixed line-count safety rules, current use
+of archived `open_deep_research` or Roo Code, and the old NotebookLM name without Gemini Notebook.
+Developer checks keep core identity separate from multi-valued surface: Cursor, Cline, and Continue
+remain coding-agent products even when they expose IDE, CLI, cloud, SDK, or CI surfaces; OpenRouter
+remains a router and Ollama remains a local model runtime.
+
+This C2a gate covers only researcher and developer pages enrolled in `scripts/reader-ux-pages.yml`.
+Unqualified current-name prose in `branches/for-teacher*`, `resources/cookbook*`, `RESOURCES*`, and
+`resources/README*` is recorded for the next role/site freshness layer; package and repository
+identifiers keep their published names. This scoped exception prevents the C2a changelist from
+silently claiming that every site surface was already migrated.
+
+### Whole-site learner-route coherence
+
+`scripts/test_site_route_coherence.py` treats text navigation as the source of truth before diagrams
+are redrawn. It locks Track A to `A1 → A2 → Stage 5 → A3 → Stage 8`, requires A2 to hand off to
+Stage 5, requires Stage 5 to split Track A toward A3 and Track B toward Stage 6, and requires A3 to
+list the Track A core of Stage 5 as a prerequisite. It also keeps Stage 8 recommended for Track A
+without making it a Capstone entry requirement, and rejects completed or stale ROADMAP gap claims
+in any locale.
 
 ## v2 path (deferred)
 
