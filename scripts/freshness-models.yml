@@ -130,7 +130,7 @@ stage06_fact_pack:
 
 stage075_fact_pack:
   canonical: 'stages/07.5-advanced-agentic-concepts.md'
-  verified_on: '2026-08-28'
+  verified_on: '2026-08-29'
   scope: ['agent-patterns', 'harnesses', 'evals', 'dynamic-workflows', 'framework-status', 'research']
   official_sources:
     anthropic_agent_patterns: 'https://www.anthropic.com/engineering/building-effective-agents'
@@ -207,6 +207,75 @@ developer_path_fact_pack:
     ollama: 'https://docs.ollama.com/'
     project_status: 'scripts/repository-freshness-snapshot.json'
 
+cookbook_fact_pack:
+  canonical: 'resources/cookbook.md'
+  verified_on: '2026-08-29'
+  scope: ['skills', 'mcp', 'documents', 'gemini-notebook', 'zotero', 'local-runtime', 'cli-tools']
+  official_sources:
+    claude_code_skills: 'https://code.claude.com/docs/en/slash-commands'
+    claude_code_mcp: 'https://code.claude.com/docs/en/mcp'
+    mcp_python_v2: 'https://github.com/modelcontextprotocol/python-sdk/blob/main/docs/whats-new.md'
+    anthropic_skills: 'https://github.com/anthropics/skills'
+    gemini_notebook_rename: 'https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/'
+    zotero_local_api: 'https://www.zotero.org/support/dev/web_api/v3/local_api'
+    opencode_v2: 'https://opencode.ai/v2/docs'
+    opencode_local_models: 'https://opencode.ai/v2/docs/models'
+    aider_ollama: 'https://aider.chat/docs/llms/ollama.html'
+    ollama_gemma4: 'https://ollama.com/library/gemma4'
+    openrouter: 'https://openrouter.ai/docs/quickstart'
+    pi: 'https://github.com/earendil-works/pi'
+  community_sources:
+    notebooklm_py: 'https://github.com/teng-lin/notebooklm-py'
+    notebooklm_skill: 'https://github.com/PleasePrompto/notebooklm-skill'
+    zotero_skills: 'https://github.com/WenyuChiou/zotero-skills'
+
+courses_fact_pack:
+  canonical: 'resources/courses.md'
+  verified_on: '2026-08-29'
+  scope: ['course-availability', 'cost', 'certificate', 'assessment', 'repository-status']
+  official_sources:
+    hugging_face_agents: 'https://huggingface.co/learn/agents-course'
+    microsoft_agents_for_beginners: 'https://github.com/microsoft/ai-agents-for-beginners'
+    deeplearning_ai_agentic_ai: 'https://www.deeplearning.ai/courses/agentic-ai/'
+    wandb_agents: 'https://wandb.ai/site/courses/agents/'
+    claude_academy: 'https://academy.claude.com/'
+    claude_academy_faq: 'https://academy.claude.com/help/faq'
+    langchain_academy: 'https://academy.langchain.com/courses/intro-to-langgraph'
+    kaggle_agents: 'https://www.kaggle.com/learn-guide/5-day-agents'
+    ibm_certificate: 'https://www.coursera.org/professional-certificates/ibm-rag-and-agentic-ai'
+    vanderbilt_specialization: 'https://www.coursera.org/specializations/ai-agents'
+    nvidia_zh_learning_path: 'https://www.nvidia.cn/training/certification/generative-ai-llm-learning-path/'
+    alibaba_clouder: 'https://edu.aliyun.com/certification/cldm02'
+    project_status: 'scripts/repository-freshness-snapshot.json'
+  community_sources:
+    datawhale_hello_agents: 'https://github.com/datawhalechina/hello-agents'
+    datawhale_agentic_ai: 'https://github.com/datawhalechina/agentic-ai'
+
+glossary_fact_pack:
+  canonical: 'resources/glossary.md'
+  verified_on: '2026-08-30'
+  scope: ['protocols', 'product-identities', 'terminology', 'official-links']
+  official_sources:
+    provider_api: 'https://platform.claude.com/docs/en/api/overview'
+    openrouter_faq: 'https://openrouter.ai/docs/faq'
+    openrouter_routing: 'https://openrouter.ai/docs/guides/routing/provider-selection'
+    ollama_api: 'https://docs.ollama.com/api/introduction'
+    mlx_lm: 'https://github.com/ml-explore/mlx-lm'
+    opencode: 'https://opencode.ai/docs'
+    pi: 'https://github.com/earendil-works/pi'
+    microsoft_workflows: 'https://learn.microsoft.com/en-us/agent-framework/concepts/workflows/'
+    mcp_specification: 'https://modelcontextprotocol.io/specification'
+    a2a_specification: 'https://a2a-protocol.org/latest/specification/'
+    agent_skills_specification: 'https://agentskills.io/specification'
+    claude_code_overview: 'https://code.claude.com/docs/en/features-overview'
+    claude_code_subagents: 'https://code.claude.com/docs/en/sub-agents'
+    claude_code_hooks: 'https://code.claude.com/docs/en/hooks'
+    claude_prompt_caching: 'https://platform.claude.com/docs/en/build-with-claude/prompt-caching'
+    deepagents: 'https://github.com/langchain-ai/deepagents'
+    openai_harness_engineering: 'https://openai.com/index/harness-engineering/'
+    ibm_loop_engineering: 'https://www.ibm.com/think/topics/loop-engineering'
+    anthropic_context_engineering: 'https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents'
+
 verified_pages:
   - canonical: 'stages/01-llm-basics.md'
     required_scopes: ['models', 'pricing', 'availability', 'deprecations']
@@ -234,6 +303,15 @@ verified_pages:
     max_age_days: 90
   - canonical: 'branches/for-developer.md'
     required_scopes: ['coding-agents', 'tool-identity', 'permissions', 'sandboxing', 'project-status']
+    max_age_days: 90
+  - canonical: 'resources/cookbook.md'
+    required_scopes: ['skills', 'mcp', 'documents', 'gemini-notebook', 'zotero', 'local-runtime', 'cli-tools']
+    max_age_days: 90
+  - canonical: 'resources/courses.md'
+    required_scopes: ['course-availability', 'cost', 'certificate', 'assessment', 'repository-status']
+    max_age_days: 90
+  - canonical: 'resources/glossary.md'
+    required_scopes: ['protocols', 'product-identities', 'terminology', 'official-links']
     max_age_days: 90
 
 current_frontier_models:
@@ -285,6 +363,34 @@ current_frontier_models:
 # scanned — a qualifier written as "baseline" in zh-TW/en often becomes "基线" in
 # the zh-Hans mirror, and the gate must recognize all three (2026-07 gap).
 stale_patterns:
+  # Glossary definitions must stay stable. Model rosters, prices, context sizes,
+  # protocol version counts, and product event counts belong in their canonical
+  # current-fact pages rather than in a long-lived definition.
+  - pattern: '(?:1\.5-2 token|1\.3 token|75 萬中文字|75 万中文字|750,000 Chinese)'
+    include_files: ['resources/glossary.md']
+    qualifier_terms: []
+    note: 'Token-to-character and token-to-word conversion varies by model, tokenizer, and text'
+
+  - pattern: '(?:GPT-5\.6|Claude Opus 5|Gemini 3\.5|DeepSeek-V4|Fable 5)'
+    include_files: ['resources/glossary.md']
+    qualifier_terms: []
+    note: 'The glossary routes current model, price, context, and availability facts to Stage 01'
+
+  - pattern: 'A2A.{0,220}(?:v1\.0|150\+)|(?:v1\.0|150\+).{0,220}A2A'
+    include_files: ['resources/glossary.md']
+    qualifier_terms: []
+    note: 'Do not freeze an unsupported A2A version or adoption count in the glossary'
+
+  - pattern: 'Hooks?.{0,180}(?:7 種事件|7 种事件|seven event types)'
+    include_files: ['resources/glossary.md']
+    qualifier_terms: []
+    note: 'Claude Code hook events change; link the current reference instead of freezing a count'
+
+  - pattern: 'Context Engineering.{0,220}(?:Prompt engineering 的下一層|Prompt engineering 的下一层|next layer after prompt engineering)'
+    include_files: ['resources/glossary.md']
+    qualifier_terms: []
+    note: 'Prompt and Context Engineering are overlapping responsibilities, not replacement generations'
+
   # Stage 01 completed its 2026-08-27 refresh. These patterns are deliberately
   # scoped to its three mirrors so later stages can migrate in their own PRs.
   - pattern: 'Gemini 3\.5 (Flash|Pro)'
@@ -432,16 +538,51 @@ stale_patterns:
     qualifier_terms: ['Beta', 'before v1.0', 'v1.0 前', '可能改變', '可能变化']
     note: 'Cloudflare Sandbox SDK is Beta and its APIs may change before v1.0'
 
-  # Researcher/developer role-path facts and product identities. Mirror locales
+  # Researcher/developer/Cookbook facts and product identities. Mirror locales
   # inherit each canonical include path through check-2026-freshness.py. This C2a
   # gate intentionally covers only the role pages enrolled in
   # scripts/reader-ux-pages.yml. Current-name prose in branches/for-teacher*,
   # resources/cookbook*, RESOURCES*, and resources/README* remains explicit C2b
   # follow-up scope. Package and repository identifiers keep their published names.
   - pattern: 'NotebookLM'
-    include_files: ['branches/for-researcher.md']
+    include_files: ['branches/for-researcher.md', 'resources/cookbook.md']
     qualifier_terms: ['Gemini Notebook', 'former', 'formerly', 'old name', '原', '舊名', '旧名', '前身']
     note: 'On enrolled C2a role pages, NotebookLM needs the current Gemini Notebook name; other prose surfaces are tracked for C2b, while package and repository identifiers remain unchanged'
+
+  - pattern: 'from mcp\.server\.mcpserver import MCPServer|npm install -g opencode-ai|opencode auth login|pip install aider-chat|aider --model ollama/'
+    include_files: ['resources/cookbook.md']
+    qualifier_terms: []
+    note: 'Cookbook commands must stay on MCP v2, OpenCode 2, and the current Aider Ollama path'
+
+  - pattern: 'anthropic\.skilljar\.com'
+    include_files: ['resources/courses.md']
+    qualifier_terms: []
+    note: 'The current general learner entrance is Claude Academy, not the legacy Skilljar URL'
+
+  - pattern: 'coursera\.org/specializations/agentic-ai-engineering|e\.huawei\.com/cn/talent/cert/'
+    include_files: ['resources/courses.md']
+    qualifier_terms: ['historical', 'history', 'removed', '舊', '旧', '歷史', '历史', '移除']
+    note: 'Do not restore the former Edureka or unverified Huawei rows as current curated course entries'
+
+  - pattern: '(?:\$25[–-]30|¥3500)'
+    include_files: ['resources/courses.md']
+    qualifier_terms: ['historical', 'history', 'former', '舊', '旧', '歷史', '历史', '曾經', '曾经']
+    note: 'Course prices vary by account, region, and schedule; do not freeze the old snapshots'
+
+  - pattern: 'W(?:eights\s*&\s*Biases|&B).{0,180}(?:free completion certificate|免費完成證書|免费完成证书)'
+    include_files: ['resources/courses.md']
+    qualifier_terms: ['not', 'unclear', 'does not clearly', '未明示', '沒有清楚', '没有清楚', '不要假定']
+    note: 'The public W&B course page does not currently state a completion-certificate rule'
+
+  - pattern: 'local API (?:is|是) read-only|local API 唯讀|local API 只读'
+    include_files: ['resources/cookbook.md']
+    qualifier_terms: []
+    note: 'Zotero 10+ Local API supports authorized write requests and is not read-only'
+
+  - pattern: 'qwen2\.5:3b'
+    include_files: ['resources/cookbook.md']
+    qualifier_terms: []
+    note: 'The Cookbook local quickstart follows the currently verified Gemma 4 edge tags'
 
   - pattern: 'open_deep_research'
     include_files: ['branches/for-researcher.md']

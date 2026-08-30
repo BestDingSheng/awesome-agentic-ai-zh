@@ -29,25 +29,38 @@ GLOSSARIES = {
 }
 GLOSSARY_MARKERS = {
     "zh-TW": (
-        "可以在一次長 run 裡，也可以跨 session／排程",
-        "2026-08 的 survey preprint 把 Graph Engineering 提為新興典範",
-        "Prompt→Context→Harness→Loop→Graph 五層工程分工",
+        "### Agent Production Engineering",
+        "學習順序是 [Stage 3 的 Agent Loop](../stages/03-tool-use-and-hello-agent.md) → [Stage 4 的 Workflow Graph／Agent Framework](../stages/04-agent-frameworks.md) → [Stage 7 的 Agent Production Engineering](../stages/07-multi-agent-production.md)",
+        "五個會重疊的控制問題",
+        "同一個 Harness 可以包含 Agent Loop",
+        "而不是取代它們",
+        "不是所有供應商共同採用的標準",
     ),
     "en": (
-        "can happen inside one long run or across sessions and schedules",
-        "A 2026-08 survey preprint presents Graph Engineering as an emerging paradigm",
-        "Prompt→Context→Harness→Loop→Graph five-layer engineering split",
+        "### Agent Production Engineering",
+        "The learning order is [Stage 3 Agent Loop](../stages/03-tool-use-and-hello-agent.en.md) → [Stage 4 Workflow Graph / Agent Framework](../stages/04-agent-frameworks.en.md) → [Stage 7 Agent Production Engineering](../stages/07-multi-agent-production.en.md)",
+        "five overlapping control questions",
+        "the same Harness may contain an Agent Loop",
+        "instead of replacing them",
+        "not a cross-vendor standard",
     ),
     "zh-Hans": (
-        "可以在一次长 run 里，也可以跨 session／调度",
-        "2026-08 的 survey preprint 把 Graph Engineering 提为新兴范式",
-        "Prompt→Context→Harness→Loop→Graph 五层工程分工",
+        "### Agent Production Engineering",
+        "学习顺序是 [Stage 3 的 Agent Loop](../stages/03-tool-use-and-hello-agent.zh-Hans.md) → [Stage 4 的 Workflow Graph／Agent Framework](../stages/04-agent-frameworks.zh-Hans.md) → [Stage 7 的 Agent Production Engineering](../stages/07-multi-agent-production.zh-Hans.md)",
+        "五个会重叠的控制问题",
+        "同一个 Harness 可以包含 Agent Loop",
+        "而不是替代它们",
+        "不是所有供应商共同采用的标准",
     ),
 }
+GLOSSARY_FORBIDDEN = {
+    "zh-TW": ("這是正在形成的名稱", "Stage 7 Harness Engineering"),
+    "en": ("This name is still emerging", "Stage 7 Harness Engineering"),
+    "zh-Hans": ("这是正在形成的名称", "Stage 7 Harness Engineering"),
+}
 GLOSSARY_SOURCE_URLS = (
+    "https://openai.com/index/harness-engineering/",
     "https://www.ibm.com/think/topics/loop-engineering",
-    "https://arxiv.org/abs/2608.21884",
-    "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
     "https://learn.microsoft.com/en-us/agent-framework/concepts/workflows/",
     "https://arxiv.org/abs/2608.21156",
 )
@@ -78,3 +91,4 @@ def test_glossary_keeps_loop_and_graph_boundaries_current(
     text = glossary.read_text(encoding="utf-8")
     assert all(marker in text for marker in GLOSSARY_MARKERS[locale])
     assert all(url in text for url in GLOSSARY_SOURCE_URLS)
+    assert all(term not in text for term in GLOSSARY_FORBIDDEN[locale])

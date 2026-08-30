@@ -72,6 +72,8 @@ Shipped in commits [`d598e37`](https://github.com/WenyuChiou/awesome-agentic-ai-
 
 5. ~~**Trilingual mirror of 🎓 callout incomplete**~~ — **RESOLVED 2026-08-02**. The 🎓 callout and the 📚 deeper-material block are now in the `.en.md` + `.zh-Hans.md` mirrors of **21 of the 22** exercise READMEs (202 blockquote lines). The 22nd, `examples/stage-1/04-cross-provider`, is **not a callout gap** — it is the only example folder with **no mirror files at all**, so it needs a full trilingual translation first, not a callout port. A blocking CI gate (`scripts/check-mirror-parity.py`) now stops this class of gap reappearing.
 
+   The softer `scripts/check-mirror-sync.py` reminder also treats `/` and `\` as the same repository path. `scripts/test_mirror_sync.py` feeds it both POSIX and Windows path spellings, so a synchronized trio cannot be reported as missing only because the contributor ran the gate on Windows. The Mirror Sync workflow watches both the detector and its regression file, then runs the dependency-free test before detecting a PR gap.
+
 6. ~~**Pilot exercise drift**~~ — **RESOLVED 2026-08-02**. `examples/stage-3/03-react-from-scratch/README.en.md` + `.zh-Hans.md` were missing the entire free local Path A (Ollama) and ran the Ollama script under the Anthropic heading; both now match the dual-path canonical.
 
 ## 🔵 Stage 5 + Track A — current coverage
@@ -103,9 +105,9 @@ What learners do for Track A: follow each numbered exercise in the outline doc, 
 
 Stage 3 is the first **Agent Loop** chapter. Its three localized titles, opening definition, and visible core terms use the exact sequence `model → tool call → execute → tool result → model`. Three required readings, all six exercise outcomes and first actions, and the complete 21-row rated resource map remain visible. Eleven closed disclosures hold setup, budget, long code, provider-specific detail, troubleshooting, and optional depth.
 
-Stage 4 keeps **Agent Frameworks** in the title and adds **Workflow Graphs**; it is not renamed to Graph Engineering. A five-row visible bridge separates Agent Loop, Agent Framework, Workflow Graph, Loop Engineering, and Graph Engineering. The contract treats a framework as a toolbox, a Workflow Graph as the node／edge／branch／state map built with those tools, and Loop／Graph Engineering as the Stage 7 production design work. It also rejects the old implication that an Agent framework requires multiple Agents. Four required-reading steps with five official links, five exercise entries, and the complete 18-row rated project map remain visible; six disclosures hold setup and secondary detail.
+Stage 4 keeps **Agent Frameworks** in the title and places **Workflow Graphs** first; it is not renamed to Graph Engineering. A five-row visible bridge separates Agent Loop, Agent Framework, Workflow Graph, Loop Engineering, and Production orchestration. The contract treats a framework as a toolbox, a Workflow Graph as the node／edge／branch／state map built with those tools, and Production orchestration as the Stage 7 work that makes the route observable, recoverable, and safe to operate. Graph Engineering remains an emerging alternate label rather than a cross-vendor standard. The contract also rejects the old implication that an Agent framework requires multiple Agents. Four required-reading steps with five official links, five exercise entries, and the complete 18-row rated project map remain visible; six disclosures hold setup and secondary detail.
 
-`scripts/test_stage04_content.py` locks the three localized H1s, the exact visible loop sequence in both stages, the five-row bridge, old and new framework-heading anchors, Agent-framework boundary, required-reading URLs, 21／18 resource counts and ratings, mdBook summary labels, and the localized Stage 3／4 return labels in the directly affected example READMEs. `scripts/test_agent_engineering_route.py` locks the Stage 3 → Stage 4 → Stage 7 terminology route. `scripts/test_site_route_coherence.py` additionally locks the same localized titles in README, index, PROGRESS, the Stage 2 exit, the examples overview, all six Stage 3 example folders, the Stage 5 tool-calling tutor, and the schema-design cheatsheet; it requires README to distinguish learning order from the five-layer control-scope order and scans non-historical Markdown for legacy full-title strings. `scripts/check-reader-ux.py` requires exactly `11／6` closed disclosures, zero default-open disclosures, the visible resource minimums, and the localized section order. These title changes do not alter executable behavior, filenames, or legacy anchors.
+`scripts/test_stage04_content.py` locks the three localized H1s, the exact visible loop sequence in both stages, the five-row bridge, old and new framework-heading anchors, Agent-framework boundary, required-reading URLs, 21／18 resource counts and ratings, mdBook summary labels, and the localized Stage 3／4 return labels in the directly affected example READMEs. `scripts/test_agent_engineering_route.py` locks the Stage 3 → Stage 4 → Stage 7 terminology route. `scripts/test_site_route_coherence.py` additionally locks the same localized titles in README, index, PROGRESS, the Stage 2 exit, the examples overview, all six Stage 3 example folders, the Stage 5 tool-calling tutor, and the schema-design cheatsheet; it requires README to distinguish learning order from the five overlapping control questions and scans non-historical Markdown for legacy full-title strings. `scripts/check-reader-ux.py` requires exactly `11／6` closed disclosures, zero default-open disclosures, the visible resource minimums, and the localized section order. These title changes do not alter executable behavior, filenames, or legacy anchors.
 
 ### Stage 5 — reader path covered; meta-example hardening pending
 
@@ -134,13 +136,15 @@ This reader layer does not claim that the five example folders are fully hardene
 
 ### Stage 7 — reader path and executable hardening covered in separate stacked layers
 
-Stage 7 (`stages/07-multi-agent-production.md`) keeps the single-Agent／Multi-Agent decision, nine bold core terms, five-layer scope map, five required readings, eight-part Harness checklist, OpenRouter／Pi／OpenCode／Orca／QM role split, five real exercise headings and commands, execution-receipt mini-project, benchmark-reading discipline, the 20-row rated resource map, and self-check visible. Six closed disclosures hold setup, further reading, Loop／Graph depth, recovery／cost details, full exercise steps, and benchmark links. The featured table is deliberately visible because it is the chapter's tool-selection map, not an optional catalog.
+The synchronized Stage 7 title is **Agent Production Engineering: Harness, Loops, and Graphs** (with localized equivalents). It is the learning map's umbrella for three responsibilities, not a claim that every vendor uses one formal standard name. Multi-Agent, Orchestration, Handoff, Harness, Eval, Observability, Guardrail, Loop Engineering, and Graph Engineering remain visible and defined.
 
-`scripts/test_stage07_content.py` locks the three locales to the same nine terms, five visible required-reading URLs, 20 resource URLs, four accessible rowgroups (`4／6／5／5`), 20 editorial ratings, six closed disclosures, five real example directories, direct `python test.py` entry commands, quiet `2026-08-29 UTC` verification date, current canonical project owners, and the absence of frozen SOTA scores, stale redirects, GitHub star counts, old “project teaching term” labels, empty-quote artifacts, or a fake sixth exercise. It also verifies six distinct locale-specific PNGs at full educational-diagram size and rejects untranslated CJK in the English page.
+Stage 7 (`stages/07-multi-agent-production.md`) keeps the single-Agent／Multi-Agent decision, nine bold core terms, five overlapping control questions, five required readings, a visible control-responsibility diagram, the eight-part Harness checklist, separate Loop Engineering and Workflow Graph／Production Orchestration sections, the OpenRouter／Pi／OpenCode／Orca／QM role split, five real exercise headings and commands, execution-receipt mini-project, benchmark-reading discipline, the 20-row rated resource map, and self-check visible. It explicitly distinguishes a program loop, an Agent Loop, and Loop Engineering; says that Harness commonly executes the Agent Loop; and rejects both “Loop replaces Harness” and a strict product-generation ladder. Six closed disclosures hold setup, further reading, recovery／cost details, Graph／Multi-Agent depth, full exercise steps, and benchmark links. The featured table is deliberately visible because it is the chapter's tool-selection map, not an optional catalog.
 
-`scripts/test_agent_engineering_route.py` locks Stage 3 as the Agent Loop entry, Stage 4 as the framework／Workflow Graph entry, and Stage 7 as the Loop／Graph Engineering production deepening point. It also locks the glossary boundary: Loop Engineering can happen in one long run or across sessions, Graph means an execution／workflow graph rather than GraphRAG, and both names remain emerging rather than being presented as official standards.
+`scripts/test_stage07_content.py` locks the three locales to the same nine terms, five control questions, three Loop scopes, Harness／Loop／Graph overlap, five visible required-reading URLs, 20 resource URLs, four accessible rowgroups (`4／6／5／5`), 20 editorial ratings, six closed disclosures, five real example directories, direct `python test.py` entry commands, quiet `2026-08-29 UTC` verification date, current canonical project owners, and the absence of frozen SOTA scores, stale redirects, GitHub star counts, old “project teaching term” labels, empty-quote artifacts, or a fake sixth exercise. It verifies three distinct `1672×941` Image 2.0 control-question PNGs plus three localized Workflow Graph PNGs and rejects untranslated CJK in the English page.
 
-`scripts/check-reader-ux.py` measures the visible mainline at `10,868／16,523／11,008` non-whitespace characters with only a 50-character ratchet buffer, requires at least five visible required-reading links plus 20 visible resource links and ratings, and locks all nine core-term definitions before Exercise 1. `scripts/check-image-locale.py` ensures the English and Simplified Chinese pages use their own bright image variants. The three regenerated `1672×941` five-layer images use one upward scope arrow, remove official／nonofficial badges, pair Graph Engineering with Workflow Graph and Loop Engineering with Bounded Agent Loops, and state that scope is not chapter order.
+`scripts/test_agent_engineering_route.py` locks Stage 3 as the Agent Loop entry, Stage 4 as the Workflow Graph／Agent Framework entry, and Stage 7 as the Agent Production Engineering chapter that integrates Harness, Loop, and Graph. It also locks the glossary boundary: Loop Engineering can happen in one long run or across sessions, Graph means an execution／workflow graph rather than GraphRAG, and the responsibility names are not misrepresented as one formal cross-vendor standard. The glossary must keep the course order separate from the five overlapping control questions and must not fall back to either the old Harness-only or Loop／Graph-only Stage 7 label.
+
+`scripts/check-reader-ux.py` ratchets each locale's visible mainline with a narrow measured ceiling, requires at least five visible required-reading links plus 20 visible resource links and ratings, and locks all nine core-term definitions before Exercise 1. `scripts/check-image-locale.py` ensures the English and Simplified Chinese pages use their own bright image variants. The three control-question PNGs separate one Agent run from the whole long-running task: Prompt／Context enter Harness, the Agent Loop stays inside Harness, Loop Engineering owns Goal／Action／Observation／Adjustment plus stop rules, and Workflow Graph connects Harness, fixed checks, and human approval. The separate localized Workflow Graph diagrams deepen nodes, branches, checkpoints, and return routes without claiming that every node is an Agent.
 
 The example-hardening layer keeps the five folders separate and adds `scripts/test_stage07_examples.py`. It locks 15 trilingual READMEs, each folder's rated `hello-agents` route to chapter-length material, five current-major requirements files, `qwen3.5:4b`, the pinned `claude-haiku-4-5-20251001` ID, PowerShell-first isolated setup, closed disclosures, ordered URL／price parity, and the absence of old fixed cost／latency／cache claims. The shared examples guide and three setup guides separately keep `qwen2.5:3b`／`llama3.2:3b` for Stage 3–6 function-calling exercises and `qwen3.5:4b` for Stage 7 production mechanics, so “Stage 3+” cannot silently choose two defaults or preserve `$0/run` wording outside the example folders.
 
@@ -148,11 +152,11 @@ All ten directly executable offline entrypoints pass in a clean `python:3.11-sli
 
 ### Stage 7.5 — progressive reading map covered; no example layer
 
-Stage 7.5 keeps six bold core terms, all 12 advanced concepts grouped by problem, a five-branch choice map, a directly copyable four-line work-boundary card, five priority readings, and a short self-check visible. Nine closed disclosures hold prerequisites, source limits, failure cases, cross-vendor and coding harness detail, benchmark discipline, Dynamic Workflows, Model–Harness Fit, and the complete resource table.
+Stage 7.5 keeps six bold core terms, all 12 advanced concepts grouped by problem, a five-branch choice map, a directly copyable four-line work-boundary card, a visible Model–Harness Fit keep／simplify／remove decision, five priority readings, and a short self-check visible. Nine closed disclosures hold prerequisites, source limits, failure cases, cross-vendor and coding harness detail, benchmark discipline, Dynamic Workflows, Model–Harness Fit evidence／Bitter Lesson／human division, and the complete resource table.
 
-`scripts/test_stage075_content.py` locks the three locales to 12 concepts in the same order, four concept rowgroups (`3／3／3／3`), 24 resource URL/rating pairs, five resource rowgroups (`5／5／5／5／4`), one matching freshness marker, nine closed disclosures, and the legacy Dynamic Workflows anchors. It also rejects the old Replit/Voyager years, fixed context/code-size/throughput claims, empty-quote artifacts, untranslated English fragments, and current-status drift for AutoGen, Microsoft Agent Framework, Sandbox Agents, and Dynamic Workflows.
+`scripts/test_stage075_content.py` locks the three locales to 12 concepts in the same order, the visible evidence-based Model–Harness Fit table, four concept rowgroups (`3／3／3／3`), 24 resource URL/rating pairs, five resource rowgroups (`5／5／5／5／4`), one matching freshness marker, nine closed disclosures, and the legacy Dynamic Workflows anchors. It also rejects the old Replit/Voyager years, fixed context/code-size/throughput claims, empty-quote artifacts, untranslated English fragments, and current-status drift for AutoGen, Microsoft Agent Framework, Sandbox Agents, and Dynamic Workflows.
 
-Six newly generated `1672×941` PNGs cover the four problem groups and the five-branch reading decision. The test requires six distinct hashes and exact locale references; `scripts/check-image-locale.py` provides the whole-repository mirror check. `scripts/check-reader-ux.py` locks the collapsed mainline at `4,824／7,768／4,850` non-whitespace characters and all six core terms before the work-boundary card. Stage 7.5 is a reading-map, so there is deliberately no runnable example-hardening layer.
+Nine distinct locale PNGs cover the four problem groups, the five-branch reading decision, and the parallel keep／simplify／remove Model–Harness Fit decision. The test requires nine distinct hashes and exact locale references; `scripts/check-image-locale.py` provides the whole-repository mirror check. `scripts/check-reader-ux.py` ratchets the collapsed mainline and keeps all six core terms before the work-boundary card. Stage 7.5 is a reading-map, so there is deliberately no runnable example-hardening layer.
 
 ### Stage 8 — interface choice and safety map covered
 
@@ -260,6 +264,53 @@ redirect, archive／disabled status, license metadata, release and push signals.
 block; missing release metadata or older activity remains a human-review warning and never deletes an
 entry automatically. The ordinary URL checker continues to cover non-GitHub documentation and hosted
 service links.
+
+### Resource hub index — task-first navigation covered
+
+`resources/README*` is a router, not another long catalog. Its visible path now asks what the
+learner is stuck on, defines five resource types in bold plain language, shows all 11 maintained
+reference files, points back to Stage 0／Track A1／Stage 3, and ends with a 30-second check. The
+complete reference table stays visible because it is the page's navigation. Only the explanation
+of why the files stay separate and the maintainer rules are in two closed disclosures.
+
+`scripts/test_resource_index_content.py` locks the 11-file inventory, task-router links, five
+core labels, five accessible rowgroups (`4／2／2／2／1`), two closed disclosures, three-locale file
+coverage, and the absence of stale approximate line counts, the former seven-file claim, and the
+old NotebookLM product name. `scripts/check-reader-ux.py` enrolls this page group, keeps all five
+definitions before the visible table, and ratchets each locale to its measured
+mainline plus only 50 non-whitespace characters.
+
+### Course map — learn first, certificate second
+
+`resources/courses*` keeps five bold credential terms, a task-first chooser, 12 rated courses, a
+copyable five-line work-evidence card, and visible return links to Stages 3／4／7. The two disclosures
+hold only certificate caveats and maintainer rules. The main table uses four accessible rowgroups
+(`3／5／2／2`); each course row has one primary URL, while the Datawhale companion stays outside the
+table so category and rating semantics remain unambiguous.
+
+`scripts/test_courses_content.py` locks the 12 URL／rating pairs, full 22-link order, exact freshness
+marker, closed disclosure count, portfolio card, locale-correct stage links, and current facts such
+as the Hugging Face 80% Unit 1 threshold, Microsoft／Datawhale no-certificate status, DeepLearning.AI
+Pro boundary, W&B's unstated public certificate rule, Claude quiz badge, and Alibaba identity
+condition. It rejects the former tier labels, Skilljar entrance, Edureka／Huawei rows, frozen prices,
+volatile stars, empty-quote artifacts, and generic verification-date filler. The freshness config
+separately enrolls course availability, cost, certificate, assessment, and repository status on a
+90-day review cycle.
+
+### Glossary — visible definitions and stable facts
+
+`scripts/test_glossary_content.py` keeps all 71 term headings and their shortest definitions visible,
+including the legacy Subagent deep-link target. It locks a 12-term quick map, the five-way distinction
+among Provider API／Router／Model Runtime／Coding Agent or Harness／Agent Framework, exactly two closed
+maintainer disclosures, and the accessible terminology rowgroups `2／17／9／5／4`. The three locales
+must use the same external URLs and freshness marker.
+
+The glossary rejects fixed token conversions, frozen frontier-model rosters, stale A2A organization
+counts, a fixed Claude Hook event count, and a replacement ladder that says Context Engineering
+supersedes Prompt Engineering. Volatile prices, model context, availability, and protocol status route
+to a freshness-gated chapter or first-party source instead of being copied into a timeless definition.
+`scripts/check-reader-ux.py`, strict anchors, mirror checks, locale-link checks, and the freshness gate
+run beside the dedicated content test.
 
 ### Whole-site learner-route coherence
 

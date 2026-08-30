@@ -81,6 +81,13 @@ README、PROGRESS、CAPSTONE、章節頁首、章末下一站與路線圖必須�
 - `📌`、`📚`、`🛠`、`🎯`、`✅` 路標保持可見。完整資源表固定為 18 筆、五個語意群組，`rowspan` 為 `4／5／4／3／2`。同類型只顯示一次分類名稱；保留五星編輯評分，不放 GitHub stars、排行榜或會自然變舊的數量。
 - A3 的自動化預設只讀、最小權限、可留下 receipt，且必須有人檢查。不能把自動 merge、push、deploy 或未受限的 MCP 寫成初學者第一步。
 
+### Cookbook 的固定閱讀形狀
+
+- Cookbook 是從 Stage 5 連到可執行成果的實作入口，不是另一個 Stage。可見主線固定為「用途 → 六選一 → 六個核心詞 → 六份 recipe 的標題／成果／第一個動作 → 必修閱讀 → 精選 Projects 與學習資源 → 完成檢查」。
+- 六份 recipe 固定涵蓋 Skill、MCP Server、Office 文件、Gemini Notebook、Zotero 與本機 LLM＋CLI Agent。每份完整步驟、替代路徑、費用、安全細節與排錯放進預設關閉的 `<details markdown="1">`；共九個 details，不使用 `open`。
+- 必修閱讀、精選 Projects、編輯評分與成功條件保持可見。14 筆資源固定分成 `2／2／2／2／3／3` 六組，每組使用獨立 `<tbody>` 和 `<th scope="rowgroup" rowspan="N">`；不顯示 GitHub stars。
+- 易變命令、產品名稱、授權、API 行為與安全限制使用官方來源和 90 天 freshness marker。社群整合必須明標非官方、可能失效與可用的官方 fallback；三語保留相同 URL、命令、日期、評分與風險。
+
 ### 為什麼 Stage 5 特別放在「兩軌共用」
 
 Stage 5（Claude Code 生態）兩條軌都會碰到：
@@ -140,10 +147,10 @@ stage 的價值 = 讀者學完後**能回答這個問題**。
 | **1** LLM 入門 | 「LLM 是什麼、token 怎麼算、不同 LLM 的差別？」 | 從 API call 到本地 LLM，含 from-scratch 訓練 |
 | **2** Prompt 設計 | 「怎麼讓 LLM 照我的意思做事，而且知道修改有沒有用？」 | 四格 prompt / few-shot / 固定 eval / 一次只改一件事 |
 | **3** ⭐ 工具使用與第一個 Agent Loop | 「怎麼讓 LLM 呼叫外部工具，並重複做完一個有界 loop？」 | 完整 tool round trip + 有界 ReAct loop + 6 個動手練習 |
-| **4** Agent 框架與 Workflow Graph | 「怎麼選 framework，把多個步驟接成看得見的 graph？」 | LangGraph / AutoGen / CrewAI / Smolagents 對比 |
+| **4** Workflow Graph 與 Agent 框架 | 「怎麼選 framework，把多個步驟接成看得見的 graph？」 | LangGraph / AutoGen / CrewAI / Smolagents 對比 |
 | **5** ⭐⭐ Claude Code 生態 | 「Claude Code 生態系怎麼吃？」 | MCP / Skills / Plugins / Marketplace 4 個 sub-stage |
 | **6** Memory · RAG | 「怎麼讓 agent 記得事情？怎麼讓它能查自家文件？」 | embedding / vector DB / RAG / contextual retrieval |
-| **7** 進階 Multi-Agent | 「multi-agent 跟 production 怎麼一起？」 | orchestration / eval / observability / SDK 進階 |
+| **7** Agent Production Engineering | 「Harness、Loop、Graph 跟 production 怎麼一起？」 | Harness / Loop / Graph / orchestration / eval / observability |
 | **7.5** 進階概念地圖 | 「multi-agent 之後還有哪些進階 pattern 要認得？」 | 12 個進階概念 + reading path（不寫 code）|
 | **8** ⭐⭐ Agent 操作介面 | 「agent 怎麼操作 API 以外的真實環境（螢幕 / 瀏覽器 / sandbox）？」 | Computer Use / Browser Use / Code Sandbox |
 
@@ -161,9 +168,9 @@ Stage 3 的章名與固定主線都把 **Agent Loop** 當成入口：「八個�
 
 Stage 3 的六題也各有一個 `examples/stage-3/NN-*` 可執行資料夾。每題同時提供 Ollama Path A、Anthropic Path B，以及兩個不連網的 mock tests。模型產生的工具名稱、JSON 與欄位一律視為不可信輸入：程式先做 allowlist 與參數驗證，再執行工具；錯誤要帶回原本的 call ID，Anthropic client tool 使用 `is_error: true`。多輪迴圈必須有最大步數，並把正常完成、token 截斷、拒絕／其他停止原因分開。README 以 PowerShell 為第一條可複製路徑，再收合 macOS／Linux 指令；SDK 使用已查核的 major 範圍、雲端模型使用固定 ID，費用寫公式與查核日，不用沒有 token 假設的固定小數，也不用單次結果宣稱某模型一定更快或更穩。
 
-Stage 4 的章名固定保留 **Agent Framework**，並補上 **Workflow Graph**；它不是直接改名為 Graph Engineering。固定主線是「八個可見核心詞 → Agent Loop／Agent Framework／Workflow Graph／Loop Engineering／Graph Engineering 五項橋接 → workflow／agent × single／multi 選擇圖 → 先用最簡單能完成任務的形狀 → 五種協作 pattern → 依需求選工具 → 五題練習」。八個主核心詞是 **Framework**、**Workflow／Workflow Graph**、**Agent**、**Orchestration**、**State**、**Checkpoint**、**Handoff** 與 **Human-in-the-loop（HITL）**；Supervisor、Worker、CodeAct 與 Type-safe 也必須在第一次可見使用時粗體解釋，不能為了縮短頁面刪掉。橋接表必須說清楚：Agent Loop 是 Stage 3 的執行迴圈，framework 是工具箱，Workflow Graph 是 node／edge／branch／state 組成的工作地圖，Loop／Graph Engineering 是 Stage 7 加入預算、驗證、復原、觀測與人工核准後的設計工作。Multi-Agent 是可選的系統形狀，不是 framework 的定義，也不是每張 graph 的必要條件。三語亮色圖只整理正文已先定義的關係，不放版本、價格、stars 或沒有通則的數字。
+Stage 4 的章名固定把 **Workflow Graph** 放在 **Agent Framework** 前面；它先教工作地圖，再教可用來實作的工具箱，不直接把整章叫成 Graph Engineering。固定主線是「八個可見核心詞 → Agent Loop／Workflow Graph／Agent Framework／Loop Engineering／Production orchestration 五項橋接 → workflow／agent × single／multi 選擇圖 → 先用最簡單能完成任務的形狀 → 五種協作 pattern → 依需求選工具 → 五題練習」。八個主核心詞是 **Workflow／Workflow Graph**、**Framework**、**Agent**、**Orchestration**、**State**、**Checkpoint**、**Handoff** 與 **Human-in-the-loop（HITL）**；Supervisor、Worker、CodeAct 與 Type-safe 也必須在第一次可見使用時粗體解釋，不能為了縮短頁面刪掉。橋接表必須說清楚：Agent Loop 是 Stage 3 的執行迴圈，Workflow Graph 是 node／edge／branch／state 組成的工作地圖，framework 是工具箱，Production orchestration 是 Stage 7 加入預算、驗證、復原、觀測與人工核准後的上線工作；**Graph Engineering** 只作新興替代稱呼，不宣稱是業界統一標準。Multi-Agent 是可選的系統形狀，不是 framework 的定義，也不是每張 graph 的必要條件。三語亮色圖只整理正文已先定義的關係，不放版本、價格、stars 或沒有通則的數字。
 
-章節學習順序與五層工程堆疊必須分開說。章節依「先做出來，再看見結構，最後做穩」排列：Stage 2 Prompt → Stage 3 Agent Loop → Stage 4 Agent Framework／Workflow Graph → Stage 6 Context 深化 → Stage 7 Harness／Loop／Graph Engineering。五層的 `prompt → context → harness → loop → graph` 則表示控制範圍由小到大，不是章節順序。README、首頁 index、PROGRESS、MkDocs／mdBook 導覽、Stage 2 出口、範例返回連結與補充資源若直接寫出完整章名，必須使用同一組三語標題；檔名與既有 anchor 不因章名修正而更動。
+章節學習順序與五個工程控制問題必須分開說。章節依「先做出來，再看見結構，最後做穩」排列：Stage 2 Prompt → Stage 3 Agent Loop → Stage 4 Workflow Graph／Agent Framework → Stage 5 MCP／Skills／Plugins／Subagents 工具與規則 → Stage 6 Context 深化 → Stage 7 Agent Production Engineering 整合 Harness／Loop／Graph。`prompt → context → harness → loop → graph` 是五個檢查問題，不是嚴格軟體層或章節順序；Harness 可以包含 Agent Loop，Workflow Graph 也可以連接 Harness、固定程式、Loop 與人工核准。Stage 7 的三語完整章名固定為 `Agent Production Engineering：Harness、Loop 與 Graph`／`Agent Production Engineering: Harness, Loops, and Graphs`／`Agent Production Engineering：Harness、Loop 与 Graph`；README、首頁 index、PROGRESS、MkDocs／mdBook 導覽、Stage 6 出口、範例返回連結與補充資源若直接寫出完整章名，必須使用這組標題。這個章名是本學習地圖用來裝住三種責任的上位名稱，不宣稱所有供應商都採用同一個正式標準。檔名與既有 anchor 不因章名修正而更動。
 
 Stage 4 的 4 個必修閱讀步驟（共 5 個官方連結）與 18 筆五星編輯評分資源表保持可見；時間、環境、研究證據、進階 tool patterns、五題完整步驟與疑難排解預設收合。`📌`、`🚪`、`📚`、`🛠`、`🎯`、`✅`，簡短進入條件、五題 heading／anchor、每題成果、第一個可複製 PowerShell 動作與預算提醒保持可見。資源表固定為五組 `4／6／4／3／1`，使用真正 HTML `rowspan`，保留編輯推薦星級、移除會變動的 GitHub stars；Preview、維護、凍結／歷史與遷移狀態依官方來源明寫。OpenAI Swarm 只作教育參考，不能再有 production 評分；框架版本、維護、授權與安全資訊使用 90 天 freshness marker。
 
@@ -187,7 +194,7 @@ Stage 6 的 18 筆資源固定分成 `4／5／4／3／2` 五組，每組使用�
 
 Stage 6 同樣使用兩層 stacked PR：第一層定稿三語教材、官方事實包、圖、glossary 直接矛盾、資源表與 reader-UX gate；第二層才修正五個 `examples/stage-6/` 的 chunk 邊界、collection 隔離、真正 persistent memory、雙路徑與離線測試。兩層都保留 branch 與 upstream，未經使用者明確同意不合併、不清理。
 
-Stage 7 的固定主線是「單一 Agent／Multi-Agent 決策 → 九個可見核心詞 → Prompt／Context／Harness／Loop／Graph 五層分工 → Harness 八項 production 檢查 → 工具角色辨識 → 五題可執行練習 → execution receipt 小專案 → benchmark 閱讀紀律 → 精選資源 → 自我檢查」。九個核心詞是 **Multi-Agent**、**Orchestration**、**Handoff**、**Harness**、**Eval**、**Observability**、**Guardrail**、**Loop Engineering** 與 **Graph Engineering**；先用白話和生活比喻定義，再保留正確術語。Agent Loop 是 Stage 3 的入門，Workflow Graph 是 Stage 4 的入門，Stage 7 才把兩者加上預算、驗證、checkpoint、人工核准、觀測與復原。五層圖表達控制範圍，不是章節編號；Agent framework 是工具箱，Graph Engineering 是設計工作。OpenRouter 是模型 API 入口，Pi／OpenCode 是 Agent runtime／coding agent，Orca／QM 是多 Agent 協作層；不得把三層寫成可互換的同類產品。
+Stage 7 的固定主線是「單一 Agent／Multi-Agent 決策 → 九個可見核心詞 → Prompt／Context／Harness／Loop／Graph 五個控制問題 → Harness／Loop／Graph 責任邊界圖 → Harness 八項 production 檢查 → Loop Engineering → Workflow Graph／Production orchestration → 工具角色辨識 → 五題可執行練習 → execution receipt 小專案 → benchmark 閱讀紀律 → 精選資源 → 自我檢查」。九個核心詞是 **Multi-Agent**、**Orchestration**、**Handoff**、**Harness**、**Eval**、**Observability**、**Guardrail**、**Loop Engineering** 與 **Graph Engineering**；先用白話和生活比喻定義，再保留正確術語，同時把 Loop Engineering 標成 emerging practice、Graph Engineering 標成尚未統一的新興稱呼。正文必須分清三種 loop：程式迴圈只重複指令，Agent Loop 在一次執行裡做「想／做／看」，Loop Engineering 則替一次長 run 或跨 session 的反覆工作加入目標、觸發、驗證、記憶、預算、停止與人工升級。**Loop 不淘汰 Harness**：Anthropic 的 Harness 定義本身包含呼叫模型與路由工具的 loop；IBM 的 Loop Engineering 範圍更廣，會納入目標、檢查、hooks、context、subagent 與持久狀態。正文教三個除錯問題，不把三者畫成互斥產品或嚴格替換世代。Agent Loop 是 Stage 3 的入門，Workflow Graph 是 Stage 4 的入門，Stage 7 才把兩者加上 production 邊界。控制問題圖必須畫出責任重疊，不再用垂直堆疊暗示唯一層級；Agent framework 是工具箱，Production orchestration 是上線工程，Graph Engineering 只作新興別名。OpenRouter 是模型 API 入口，Pi／OpenCode 是 Agent runtime／coding agent，Orca／QM 是多 Agent 協作層；不得把三層寫成可互換的同類產品。
 
 Stage 7 的時間、環境、費用、安全提醒、延伸閱讀、Loop／Graph 補充、回饋與復原細節、練習步驟及 benchmark 長清單預設收合。五份必修閱讀、20 筆精選資源表、五題 heading／anchor／成果與第一個可複製測試命令保持可見；成本／延遲仍是 Harness 第八項與 SDK 練習的必要觀念，但沒有對應資料夾時不得虛構第六題。外部排行榜只能教讀法，不能凍結 SOTA 分數、模型名次或第三方「最強」結論。
 
@@ -201,11 +208,11 @@ Stage 5 的練習不能只叫讀者「看文件」卻宣稱已建立元件。Hoo
 
 Stage 5 的 installable Skill 範例使用 `${CLAUDE_SKILL_DIR}` 指向 bundled references，讓 personal、project 與翻譯版安裝後都能找到同一包檔案。README 先給 PowerShell 可複製安裝，再收合 POSIX；驗收先跑無網路 contract checker，再用 `/skill-name` 做產品內手動檢查。自訂 JSON 不能冒充 promptfoo config，結構測試也不能冒充 model-quality eval；要教 promptfoo 時，必須另給合法 provider／prompt／test 設定或明說只提供延伸入口。範例不能保存無來源成功率、原因比例、固定省時百分比或要求私人 Chain-of-Thought。
 
-Stage 7.5 是 reading-map，不是第六個實作章。固定可見主線是「四個學習目標 → 六個粗體核心詞 → 12 個概念按問題分四組 → 我卡在哪裡的選擇圖與短表 → 可直接複製的四行工作邊界卡 → 五筆優先閱讀 → 自我檢查」。六個核心詞是 **Work Boundary**、**Contract**、**Reflection**、**Autonomy**、**Budget Gate** 與 **Graceful Degradation**；Reflection 只要求可觀察的計畫、Action、Observation、測試與結果，不要求公開私人 Chain-of-Thought。12 個概念全部保留，但每次只選一組的一到兩個，不能把表格讀成全部都要安裝的清單。
+Stage 7.5 是 reading-map，不是第六個實作章。固定可見主線是「四個學習目標 → 六個粗體核心詞 → 12 個概念按問題分四組 → 我卡在哪裡的選擇圖與短表 → 可直接複製的四行工作邊界卡 → Model–Harness Fit 保留／簡化／移除判斷 → 五筆優先閱讀 → 自我檢查」。六個核心詞是 **Work Boundary**、**Contract**、**Reflection**、**Autonomy**、**Budget Gate** 與 **Graceful Degradation**；Reflection 只要求可觀察的計畫、Action、Observation、測試與結果，不要求公開私人 Chain-of-Thought。12 個概念全部保留，但每次只選一組的一到兩個，不能把表格讀成全部都要安裝的清單。Model–Harness Fit 的短版規則與三語圖保持可見：這裡才回答某個 Harness 元件會不會過時，不是 Loop Engineering 的定義。先分「模型補強元件」與「長期安全責任」，一次只測一個元件，再用同一組品質與安全 Eval 決定保留、簡化或移除；模型變強不表示最小權限、sandbox、audit log、人工核准、Eval 或 recovery 自動過時。
 
-時間、先備詞、12 個概念的來源與限制、失敗案例、cross-vendor harness、coding harness、benchmark、Dynamic Workflows、Model–Harness Fit 與 24 筆完整資源表預設收合。資源固定分成 `5／5／5／5／4` 五組，使用獨立 `<tbody>` 與真正 HTML `rowspan`，三語 URL、順序與五星編輯評分一致。AutoGen 的 maintenance mode、Microsoft Agent Framework 的後繼定位、Sandbox Agents 的 Beta 狀態，以及 Dynamic Workflows 的版本、觸發、限制與供應環境使用 90 天 freshness marker；來源衝突時以現行官方產品文件優先。
+時間、先備詞、12 個概念的來源與限制、失敗案例、cross-vendor harness、coding harness、benchmark、Dynamic Workflows、Model–Harness Fit 的證據／Bitter Lesson／人機分工與 24 筆完整資源表預設收合。資源固定分成 `5／5／5／5／4` 五組，使用獨立 `<tbody>` 與真正 HTML `rowspan`，三語 URL、順序與五星編輯評分一致。AutoGen 的 maintenance mode、Microsoft Agent Framework 的後繼定位、Sandbox Agents 的 Beta 狀態，以及 Dynamic Workflows 的版本、觸發、限制與供應環境使用 90 天 freshness marker；來源衝突時以現行官方產品文件優先。
 
-Stage 7.5 只保留兩組低文字密度三語圖：四問題群組的 12 概念卡，以及「症狀 → 先讀哪一組」決策樹。圖不放文章名稱、閱讀時間、產品版本或任意固定門檻，避免正文更新後圖片仍殘留舊事實。OpenAI `Types → Config → Repo → Service → Runtime → UI` 只能教成特定 codebase 案例，不能畫成通用 Agent stack；舊 `stack-4layer`、`failure-lifecycle` 與 `principle-dependency` 圖組完成引用掃描後移除。Stage 7.5 沒有 example-hardening 第二層，本層完成三語內容、圖、freshness、reader-UX 與 content tests 後即形成一個可回溯 commit；未經使用者明確同意仍不推送、合併或清理 branch。
+Stage 7.5 保留三組低文字密度三語圖：四問題群組的 12 概念卡、「症狀 → 先讀哪一組」決策樹，以及用同一組 Eval 判斷 Harness 元件要保留／簡化／移除的三分圖。三個判斷是平行結果，不是成熟度階梯；圖不放文章名稱、閱讀時間、產品版本或任意固定門檻，避免正文更新後圖片仍殘留舊事實。OpenAI `Types → Config → Repo → Service → Runtime → UI` 只能教成特定 codebase 案例，不能畫成通用 Agent stack；舊 `stack-4layer`、`failure-lifecycle` 與 `principle-dependency` 圖組完成引用掃描後移除。Stage 7.5 沒有 example-hardening 第二層，本層完成三語內容、圖、freshness、reader-UX 與 content tests 後即形成一個可回溯 commit；未經使用者明確同意仍不推送、合併或清理 branch。
 
 ```
 1. 1-2 句核心問題
@@ -235,6 +242,20 @@ Stage 7.5 只保留兩組低文字密度三語圖：四問題群組的 12 概念
 - 時間、先備條件、環境、費用、預算、選修、補充資料、疑難排解與完整 catalog 可預設收合。必修閱讀、精選 Projects 與精選學習資源直接可見。
 - Gate 只證明可量測的結構沒有倒退。第一次讀者能不能用自己的話說出下一步，仍要在人工審查確認。
 
+### Resource hub 固定結構
+
+`resources/README*` 是工具櫃入口，不是第十二份教材。固定可見順序為「我現在卡在哪裡 → 五個資源類型核心詞 → 11 份完整參考資料 → 回主線的位置 → 30 秒完成檢查」。全部 11 份入口保持可見；只有「為什麼分檔」與 maintainer 規則放進兩個預設關閉的 `<details markdown="1">`。
+
+完整表固定使用 `4／2／2／2／1` 五個 `<tbody>`，以真正的 `scope="rowgroup"` 與 `rowspan` 合併同類型欄位。三語檔名、順序、用途與限制一致。不要放容易漂移的行數、GitHub stars 或舊產品名稱；新 reference 必須有獨立工作、被至少三個 stage／track／branch 使用，否則留在原章節。
+
+### 課程地圖固定結構
+
+`resources/courses*` 先幫讀者選一門課，不做證書排行榜。可見順序固定為「五個證書／課程核心詞 → 按需求選一條 → 12 筆精選課程與學習路線 → 可直接複製的五行作品證據卡 → Stage 3／4／7 返回路線」。證書限制與清單維護方法可以收合；精選課程、編輯評分與作品卡保持可見。
+
+12 筆主資源依 `3／5／2／2` 分成免費打底、建構與上線、較長系列課、中文供應商路線。每組使用獨立 `<tbody>`、`scope="rowgroup"` 與真正 `rowspan`；一列只放一個主課程 URL，中文伴讀等補充入口放在表格外。星等只表示教學價值、實作完整度、更新狀態與可轉移性，不表示證書排名，也不保存 GitHub stars。
+
+**Certificate of Completion**、**Skill Badge**、**Professional Certificate** 與 **Certification Exam** 必須分開定義。沒有官方證書條件就寫未明示，不自行補成「免費證書」；費用、cohort、證書、評量與 repository status 使用三語一致的 90 天 freshness marker。官方頁證明課程與證書事實，canonical repo 證明開源教材狀態，第三方文章只能當線索。
+
 ### 全站白話規則（ELI5）
 
 這是整份學習地圖的共同 gate，不是 Stage 0 的特殊語氣。目標是讓五歲小孩也能跟得上「現在要做什麼」，但不把技術內容寫錯或寫成幼稚口吻。
@@ -257,9 +278,19 @@ Stage 7.5 只保留兩組低文字密度三語圖：四問題群組的 12 概念
 ### 概念圖契約
 
 - 圖只整理已經用白話定義過的關係，不能讓新名詞先在圖裡突然出現，也不能用圖片取代可搜尋、可翻譯、可被螢幕閱讀器讀到的正文。
-- 三語頁使用同一構圖與同一語意，各自引用 `.png`、`.en.png`、`.zh-Hans.png`；每張都要有在地化 alt text。
+- 全站預設沿用主頁 README 的舒服、清楚、簡單、直白風格：奶油白底、深藍主字、少量亮色、圓角卡、簡單線條 icon、充足留白與一個主要閱讀方向。每張圖只回答一個核心問題；放不下就拆圖，不能縮字硬塞。
+- 新畫或重畫的概念圖以 Image 2.0 產出 PNG，不用臨時 SVG 代替。舊圖不因這條規則一次全部重做；輪到該章重畫時才套用這個 ratchet。
+- 三語頁使用同一畫布比例、構圖、格線與語意，各自引用 `.png`、`.en.png`、`.zh-Hans.png`；每張都要有在地化 alt text。三語卡片位置、外距、內距與同層高度保持一致。
+- 箭頭只走留白通道，不穿過文字、icon 或其他卡片；arrowhead、icon、標籤與框線不得互相重疊。所有同層卡片依共同格線、等高與一致內距對齊。
 - 型號、價格、數量與狀態等易變事實，必須和正文採用同一官方證據。沒有通則就不用看似精確的固定數字。
-- 產出後逐張以原尺寸人工檢查文字、繁簡字形、箭頭方向與對比，再跑 image-locale gate 與三語網站 build。
+- 產出後逐張以原尺寸人工檢查安全邊界、文字、繁簡字形、箭頭方向、共同格線與對比，再跑 image-locale gate 與三語網站 build。任何文字、icon、箭頭或框線重疊都視為失敗，不用「縮小看還可以」放行。
+
+### Glossary 固定結構
+
+- Glossary 是查字入口，不是一般章節。快速地圖、工具身分表、每個詞的 heading 與一句白話定義都保持可見，讓搜尋、深連結與螢幕閱讀器直接找到答案。
+- 只有 maintainer 用的完整分類表、來源與查核說明可以預設收合。不能把重要詞的最短定義藏進 `<details>`。
+- 工具身分要分清 Provider API、Router、Model Runtime、Coding Agent／Agent Harness 與 Agent Framework；同一個產品能連到別的層，不代表它們是同一種東西。
+- 型號、價格、context 與固定 token 換算不在 Glossary 複製快照；Glossary 連回有 freshness gate 的章節或官方文件。協定版本與產品狀態只寫已查證範圍，不用第三方排名補空白。
 
 ### 易變資訊與查核日期
 

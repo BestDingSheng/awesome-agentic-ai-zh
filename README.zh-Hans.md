@@ -130,10 +130,10 @@ cd awesome-agentic-ai-zh
 | Stage | 主题 | 关键内容 | 预估时程 |
 |---|---|---|---|
 | **3** ⭐ | [工具使用与第一个 Agent Loop](stages/03-tool-use-and-hello-agent.zh-Hans.md) | function calling · ReAct · 6 个动手练习 | 2-3 周 |
-| **4** | [Agent 框架与 Workflow Graph](stages/04-agent-frameworks.zh-Hans.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 周 |
+| **4** | [Workflow Graph 与 Agent 框架](stages/04-agent-frameworks.zh-Hans.md) | LangGraph · AutoGen · CrewAI · Smolagents | 2-3 周 |
 | **5** ⭐⭐ | [Claude Code 生态系（Claude Code Ecosystem）](stages/05-claude-code-ecosystem.zh-Hans.md)（**共用 hub**、Track A 也学）| MCP · Skills · Plugins · Subagents | 3-4 周（Track B 视角）|
 | **6** | [上下文管理（Context Engineering）：RAG 与 Memory](stages/06-memory-rag.zh-Hans.md) | vector DB · long-term memory · contextual retrieval | 2 周 |
-| **7** | [多 Agent 系统与稳定运作（Multi-Agent & Production）](stages/07-multi-agent-production.zh-Hans.md) | multi-agent orchestration · eval · observability · SDK 进阶 | 2-4 周 |
+| **7** | [Agent Production Engineering：Harness、Loop 与 Graph](stages/07-multi-agent-production.zh-Hans.md) | multi-agent orchestration · eval · observability · SDK 进阶 | 2-4 周 |
 | **7.5** | [进阶 Agentic Workflow 概念（Advanced Agentic Concepts）](stages/07.5-advanced-agentic-concepts.zh-Hans.md)（reading map）| 工作边界 · PAR loop · agent-as-judge · 12 个进阶概念 + reading list | 1 周（不写 code）|
 | **8** ⭐⭐ | [Agent 操作介面（Agent Interfaces）](stages/08-agent-interfaces.zh-Hans.md)（**共用 hub**、Track A 也学）| Computer Use · Browser Use · Code Sandbox、2024-2026 frontier | 2-3 周（Track B 视角）|
 
@@ -176,12 +176,12 @@ cd awesome-agentic-ai-zh
 主干分 5 部分：
 
 - **Part 1（Stage 0-2）：基础与 LLM 入门** — Python / git / API、什么是 LLM、怎么设计 prompt
-- **Part 2（Stage 3-4）：构建你的 Agent** — Stage 3 写出第一个 **Agent Loop**；Stage 4 用 framework 把多步流程组成看得见的 **Workflow Graph**
+- **Part 2（Stage 3-4）：构建你的 Agent** — Stage 3 写出第一个 **Agent Loop**；Stage 4 先看懂 **Workflow Graph**，再用 framework 把它做出来
 - **Part 3（Stage 5） 共用 hub** — Claude Code 生态系（MCP / Skills / Plugins / Subagents、Track A + B 都会用到）
 - **Part 4（Stage 6-7）：进阶集成** — Stage 6 用 RAG / memory 深入 **Context Engineering**；Stage 7 让 loop / graph 在 production 稳定运行
 - **Part 5（Stage 8） 共用 hub** — Agent Interfaces（Computer Use / Browser Use / Code Sandbox、2024-2026 frontier、两条 track 都会用到）
 
-> 🔭 **学习顺序和五层堆叠回答不同问题**：学习时先在 Stage 2 写好 **Prompt**，Stage 3 写出 **Agent Loop**，Stage 4 再用 framework 组成 **Workflow Graph**；Stage 6 深入 **Context Engineering**，Stage 7 才把 harness、loop 和 graph 做到能长时间稳定运行。五层堆叠 `prompt → context → harness → loop → graph` 说的是“控制范围由小到大”，不是章节编号。完整定义见 [Stage 7 五层工程分工](stages/07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)，Prompt 与 Context 的界线见 [Stage 2](stages/02-prompt-engineering.zh-Hans.md)。
+> 🔭 **学习顺序和五个控制问题回答不同事情**：学习时先在 Stage 2 写好 **Prompt**，Stage 3 写出 **Agent Loop**，Stage 4 先看懂 **Workflow Graph**，再用 framework 把它做出来；Stage 5 学会用 MCP、Skills、Plugins 和 Subagents 接上工具与规则，Stage 6 再深入 **Context Engineering**，Stage 7 最后把 Harness、Loop 和 Graph 做到能长时间稳定运行。`prompt → context → harness → loop → graph` 是五个检查问题，不是严格的软件层或章节编号；Harness 可以包含 Loop，Graph 也可以连接 Harness、固定程序和人工批准。完整定义见 [Stage 7 五个控制问题](stages/07-multi-agent-production.zh-Hans.md#五个控制问题prompt--context--harness--loop--graph)，Prompt 与 Context 的边界见 [Stage 2](stages/02-prompt-engineering.zh-Hans.md)。
 
 走完主干（Track B 16-22 周 / Track A 8-10 周）后，依你的身份挑一条延伸路线继续走。
 
@@ -214,7 +214,7 @@ cd awesome-agentic-ai-zh
 | 不懂某个词（LLM / agent / RAG / token / MCP / Skill / 向量数据库…） | [`resources/glossary.zh-Hans.md`](resources/glossary.zh-Hans.md) | 30+ 词、每个 30-80 字 + 哪 stage 讲细的 |
 | 想搞懂 agent 为什么有的在 terminal、有的在 Telegram、有的在 Jetson | [`resources/agent-paradigms.zh-Hans.md`](resources/agent-paradigms.zh-Hans.md) | 5 种 agent 型态 mental model + Hermes / OpenClaw 例子 |
 | MCP / Skills / Plugins 用语对照 | [`RESOURCES.zh-Hans.md` 三个核心用语](RESOURCES.zh-Hans.md#三个核心用语mcp--skills--plugins) | 1 页速查表 |
-| 想找带证书的线上 AI agent 课（英文 + 中文） | [`resources/courses.zh-Hans.md`](resources/courses.zh-Hans.md) | 10 门 credible、会发证书的课，分 tier；并诚实标注完成证书不是学历 |
+| 想找 AI Agent 课程、作品路线或证书 | [`resources/courses.zh-Hans.md`](resources/courses.zh-Hans.md) | 12 条现行课程与学习路线，按目标分组；分清完成证书、技能徽章和认证考试，并把作品证据放在前面 |
 
 ### 🛠 动手实作
 
