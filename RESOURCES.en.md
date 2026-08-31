@@ -11,6 +11,7 @@ You do not need to read the whole list. Pick the task you want to do now:
 | I want to… | Start here | Editorial rating |
 |---|---|---|
 | Learn AI agents from the beginning | [Stage 0](stages/00-foundations.en.md) | ⭐⭐⭐⭐⭐ |
+| Understand how models learn and how they are used | [Model training guide](resources/model-training-guide.en.md) | ⭐⭐⭐⭐⭐ |
 | Look up an unfamiliar term | [Glossary](resources/glossary.en.md) | ⭐⭐⭐⭐ |
 | Choose a CLI agent | [CLI Agents Guide](resources/cli-agents-guide.en.md) | ⭐⭐⭐⭐⭐ |
 | Connect an Agent to external tools | [MCP / Skills Catalog](resources/mcp-skills-catalog.en.md) | ⭐⭐⭐⭐⭐ |
@@ -47,6 +48,7 @@ Start with official entry points or complete learning materials, then evaluate c
 
 The table below shows selected projects and official entry points directly. Start with the group you need; only the longer supplemental list is collapsed.
 
+<div class="resource-table-scroll" role="region" tabindex="0" aria-label="Selected resources table (scroll horizontally)">
 <table class="resource-table">
 <thead><tr><th scope="col">Group</th><th scope="col">Resource</th><th scope="col">What it helps with</th><th scope="col">Status / limits</th><th scope="col">Editorial rating</th></tr></thead>
 <tbody>
@@ -76,6 +78,7 @@ The table below shows selected projects and official entry points directly. Star
 <tr><th scope="rowgroup" rowspan="1">Chinese Ecosystem</th><td><a href="https://github.com/leemysw/feishu-docx">leemysw/feishu-docx</a></td><td>Convert between Feishu (Lark) documents and Markdown</td><td>Community tool; confirm sharing and write permissions</td><td>⭐⭐⭐⭐</td></tr>
 </tbody>
 </table>
+</div>
 
 <a id="research-workflow"></a>
 <a id="research-workflow-by-the-repo-maintainer"></a>
@@ -99,4 +102,5 @@ The table below shows selected projects and official entry points directly. Star
 
 - Unclear term: open [`resources/glossary.en.md`](resources/glossary.en.md).
 - Want to build now: open [`resources/cookbook.en.md`](resources/cookbook.en.md).
+- Want to understand training choices: open [`resources/model-training-guide.en.md`](resources/model-training-guide.en.md).
 - Want to contribute or translate: read [`resources/style-guide.en.md`](resources/style-guide.en.md) and [`CONTRIBUTING.en.md`](CONTRIBUTING.en.md).

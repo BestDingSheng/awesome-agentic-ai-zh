@@ -11,6 +11,7 @@
 | 我現在想要…… | 從這裡開始 | 編輯評分 |
 |---|---|---|
 | 從頭學 AI Agent | [Stage 0](stages/00-foundations.md) | ⭐⭐⭐⭐⭐ |
+| 分清模型怎麼學會與怎麼被使用 | [模型訓練與調整指南](resources/model-training-guide.md) | ⭐⭐⭐⭐⭐ |
 | 查一個不懂的詞 | [Glossary](resources/glossary.md) | ⭐⭐⭐⭐ |
 | 選一個 CLI Agent | [CLI Agents Guide](resources/cli-agents-guide.md) | ⭐⭐⭐⭐⭐ |
 | 把 Agent 接到外部工具 | [MCP／Skills Catalog](resources/mcp-skills-catalog.md) | ⭐⭐⭐⭐⭐ |
@@ -47,6 +48,7 @@
 
 下面直接顯示精選專案與官方入口。從你需要的分類開始看；更長的補充清單才放在收合選單。
 
+<div class="resource-table-scroll" role="region" tabindex="0" aria-label="精選資源表（可左右捲動）">
 <table class="resource-table">
 <thead><tr><th scope="col">分類</th><th scope="col">資源</th><th scope="col">能幫你什麼</th><th scope="col">狀態／限制</th><th scope="col">編輯評分</th></tr></thead>
 <tbody>
@@ -76,6 +78,7 @@
 <tr><th scope="rowgroup" rowspan="1">中文生態</th><td><a href="https://github.com/leemysw/feishu-docx">leemysw/feishu-docx</a></td><td>在飛書（Lark）文件與 Markdown 間轉換</td><td>社群工具；先確認文件分享與寫入權限</td><td>⭐⭐⭐⭐</td></tr>
 </tbody>
 </table>
+</div>
 
 <a id="research-workflow"></a>
 <a id="研究工作流本-repo-維護者出品"></a>
@@ -99,4 +102,5 @@
 
 - 不懂名詞：打開 [`resources/glossary.md`](resources/glossary.md)。
 - 想直接做：打開 [`resources/cookbook.md`](resources/cookbook.md)。
+- 想分清 Pre-training、Post-training 與 Fine-tuning：打開 [`resources/model-training-guide.md`](resources/model-training-guide.md)。
 - 想貢獻或翻譯：先看 [`resources/style-guide.md`](resources/style-guide.md) 與 [`CONTRIBUTING.md`](CONTRIBUTING.md)。

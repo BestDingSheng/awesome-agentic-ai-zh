@@ -45,9 +45,6 @@ SUMMARY_RE = re.compile(r"<summary\b[^>]*>(.*?)</summary>", re.IGNORECASE)
 HEADING_RE = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 TAG_RE = re.compile(r"<[^>]+>")
 TH_RE = re.compile(r"<th\b[^>]*>", re.IGNORECASE)
-EMPTY_ANCHOR_RE = re.compile(
-    r"<a\b[^>]*(?:>\s*</a>|\s*/>)", re.IGNORECASE
-)
 INLINE_CODE_SPAN_RE = re.compile(
     r"(?<!`)(?P<ticks>`+)(?P<body>.*?)(?P=ticks)(?!`)"
 )
@@ -76,7 +73,9 @@ class PageMetrics:
 
 EXTERNAL_URL_RE = re.compile(r"https://[^\s<>)\"']+")
 RATING_RE = re.compile(r"(?<!⭐)(⭐{1,5})(?!⭐)")
-RAW_HTML_TAG_RE = re.compile(r'''<(?:"[^"]*"|'[^']*'|[^'">])*>''')
+RAW_HTML_TAG_RE = re.compile(
+    r'''</?[A-Za-z][A-Za-z0-9:-]*(?:\s+(?:"[^"]*"|'[^']*'|[^'"<>])*)?\s*/?>'''
+)
 ATTRIBUTE_MARKDOWN_LINK_RE = re.compile(r"!?\[([^]]+)]\([^)]+\)")
 HTML_ID_RE = re.compile(
     r"\bid\s*=\s*(?:\"([^\"]+)\"|'([^']+)'|([^\s>]+))",
@@ -119,16 +118,16 @@ def _without_all_html_comments(text: str) -> str:
     return re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
 
 
-def _without_empty_anchors_outside_inline_code(line: str) -> str:
-    """Drop renderless anchors while preserving literals shown in code spans."""
+def _without_html_tags_outside_inline_code(line: str) -> str:
+    """Measure rendered text, while preserving HTML literals shown as code."""
 
     parts: list[str] = []
     cursor = 0
     for match in INLINE_CODE_SPAN_RE.finditer(line):
-        parts.append(EMPTY_ANCHOR_RE.sub("", line[cursor : match.start()]))
+        parts.append(RAW_HTML_TAG_RE.sub("", line[cursor : match.start()]))
         parts.append(match.group(0))
         cursor = match.end()
-    parts.append(EMPTY_ANCHOR_RE.sub("", line[cursor:]))
+    parts.append(RAW_HTML_TAG_RE.sub("", line[cursor:]))
     return "".join(parts)
 
 
@@ -159,7 +158,7 @@ def analyze_markdown(text: str) -> tuple[PageMetrics, list[str]]:
             visible_measurement_lines.append(line)
         else:
             visible_measurement_lines.append(
-                _without_empty_anchors_outside_inline_code(line)
+                _without_html_tags_outside_inline_code(line)
             )
 
     for line_no, (line, in_code) in enumerate(zip(lines, code_flags), start=1):
@@ -219,8 +218,8 @@ def analyze_markdown(text: str) -> tuple[PageMetrics, list[str]]:
         errors.append("unclosed HTML comment")
 
     visible_source = "\n".join(visible_lines)
-    # Empty compatibility anchors keep old deep links working but render no
-    # text. Literals in fenced or inline code are visible and still count.
+    # Raw HTML tags and their attributes do not render as visible prose.
+    # Literals in fenced or inline code are visible and still count.
     visible_measurement_source = "\n".join(visible_measurement_lines)
     visible_chars = len(re.sub(r"\s+", "", visible_measurement_source))
     return PageMetrics(
@@ -427,6 +426,25 @@ def _inside_bold_span(text: str, span: tuple[int, int]) -> bool:
     return False
 
 
+def _html_strong_to_markdown(text: str) -> str:
+    """Preserve semantic HTML bold when normalizing visible prose."""
+    text = re.sub(r"<strong\b[^>]*>", "**", text, flags=re.IGNORECASE)
+    return re.sub(r"</strong\s*>", "**", text, flags=re.IGNORECASE)
+
+
+def _bold_label_spans(text: str, label: str) -> list[tuple[int, int]]:
+    """Find a bold label written as Markdown or accessible HTML."""
+    patterns = (
+        re.escape(f"**{label}**"),
+        rf"<strong\b[^>]*>\s*{re.escape(label)}\s*</strong\s*>",
+    )
+    return [
+        (match.start(), match.end())
+        for pattern in patterns
+        for match in re.finditer(pattern, text, flags=re.IGNORECASE)
+    ]
+
+
 def _core_term_errors(
     text: str,
     metrics: PageMetrics,
@@ -448,7 +466,12 @@ def _core_term_errors(
     if core_span[0] >= exercise_span[0]:
         return ["core terms section must appear before the first exercise"]
 
-    prose = TAG_RE.sub("", _without_link_destinations(strip_code_blocks(visible)))
+    prose = TAG_RE.sub(
+        "",
+        _html_strong_to_markdown(
+            _without_link_destinations(strip_code_blocks(visible))
+        ),
+    )
     # The page title may name the chapter topic. It is navigation, not the first
     # explanatory use, so exclude only the H1 line from the first-use check.
     first_use_lines: list[str] = []
@@ -476,13 +499,14 @@ def _core_term_errors(
             errors.append(f"first visible use of core term {term!r} must be bold")
 
         marker = f"**{label}**"
-        starts = [match.start() for match in re.finditer(re.escape(marker), core_block)]
-        if not starts:
+        spans = _bold_label_spans(core_block, label)
+        if not spans:
             errors.append(
                 f"core term {term!r} needs visible bold definition label {marker!r}"
             )
             continue
-        ordered_spans.append((starts[0], starts[0] + len(marker), term))
+        start, end = min(spans)
+        ordered_spans.append((start, end, term))
 
     if len(ordered_spans) == len(core_terms["terms"]):
         starts = [item[0] for item in ordered_spans]

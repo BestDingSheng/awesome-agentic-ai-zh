@@ -84,9 +84,9 @@ pages:
       en: stages/01-llm-basics.en.md
       zh-Hans: stages/01-llm-basics.zh-Hans.md
     max_visible_chars:
-      zh-TW: 7162
-      en: 10785
-      zh-Hans: 7156
+      zh-TW: 8197
+      en: 12475
+      zh-Hans: 8222
     max_open_details: 3
     required_visible_sections:
       core-terms:
@@ -99,6 +99,16 @@ pages:
         zh-Hans:
           heading: "三个核心词"
           anchor: 三个核心词
+      model-lifecycle:
+        zh-TW:
+          heading: "模型怎麼從資料走到 Agent？"
+          anchor: 模型怎麼從資料走到-agent
+        en:
+          heading: "How a Model Moves from Data to an Agent"
+          anchor: how-a-model-moves-from-data-to-an-agent
+        zh-Hans:
+          heading: "模型如何从数据走到 Agent？"
+          anchor: 模型如何从数据走到-agent
       required-reading:
         zh-TW:
           heading: "📚 必修閱讀"
@@ -150,7 +160,7 @@ pages:
           heading: "练习 6：Local LLM"
           anchor: 练习-6local-llm
     visible_section_minimums:
-      required-reading: {min_links: 5}
+      required-reading: {min_links: 7}
     core_terms:
       section_id: core-terms
       first_exercise_section_id: exercise-1
@@ -1073,7 +1083,7 @@ pages:
       zh-Hans: stages/06-memory-rag.zh-Hans.md
     max_visible_chars:
       zh-TW: 6300
-      en: 9900
+      en: 10003
       zh-Hans: 6300
     max_open_details: 0
     required_details_count: 2
@@ -1355,11 +1365,11 @@ pages:
       en: stages/07-multi-agent-production.en.md
       zh-Hans: stages/07-multi-agent-production.zh-Hans.md
     max_visible_chars:
-      zh-TW: 13340
-      en: 20728
-      zh-Hans: 13480
+      zh-TW: 16838
+      en: 26202
+      zh-Hans: 17000
     max_open_details: 0
-    required_details_count: 6
+    required_details_count: 7
     visible_section_order:
       - learning-goals
       - core-terms
@@ -1371,13 +1381,16 @@ pages:
       - harness-components
       - loop-engineering
       - production-orchestration
+      - production-path
       - tool-roles
       - hands-on
       - exercise-1
       - exercise-2
       - exercise-3
       - exercise-4
-      - exercise-5
+      - advanced-options
+      - optional-multi-agent
+      - optional-sdk
       - mini-project
       - benchmark
       - projects
@@ -1390,24 +1403,22 @@ pages:
       ordered_external_urls: true
       resource_url_ratings: true
       literals:
-        - "2026-08-29"
+        - "2026-08-31"
         - "OpenRouter"
         - "Pi"
         - "OpenCode"
         - "Orca"
         - "QM"
         - "Developer preview"
-        - "Alpha"
-        - "best-effort"
     required_visible_sections:
       learning-goals:
         zh-TW: {heading: "📌 學習目標", anchor: -學習目標}
         en: {heading: "📌 Learning Goals", anchor: -learning-goals}
         zh-Hans: {heading: "📌 学习目标", anchor: -学习目标}
       core-terms:
-        zh-TW: {heading: "🧩 九個核心詞", anchor: -九個核心詞}
-        en: {heading: "🧩 Nine Core Terms", anchor: -nine-core-terms}
-        zh-Hans: {heading: "🧩 九个核心词", anchor: -九个核心词}
+        zh-TW: {heading: "🧩 十六個核心詞（分三組讀）", anchor: -十六個核心詞分三組讀}
+        en: {heading: "🧩 Sixteen Core Terms (Read Them in Three Groups)", anchor: -sixteen-core-terms-read-them-in-three-groups}
+        zh-Hans: {heading: "🧩 十六个核心词（分三组读）", anchor: -十六个核心词分三组读}
       entry-conditions:
         zh-TW: {heading: "🚪 進入條件", anchor: -進入條件}
         en: {heading: "🚪 Entry Conditions", anchor: -entry-conditions}
@@ -1440,6 +1451,10 @@ pages:
         zh-TW: {heading: "🗺 Workflow Graph／Production Orchestration — 把步驟、Loop 與核准排成完整路線", anchor: -workflow-graphproduction-orchestration--把步驟loop-與核准排成完整路線}
         en: {heading: "🗺 Workflow Graph / Production Orchestration — Arrange Steps, Loops, and Approvals into a Complete Route", anchor: -workflow-graph--production-orchestration--arrange-steps-loops-and-approvals-into-a-complete-route}
         zh-Hans: {heading: "🗺 Workflow Graph／Production Orchestration — 把步骤、Loop 与批准排成完整路线", anchor: -workflow-graphproduction-orchestration--把步骤loop-与批准排成完整路线}
+      production-path:
+        zh-TW: {heading: "🛡 上線四步：Eval → Observability → Approval／Recovery → Deploy", anchor: -上線四步eval--observability--approvalrecovery--deploy}
+        en: {heading: "🛡 Four Release Steps: Eval → Observability → Approval / Recovery → Deploy", anchor: -four-release-steps-eval--observability--approval--recovery--deploy}
+        zh-Hans: {heading: "🛡 上线四步：Eval → Observability → Approval／Recovery → Deploy", anchor: -上线四步eval--observability--approvalrecovery--deploy}
       tool-roles:
         zh-TW: {heading: "🧭 OpenRouter、Pi、OpenCode、Orca、QM 到底差在哪？", anchor: -openrouterpiopencodeorcaqm-到底差在哪}
         en: {heading: "🧭 What Is the Difference Between OpenRouter, Pi, OpenCode, Orca, and QM?", anchor: -what-is-the-difference-between-openrouter-pi-opencode-orca-and-qm}
@@ -1449,29 +1464,37 @@ pages:
         en: {heading: "🛠 Hands-on Exercises", anchor: -hands-on-exercises}
         zh-Hans: {heading: "🛠 动手练习", anchor: -动手练习}
       exercise-1:
-        zh-TW: {heading: "練習 1：Multi-Agent 辯論", anchor: 練習-1multi-agent-辯論}
-        en: {heading: "Exercise 1: Multi-Agent Debate", anchor: exercise-1-multi-agent-debate}
-        zh-Hans: {heading: "练习 1：Multi-Agent 辩论", anchor: 练习-1multi-agent-辩论}
+        zh-TW: {heading: "核心練習 1：Eval", anchor: 核心練習-1eval}
+        en: {heading: "Core Exercise 1: Eval", anchor: core-exercise-1-eval}
+        zh-Hans: {heading: "核心练习 1：Eval", anchor: 核心练习-1eval}
       exercise-2:
-        zh-TW: {heading: "練習 2：Eval", anchor: 練習-2eval}
-        en: {heading: "Exercise 2: Eval", anchor: exercise-2-eval}
-        zh-Hans: {heading: "练习 2：Eval", anchor: 练习-2eval}
+        zh-TW: {heading: "核心練習 2：Observability", anchor: 核心練習-2observability}
+        en: {heading: "Core Exercise 2: Observability", anchor: core-exercise-2-observability}
+        zh-Hans: {heading: "核心练习 2：Observability", anchor: 核心练习-2observability}
       exercise-3:
-        zh-TW: {heading: "練習 3：Observability", anchor: 練習-3observability}
-        en: {heading: "Exercise 3: Observability", anchor: exercise-3-observability}
-        zh-Hans: {heading: "练习 3：Observability", anchor: 练习-3observability}
+        zh-TW: {heading: "核心練習 3：Approval、Checkpoint 與 Recovery", anchor: 核心練習-3approvalcheckpoint-與-recovery}
+        en: {heading: "Core Exercise 3: Approval, Checkpoint, and Recovery", anchor: core-exercise-3-approval-checkpoint-and-recovery}
+        zh-Hans: {heading: "核心练习 3：Approval、Checkpoint 与 Recovery", anchor: 核心练习-3approvalcheckpoint-与-recovery}
       exercise-4:
-        zh-TW: {heading: "練習 4：SDK 進階", anchor: 練習-4sdk-進階}
-        en: {heading: "Exercise 4: Advanced SDK Features", anchor: exercise-4-advanced-sdk-features}
-        zh-Hans: {heading: "练习 4：SDK 进阶", anchor: 练习-4sdk-进阶}
-      exercise-5:
-        zh-TW: {heading: "練習 5：Deploy", anchor: 練習-5deploy}
-        en: {heading: "Exercise 5: Deploy", anchor: exercise-5-deploy}
-        zh-Hans: {heading: "练习 5：Deploy", anchor: 练习-5deploy}
+        zh-TW: {heading: "核心練習 4：Deploy", anchor: 核心練習-4deploy}
+        en: {heading: "Core Exercise 4: Deploy", anchor: core-exercise-4-deploy}
+        zh-Hans: {heading: "核心练习 4：Deploy", anchor: 核心练习-4deploy}
+      advanced-options:
+        zh-TW: {heading: "🧭 進階選修（入口保持可見）", anchor: -進階選修入口保持可見}
+        en: {heading: "🧭 Advanced Options (Keep the Entrances Visible)", anchor: -advanced-options-keep-the-entrances-visible}
+        zh-Hans: {heading: "🧭 进阶选修（入口保持可见）", anchor: -进阶选修入口保持可见}
+      optional-multi-agent:
+        zh-TW: {heading: "選修 A：Multi-Agent 辯論", anchor: 選修-amulti-agent-辯論}
+        en: {heading: "Option A: Multi-Agent Debate", anchor: option-a-multi-agent-debate}
+        zh-Hans: {heading: "选修 A：Multi-Agent 辩论", anchor: 选修-amulti-agent-辩论}
+      optional-sdk:
+        zh-TW: {heading: "選修 B：Streaming 與 Prompt caching", anchor: 選修-bstreaming-與-prompt-caching}
+        en: {heading: "Option B: Streaming and Prompt caching", anchor: option-b-streaming-and-prompt-caching}
+        zh-Hans: {heading: "选修 B：Streaming 与 Prompt caching", anchor: 选修-bstreaming-与-prompt-caching}
       mini-project:
-        zh-TW: {heading: "🧪 推薦小專案：有收據的研究小隊", anchor: -推薦小專案有收據的研究小隊}
-        en: {heading: "🧪 Recommended Mini-Project: A Research Team with a Receipt", anchor: -recommended-mini-project-a-research-team-with-a-receipt}
-        zh-Hans: {heading: "🧪 推荐小项目：有收据的研究小队", anchor: -推荐小项目有收据的研究小队}
+        zh-TW: {heading: "🧪 推薦小專案：有收據的研究助理", anchor: -推薦小專案有收據的研究助理}
+        en: {heading: "🧪 Recommended Mini-Project: A Research Assistant with a Receipt", anchor: -recommended-mini-project-a-research-assistant-with-a-receipt}
+        zh-Hans: {heading: "🧪 推荐小项目：有收据的研究助理", anchor: -推荐小项目有收据的研究助理}
       benchmark:
         zh-TW: {heading: "📊 Agent Benchmark Landscape：怎麼看，不要只看排行榜 + ⚠ Reward-Hacking 警告", anchor: -agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告}
         en: {heading: "📊 Agent Benchmark Landscape: How to read it, not just the leaderboard + ⚠ Reward-Hacking Warning", anchor: -agent-benchmark-landscape-how-to-read-it-not-just-the-leaderboard---reward-hacking-warning}
@@ -1485,41 +1508,57 @@ pages:
         en: {heading: "✅ Self-Check After Stage 7", anchor: -self-check-after-stage-7}
         zh-Hans: {heading: "✅ Stage 7 之后的自我检查", anchor: -stage-7-之后的自我检查}
     visible_section_minimums:
-      required-reading: {min_links: 5}
-      projects: {min_links: 20, min_ratings: 20}
+      required-reading: {min_links: 6}
+      projects: {min_links: 21, min_ratings: 21}
     core_terms:
       section_id: core-terms
       first_exercise_section_id: exercise-1
       min_definition_chars: 20
       terms:
-        - id: multi-agent
-          zh-TW: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
-          en: {term: Multi-Agent, label: Multi-Agent}
-          zh-Hans: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
-        - id: orchestration
-          zh-TW: {term: Orchestration, label: Orchestration}
-          en: {term: Orchestration, label: Orchestration}
-          zh-Hans: {term: Orchestration, label: Orchestration}
-        - id: handoff
-          zh-TW: {term: Handoff, label: Handoff}
-          en: {term: Handoff, label: Handoff}
-          zh-Hans: {term: Handoff, label: Handoff}
+        - id: eval
+          zh-TW: {term: Eval, label: "Eval（評測）"}
+          en: {term: Eval, label: Eval}
+          zh-Hans: {term: Eval, label: "Eval（评测）"}
+        - id: outcome
+          zh-TW: {term: Outcome, label: "Outcome（結果）"}
+          en: {term: Outcome, label: Outcome}
+          zh-Hans: {term: Outcome, label: "Outcome（结果）"}
+        - id: trajectory
+          zh-TW: {term: Trajectory, label: "Trajectory（軌跡）"}
+          en: {term: Trajectory, label: Trajectory}
+          zh-Hans: {term: Trajectory, label: "Trajectory（轨迹）"}
+        - id: observability
+          zh-TW: {term: Observability, label: "Observability（可觀測性）"}
+          en: {term: Observability, label: Observability}
+          zh-Hans: {term: Observability, label: "Observability（可观测性）"}
+        - id: guardrail
+          zh-TW: {term: Guardrail, label: "Guardrail（護欄）"}
+          en: {term: Guardrail, label: Guardrail}
+          zh-Hans: {term: Guardrail, label: "Guardrail（护栏）"}
+        - id: human-approval
+          zh-TW: {term: Human Approval, label: "Human Approval（人工核准）"}
+          en: {term: Human Approval, label: Human Approval}
+          zh-Hans: {term: Human Approval, label: "Human Approval（人工批准）"}
+        - id: checkpoint
+          zh-TW: {term: Checkpoint, label: "Checkpoint（檢查點）"}
+          en: {term: Checkpoint, label: Checkpoint}
+          zh-Hans: {term: Checkpoint, label: "Checkpoint（检查点）"}
+        - id: resume
+          zh-TW: {term: Resume, label: "Resume（續跑）"}
+          en: {term: Resume, label: Resume}
+          zh-Hans: {term: Resume, label: "Resume（续跑）"}
+        - id: recovery
+          zh-TW: {term: Recovery, label: "Recovery（復原）"}
+          en: {term: Recovery, label: Recovery}
+          zh-Hans: {term: Recovery, label: "Recovery（恢复）"}
+        - id: idempotency
+          zh-TW: {term: Idempotency, label: "Idempotency（冪等）"}
+          en: {term: Idempotency, label: Idempotency}
+          zh-Hans: {term: Idempotency, label: "Idempotency（幂等）"}
         - id: harness
           zh-TW: {term: Harness, label: Harness}
           en: {term: Harness, label: Harness}
           zh-Hans: {term: Harness, label: Harness}
-        - id: eval
-          zh-TW: {term: Eval, label: Eval}
-          en: {term: Eval, label: Eval}
-          zh-Hans: {term: Eval, label: Eval}
-        - id: observability
-          zh-TW: {term: Observability, label: Observability}
-          en: {term: Observability, label: Observability}
-          zh-Hans: {term: Observability, label: Observability}
-        - id: guardrail
-          zh-TW: {term: Guardrail, label: Guardrail}
-          en: {term: Guardrail, label: Guardrail}
-          zh-Hans: {term: Guardrail, label: Guardrail}
         - id: loop-engineering
           zh-TW: {term: Loop Engineering, label: Loop Engineering}
           en: {term: Loop Engineering, label: Loop Engineering}
@@ -1528,7 +1567,19 @@ pages:
           zh-TW: {term: Graph Engineering, label: Graph Engineering}
           en: {term: Graph Engineering, label: Graph Engineering}
           zh-Hans: {term: Graph Engineering, label: Graph Engineering}
-    resource_group_rowspans: [4, 6, 5, 5]
+        - id: orchestration
+          zh-TW: {term: Orchestration, label: Orchestration}
+          en: {term: Orchestration, label: Orchestration}
+          zh-Hans: {term: Orchestration, label: Orchestration}
+        - id: multi-agent
+          zh-TW: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
+          en: {term: Multi-Agent, label: Multi-Agent}
+          zh-Hans: {term: Multi-Agent, label: "Multi-Agent（多 Agent）"}
+        - id: handoff
+          zh-TW: {term: Handoff, label: Handoff}
+          en: {term: Handoff, label: Handoff}
+          zh-Hans: {term: Handoff, label: Handoff}
+    resource_group_rowspans: [4, 6, 6, 5]
 
   - id: stage-07.5
     canonical: stages/07.5-advanced-agentic-concepts.md
@@ -2927,9 +2978,9 @@ pages:
       en: RESOURCES.en.md
       zh-Hans: RESOURCES.zh-Hans.md
     max_visible_chars:
-      zh-TW: 5389
-      en: 7352
-      zh-Hans: 5459
+      zh-TW: 5526
+      en: 7576
+      zh-Hans: 5657
     max_open_details: 0
     required_details_count: 1
     visible_section_order:
@@ -2979,9 +3030,9 @@ pages:
       en: resources/README.en.md
       zh-Hans: resources/README.zh-Hans.md
     max_visible_chars:
-      zh-TW: 3454
-      en: 5148
-      zh-Hans: 3839
+      zh-TW: 3676
+      en: 5522
+      zh-Hans: 4143
     max_open_details: 0
     required_details_count: 2
     visible_section_order:
@@ -3008,9 +3059,9 @@ pages:
         en: {heading: "🧩 Five words to know first", anchor: -five-words-to-know-first}
         zh-Hans: {heading: "🧩 先分清五个词", anchor: -先分清五个词}
       references:
-        zh-TW: {heading: "📚 全部 11 份參考資料", anchor: -全部-11-份參考資料}
-        en: {heading: "📚 All 11 references", anchor: -all-11-references}
-        zh-Hans: {heading: "📚 全部 11 份参考资料", anchor: -全部-11-份参考资料}
+        zh-TW: {heading: "📚 全部 12 份參考資料", anchor: -全部-12-份參考資料}
+        en: {heading: "📚 All 12 references", anchor: -all-12-references}
+        zh-Hans: {heading: "📚 全部 12 份参考资料", anchor: -全部-12-份参考资料}
       return-route:
         zh-TW: {heading: "🔁 看完要回哪裡？", anchor: -看完要回哪裡}
         en: {heading: "🔁 Where do you return next?", anchor: -where-do-you-return-next}
@@ -3020,7 +3071,7 @@ pages:
         en: {heading: "✅ 30-second completion check", anchor: -30-second-completion-check}
         zh-Hans: {heading: "✅ 30 秒完成检查", anchor: -30-秒完成检查}
     visible_section_minimums:
-      references: {min_links: 11}
+      references: {min_links: 12}
     core_terms:
       section_id: core-terms
       first_exercise_section_id: references
@@ -3046,7 +3097,66 @@ pages:
           zh-TW: {term: Glossary, label: "Glossary（詞典）"}
           en: {term: Glossary, label: Glossary}
           zh-Hans: {term: Glossary, label: "Glossary（词典）"}
-    resource_group_rowspans: [4, 2, 2, 2, 1]
+    resource_group_rowspans: [4, 2, 3, 2, 1]
+
+  - id: model-training-guide
+    canonical: resources/model-training-guide.md
+    mirrors:
+      en: resources/model-training-guide.en.md
+      zh-Hans: resources/model-training-guide.zh-Hans.md
+    max_visible_chars:
+      zh-TW: 3975
+      en: 5840
+      zh-Hans: 3986
+    max_open_details: 0
+    required_details_count: 1
+    visible_section_order:
+      - lifecycle
+      - methods
+      - boundary
+      - resources
+      - exercise
+      - completion
+    parity:
+      ordered_external_urls: true
+      resource_url_ratings: true
+      literals:
+        - "2026-08-31"
+        - "Pre-training"
+        - "Post-training"
+        - "Fine-tuning"
+        - "Inference"
+        - "GRPO"
+        - "LoRA"
+        - "Quantization"
+    required_visible_sections:
+      lifecycle:
+        zh-TW: {heading: "🧭 先看整條路", anchor: -先看整條路}
+        en: {heading: "🧭 See the whole path first", anchor: -see-the-whole-path-first}
+        zh-Hans: {heading: "🧭 先看整条路", anchor: -先看整条路}
+      methods:
+        zh-TW: {heading: "🧩 先認識方法，不必先實作", anchor: -先認識方法不必先實作}
+        en: {heading: "🧩 Learn the methods without implementing them first", anchor: -learn-the-methods-without-implementing-them-first}
+        zh-Hans: {heading: "🧩 先认识方法，不必先实作", anchor: -先认识方法不必先实作}
+      boundary:
+        zh-TW: {heading: "不要把外部系統誤認成訓練", anchor: 不要把外部系統誤認成訓練}
+        en: {heading: "Do not mistake external systems for training", anchor: do-not-mistake-external-systems-for-training}
+        zh-Hans: {heading: "不要把外部系统误认成训练", anchor: 不要把外部系统误认成训练}
+      resources:
+        zh-TW: {heading: "📚 必修閱讀與精選資源", anchor: -必修閱讀與精選資源}
+        en: {heading: "📚 Required reading and selected resources", anchor: -required-reading-and-selected-resources}
+        zh-Hans: {heading: "📚 必修阅读与精选资源", anchor: -必修阅读与精选资源}
+      exercise:
+        zh-TW: {heading: "🛠 一個不花 GPU 的判斷練習", anchor: -一個不花-gpu-的判斷練習}
+        en: {heading: "🛠 A decision exercise with no GPU", anchor: -a-decision-exercise-with-no-gpu}
+        zh-Hans: {heading: "🛠 一个不花 GPU 的判断练习", anchor: -一个不花-gpu-的判断练习}
+      completion:
+        zh-TW: {heading: "✅ 完成檢查", anchor: -完成檢查}
+        en: {heading: "✅ Completion check", anchor: -completion-check}
+        zh-Hans: {heading: "✅ 完成检查", anchor: -完成检查}
+    visible_section_minimums:
+      resources: {min_links: 7, min_ratings: 7}
+    resource_group_rowspans: [2, 2, 3]
 
   - id: glossary
     canonical: resources/glossary.md
@@ -3054,9 +3164,9 @@ pages:
       en: resources/glossary.en.md
       zh-Hans: resources/glossary.zh-Hans.md
     max_visible_chars:
-      zh-TW: 12860
-      en: 21347
-      zh-Hans: 13154
+      zh-TW: 13589
+      en: 22756
+      zh-Hans: 13895
     max_open_details: 0
     required_details_count: 2
     visible_section_order:
@@ -3067,7 +3177,7 @@ pages:
     parity:
       ordered_external_urls: true
       literals:
-        - "2026-08-30"
+        - "2026-08-31"
         - "OpenRouter"
         - "Ollama"
         - "OpenCode"

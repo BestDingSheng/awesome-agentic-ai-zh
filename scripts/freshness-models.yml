@@ -11,9 +11,11 @@
 
 stage01_fact_pack:
   canonical: 'stages/01-llm-basics.md'
-  verified_on: '2026-08-27'
-  scope: ['models', 'pricing', 'availability', 'deprecations']
+  verified_on: '2026-08-31'
+  scope: ['models', 'pricing', 'availability', 'deprecations', 'model-lifecycle']
   official_sources:
+    openai_model_development: 'https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/'
+    google_llm_tuning: 'https://developers.google.com/machine-learning/crash-course/llm/tuning'
     claude: 'https://platform.claude.com/docs/en/models/overview'
     gpt: 'https://developers.openai.com/api/docs/models'
     gemini: 'https://ai.google.dev/gemini-api/docs/models'
@@ -24,7 +26,7 @@ stage01_fact_pack:
     qwen: 'https://help.aliyun.com/en/model-studio/qwen3-8-max'
     glm: 'https://docs.z.ai/guides/llm/glm-5.3'
     yi: 'https://github.com/01-ai/Yi'
-    llama: 'https://ai.meta.com/llama/get-started/'
+    llama: 'https://developer.meta.com/ai/docs/overview/'
     muse: 'https://huggingface.co/meta-models/Muse-Glimmer-30B'
     gemma: 'https://ai.google.dev/gemma/docs/core'
     mistral: 'https://docs.mistral.ai/models'
@@ -172,6 +174,33 @@ agent_memory_fact_pack:
     generative_agents: 'https://arxiv.org/abs/2304.03442'
     reflexion: 'https://arxiv.org/abs/2303.11366'
 
+stage07_fact_pack:
+  canonical: 'stages/07-multi-agent-production.md'
+  verified_on: '2026-08-31'
+  scope: ['evals', 'observability', 'human-approval', 'persistence', 'recovery', 'orchestration', 'resources']
+  official_sources:
+    anthropic_evals: 'https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents'
+    anthropic_agent_patterns: 'https://www.anthropic.com/engineering/building-effective-agents'
+    openai_tracing: 'https://openai.github.io/openai-agents-python/tracing/'
+    openai_human_in_the_loop: 'https://openai.github.io/openai-agents-python/human_in_the_loop/'
+    langgraph_persistence: 'https://docs.langchain.com/oss/python/langgraph/persistence'
+    langgraph_interrupts: 'https://docs.langchain.com/oss/python/langgraph/interrupts'
+    ibm_loop_engineering: 'https://www.ibm.com/think/topics/loop-engineering'
+    openai_harness_engineering: 'https://openai.com/index/harness-engineering/'
+
+walkthrough_fact_pack:
+  canonical: 'walkthroughs/build-first-agent-in-7-steps.md'
+  verified_on: '2026-08-31'
+  scope: ['models', 'frameworks', 'evals', 'observability', 'human-approval', 'interfaces']
+  official_sources:
+    anthropic_model_ids: 'https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions'
+    langgraph_v1_migration: 'https://docs.langchain.com/oss/python/migrate/langgraph-v1'
+    langchain_agents: 'https://docs.langchain.com/oss/python/langchain/agents'
+    langchain_human_in_the_loop: 'https://docs.langchain.com/oss/python/langchain/human-in-the-loop'
+    langgraph_persistence: 'https://docs.langchain.com/oss/python/langgraph/persistence'
+    promptfoo_python_provider: 'https://www.promptfoo.dev/docs/providers/python/'
+    langfuse_langchain_integration: 'https://langfuse.com/integrations/frameworks/langchain'
+
 stage075_fact_pack:
   canonical: 'stages/07.5-advanced-agentic-concepts.md'
   verified_on: '2026-08-29'
@@ -275,7 +304,7 @@ cookbook_fact_pack:
 
 examples_index_fact_pack:
   canonical: 'examples/README.md'
-  verified_on: '2026-08-30'
+  verified_on: '2026-08-31'
   scope: ['example-inventory', 'local-model-tags', 'download-sizes', 'sdk-entry-points']
   official_sources:
     ollama_gemma4_e4b: 'https://ollama.com/library/gemma4:e4b'
@@ -325,9 +354,11 @@ courses_fact_pack:
 
 glossary_fact_pack:
   canonical: 'resources/glossary.md'
-  verified_on: '2026-08-30'
-  scope: ['protocols', 'product-identities', 'terminology', 'official-links']
+  verified_on: '2026-08-31'
+  scope: ['protocols', 'product-identities', 'terminology', 'official-links', 'model-lifecycle']
   official_sources:
+    openai_agent_guide: 'https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/'
+    anthropic_effective_agents: 'https://www.anthropic.com/engineering/building-effective-agents'
     provider_api: 'https://platform.claude.com/docs/en/api/overview'
     openrouter_faq: 'https://openrouter.ai/docs/faq'
     openrouter_routing: 'https://openrouter.ai/docs/guides/routing/provider-selection'
@@ -348,9 +379,22 @@ glossary_fact_pack:
     ibm_loop_engineering: 'https://www.ibm.com/think/topics/loop-engineering'
     anthropic_context_engineering: 'https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents'
 
+model_training_fact_pack:
+  canonical: 'resources/model-training-guide.md'
+  verified_on: '2026-08-31'
+  scope: ['model-training', 'post-training', 'adaptation', 'compression', 'inference']
+  official_sources:
+    openai_model_development: 'https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/'
+    openai_gpt_oss: 'https://openai.com/index/introducing-gpt-oss/'
+    google_llm_tuning: 'https://developers.google.com/machine-learning/crash-course/llm/tuning'
+    huggingface_trl: 'https://huggingface.co/docs/trl/quickstart'
+    huggingface_peft: 'https://huggingface.co/docs/peft/main/methods/overview'
+    huggingface_lora: 'https://huggingface.co/docs/peft/main/conceptual_guides/lora'
+    huggingface_quantization: 'https://huggingface.co/docs/transformers/main_classes/quantization'
+
 setup_guide_fact_pack:
   canonical: 'resources/setup-guide.md'
-  verified_on: '2026-08-30'
+  verified_on: '2026-08-31'
   scope: ['install-paths', 'api-keys', 'authentication', 'provider-entrypoints', 'project-status']
   official_sources:
     claude_api_quickstart: 'https://platform.claude.com/docs/en/get-started'
@@ -368,10 +412,14 @@ setup_guide_fact_pack:
     alibaba_model_studio: 'https://help.aliyun.com/en/model-studio/base-url'
     zai_api: 'https://docs.z.ai/api-reference/introduction'
     ollama_openai_compatibility: 'https://docs.ollama.com/api/openai-compatibility'
+    devin_desktop: 'https://devin.ai/desktop'
 
 verified_pages:
   - canonical: 'stages/01-llm-basics.md'
-    required_scopes: ['models', 'pricing', 'availability', 'deprecations']
+    required_scopes: ['models', 'pricing', 'availability', 'deprecations', 'model-lifecycle']
+    max_age_days: 90
+  - canonical: 'resources/model-training-guide.md'
+    required_scopes: ['model-training', 'post-training', 'adaptation', 'compression', 'inference']
     max_age_days: 90
   - canonical: 'stages/03-tool-use-and-hello-agent.md'
     required_scopes: ['models', 'pricing', 'tool-apis', 'security']
@@ -390,6 +438,12 @@ verified_pages:
     max_age_days: 90
   - canonical: 'resources/agent-memory.md'
     required_scopes: ['memory', 'privacy', 'retention', 'isolation', 'project-status']
+    max_age_days: 90
+  - canonical: 'stages/07-multi-agent-production.md'
+    required_scopes: ['evals', 'observability', 'human-approval', 'persistence', 'recovery', 'orchestration', 'resources']
+    max_age_days: 90
+  - canonical: 'walkthroughs/build-first-agent-in-7-steps.md'
+    required_scopes: ['models', 'frameworks', 'evals', 'observability', 'human-approval', 'interfaces']
     max_age_days: 90
   - canonical: 'stages/07.5-advanced-agentic-concepts.md'
     required_scopes: ['agent-patterns', 'harnesses', 'evals', 'dynamic-workflows', 'framework-status', 'research']
@@ -416,7 +470,7 @@ verified_pages:
     required_scopes: ['course-availability', 'cost', 'certificate', 'assessment', 'repository-status']
     max_age_days: 90
   - canonical: 'resources/glossary.md'
-    required_scopes: ['protocols', 'product-identities', 'terminology', 'official-links']
+    required_scopes: ['protocols', 'product-identities', 'terminology', 'official-links', 'model-lifecycle']
     max_age_days: 90
   - canonical: 'resources/setup-guide.md'
     required_scopes: ['install-paths', 'api-keys', 'authentication', 'provider-entrypoints', 'project-status']
@@ -483,10 +537,15 @@ stale_patterns:
     qualifier_terms: []
     note: 'Beginner entry pages must not freeze volatile account grants or stale desktop availability'
 
-  - pattern: 'https://codeium\.com/windsurf'
-    include_files: ['resources/agent-paradigms.md']
+  - pattern: 'https://codeium\.com/windsurf|https://windsurf\.com/editor'
+    include_files: ['resources/agent-paradigms.md', 'resources/setup-guide.md']
     qualifier_terms: []
-    note: 'Windsurf uses its current official editor entry point'
+    note: 'Windsurf is now Devin Desktop and must use the current official product entry point'
+
+  - pattern: 'https://ai\.meta\.com/llama/get-started/'
+    include_files: ['stages/01-llm-basics.md']
+    qualifier_terms: []
+    note: 'Meta moved the current Llama developer entry point to developer.meta.com/ai/docs/overview/'
 
   - pattern: '(?:54 exercises|54 個練習|54 个练习|gemma4:e4b.{0,60}7\.5 GB|gemma4:e2b.{0,60}4\.0 GB)'
     include_files: ['examples/README.md']

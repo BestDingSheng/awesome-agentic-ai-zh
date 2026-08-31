@@ -87,6 +87,17 @@ PUBLISHED_TERMS = (
     "gVisor",
 )
 NEW_TERMS = ("Model Runtime", "Workflow Graph", "Agent Harness")
+MODEL_LIFECYCLE_TERMS = (
+    "Pre-training",
+    "Post-training",
+    "Inference",
+    "SFT",
+    "DPO",
+    "RLHF / RL",
+    "GRPO",
+    "PEFT / LoRA",
+    "Distillation",
+)
 CORE_TERMS = (
     "Prompt",
     "Token",
@@ -111,10 +122,52 @@ IDENTITY_URLS = (
 )
 FRESHNESS = (
     "<!-- freshness: canonical=resources/glossary.md; "
-    "verified_on=2026-08-30; "
-    "scope=protocols,product-identities,terminology,official-links; "
+    "verified_on=2026-08-31; "
+    "scope=protocols,product-identities,terminology,official-links,model-lifecycle; "
     "max_age_days=90 -->"
 )
+AGENT_SOURCES = (
+    "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+    "https://www.anthropic.com/engineering/building-effective-agents",
+)
+AGENT_DEFINITION_MARKERS = {
+    "zh-TW": (
+        "能為了人的目標",
+        "自己判斷下一步",
+        "採取行動",
+        "明確規則與權限",
+        "必要時使用工具",
+        "自動替人完成工作",
+        "把控制權交還給人",
+        "固定腳本",
+        "不一定是 Agent",
+        "依狀態決定如何達成目標",
+    ),
+    "en": (
+        "toward a person's goal",
+        "decide what to do next",
+        "take action",
+        "clear rules and permissions",
+        "uses tools when needed",
+        "do work automatically",
+        "hands control back",
+        "fixed script",
+        "not necessarily an Agent",
+        "decides how to achieve the goal",
+    ),
+    "zh-Hans": (
+        "能为了人的目标",
+        "自己判断下一步",
+        "采取行动",
+        "明确规则和权限",
+        "需要时使用工具",
+        "自动替人完成工作",
+        "把控制权交还给人",
+        "固定脚本",
+        "不一定是 Agent",
+        "根据状态决定如何达成目标",
+    ),
+}
 
 
 def _without_details(text: str) -> str:
@@ -168,8 +221,8 @@ def test_every_published_term_and_new_boundary_term_stays_visible(page: Path) ->
     text = page.read_text(encoding="utf-8")
     visible = _without_details(text)
     headings = re.findall(r"^### (.+)$", visible, flags=re.MULTILINE)
-    assert len(headings) == 71
-    for term in (*PUBLISHED_TERMS, *NEW_TERMS):
+    assert len(headings) == 80
+    for term in (*PUBLISHED_TERMS, *NEW_TERMS, *MODEL_LIFECYCLE_TERMS):
         assert any(heading.startswith(term) for heading in headings), term
 
 
@@ -255,17 +308,31 @@ def test_subagent_deep_links_keep_their_published_fragments() -> None:
         assert heading in PAGES[locale].read_text(encoding="utf-8")
 
 
+@pytest.mark.parametrize("locale,page", PAGES.items())
+def test_agent_definition_keeps_purpose_behavior_and_non_agent_boundary(
+    locale: str, page: Path
+) -> None:
+    text = page.read_text(encoding="utf-8")
+    section = _section(text, "### Agent", "### Tool Use")
+    assert all(marker in section for marker in AGENT_DEFINITION_MARKERS[locale])
+    source_positions = [section.index(url) for url in AGENT_SOURCES]
+    assert source_positions == sorted(source_positions)
+
+
 def test_freshness_config_enrols_the_glossary_fact_pack_and_page() -> None:
     config = yaml.safe_load((ROOT / "scripts/freshness-models.yml").read_text(encoding="utf-8"))
     pack = config["glossary_fact_pack"]
     assert pack["canonical"] == "resources/glossary.md"
-    assert pack["verified_on"] == "2026-08-30"
+    assert pack["verified_on"] == "2026-08-31"
     assert pack["scope"] == [
         "protocols",
         "product-identities",
         "terminology",
         "official-links",
+        "model-lifecycle",
     ]
+    assert pack["official_sources"]["openai_agent_guide"] == AGENT_SOURCES[0]
+    assert pack["official_sources"]["anthropic_effective_agents"] == AGENT_SOURCES[1]
     assert pack["official_sources"]["mlx_lm"] == "https://github.com/ml-explore/mlx-lm"
     assert pack["official_sources"]["claude_prompt_caching"] == (
         "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
