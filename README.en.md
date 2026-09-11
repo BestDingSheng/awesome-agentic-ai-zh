@@ -4,7 +4,9 @@
 
 <div align="center" markdown="1">
 
-![AI Agent learning roadmap](resources/diagrams/banner.en.png)
+![Stages 0–2 split into CLI and Agent paths, sharing Stages 5 and 8; choose role paths as needed](resources/diagrams/banner.en.svg)
+
+[Static image](resources/diagrams/banner.en.png) · [Docs site](https://wenyuchiou.github.io/awesome-agentic-ai-zh/en/about/)
 
 # awesome-agentic-ai-zh
 
@@ -119,7 +121,9 @@ The timeline is a planning aid. Finish the step in front of you; no need to read
 
 ### Keep going by who you are
 
-![Choose a role-based extension](resources/diagrams/branch-decision-tree.en.png)
+![Research, development, teaching, knowledge work, and everyday use are five options; choose what you need, not every path](resources/diagrams/branch-decision-tree.en.svg)
+
+[Static image](resources/diagrams/branch-decision-tree.en.png)
 
 | Route | Who it fits | What you will handle |
 |---|---|---|

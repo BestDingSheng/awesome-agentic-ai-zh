@@ -46,7 +46,12 @@ HTML_FIGCAPTION = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 HTML_ATTRIBUTE = r"\s{0}\s*=\s*([\"'])(.*?)\1"
-EAGER_BANNERS = {"banner.png", "banner.en.png", "banner.zh-Hans.png"}
+EAGER_BANNERS = {f"banner{locale}.{ext}" for locale in ("", ".en", ".zh-Hans") for ext in ("png", "svg")}
+ANIMATED_IMAGES = {
+    f"{stem}{locale}.svg"
+    for stem in ("banner", "branch-decision-tree")
+    for locale in ("", ".en", ".zh-Hans")
+}
 
 
 @dataclass(frozen=True)
@@ -81,8 +86,11 @@ def _image_targets(markdown: str) -> list[str]:
         if target.startswith(("http://", "https://", "data:")):
             continue
         target = unquote(target.split("#", 1)[0])
-        if target.lower().endswith(".png"):
+        if target.lower().endswith((".png", ".svg")):
             targets.append(target)
+            if Path(target).name in ANIMATED_IMAGES:
+                # Budget a reader's animated + static requests together.
+                targets.append(target[:-4] + ".png")
     return targets
 
 
@@ -93,7 +101,7 @@ def inspect_delivery(
 ) -> DeliveryMetrics:
     diagram_root = root / DIAGRAM_DIR
     pngs = sorted(diagram_root.glob("*.png"))
-    sizes = [(path, path.stat().st_size) for path in pngs]
+    sizes = [(path, path.stat().st_size) for path in [*pngs, *sorted(diagram_root.glob("*.svg"))]]
 
     page_sizes: list[tuple[Path, int]] = []
     for page in markdown_paths or _tracked_markdown(root):
@@ -106,7 +114,7 @@ def inspect_delivery(
                 resolved.relative_to(root.resolve())
             except ValueError:
                 continue
-            if resolved.is_file() and resolved.suffix.lower() == ".png":
+            if resolved.is_file() and resolved.suffix.lower() in {".png", ".svg"}:
                 targets.add(resolved)
         page_sizes.append((page, sum(path.stat().st_size for path in targets)))
 
