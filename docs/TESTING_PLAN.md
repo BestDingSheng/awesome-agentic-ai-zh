@@ -1,9 +1,17 @@
 # Testing Plan — T3+ Verification Log
 
-> Updated 2026-08-30. The opening table is the historical T3+ baseline; later
+> Updated 2026-09-13. The opening table is the historical T3+ baseline; later
 > sections record the current chapter-by-chapter modernization layers separately.
 > The old branch `t3-stage-4-6-7-unverified` was merged into `main` and deleted,
 > but a newer layer is not called shipped until its own branch reaches `main`.
+
+## Current automated inventory
+
+On 2026-09-13, the repository contained 58 tracked `scripts/test_*.py` modules and
+`python -m pytest scripts --collect-only -q` collected 1,145 tests. This is a dated
+inventory, not a permanent badge. The required PR gate and a fresh collection run are
+the source of truth after any later change; historical exercise counts below must not
+be quoted as the current whole-repository total.
 
 ## Visible required-reading and resource contract
 
@@ -78,7 +86,9 @@ shape; final human review still confirms that simple wording has not removed an 
 | **Stage 6 (5 ex)** | embeddings + ChromaDB + chunking + full RAG + long-term memory | 10/10 test suites verified green | 2 (ChromaDB `kb` collection name too short for Chroma 1.0+; `EphemeralClient` state leak across test fixtures) |
 | **Stage 7 (5 ex)** | multi-agent debate + eval + observability + streaming/caching + FastAPI deploy | 10/10 test suites verified green | 1 (operator precedence: `and` binds tighter than `or` in fake_agent dispatcher) |
 
-**Total: 28/30 test files run green** + 1 install caveat (CrewAI on Python 3.14) + 1 pending live test (skill auto-load).
+**Historical result for this table only:** 28/30 test files ran green, with one
+CrewAI-on-Python-3.14 install caveat and one then-pending live skill auto-load check.
+This number predates the current required gate and is not the current repository test total.
 
 **Total bugs fixed**: 6 — all in commit [`50c3bf8`](https://github.com/WenyuChiou/awesome-agentic-ai-zh/commit/50c3bf8).
 
@@ -172,7 +182,7 @@ Stage 5 (`stages/05-claude-code-ecosystem.md`) has five cumulative exercises and
 
 The 05B layer validates the `tool-calling-tutor` frontmatter, installed and repository-relative links, translations, eval contract, model／SDK wording, and offline behavior. It stays separate from 05A so the reader rewrite and executable-example migration can be reviewed and rolled back independently.
 
-### Stage 6 — reader path covered; executable hardening stays in the next layer
+### Stage 6 — reader path and executable hardening covered in separate layers
 
 Stage 6 (`stages/06-memory-rag.md`) now keeps seven core terms, four required readings, five cumulative exercise outcomes, the first copyable PowerShell action, one RAG + Memory mini-project, the 18-row rated resource table, and the Stage 7 check visible. Time, setup, advanced RAG patterns, memory taxonomy, chunking, reflection, and evaluation depth stay closed by default.
 
@@ -180,7 +190,7 @@ Stage 6 (`stages/06-memory-rag.md`) now keeps seven core terms, four required re
 
 `scripts/test_stage06_rag_pipeline.py` separately locks the detailed closed-disclosure diagram: three distinct high-resolution locale images, exact locale references, two-lane wording, optional-step language, vector-database-independent retrieval, 2-step／Agentic／Hybrid RAG distinctions, current Qdrant／Weaviate URLs, and Microsoft GraphRAG's maintenance-mode caveat. The diagram's arrow geometry and localized glyphs still require visual inspection; the prompt log records the corrected retrieve landing point and the Simplified-Chinese cleanup.
 
-This reader layer does not claim that the five example folders are fully hardened. The next stacked layer will separately test the chunk-overlap boundary, isolate Chroma collections, replace ephemeral “long-term” memory with real persistence, preserve Ollama／Anthropic paths, and make the teaching tests offline and behavior-based.
+`scripts/test_stage06_examples.py` locks the five example folders after their separate hardening layer: model-backed folders preserve Ollama／Anthropic paths, Chroma collections are isolated, `overlap >= chunk_size` is rejected, long-term memory uses disk persistence, and the teaching tests run offline against behavior rather than live model quality. A cross-process check proves saved memory survives a fresh Python process. Live end-to-end answer quality remains unverified and must not be inferred from these offline checks.
 
 ### Stage 7 — reader path and executable hardening covered in separate stacked layers
 
@@ -188,7 +198,7 @@ The synchronized Stage 7 title is **Agent Production Engineering: Harness, Loops
 
 Stage 7 (`stages/07-multi-agent-production.md`) keeps the single-Agent／Multi-Agent decision, 16 bold core terms, five overlapping control questions, six required readings, a visible control-responsibility diagram, the eight-part Harness checklist, separate Loop Engineering and Workflow Graph／Production Orchestration sections, the OpenRouter／Pi／OpenCode／Orca／QM role split, four core exercises in Eval → Observability → Approval／Recovery → Deploy order, two visible advanced-option entrances, the research-assistant-with-receipt mini-project, benchmark-reading discipline, the 20-row rated resource map, and self-check visible. It explicitly distinguishes a program loop, an Agent Loop, and Loop Engineering; says that Harness commonly executes the Agent Loop; and rejects both “Loop replaces Harness” and a strict product-generation ladder. Seven closed disclosures hold setup, further reading, recovery／cost details, Graph／Multi-Agent depth, full exercise steps, and benchmark links. Required reading, the project, rated resources, core terms, and completion checks stay visible.
 
-`scripts/test_stage07_content.py` locks the three locales to the same 16 terms in accessible rowgroups (`4／6／6`), five control questions, three Loop scopes, Harness／Loop／Graph overlap, six visible required-reading URLs, 20 resource URLs, four accessible resource rowgroups (`4／6／5／5`), 20 editorial ratings, seven closed disclosures, six real example directories, the four ordered core commands, two optional entrances without mainline commands, the matching Docker entry sentence, quiet `2026-08-31 UTC` verification date, current canonical project owners, and the absence of frozen SOTA scores, stale redirects, GitHub star counts, old “project teaching term” labels, or empty-quote artifacts. It verifies three distinct `1672×941` Image 2.0 control-question PNGs plus three localized Workflow Graph PNGs and rejects untranslated CJK in the English page.
+`scripts/test_stage07_content.py` locks the three locales to the same 16 production terms in accessible rowgroups (`4／6／6`) plus nine visible Eval foundation terms in `3／3／3` rowgroups; it also locks five control questions, three Loop scopes, Harness／Loop／Graph overlap, six visible required-reading URLs, 20 resource URLs, four accessible resource rowgroups (`4／6／5／5`), 20 editorial ratings, seven closed disclosures, six real example directories, the four ordered core commands, two optional entrances without mainline commands, the matching Docker entry sentence, quiet `2026-09-13 UTC` verification date, current canonical project owners, and the absence of frozen SOTA scores, stale redirects, GitHub star counts, old “project teaching term” labels, or empty-quote artifacts. It verifies nine distinct `1672×941` localized PNGs across the control-question, Workflow Graph, and Eval evidence-loop triplets; the built-in generator does not expose a selectable model ID, so the provenance record does not claim an exact engine. English diagrams and prose must not contain untranslated CJK.
 
 `scripts/test_agent_engineering_route.py` locks Stage 3 as the Agent Loop entry, Stage 4 as the Workflow Graph／Agent Framework entry, and Stage 7 as the Agent Production Engineering chapter that integrates Harness, Loop, and Graph. It also locks the glossary boundary: Loop Engineering can happen in one long run or across sessions, Graph means an execution／workflow graph rather than GraphRAG, and the responsibility names are not misrepresented as one formal cross-vendor standard. The glossary must keep the course order separate from the five overlapping control questions and must not fall back to either the old Harness-only or Loop／Graph-only Stage 7 label.
 
