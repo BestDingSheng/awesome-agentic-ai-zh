@@ -18,17 +18,16 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DIAGRAM_DIR = Path("resources/diagrams")
-# Stage 7's required trilingual Eval evidence-loop diagram raises the audited
-# baseline from 70 to 73 PNGs. The ceilings use the final measured inventory
-# (89,659,368 bytes total, 1,546,806 bytes for the largest image, and 4,219,218
-# bytes on the heaviest Stage 7 page) plus at most 2% headroom. Future visual
-# cleanup should lower them; this is not free capacity for unrelated images.
-MAX_PNG_COUNT = 73
-MAX_TOTAL_BYTES = 91_452_556
-MAX_SINGLE_BYTES = 1_577_743
-MAX_PAGE_BYTES = 4_303_603
-EXPECTED_RENDERED_DIAGRAMS = 78
-EXPECTED_RENDERED_LAZY = 75
+# Stage 7.5 replaces six legacy diagrams with one focused trilingual set,
+# lowering the measured inventory to 67 PNGs. These ceilings use the resulting
+# inventory plus at most about 2% headroom; this is not free capacity for
+# unrelated images.
+MAX_PNG_COUNT = 68
+MAX_TOTAL_BYTES = 83_206_445
+MAX_SINGLE_BYTES = 1_551_629
+MAX_PAGE_BYTES = 3_242_406
+EXPECTED_RENDERED_DIAGRAMS = 72
+EXPECTED_RENDERED_LAZY = 69
 EXPECTED_RENDERED_EAGER = 3
 
 IMAGE_LINK = re.compile(
