@@ -6,6 +6,18 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-10-27
+
+- **layout / mobile course picker** · 三語課程選路表在手機改為每條需求、課程與理由依序用滿寬度，英文按完整單字換行；桌面保留三欄比較。保留 8 條選路、10 個入口、13 筆精選課程、原有星等、費用限制、用詞與查核日期；重要資訊不收合。新增實際 Markdown 輸出回歸檢查，樣式只作用於課程選路表。
+
+## 2026-10-26
+
+- **links / release follow-up** · 逐一複查發布時無法驗證的 11 個連結；確認可讀頁面、登入入口與反爬蟲挑戰，未發現確定失效。三語同步改用 Arena 現行排行榜路徑及 DeepLearning.AI 課程 canonical URL，更新來源包與既有 URL 斷言。保留課程、星等與重要資訊；不把受阻連結改列成功，也不放寬掃描或更新忽略基線。
+
+- **release preparation / v2026.10.26** · 依 v2026.10.24 之後已合併的 #340／#341 更新三語發布摘要，涵蓋 GPT-6.1 Terra、Kimi K3.1 Pro／Highspeed 與 actions/setup-python 7.1.0。摘要使用同一份變更清單，不重複列入前版內容；本次不產生或附上 PDF，完整發布檢查與 Environment 批准照常執行。
+
+- **content / Stage 1 / scoped model refresh** · 三語加入 GPT-6.1 Terra 與 Kimi K3.1 Pro／Highspeed，補上國際 API 價格、快取保留時間及工具呼叫限制。型號與價格分列，重複欄名合併。區分 Kimi API 已可用與完整權重尚待公布，註明 K2 新帳號截止及預定退役。只更新 GPT／Kimi 查核日期，保留其他模型日期、18 家詳表、可見選型主線與本機練習；未呼叫付費 API。
+
 ## 2026-10-24
 
 - **release preparation / v2026.10.24** · 依上次正式版 v2026.10.16 至 main 已合併差異更新三語發布摘要，涵蓋個人 Agent、TencentDB Agent Memory、局部模型資訊，以及角色、RAG／Memory、課程與 CLI 資源表的手機閱讀改善。不重複宣稱舊版已發布功能為新增，不納入未合併提案；沿用預設不附 PDF。這是發布準備，正式發布仍須通過完整健康掃描、main／Pages SHA 核對與 release Environment 批准。
