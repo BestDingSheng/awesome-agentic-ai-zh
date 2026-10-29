@@ -73,28 +73,26 @@ def test_current_model_reference_keeps_public_api_ids(locale: str) -> None:
 
 
 @pytest.mark.parametrize("locale", rm.LOCALES)
-def test_october_29_notes_cover_only_the_new_release_window(locale: str) -> None:
+def test_october_29_third_notes_cover_only_the_new_release_window(locale: str) -> None:
     notes = rm.validate_notes_manifest()
-    assert notes["release_version"] == "v2026.10.29"
+    assert notes["release_version"] == "v2026.10.29-3"
     changes = {change["id"]: change for change in notes["changes"]}
     assert set(changes) == {
-        "verified-course-and-leaderboard-links", "mobile-course-picker",
-        "stage-zero-github-foundations", "readable-tables-and-bold",
-        "readme-cleanup-and-star-history",
+        "rag-search-terms-and-comparisons", "execution-and-isolation-boundaries",
+        "model-terms-and-token-price-units",
     }
-    assert "11" in changes["verified-course-and-leaderboard-links"][locale]
-    assert "13" in changes["mobile-course-picker"][locale]
-    foundation = changes["stage-zero-github-foundations"][locale]
-    assert all(term in foundation for term in ("Commit", "Push", "PR", "Merge", "18"))
-    assert "Star History" in changes["readme-cleanup-and-star-history"][locale]
-    assert "PDF" in changes["readme-cleanup-and-star-history"][locale]
+    rag = changes["rag-search-terms-and-comparisons"][locale]
+    assert all(term in rag for term in ("BM25", "Recall@5", "13", "12"))
+    safety = changes["execution-and-isolation-boundaries"][locale]
+    assert all(term in safety for term in ("Stage 5", "Stage 6", "Stage 8", "Path A", "Path B"))
+    models = changes["model-terms-and-token-price-units"][locale]
+    assert all(term in models for term in ("Base Model", "Instruct Model", "A3", "token"))
+    assert {"zh-TW": "每百萬", "zh-Hans": "每百万", "en": "per million"}[locale] in models
     links = {link for change in changes.values() for link in change["links"]}
     assert links == {
-        *(f"https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/{pr}"
-          for pr in (343, 344, 346, 347)),
-        "https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/README.md",
+        f"https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/{pr}"
+        for pr in (356, 357, 358)
     }
-
 
 def test_validate_version_uses_utc_date(monkeypatch: pytest.MonkeyPatch) -> None:
     calls: list[object] = []

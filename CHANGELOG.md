@@ -8,6 +8,24 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ## 2026-10-29
 
+- **CI / authenticated release date** · 正式發布讀取 GitHub API 日期時使用既有唯讀 token，避免未認證請求遇到 403。保留日期、main SHA、完整內容檢查及 Environment 批准。補上認證請求回歸檢查。
+
+- **release / v2026.10.29-3** · 依 v2026.10.29-2 之後的三批差異整理三語發布說明：進階 RAG 名詞與 A／B／C 比較、Stage 5／6／8 的權限及本機操作界線、Stage 1 圖前定義與 A3 每百萬 token 計價公式。保留重要內容展開與推薦評分；本版只發布三語說明，不產生或附上 PDF，沿用完整內容／連結檢查、main SHA 鎖定及 Environment 批准。
+
+- **reader UX / model terms and cost units** · 三語 Stage 1 先解釋 Base／Instruct Model、模型權重、分詞工具及 Prompt／Memory／Tools／Harness，再展示生命週期流程與圖；明分 Agent 系統與模型版本，保留訓練方法並標出進階選修。A3 成本公式明定輸入／輸出單價皆為每百萬 token，兩項用量各除以一百萬，其他收費另查規則。補上圖前定義與計價單位回歸檢查；Stage 1 可見字數僅依必要定義的實測增量更新，無新增餘裕，所有重要資訊保持展開。
+
+- **reader UX / execution and isolation boundaries** · 三語 Stage 5 改為核對單一 MCP server 的資料夾與工具權限，避免誤稱 Claude 全部工具都受同一限制；Stage 8 明說沙箱依實際設定隔離。Stage 6 五題先回專案根目錄，再進入各題資料夾安裝套件與跑本機 Path A，雲端 Path B 保留在各題完整說明，先確認供應商、金鑰與費用；同步複製命令與雙路徑入口回歸檢查。
+
+- **reader UX / RAG terminology and flow** · 三語進階 RAG 先解釋資料片段、向量表示、BM25 與候選資料，再依症狀選修法；以產品保固例子串起搜尋、排序與回答，把裸英文資源用途改為白話。保留十三項進階方法、六筆必讀、十二筆專案與評分；小實驗明列基線 → 混合搜尋 → 加重新排序，三組都記錄 Recall@5、命中率、延遲與成本。同步 Stage 6 首次出現的 BM25／SQL 解釋及名詞順序回歸測試；核心詞表沿用既有手機直向排版，桌面維持表格；修正中文括號後接文字時的 GitHub 粗體標記；未更新專案狀態查核日期，也未放寬閱讀字數上限。
+
+- **release / v2026.10.29-2 / notes only** · 依 v2026.10.29 之後的實際差異整理三語發布說明，涵蓋 Gemini Carbon、Greptile 徽章與教材審查規則、Stage 0 編號截圖導讀及十處新手閱讀修正。正式 Release 永久移除 PDF 選項、建置與上傳，只發布三語說明；發布前後驗證附件清單為空，保留內容／連結 gate、main SHA 鎖定與 Environment 批准。手動匯出工具保留，同步發布測試與維護文件。
+
+- **reader UX / beginner flow** · 三語統一 Capstone 入口與 Track A 的 Stage 8 選讀界線；補齊練習根目錄、環境準備與存檔位置，處理全對時的替代步驟及收合表格指引。先解釋 Recall@k／命中率與分母，再看 RAG 選路表；Stage 6 導覽改按症狀引路，完整名詞留在進階頁。統一 Subagent 平行任務的要求與狀態確認，將 Examples 遷移細節收合並保留可見預算／相容性提醒；同步相關內容測試。
+
+- **content / Stage 0 / GitHub screenshot guides** · 三語以七句短說明串起改文件、記錄、上傳與合併；指令及次要差別收合，紅框標註改為一句話；將舊 Commit 上方標籤換成實際欄位紅框與編號，另補本專案 PR #343／Issue #314 的三語導讀。保留原始畫面與來源連結、可見逐號說明、主練習及五星資源；以明確 HTML 粗體避免 GitHub 中文括號顯示 `**`，同步本專案連結的引用索引（保留原查核時間與事實）；明分暫存區、Commit、Push、Merge、Review／Checks 與 Closed 的意義。
+
+- **review / Greptile curriculum rules** · 新增共用教材審查規則，檢查三語語意、重要內容展開、白話核心詞、官方來源與局部查核日期，以及 GitHub／文件站的手機與桌面排版證據。明確關閉自動批准，保留 status check 與人工合併；PR 開啟與新增 commit 觸發審查，不覆寫審查等級或 PR 說明。引用既有 CLAUDE／DESIGN／style guide，另加設定與本機 context 範圍測試；未驗證的來源或畫面必須明示限制。
+
 - **readme / Greptile badge** · 三語 README 在支持與聯絡段落加入相同的 Greptile 官方開源計畫徽章與連結，保持展開；頂部徽章與學習入口不變，Star History 仍在 License 之前。字數檢查只正規化兩個精確的徽章網址，保留可讀文字與原本上限。
 
 - **content / Gemini Carbon and browser link verification** · 三語 Stage 1 區分 Carbon 公告、指定夥伴分批開放與一般 API；補上公告優惠價、優惠後價格、快取折扣及未公布欄位。Flash／Argon 仍為可用推薦，同類規格與價格以真正合併欄位分行；只更新 Gemini 查核日期。可見字數基線只按新增存取提醒調整，不收合重要限制。瀏覽器複查上版 10 個受阻連結：9 個正常內容、1 個正常登入入口，沒有替換 URL 或放寬連結掃描基線。

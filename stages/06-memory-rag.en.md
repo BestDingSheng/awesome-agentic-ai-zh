@@ -90,7 +90,7 @@ No option is always best. Evaluate using your own data, questions, and success c
 <a id="-hands-on-exercises-illustrative-basics"></a>
 ## 🛠 Hands-on exercises
 
-Each exercise has a starter. Copy the commands and run them; you do not need to write an empty answer from scratch.
+Before each exercise, return to the repository root (the folder with README.md). The commands below enter the exercise folder, install its packages, then run local Path A. For exercises 4 and 5, first follow their guides to set up Ollama, download `qwen2.5:3b`, and start the service. Path B is optional; check whether it uses cloud services, its provider, key setup, and costs first.
 
 <a id="exercise-1-embeddings"></a>
 ### Exercise 1: Turn two sentences into embeddings
@@ -99,11 +99,11 @@ Each exercise has a starter. Copy the commands and run them; you do not need to 
 
 ```powershell
 cd examples/stage-6/01-embeddings
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[Open the full instructions and checks](../examples/stage-6/01-embeddings/README.en.md). Start with only a few sentences to avoid unnecessary API costs.
+[Open setup, checks, and optional Path B](../examples/stage-6/01-embeddings/README.en.md). Start with only a few sentences to avoid unnecessary API costs.
 
 <a id="exercise-2-vector-db"></a>
 ### Exercise 2: Put embeddings in a vector database
@@ -112,11 +112,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/02-vector-db
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[Open the full instructions and checks](../examples/stage-6/02-vector-db/README.en.md). Exercise data must not contain secrets or personal information.
+[Open setup, checks, and optional Path B](../examples/stage-6/02-vector-db/README.en.md). Exercise data must not contain secrets or personal information.
 
 <a id="exercise-3-chunking-comparison"></a>
 ### Exercise 3: Compare three chunking methods
@@ -125,11 +125,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/03-chunking-comparison
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[Open the full instructions and checks](../examples/stage-6/03-chunking-comparison/README.en.md). Do not memorize a “standard size”; begin with document structure and test results.
+[Open setup, checks, and optional Path B](../examples/stage-6/03-chunking-comparison/README.en.md). Do not memorize a “standard size”; begin with document structure and test results.
 
 <a id="exercise-4-full-rag-pipeline"></a>
 ### Exercise 4: Connect a complete RAG pipeline
@@ -138,11 +138,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/04-full-rag-pipeline
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[Open the full instructions and checks](../examples/stage-6/04-full-rag-pipeline/README.en.md). Start with a small dataset; “the program runs” does not mean the answer is correct.
+[Open setup, checks, and optional Path B](../examples/stage-6/04-full-rag-pipeline/README.en.md). Start with a small dataset; “the program runs” does not mean the answer is correct.
 
 <a id="exercise-5-long-term-memory"></a>
 ### Exercise 5: Remember a preference
@@ -151,11 +151,11 @@ python starter_anthropic.py
 
 ```powershell
 cd examples/stage-6/05-long-term-memory
+python -m pip install -r requirements.txt
 python starter.py
-python starter_anthropic.py
 ```
 
-[Open the full instructions and checks](../examples/stage-6/05-long-term-memory/README.en.md). Save only data needed to finish a task and provide ways to view, change, and delete it.
+[Open setup, checks, and optional Path B](../examples/stage-6/05-long-term-memory/README.en.md). Save only data needed to finish a task and provide ways to view, change, and delete it.
 
 ### Recommended mini-project: an assistant that retrieves and remembers
 
@@ -187,7 +187,7 @@ Start with **2-step RAG**: every question retrieves first and answers second, so
 
 </div>
 
-A **Retriever** returns related documents for a question. It need not use a vector database: BM25, SQL, web search, and hybrid search can also be retrievers.
+A **Retriever** finds documents for a question. It need not use a vector database: **BM25 (keyword ranking method)** can find product IDs; **SQL (a language for querying databases)** can search tables. Web search and hybrid search are other options.
 **Citations** show which sources support the answer.
 
 </details>
@@ -222,7 +222,7 @@ These are advanced Stage 6 branches, not new prerequisites. Complete the basic e
 
 ### [Advanced RAG: find the broken step before adding new techniques](../resources/advanced-rag.en.md)
 
-For people who have built a minimal RAG system but face missed documents, bad ranking, or hard cross-document relationships. It explains **Hybrid Search**, **Reranking**, **HyDE**, **Multi-Query**, **RAG Fusion**, **Contextual Retrieval**, **GraphRAG**, **Self-RAG**, **CRAG** (Corrective Retrieval Augmented Generation, correct the query or source when retrieval is inadequate), **Adaptive RAG**, **Agentic RAG**, **RAPTOR**, and **DSPy**, with required reading and the rated resource table kept visible.
+Built a minimal RAG system, but documents are missing, ranked badly, or hard to connect across sources? Start with the symptom, then choose a method. The advanced page keeps the full technical terms, required reading, and rated resources.
 
 ### [Agent Memory: save only what is useful, permitted, and removable](../resources/agent-memory.en.md)
 
